@@ -1,5 +1,41 @@
 #!/bin/bash
-sudo pacman -Syu vim xorg
+sudo pacman -Syu git vim xorg nodejs tldr lsd flatpak nvidia-settings ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron
+flatpak install net.brinkervii.grapejuice -y
+
+git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
+git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay/ && makepkg -sif –clean
+git clone https://aur.archlinux.org/paleofetch-git.git ~/paleofetch && cd ~/paleofetch/ && makepkg -sif –clean
+
+git clone https://github.com/christitustech/mybash ~/
+cd ~/mybash/
+./setup-arch.sh
+
+git clone --recursive https://github.com/akinomyoga/ble.sh.git
+make -C ble.sh
+source ble.sh/out/ble.sh
+make -C ble.sh install PREFIX=~/.local
+echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
+
+echo "
+#Easy Aliases
+alias update='sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu'
+alias install='sudo pacman -Syu'
+alias search='sudo pacman -Ss'
+alias uninstall='sudo pacman -Rns --noconfirm'
+alias cls='clear'
+alias clean='sudo pacman -Scc'
+alias explain='tldr'
+alias packages='sudo pacman -Qe'
+alias aur='sudo pacman -U'
+alias clone='git clone'
+alias bat='cat'
+alias bios='systemctl reboot --firmware-setup'
+bind -x '\"\\C-l\": \"clear; paleofetch\"'
+paleofetch
+" >> ~/.bashrc && source ~/.bashrc
+
+sudo bash -c "echo '58,18 * * * * sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu' >> /var/spool/cron/root"
+sudo systemctl stop cronie && sudo systemctl enable cronie.service && sudo systemctl start cronie.service
 
 git clone https://aur.archlinux.org/st.git ~/bin && cd ~/bin/ && makepkg -sif –clean && cp config.def.h config.h
 git clone https://aur.archlinux.org/dwm.git ~/bin/dwm && cd ~/bin/dwm/ && makepkg -sif –clean
