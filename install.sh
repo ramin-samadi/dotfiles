@@ -6,6 +6,8 @@ git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -si
 git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay/ && makepkg -sif –clean
 git clone https://aur.archlinux.org/paleofetch-git.git ~/paleofetch && cd ~/paleofetch/ && makepkg -sif –clean
 
+git clone https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts/Meslo-fonts.zip
+unzip Meslo-fonts.zip
 git clone https://github.com/christitustech/mybash ~/
 cd ~/mybash/
 ./setup-arch.sh
