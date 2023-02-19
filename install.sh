@@ -4,7 +4,7 @@ flatpak install net.brinkervii.grapejuice -y
 
 git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
 git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay/ && makepkg -sif –clean
-paru -Syu powerpill
+paru -Syu powerpill appimagelauncher
 git clone https://aur.archlinux.org/paleofetch-git.git ~/paleofetch && cd ~/paleofetch/ && makepkg -sif –clean
 sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
 sudo pacman-key --lsign-key FBA220DFC880C036
@@ -23,6 +23,10 @@ make -C ble.sh
 source ble.sh/out/ble.sh
 make -C ble.sh install PREFIX=~/.local
 echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
+
+sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
+sudo sed -i 's/#NoProgressBar/ILoveCandy/g' /etc/pacman.conf
+sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
 echo "
 #Easy Aliases
