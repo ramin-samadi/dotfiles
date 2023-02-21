@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pacman -Syu wget git pamixer playerctl firefox unzip vim xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron --noconfirm
+sudo pacman -Syu wget git pamixer playerctl firefox unzip vim xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi nvim linux-headers electron --noconfirm
 
 git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
 git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay/ && makepkg -sif –clean
