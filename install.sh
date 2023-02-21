@@ -1,10 +1,13 @@
 #!/bin/bash
 sudo pacman -Syu wget git pamixer playerctl firefox unzip vim xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron
-flatpak install net.brinkervii.grapejuice -y
 
 git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
 git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay/ && makepkg -sif –clean
-paru -Syu powerpill appimagelauncher spotify motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
+paru -Syu powerpill appimagelauncher spotify motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro wine gnutls lib32-gnutls libpulse lib32-libpulse
+git clone --depth=1 https://aur.archlinux.org/grapejuice-git.git /tmp/grapejuice-git
+cd /tmp/grapejuice-git
+makepkg -si
+
 git clone https://aur.archlinux.org/paleofetch-git.git ~/paleofetch && cd ~/paleofetch/ && makepkg -sif –clean
 sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
 sudo pacman-key --lsign-key FBA220DFC880C036
