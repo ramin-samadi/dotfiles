@@ -159,6 +159,7 @@ echo '
                         { SUPER,                        XK_w,      spawn,          SHCMD("firefox") }, //Browser
                         { SUPER,                        XK_t,      spawn,          SHCMD("st") }, //Terminal
                         { SUPER,                        XK_s,      spawn,          SHCMD("dmenu_run") }, //Search
+                        { SUPER,                        XK_m,      spawn,          SHCMD("spotify") }, //Music
 
                 // █▀█ ▄▀█ █▄░█ █▀▀ █░░
                 // █▀▀ █▀█ █░▀█ ██▄ █▄▄
