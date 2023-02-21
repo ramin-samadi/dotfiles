@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pacman -Syu wget git pamixer playerctl firefox unzip vim xorg nodejs tldr lsd flatpak nvidia-settings ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron
+sudo pacman -Syu wget git pamixer playerctl firefox unzip vim xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron
 flatpak install net.brinkervii.grapejuice -y
 
 git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
