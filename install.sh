@@ -1,9 +1,9 @@
 #!/bin/bash
-sudo pacman -Syu wget git pamixer playerctl firefox unzip vim xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron
+sudo pacman -Syu wget git pamixer playerctl firefox unzip vim xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron --noconfirm
 
 git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
 git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay/ && makepkg -sif –clean
-paru -Syu appimagelauncher mingetty spotify motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro wine gnutls lib32-gnutls libpulse lib32-libpulse
+paru -Syu appimagelauncher spotify motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro wine gnutls lib32-gnutls libpulse lib32-libpulse --noconfirm
 git clone --depth=1 https://aur.archlinux.org/grapejuice-git.git /tmp/grapejuice-git
 cd /tmp/grapejuice-git
 makepkg -si
@@ -261,9 +261,3 @@ echo '
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 startx
 ' > ~/.bash_profile && source ~/.bash_profile
-
-sudo mkdir /etc/systemd/system/getty@tty1.service.d 
-sudo touch override.conf /etc/systemd/system/getty@tty1.service.d/
-sudo sh -c "echo -e '[Service]\nExecStart=\nExecStart=-/sbin/agetty --noissue --autologin $USER %I \$TERM\nType=idle' > /etc/systemd/system/getty@tty1.service.d/override.conf" 
-systemctl daemon-reload
-systemctl enable --now getty@tty1.service
