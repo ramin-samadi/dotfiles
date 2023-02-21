@@ -215,6 +215,9 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+# Monitor
+xrandr --output DisplayPort-0 --mode 1920x1080 --output DVI-0 --mode 1920x1080 --left-of DisplayPort-0
+
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
