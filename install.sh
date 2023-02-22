@@ -54,6 +54,10 @@ mv ~/dwm/config.h ~/bin/
 cd ~/bin
 makepkg -if --clean
 
+sudo rm -rf ~/dwm
+mv ~/bin/dwm ~/.config/
+mv ~/bin ~/.config/st/
+
 echo '
 #include <X11/XF86keysym.h> // Used for getting audio keybind (pamixer must be installed)
 
