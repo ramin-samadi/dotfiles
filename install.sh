@@ -11,6 +11,7 @@ git clone https://aur.archlinux.org/paleofetch-git.git ~/paleofetch && cd ~/pale
 
 cd && wget https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts/Meslo-fonts.zip
 unzip Meslo-fonts.zip
+sudo rm -rf Meslo-fonts.zip
 git clone https://github.com/christitustech/mybash ~/mybash
 cd ~/mybash/
 ./setup-arch.sh
