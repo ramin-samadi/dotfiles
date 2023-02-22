@@ -49,10 +49,10 @@ sudo systemctl stop cronie && sudo systemctl enable cronie.service && sudo syste
 git clone https://aur.archlinux.org/st.git ~/bin && cd ~/bin/ && makepkg -sif –clean && cp config.def.h config.h
 git clone https://aur.archlinux.org/dwm.git ~/bin/dwm && cd ~/bin/dwm/ && makepkg -sif –clean
 
-cd ~/bin/
-sudo sed -i 's/pixelsize=12/pixelsize=14/g' ~/bin/config.h
+sudo rm -rf ~/bin/config.h
+mv ~/dwm/config.h ~/bin/
+cd ~/bin
 makepkg -if --clean
-cd
 
 echo '
 #include <X11/XF86keysym.h> // Used for getting audio keybind (pamixer must be installed)
