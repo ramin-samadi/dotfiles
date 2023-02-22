@@ -209,7 +209,7 @@ echo '
                 { ClkTagBar,            SUPER,         Button1,        tag,            {0} },
                 { ClkTagBar,            SUPER,         Button3,        toggletag,      {0} },
         };
-' > ~/bin/dwm/config.h && cd ~/bin/dwm/ && makepkg -if --clean
+' > ~/.config/dwm/config.h && cd ~/.config/dwm/ && makepkg -if --clean
 
 echo '
 #!/bin/sh
