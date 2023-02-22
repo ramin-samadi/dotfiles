@@ -3,7 +3,7 @@ sudo pacman -Syu wget git pamixer playerctl firefox unzip vim xorg nodejs tldr l
 
 git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
 git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay/ && makepkg -sif –clean
-paru -Syu appimagelauncher spotify motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro wine gnutls lib32-gnutls libpulse lib32-libpulse --noconfirm
+paru -Syu appimagelauncher spotify rustdesk-bin motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro wine gnutls lib32-gnutls libpulse lib32-libpulse --noconfirm
 git clone --depth=1 https://aur.archlinux.org/grapejuice-git.git /tmp/grapejuice-git
 cd /tmp/grapejuice-git
 makepkg -si
