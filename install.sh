@@ -35,7 +35,7 @@ alias explain='tldr'
 alias packages='sudo pacman -Qe'
 alias aur='sudo pacman -U'
 alias clone='git clone'
-alias bat='cat'
+bind -x '\"\C-k\": \"calcurse\"'
 alias bios='systemctl reboot --firmware-setup'
 bind -x '\"\\C-l\": \"clear; paleofetch\"'
 paleofetch
