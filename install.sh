@@ -136,11 +136,11 @@ echo '
                         { SUPER|ShiftMask,              XK_l,      tagmon,         {.i = -1 } }, //Move window to the right
                         { SUPER|ShiftMask,              XK_j,      tagmon,         {.i = +1 } }, //Move window to the left
 
-                        { SUPER,                        XK_i,      incnmaster,     {.i = +1 } }, // idk
-                        { SUPER,                        XK_d,      incnmaster,     {.i = -1 } }, // idk
+                        { SUPER,                        XK_i,      incnmaster,     {.i = +1 } }, //Switch master layout
+                        { SUPER,                        XK_k,      incnmaster,     {.i = -1 } }, //Switch master layout
 
-                        { ALT,                          XK_j,      setmfact,       {.f = -0.05} }, //Resize window to the left
-                        { ALT,                          XK_l,      setmfact,       {.f = +0.05} }, //Resize window to the right
+                        { SUPER,                          XK_Left,      setmfact,       {.f = -0.05} }, //Resize window to the left
+                        { SUPER,                          XK_Right,      setmfact,       {.f = +0.05} }, //Resize window to the right
 
                         { SUPER,                        XK_j,      zoom,           {1} }, //Switch position of window
                         { SUPER,                        XK_l,      zoom,           {0} }, //Switch position of window
