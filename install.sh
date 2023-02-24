@@ -26,14 +26,12 @@ sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 echo "
 #Easy Aliases
 alias update='sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu'
-alias install='sudo pacman -Syu'
-alias search='sudo pacman -Ss'
-alias uninstall='sudo pacman -Rns --noconfirm'
-alias cls='clear'
+alias install='paru -Syu'
+alias search='paru -Ss'
+alias uninstall='paru -Rns --noconfirm'
 alias clean='sudo pacman -Scc'
 alias explain='tldr'
 alias packages='sudo pacman -Qe'
-alias aur='sudo pacman -U'
 alias clone='git clone'
 bind -x '\"\C-k\": \"calcurse\"'
 alias bios='systemctl reboot --firmware-setup'
