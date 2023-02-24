@@ -250,6 +250,11 @@ while true; do
         dwm >/dev/null 2>&1
 done
 
+# Multimedia
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/pipewire-media-session &
+
 # Start DWM
 exec dwm
 ' > ~/.xinitrc
