@@ -3,7 +3,7 @@ sudo pacman -Syu wget pavucontrol pamixer playerctl firefox unzip xorg nodejs tl
 
 git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
 git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay/ && makepkg -sif –clean
-paru -Syu appimagelauncher calcurse spotify rustdesk-bin motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
+paru -Syu appimagelauncher whois calcurse spotify rustdesk-bin motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
 git clone https://aur.archlinux.org/paleofetch-git.git ~/paleofetch && cd ~/paleofetch/ && makepkg -sif –clean
 
 cd && wget https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts/Meslo-fonts.zip
@@ -34,6 +34,7 @@ alias explain='tldr'
 alias packages='sudo pacman -Qe'
 alias clone='git clone'
 alias ip='ip -c'
+alias ping='ping -c 3'
 bind -x '\"\C-k\": \"calcurse\"'
 alias bios='systemctl reboot --firmware-setup'
 bind -x '\"\\C-l\": \"clear; paleofetch\"'
