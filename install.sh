@@ -35,7 +35,7 @@ alias packages='sudo pacman -Qe'
 alias clone='git clone'
 alias ip='ip -c'
 
-function open-port(){
+function open-ports(){
     sudo nmap -sS "$1" | grep -e 'PORT' -e 'open'
 }
 
