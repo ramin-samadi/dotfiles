@@ -34,7 +34,11 @@ alias explain='tldr'
 alias packages='sudo pacman -Qe'
 alias clone='git clone'
 alias ip='ip -c'
-alias open-ports='sudo nmap -sS'
+
+function open-port(){
+    sudo nmap -sS "$1" | grep -e 'PORT' -e 'open'
+}
+
 alias ping='ping -c 3'
 bind -x '\"\C-k\": \"calcurse\"'
 alias bios='systemctl reboot --firmware-setup'
