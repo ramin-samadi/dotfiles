@@ -36,7 +36,7 @@ alias clone='git clone'
 alias ip='ip -c'
 
 function open-ports(){
-    sudo nmap -sS \"\$1\" | grep -e 'PORT' -e 'open'
+    sudo nmap -sS \"\$1\" | grep -e 'report' -e 'PORT' -e 'open'
 }
 
 alias ping='ping -c 3'
