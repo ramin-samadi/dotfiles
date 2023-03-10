@@ -116,14 +116,15 @@ mv ~/dwm/config.h ~/bin/
 cd ~/bin
 makepkg -if --clean
 
+mv ~/dwm/dwm-config.h ~/.config/dwm/config.h && cd ~/.config/dwm/ && makepkg -if --clean
+sudo mv -f ~/dwm/.xinitrc ~/.xinitrc
+cat ~/dwm/.bashrc >> ~/.bashrc && source ~/.bashrc
+sudo mv -f ~/dwm/.bash_profile ~/.bash_profile && source ~/.bash_profile
+
 sudo rm -rf ~/dwm
 mv ~/bin/dwm ~/.config/
 mv ~/bin ~/.config/st/
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 
-mv ~/dwm/dwm-config.h ~/.config/dwm/config.h && cd ~/.config/dwm/ && makepkg -if --clean
-sudo mv -f ~/dwm/.xinitrc ~/.xinitrc
-cat ~/dwm/.bashrc >> ~/.bashrc && source ~/.bashrc
-sudo mv -f ~/dwm/.bash_profile ~/.bash_profile && source ~/.bash_profile
 reboot
