@@ -64,6 +64,7 @@ What virtualization platform do you want to install? (virtualbox, vmware, quicke
 "
 read virtualization
 paru -Syu $virtualization
+clear
 
 #_____________________________________________________________________________
 
@@ -86,6 +87,7 @@ What password manager do you want to install? (pass, keepassxc, bitwarden, lastp
 "
 read password
 paru -Syu $password
+clear
 
 #_____________________________________________________________________________
 
