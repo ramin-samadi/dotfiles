@@ -101,8 +101,8 @@ echo "
 
 What remote desktop service do you want to install? (x11vnc, rustdesk-bin, teamviewer, anydesk-bin, remmina, parsec-bin, realvnc-vnc-viewer, nomachine)
 "
-read password
-paru -Syu $password
+read remote
+paru -Syu $remote
 
 #_____________________________________________________________________________
 
