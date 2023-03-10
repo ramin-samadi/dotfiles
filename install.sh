@@ -35,7 +35,7 @@ sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
 sudo sed -i 's/#NoProgressBar/ILoveCandy/g' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
-~/dwm/mybashrc >> ~/.bashrc && source ~/.bashrc
+cat ~/dwm/.bashrc >> ~/.bashrc && source ~/.bashrc
 
 sudo bash -c "echo '58,18 * * * * sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu' >> /var/spool/cron/root"
 sudo systemctl stop cronie && sudo systemctl enable cronie.service && sudo systemctl start cronie.service
@@ -55,65 +55,5 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 
 mv ~/dwm/dwm-config.h ~/.config/dwm/config.h && cd ~/.config/dwm/ && makepkg -if --clean
-
-echo '
-#!/bin/sh
-userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
-sysresources=/etc/X11/xinit/.Xresources
-sysmodmap=/etc/X11/xinit/.Xmodmap
-
-# Monitor
-xrandr --output DisplayPort-0 --mode 1920x1080 --output DVI-0 --mode 1920x1080 --left-of DisplayPort-0
-
-# merge in defaults and keymaps
-
-if [ -f $sysresources ]; then
-    xrdb -merge $sysresources
-fi
-
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
-fi
-
-if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
-fi
-
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
-fi
-
-# start some nice programs
-
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-  [ -x "$f" ] && . "$f"
- done
- unset f
-fi
-
-setxkbmap se &
-
-# Login Loop
-while true; do
-        dwm >/dev/null 2>&1
-done
-
-# Multimedia
-/usr/bin/pipewire &
-/usr/bin/pipewire-pulse &
-/usr/bin/pipewire-media-session &
-
-# Start DWM
-exec dwm
-' > ~/.xinitrc
-
-echo '
-#
-# ~/.bash_profile
-#
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-startx
-' > ~/.bash_profile && source ~/.bash_profile
+sudo mv -f ~/dwm/.xinitrc ~/.xinitrc
+sudo mv -f ~/dwm/.bash_profile ~/.bash_profile && source ~/.bash_profile
