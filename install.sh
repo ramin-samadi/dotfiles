@@ -1,7 +1,7 @@
 #!/bin/bash
-sudo pacman -Syu gnupg mpg123 python-pip pass pass-otp zbar wget pavucontrol pamixer playerctl firefox unzip xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron
+sudo pacman -Syu gnupg mpg123 python-pip pass pass-otp zbar wget pavucontrol pamixer playerctl firefox unzip xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron cairo gtk3 gobject-introspection desktop-file-utils xdg-utils xdg-user-dirs gtk-update-icon-cache shared-mime-info mesa-utils wine gnutls lib32-gnutls libpulse lib32-libpulse
 pip install langdetect
-pip install langdetect
+pip install shell-gpt --user
 cd ~/ && git clone https://aur.archlinux.org/python-gtts.git && cd python-gtts/ && makepkg -sif --clean
 
 git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
@@ -13,6 +13,10 @@ git clone https://github.com/pystardust/ytfzf
 cd && cd ytfzf
 sudo make install doc
 sudo make addons
+
+git clone --depth=1 https://gitlab.com/brinkervii/grapejuice.git /tmp/grapejuice
+cd /tmp/grapejuice
+./install.py
 
 cd && wget https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts/Meslo-fonts.zip
 unzip Meslo-fonts.zip
