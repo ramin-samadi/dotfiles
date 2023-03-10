@@ -38,8 +38,7 @@ function playlist() {
 
   if [[ "$number" == 1 ]]; then
     played=true
-    ytfzf -a -m https://www.youtube.com/watch?v=o2W8_mvLuxU # Nasheed Taweel Alshawq - Ahmed Bukhatir - أحمد بوخاطر -
- نشيد طويل الشوق
+    ytfzf -a -m https://www.youtube.com/watch?v=o2W8_mvLuxU # Nasheed Taweel Alshawq - Ahmed Bukhatir - أحمد بوخاطر - نشيد طويل الشوق
   fi
   if [[ "$number" == 2 || "$played" == true ]]; then
     played=true
@@ -69,6 +68,7 @@ function playlist() {
   fi
 }
 
+# Easy Remote
 function enable-remote() {
 xrandr --listactivemonitors\
 |awk -- 'BEGIN { getline } { gsub(/\/[[:digit:]]+/,"",$3) ; print $3 }'\
