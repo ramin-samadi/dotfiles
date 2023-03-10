@@ -1,5 +1,8 @@
 #!/bin/bash
-sudo pacman -Syu gnupg pass pass-otp zbar wget pavucontrol pamixer playerctl firefox unzip xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron
+sudo pacman -Syu gnupg mpg123 python-pip pass pass-otp zbar wget pavucontrol pamixer playerctl firefox unzip xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron
+pip install langdetect
+pip install langdetect
+cd ~/ && git clone https://aur.archlinux.org/python-gtts.git && cd python-gtts/ && makepkg -sif --clean
 
 git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
 git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay/ && makepkg -sif –clean
@@ -7,7 +10,7 @@ paru -Syu appimagelauncher powershell-bin neovim-nightly-bin w3m xclip openrazer
 sudo gpasswd -a $USER plugdev
 git clone https://aur.archlinux.org/paleofetch-git.git ~/paleofetch && cd ~/paleofetch/ && makepkg -sif –clean
 git clone https://github.com/pystardust/ytfzf
-cd ytfzf
+cd && cd ytfzf
 sudo make install doc
 sudo make addons
 
