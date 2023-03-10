@@ -1,10 +1,15 @@
 #!/bin/bash
-sudo pacman -Syu gnupg pass pass-otp zbar wget pavucontrol pamixer playerctl firefox unzip xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi neovim linux-headers electron
+sudo pacman -Syu gnupg pass pass-otp zbar wget pavucontrol pamixer playerctl firefox unzip xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron
 
 git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
 git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay/ && makepkg -sif –clean
-paru -Syu appimagelauncher ranger ueberzug dust bitwarden authy nmap whois calcurse spotify rustdesk-bin motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
+paru -Syu appimagelauncher powershell-bin neovim-nightly-bin w3m xclip openrazer-daemon openrazer-driver-dkms openrazer-meta python-openrazer polychromatic bc ufw fail2ban ngrok x11vnc jq mpv ueberzug ffmpeg ffmpeg4.4 yt-dlp qemu-full dust ripgrep fzf ranger ueberzug dust bitwarden authy nmap whois calcurse rustdesk-bin motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
+sudo gpasswd -a $USER plugdev
 git clone https://aur.archlinux.org/paleofetch-git.git ~/paleofetch && cd ~/paleofetch/ && makepkg -sif –clean
+git clone https://github.com/pystardust/ytfzf
+cd ytfzf
+sudo make install doc
+sudo make addons
 
 cd && wget https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts/Meslo-fonts.zip
 unzip Meslo-fonts.zip
@@ -60,6 +65,8 @@ makepkg -if --clean
 sudo rm -rf ~/dwm
 mv ~/bin/dwm ~/.config/
 mv ~/bin ~/.config/st/
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
 
 echo '
 #include <X11/XF86keysym.h> // Used for getting audio keybind (pamixer must be installed)
