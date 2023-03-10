@@ -28,28 +28,7 @@ sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
 sudo sed -i 's/#NoProgressBar/ILoveCandy/g' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
-echo "
-#Easy Aliases
-alias update='sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu'
-alias install='paru -Syu'
-alias search='paru -Ss'
-alias uninstall='paru -Rns --noconfirm'
-alias clean='sudo pacman -Scc'
-alias explain='tldr'
-alias packages='sudo pacman -Qe'
-alias clone='git clone'
-alias ip='ip -c'
-
-function open-ports(){
-    sudo nmap -sS \"\$1\" | grep -e 'report' -e 'PORT' -e 'open'
-}
-
-alias ping='ping -c 3'
-bind -x '\"\C-k\": \"calcurse\"'
-alias bios='systemctl reboot --firmware-setup'
-bind -x '\"\\C-l\": \"clear; paleofetch\"'
-paleofetch
-" >> ~/.bashrc && source ~/.bashrc
+~/dwm/mybashrc >> ~/.bashrc && source ~/.bashrc
 
 sudo bash -c "echo '58,18 * * * * sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu' >> /var/spool/cron/root"
 sudo systemctl stop cronie && sudo systemctl enable cronie.service && sudo systemctl start cronie.service
