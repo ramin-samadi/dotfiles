@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo "What browser do you want to install? (firefox, librewolf-bin, vivaldi, google-chrome, chromium, epiphany, microsoft-edge-stable-bin, brave-bin, waterfox-classic-bin, qutebrowser, opera, icecat)"
 read browser
 paru -Syu $browser
