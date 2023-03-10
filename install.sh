@@ -13,6 +13,10 @@ read virtualization
 paru -Syu $virtualization
 
 sudo pacman -Syu gnupg mpg123 python-pip pass pass-otp zbar wget pavucontrol pamixer playerctl unzip xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron cairo gtk3 gobject-introspection desktop-file-utils xdg-utils xdg-user-dirs gtk-update-icon-cache shared-mime-info mesa-utils wine gnutls lib32-gnutls libpulse lib32-libpulse
+sudo systemctl enable --now libvirtd.service
+sudo usermod -a -G libvirt $(whoami)
+sudo systemctl restart libvirtd.service
+
 pip install langdetect shell-gpt --user
 cd ~/ && git clone https://aur.archlinux.org/python-gtts.git && cd python-gtts/ && makepkg -sif --clean
 
