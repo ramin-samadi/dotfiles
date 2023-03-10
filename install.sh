@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "What browser do you want to install? (firefox, librewolf-bin, vivaldi, google-chrome, chromium, epiphany, microsoft-edge-stable-bin, brave-bin, waterfox-classic-bin, qutebrowser, opera)"
+echo "What browser do you want to install? (firefox, librewolf-bin, vivaldi, google-chrome, chromium, epiphany, microsoft-edge-stable-bin, brave-bin, waterfox-classic-bin, qutebrowser, opera, icecat)"
 read browser
 echo "What terminal do you want to install? (st, alacritty, yakuake, terminator, guake, tilda, tilix, terminology, xterm, cool-retro-term, gnome-console, gnome-terminal, konsole, xfce4-terminal, lxterminal)"
 read terminal
