@@ -4,7 +4,7 @@ read browser
 echo "What terminal do you want to install? (st, alacritty, yakuake, terminator, guake, tilda, tilix, terminology, xterm, cool-retro-term, gnome-console, gnome-terminal, konsole, xfce4-terminal, lxterminal)"
 read terminal
 echo "What text editor do you want to install? (vi, vim, emacs, neovim, nano)"
-read text-editor
+read editor
 
 sudo pacman -Syu gnupg mpg123 python-pip pass pass-otp zbar wget pavucontrol pamixer playerctl unzip xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron cairo gtk3 gobject-introspection desktop-file-utils xdg-utils xdg-user-dirs gtk-update-icon-cache shared-mime-info mesa-utils wine gnutls lib32-gnutls libpulse lib32-libpulse
 pip install langdetect shell-gpt --user
