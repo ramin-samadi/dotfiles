@@ -35,8 +35,6 @@ sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
 sudo sed -i 's/#NoProgressBar/ILoveCandy/g' /etc/pacman.conf
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
-cat ~/dwm/.bashrc >> ~/.bashrc && source ~/.bashrc
-
 sudo bash -c "echo '58,18 * * * * sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu' >> /var/spool/cron/root"
 sudo systemctl stop cronie && sudo systemctl enable cronie.service && sudo systemctl start cronie.service
 
@@ -56,4 +54,5 @@ rm -rf ~/.config/nvim/.git
 
 mv ~/dwm/dwm-config.h ~/.config/dwm/config.h && cd ~/.config/dwm/ && makepkg -if --clean
 sudo mv -f ~/dwm/.xinitrc ~/.xinitrc
+cat ~/dwm/.bashrc >> ~/.bashrc && source ~/.bashrc
 sudo mv -f ~/dwm/.bash_profile ~/.bash_profile && source ~/.bash_profile
