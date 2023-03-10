@@ -126,3 +126,4 @@ mv ~/dwm/dwm-config.h ~/.config/dwm/config.h && cd ~/.config/dwm/ && makepkg -if
 sudo mv -f ~/dwm/.xinitrc ~/.xinitrc
 cat ~/dwm/.bashrc >> ~/.bashrc && source ~/.bashrc
 sudo mv -f ~/dwm/.bash_profile ~/.bash_profile && source ~/.bash_profile
+reboot
