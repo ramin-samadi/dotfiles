@@ -1,21 +1,71 @@
 #!/bin/bash
 git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean
 clear
-echo "What browser do you want to install? (firefox, librewolf-bin, vivaldi, google-chrome, chromium, epiphany, microsoft-edge-stable-bin, brave-bin, waterfox-classic-bin, qutebrowser, opera, icecat)"
+
+#_____________________________________________________________________________
+
+echo "
+██████╗░██████╗░░█████╗░░██╗░░░░░░░██╗░██████╗███████╗██████╗░
+██╔══██╗██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔════╝██╔══██╗
+██████╦╝██████╔╝██║░░██║░╚██╗████╗██╔╝╚█████╗░█████╗░░██████╔╝
+██╔══██╗██╔══██╗██║░░██║░░████╔═████║░░╚═══██╗██╔══╝░░██╔══██╗
+██████╦╝██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░██████╔╝███████╗██║░░██║
+╚═════╝░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚═════╝░╚══════╝╚═╝░░╚═╝
+
+What browser do you want to install? (firefox, librewolf-bin, vivaldi, google-chrome, chromium, epiphany, microsoft-edge-stable-bin, brave-bin, waterfox-classic-bin, qutebrowser, opera, icecat)
+"
 read browser
 paru -Syu $browser
 clear
-echo "What terminal do you want to install? (st, alacritty, yakuake, terminator, guake, tilda, tilix, terminology, wezterm, xterm, cool-retro-term, gnome-console, gnome-terminal, konsole, xfce4-terminal, lxterminal)"
+
+#_____________________________________________________________________________
+
+echo "
+████████╗███████╗██████╗░███╗░░░███╗██╗███╗░░██╗░█████╗░██╗░░░░░
+╚══██╔══╝██╔════╝██╔══██╗████╗░████║██║████╗░██║██╔══██╗██║░░░░░
+░░░██║░░░█████╗░░██████╔╝██╔████╔██║██║██╔██╗██║███████║██║░░░░░
+░░░██║░░░██╔══╝░░██╔══██╗██║╚██╔╝██║██║██║╚████║██╔══██║██║░░░░░
+░░░██║░░░███████╗██║░░██║██║░╚═╝░██║██║██║░╚███║██║░░██║███████╗
+░░░╚═╝░░░╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚══════╝
+
+What terminal do you want to install? (st, alacritty, yakuake, terminator, guake, tilda, tilix, terminology, wezterm, xterm, cool-retro-term, gnome-console, gnome-terminal, konsole, xfce4-terminal, lxterminal)
+"
 read terminal
 paru -Syu $terminal
 clear
-echo "What editor do you want to install? (vi, vim, emacs, neovim, neovim-nightly-bin, nano, visual-studio-code-bin, vscodium-bin, gedit, notepadqq, kate, leafpad, code)"
+
+#_____________________________________________________________________________
+
+echo "
+███████╗██████╗░██╗████████╗░█████╗░██████╗░
+██╔════╝██╔══██╗██║╚══██╔══╝██╔══██╗██╔══██╗
+█████╗░░██║░░██║██║░░░██║░░░██║░░██║██████╔╝
+██╔══╝░░██║░░██║██║░░░██║░░░██║░░██║██╔══██╗
+███████╗██████╔╝██║░░░██║░░░╚█████╔╝██║░░██║
+╚══════╝╚═════╝░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝
+
+What editor do you want to install? (vi, vim, emacs, neovim, neovim-nightly-bin, nano, visual-studio-code-bin, vscodium-bin, gedit, notepadqq, kate, leafpad, code)
+"
 read editor
 paru -Syu $editor
 clear
-echo "What virtualization platform do you want to install? (virtualbox, vmware, quickemu, qemu)"
+
+#_____________________________________________________________________________
+
+echo "
+██╗░░░██╗██╗██████╗░████████╗██╗░░░██╗░█████╗░██╗░░░░░██╗███████╗░█████╗░████████╗██╗░█████╗░███╗░░██╗
+██║░░░██║██║██╔══██╗╚══██╔══╝██║░░░██║██╔══██╗██║░░░░░██║╚════██║██╔══██╗╚══██╔══╝██║██╔══██╗████╗░██║
+╚██╗░██╔╝██║██████╔╝░░░██║░░░██║░░░██║███████║██║░░░░░██║░░███╔═╝███████║░░░██║░░░██║██║░░██║██╔██╗██║
+░╚████╔╝░██║██╔══██╗░░░██║░░░██║░░░██║██╔══██║██║░░░░░██║██╔══╝░░██╔══██║░░░██║░░░██║██║░░██║██║╚████║
+░░╚██╔╝░░██║██║░░██║░░░██║░░░╚██████╔╝██║░░██║███████╗██║███████╗██║░░██║░░░██║░░░██║╚█████╔╝██║░╚███║
+░░░╚═╝░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚═════╝░╚═╝░░╚═╝╚══════╝╚═╝╚══════╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░╚════╝░╚═╝░░╚══╝
+
+What virtualization platform do you want to install? (virtualbox, vmware, quickemu, qemu)
+"
 read virtualization
 paru -Syu $virtualization
+
+#_____________________________________________________________________________
 
 sudo pacman -Syu gnupg mpg123 python-pip pass pass-otp zbar wget pavucontrol pamixer playerctl unzip xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron cairo gtk3 gobject-introspection desktop-file-utils xdg-utils xdg-user-dirs gtk-update-icon-cache shared-mime-info mesa-utils wine gnutls lib32-gnutls libpulse lib32-libpulse
 
