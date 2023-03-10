@@ -3,7 +3,7 @@ echo "What browser do you want to install? (firefox, librewolf-bin, vivaldi, goo
 read browser
 echo "What terminal do you want to install? (st, alacritty, yakuake, terminator, guake, tilda, tilix, terminology, xterm, cool-retro-term, gnome-console, gnome-terminal, konsole, xfce4-terminal, lxterminal)"
 read terminal
-echo "What text editor do you want to install? (vi, vim, emacs, neovim, nano)"
+echo "What text editor do you want to install? (vi, vim, emacs, neovim, neovim-nightly-bin, nano)"
 read editor
 echo "What virtualization platform do you want to install? (virtualbox, vmware, quickemu, qemu)"
 read virtualization
