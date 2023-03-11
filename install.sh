@@ -14,7 +14,7 @@ echo -e "\e[32m
 Which aur helpers do you want to install?
 \e[0m"
 # Define the initial list of remote desktop software options
-options=(paru yay pakku aurutils trizen pikaur aura)
+options=(yay paru pakku aurutils trizen pikaur aura)
 
 # Initialize an empty array to store the selected options
 selected_options=()
@@ -124,7 +124,7 @@ echo -e "\e[32m
 
 Which editors do you want to install?
 \e[0m"
-install vi vim emacs neovim neovim-nightly-bin nano visual-studio-code-bin vscodium-bin gedit notepadqq kate leafpad code
+install neovim-nightly-bin vi vim emacs neovim nano visual-studio-code-bin vscodium-bin gedit notepadqq kate leafpad code
 
 #_____________________________________________________________________________
 
@@ -145,7 +145,7 @@ echo -e "\e[32m
 
 Which virtualization platforms do you want to install?
 \e[0m"
-install virtualbox quickemu quickgui-bin qemu-full
+install qemu-full virtualbox quickemu quickgui-bin
 
 #_____________________________________________________________________________
 
@@ -194,7 +194,7 @@ echo -e "\e[32m
 
 Which file managers do you want to install?
 \e[0m"
-install nautilus dolphin ranger krusader nemo thunar caja konqueror pcmanfm xplr worker vifm
+install ranger nautilus dolphin krusader nemo thunar caja konqueror pcmanfm xplr worker vifm
 
 #_____________________________________________________________________________
 
