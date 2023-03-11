@@ -33,7 +33,7 @@ while true; do
 
     # Exit the loop if the user selects the "Done" option
     if [ "$selected" == "Next" ]; then
-        break && clear
+        clear && break
     fi
 
     # Add the selected option to the selected_options array
@@ -63,7 +63,7 @@ install() {
 
         # Exit the loop if the user selects the "Done" option
         if [ "$selected" == "Next" ]; then
-            break && clear
+            clear && break
         fi
 
         # Add the selected option to the selected_options array
