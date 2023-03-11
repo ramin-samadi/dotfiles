@@ -122,7 +122,7 @@ echo -e "\e[32m
 ███████╗██████╔╝██║░░░██║░░░╚█████╔╝██║░░██║
 ╚══════╝╚═════╝░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝
 
-Which editors do you want to install? (separate by space, e.g. 'neovim, vscodium-bin')
+Which editors do you want to install?
 \e[0m"
 install vi vim emacs neovim neovim-nightly-bin nano visual-studio-code-bin vscodium-bin gedit notepadqq kate leafpad code
 
@@ -143,7 +143,7 @@ echo -e "\e[32m
 ██║░░░░░███████╗██║░░██║░░░██║░░░██║░░░░░╚█████╔╝██║░░██║██║░╚═╝░██║
 ╚═╝░░░░░╚══════╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝
 
-Which virtualization platforms do you want to install? (virtualbox, vmware, quickemu, qemu-full)
+Which virtualization platforms do you want to install?
 \e[0m"
 install virtualbox quickemu quickgui-bin qemu-full
 
