@@ -228,7 +228,10 @@ if  [[ $USER == "ramin" ]]; then
     cd && wget https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts/Meslo-fonts.zip && unzip Meslo-fonts.zip && sudo rm -rf Meslo-fonts.zip
     git clone https://github.com/christitustech/mybash ~/mybash && cd ~/mybash/ && ./setup-arch.sh
 
-    git clone --recursive https://github.com/akinomyoga/ble.sh.git && make -C ble.sh && source ble.sh/out/ble.sh && make -C ble.sh install PREFIX=~/.local && echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
+    cd
+    git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
+    make -C ble.sh install PREFIX=~/.local
+    echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
 
     sudo sed -i 's/#Color/Color/g' /etc/pacman.conf && sudo sed -i 's/#NoProgressBar/ILoveCandy/g' /etc/pacman.conf && sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
