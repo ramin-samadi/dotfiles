@@ -1,5 +1,25 @@
 #!/bin/bash
-git clone https://aur.archlinux.org/paru.git ~/paru && cd ~/paru/ && makepkg -sif –clean && clear
+
+#_____________________________________________________________________________
+clear
+
+echo "
+░█████╗░██╗░░░██╗██████╗░  ██╗░░██╗███████╗██╗░░░░░██████╗░███████╗██████╗░
+██╔══██╗██║░░░██║██╔══██╗  ██║░░██║██╔════╝██║░░░░░██╔══██╗██╔════╝██╔══██╗
+███████║██║░░░██║██████╔╝  ███████║█████╗░░██║░░░░░██████╔╝█████╗░░██████╔╝
+██╔══██║██║░░░██║██╔══██╗  ██╔══██║██╔══╝░░██║░░░░░██╔═══╝░██╔══╝░░██╔══██╗
+██║░░██║╚██████╔╝██║░░██║  ██║░░██║███████╗███████╗██║░░░░░███████╗██║░░██║
+╚═╝░░╚═╝░╚═════╝░╚═╝░░╚═╝  ╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░░░░╚══════╝╚═╝░░╚═╝
+
+paru, yay, pakku, aurutils, trizen, pikaur, aura
+
+Which aur helpers do you want to install? (separate by space, e.g. 'paru yay')
+"
+read aur_helpers
+
+for aur in $aur_helpers; do
+    git clone https://aur.archlinux.org/$aur.git ~/$aur && cd ~/$aur/ && makepkg -sif –clean && clear
+done
 
 #_____________________________________________________________________________
 
@@ -11,9 +31,15 @@ echo "
 ██████╦╝██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░██████╔╝███████╗██║░░██║
 ╚═════╝░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚═════╝░╚══════╝╚═╝░░╚═╝
 
-What browser do you want to install? (firefox, librewolf-bin, vivaldi, google-chrome, chromium, epiphany, microsoft-edge-stable-bin, brave-bin, waterfox-classic-bin, qutebrowser, opera, icecat)
+firefox, librewolf-bin, vivaldi, google-chrome, chromium, epiphany, microsoft-edge-stable-bin, brave-bin, waterfox-classic-bin, qutebrowser, opera, icecat
+
+Which browsers do you want to install? (separate by space, e.g. 'firefox google-chrome')
 "
-read browser && paru -Syu $browser && clear
+read browsers
+
+for browser in $browsers; do
+    $aur -Syu $browser && clear
+done
 
 #_____________________________________________________________________________
 
@@ -25,9 +51,15 @@ echo "
 ░░░██║░░░███████╗██║░░██║██║░╚═╝░██║██║██║░╚███║██║░░██║███████╗
 ░░░╚═╝░░░╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚══════╝
 
-What terminal do you want to install? (st, alacritty, yakuake, terminator, guake, tilda, tilix, terminology, wezterm, xterm, cool-retro-term, gnome-console, gnome-terminal, konsole, xfce4-terminal, lxterminal)
+st, alacritty, yakuake, terminator, guake, tilda, tilix, terminology, wezterm, xterm, cool-retro-term, gnome-console, gnome-terminal, konsole, xfce4-terminal, lxterminal
+
+Which terminals do you want to install? (separate by space, e.g. 'st alacritty')
 "
-read terminal && paru -Syu $terminal && clear
+read terminals
+
+for terminal in $terminals; do
+    $aur -Syu $terminal && clear
+done
 
 #_____________________________________________________________________________
 
@@ -39,9 +71,15 @@ echo "
 ███████╗██████╔╝██║░░░██║░░░╚█████╔╝██║░░██║
 ╚══════╝╚═════╝░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝
 
-What editor do you want to install? (vi, vim, emacs, neovim, neovim-nightly-bin, nano, visual-studio-code-bin, vscodium-bin, gedit, notepadqq, kate, leafpad, code)
+vi, vim, emacs, neovim, neovim-nightly-bin, nano, visual-studio-code-bin, vscodium-bin, gedit, notepadqq, kate, leafpad, code
+
+Which editors do you want to install? (separate by space, e.g. 'neovim, vscodium-bin')
 "
-read editor && paru -Syu $editor && clear
+read editors
+
+for editor in $editors; do
+    $aur -Syu $editor && clear
+done
 
 #_____________________________________________________________________________
 
@@ -53,9 +91,9 @@ echo "
 ░░╚██╔╝░░██║██║░░██║░░░██║░░░╚██████╔╝██║░░██║███████╗██║███████╗██║░░██║░░░██║░░░██║╚█████╔╝██║░╚███║
 ░░░╚═╝░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚═════╝░╚═╝░░╚═╝╚══════╝╚═╝╚══════╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░╚════╝░╚═╝░░╚══╝
 
-What virtualization platform do you want to install? (virtualbox, vmware, quickemu, qemu)
+Which virtualization platforms do you want to install? (virtualbox, vmware, quickemu, qemu)
 "
-read virtualization && paru -Syu $virtualization && clear
+read virtualization && $aur -Syu $virtualization && clear
 
 #_____________________________________________________________________________
 
@@ -74,9 +112,11 @@ echo "
 ██║░╚═╝░██║██║░░██║██║░╚███║██║░░██║╚██████╔╝███████╗██║░░██║
 ╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝
 
-What password manager do you want to install? (pass, keepassxc, bitwarden, lastpass, 1password, seahorse) for 2FA you could install authy
+pass, keepassxc, bitwarden, lastpass, 1password, seahorse (for 2FA you could install authy)
+
+What password manager do you want to install? () 
 "
-read password && paru -Syu $password && clear
+read password && $aur -Syu $password && clear
 
 #_____________________________________________________________________________
 
@@ -88,9 +128,15 @@ echo "
 ██║░░██║███████╗██║░╚═╝░██║╚█████╔╝░░░██║░░░███████╗  ██████╔╝███████╗██████╔╝██║░╚██╗░░░██║░░░╚█████╔╝██║░░░░░
 ╚═╝░░╚═╝╚══════╝╚═╝░░░░░╚═╝░╚════╝░░░░╚═╝░░░╚══════╝  ╚═════╝░╚══════╝╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░░░░
 
-What remote desktop service do you want to install? (x11vnc, rustdesk-bin, teamviewer, anydesk-bin, remmina, parsec-bin, realvnc-vnc-viewer, nomachine)
+x11vnc, rustdesk-bin, teamviewer, anydesk-bin, remmina, parsec-bin, realvnc-vnc-viewer, nomachine
+
+Which remote desktop softwares do you want to install? (separate by space, e.g. 'teamviewer, rustdesk-bin')
 "
-read remote && paru -Syu $remote
+read remote_desktops
+
+for remote_desktop in $remote_desktops; do
+    $aur -Syu $remote_desktop && clear
+done
 
 #_____________________________________________________________________________
 
@@ -99,8 +145,7 @@ sudo pacman -Syu gnupg mpg123 python-pip pass pass-otp zbar wget pavucontrol pam
 pip install neovim langdetect shell-gpt --user
 cd ~/ && git clone https://aur.archlinux.org/python-gtts.git && cd python-gtts/ && makepkg -sif --clean
 
-git clone https://aur.archlinux.org/yay.git ~/yay && cd ~/yay/ && makepkg -sif –clean
-paru -Syu ruby npm yarn pnpm appimagelauncher fd lazygit libguestfs dmidecode virt-manager ebtables iptables virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat powershell-bin w3m xclip openrazer-daemon openrazer-driver-dkms openrazer-meta python-openrazer polychromatic bc ufw fail2ban ngrok jq mpv ueberzug ffmpeg ffmpeg4.4 yt-dlp qemu-full dust ripgrep fzf ranger ueberzug dust nmap whois calcurse rustdesk-bin motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
+$aur -Syu ruby npm yarn pnpm appimagelauncher fd lazygit libguestfs dmidecode virt-manager ebtables iptables virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat powershell-bin w3m xclip openrazer-daemon openrazer-driver-dkms openrazer-meta python-openrazer polychromatic bc ufw fail2ban ngrok jq mpv ueberzug ffmpeg ffmpeg4.4 yt-dlp qemu-full dust ripgrep fzf ranger ueberzug dust nmap whois calcurse rustdesk-bin motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
 gem install neovim && sudo npm install -g neovim 
 sudo gpasswd -a $USER plugdev
 sudo systemctl enable --now libvirtd.service && sudo usermod -a -G libvirt $(whoami) && sudo systemctl restart libvirtd.service
