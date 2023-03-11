@@ -78,7 +78,7 @@ install() {
         if [ "$option" == "pass" ]; then
             $aur -Syu gnupg pass-otp zbar xclip && clear
         elif [ "$option" == "qemu-full" ]; then
-            $aur -Syu dmidecode virt-manager ebtables iptables virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat powershell-bin 
+            $aur -Syu dmidecode virt-manager ebtables iptables virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat powershell-bin && clear
         fi
     done
 }
