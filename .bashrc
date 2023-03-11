@@ -8,6 +8,7 @@ alias explain='tldr'
 alias packages='sudo pacman -Qe'
 alias roblox='grapejuice app && exit'
 alias bios='systemctl reboot --firmware-setup'
+alias pass-save='pass git push origin master'
 function get-function() {
   sed -n '/^function '$1'() {/,/^}/p' $2
 }
