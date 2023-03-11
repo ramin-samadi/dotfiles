@@ -46,5 +46,8 @@ done
 /usr/bin/pipewire-pulse &
 /usr/bin/pipewire-media-session &
 
+# Start KDE Polkit (used for password prompts for some applications)
+exec /usr/lib/polkit-kde-authentication-agent-1
+
 # Start DWM
 exec dwm
