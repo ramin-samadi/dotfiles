@@ -74,6 +74,12 @@ install() {
     # Install the selected remote desktop software
     for option in "${selected_options[@]}"; do
         $aur -Syu "$option" && clear
+        
+        if [ "$option" == "pass" ]; then
+            $aur -Syu gnupg pass-otp zbar xclip && clear
+        elif [ "$option" == "qemu-full" ]; then
+            $aur -Syu dmidecode virt-manager ebtables iptables virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat powershell-bin 
+        fi
     done
 }
 
@@ -199,12 +205,12 @@ install calcurse korganizer deepin-calendar nextcloud-app-calendar gcalcli
 #_____________________________________________________________________________
 
 if  [[ $USER == "ramin" ]]; then
-    sudo pacman -Syu gnupg mpg123 python-pip pass-otp zbar wget pavucontrol pamixer playerctl unzip xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron cairo gtk3 gobject-introspection desktop-file-utils xdg-utils xdg-user-dirs gtk-update-icon-cache shared-mime-info mesa-utils wine gnutls lib32-gnutls libpulse lib32-libpulse
+    sudo pacman -Syu mpg123 python-pip wget pavucontrol pamixer playerctl unzip xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie vi linux-headers electron cairo gtk3 gobject-introspection desktop-file-utils xdg-utils xdg-user-dirs gtk-update-icon-cache shared-mime-info mesa-utils wine gnutls lib32-gnutls libpulse lib32-libpulse
 
     pip install neovim langdetect shell-gpt --user
     cd ~/ && git clone https://aur.archlinux.org/python-gtts.git && cd python-gtts/ && makepkg -sif --clean
 
-    $aur -Syu ruby npm yarn pnpm appimagelauncher fd lazygit libguestfs dmidecode virt-manager ebtables iptables virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat powershell-bin w3m xclip openrazer-daemon openrazer-driver-dkms openrazer-meta python-openrazer polychromatic bc ufw fail2ban ngrok jq mpv ueberzug ffmpeg ffmpeg4.4 yt-dlp dust ripgrep fzf ranger ueberzug dust nmap whois calcurse amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
+    $aur -Syu ruby npm yarn pnpm appimagelauncher fd lazygit libguestfs openrazer-daemon openrazer-driver-dkms openrazer-meta w3m python-openrazer polychromatic bc ufw fail2ban ngrok jq mpv ueberzug ffmpeg ffmpeg4.4 yt-dlp dust ripgrep fzf ueberzug dust nmap whois amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
     gem install neovim && sudo npm install -g neovim 
     sudo gpasswd -a $USER plugdev
     sudo systemctl enable --now libvirtd.service && sudo usermod -a -G libvirt $(whoami) && sudo systemctl restart libvirtd.service
