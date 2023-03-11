@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #_____________________________________________________________________________
-git clone https://aur.archlinux.org/smenu.git ~/smenu && cd ~/$aur/ && makepkg -sif –clean && clear
+git clone https://aur.archlinux.org/smenu.git ~/smenu && cd ~/smenu/ && makepkg -sif –clean && clear
 
 echo -e "\e[32m
 ░█████╗░██╗░░░██╗██████╗░  ██╗░░██╗███████╗██╗░░░░░██████╗░███████╗██████╗░
