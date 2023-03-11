@@ -114,5 +114,5 @@ function google() {
 bind -x '"\C-k": "calcurse"'
 bind -x '"\C-f": "ranger"'
 bind -x '"\C-v": "clear; curl -s sv.wttr.in/57.792506,11.997145?M | tail +2"'
-bind -x '"\C-l": "clear; paleofetch; echo "\n""'
+bind -x '"\C-l": "clear; paleofetch; echo \n"'
 paleofetch
