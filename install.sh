@@ -253,6 +253,7 @@ if  [[ $USER == "ramin" ]]; then
     mv ~/paru/ ~/.config/
     mv ~/paleofetch/ ~/.config/
     sudo rm -rf ~/.bashrc.bak
+    cd
 
     source ~/.bashrc
     source ~/.bash_profile
