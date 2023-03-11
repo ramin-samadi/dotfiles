@@ -153,7 +153,7 @@ mv ~/dwm/config.h ~/bin/
 cd ~/bin
 makepkg -if --clean
 
-mv ~/dwm/dwm-config.h ~/.config/dwm/config.h && cd ~/.config/dwm/ && makepkg -if --clean
+mv -f ~/dwm/dwm/config.h ~/.config/dwm/ && cd ~/.config/dwm/ && makepkg -if --clean
 sudo mv -f ~/dwm/.xinitrc ~/.xinitrc
 cat ~/dwm/.bashrc >> ~/.bashrc && source ~/.bashrc
 sudo mv -f ~/dwm/.bash_profile ~/.bash_profile && source ~/.bash_profile
