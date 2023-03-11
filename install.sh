@@ -45,6 +45,37 @@ for option in "${selected_options[@]}"; do
     git clone https://aur.archlinux.org/$option.git ~/$option && cd ~/$option/ && makepkg -sif –clean && clear
 done
 
+install() {
+    options=("$@") # Set options array to be the list of arguments passed to the function
+    selected_options=()
+
+    while true; do
+        # Add the "Done" option to the beginning of the options array
+        remaining_options=("Next" "${options[@]}")
+
+        # Remove any previously selected options from the options array
+        for selected in "${selected_options[@]}"; do
+            remaining_options=("${remaining_options[@]/$selected}")
+        done
+
+        # Prompt the user to select an option from the remaining options
+        selected=$(printf "%s\n" "${remaining_options[@]}" | smenu -c -N "Select which to install:")
+
+        # Exit the loop if the user selects the "Done" option
+        if [ "$selected" == "Next" ]; then
+            break
+        fi
+
+        # Add the selected option to the selected_options array
+        selected_options+=("$selected")
+    done
+
+    # Install the selected remote desktop software
+    for option in "${selected_options[@]}"; do
+        $aur -Syu "$option" && clear
+    done
+}
+
 #_____________________________________________________________________________
 
 echo -e "\e[32m
@@ -57,37 +88,7 @@ echo -e "\e[32m
 
 Which browsers do you want to install?
 \e[0m"
-# Define the initial list of remote desktop software options
-options=(firefox librewolf-bin vivaldi google-chrome chromium epiphany microsoft-edge-stable-bin brave-bin waterfox-classic-bin qutebrowser opera icecat)
-
-# Initialize an empty array to store the selected options
-selected_options=()
-
-while true; do
-    # Add the "Done" option to the beginning of the options array
-    remaining_options=("Next" "${options[@]}")
-
-    # Remove any previously selected options from the options array
-    for selected in "${selected_options[@]}"; do
-        remaining_options=("${remaining_options[@]/$selected}")
-    done
-
-    # Prompt the user to select an option from the remaining options
-    selected=$(printf "%s\n" "${remaining_options[@]}" | smenu -c -N "Select which browser to install:")
-
-    # Exit the loop if the user selects the "Done" option
-    if [ "$selected" == "Next" ]; then
-        break
-    fi
-
-    # Add the selected option to the selected_options array
-    selected_options+=("$selected")
-done
-
-# Install the selected remote desktop software
-for option in "${selected_options[@]}"; do
-    $aur -Syu "$option" && clear
-done
+install firefox librewolf-bin vivaldi google-chrome chromium epiphany microsoft-edge-stable-bin brave-bin waterfox-classic-bin qutebrowser opera icecat
 
 #_____________________________________________________________________________
 
@@ -99,15 +100,9 @@ echo -e "\e[32m
 ░░░██║░░░███████╗██║░░██║██║░╚═╝░██║██║██║░╚███║██║░░██║███████╗
 ░░░╚═╝░░░╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚══════╝
 
-st, alacritty, yakuake, terminator, guake, tilda, tilix, terminology, wezterm, xterm, cool-retro-term, gnome-console, gnome-terminal, konsole, xfce4-terminal, lxterminal
-
 Which terminals do you want to install?
 \e[0m"
-read terminals
-
-for terminal in $terminals; do
-    $aur -Syu $terminal && clear
-done
+install st alacritty yakuake terminator guake tilda tilix terminology wezterm xterm cool-retro-term gnome-console gnome-terminal konsole xfce4-terminal lxterminal
 
 #_____________________________________________________________________________
 
@@ -119,15 +114,9 @@ echo -e "\e[32m
 ███████╗██████╔╝██║░░░██║░░░╚█████╔╝██║░░██║
 ╚══════╝╚═════╝░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝
 
-vi, vim, emacs, neovim, neovim-nightly-bin, nano, visual-studio-code-bin, vscodium-bin, gedit, notepadqq, kate, leafpad, code
-
 Which editors do you want to install? (separate by space, e.g. 'neovim, vscodium-bin')
 \e[0m"
-read editors
-
-for editor in $editors; do
-    $aur -Syu $editor && clear
-done
+install vi vim emacs neovim neovim-nightly-bin nano visual-studio-code-bin vscodium-bin gedit notepadqq kate leafpad code
 
 #_____________________________________________________________________________
 
@@ -139,9 +128,9 @@ echo -e "\e[32m
 ░░╚██╔╝░░██║██║░░██║░░░██║░░░╚██████╔╝██║░░██║███████╗██║███████╗██║░░██║░░░██║░░░██║╚█████╔╝██║░╚███║
 ░░░╚═╝░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚═════╝░╚═╝░░╚═╝╚══════╝╚═╝╚══════╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░╚════╝░╚═╝░░╚══╝
 
-Which virtualization platforms do you want to install? (virtualbox, vmware, quickemu, qemu)
+Which virtualization platforms do you want to install? (virtualbox, vmware, quickemu, qemu-full)
 \e[0m"
-read virtualization && $aur -Syu $virtualization && clear
+install virtualbox quickemu quickgui-bin qemu-full
 
 #_____________________________________________________________________________
 
@@ -160,12 +149,9 @@ echo -e "\e[32m
 ██║░╚═╝░██║██║░░██║██║░╚███║██║░░██║╚██████╔╝███████╗██║░░██║
 ╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝
 
-pass, keepassxc, bitwarden, lastpass, 1password, seahorse (for 2FA you could install authy)
-
 What password manager do you want to install?
 \e[0m"
-
-read password && $aur -Syu $password && clear
+install pass keepassxc bitwarden lastpass 1password seahorse
 
 #_____________________________________________________________________________
 
@@ -179,37 +165,35 @@ echo -e "\e[32m
 
 Which remote desktop softwares do you want to install?
 \e[0m"
-# Define the initial list of remote desktop software options
-options=(x11vnc rustdesk-bin teamviewer anydesk-bin remmina parsec-bin realvnc-vnc-viewer nomachine)
+install x11vnc rustdesk-bin teamviewer anydesk-bin remmina parsec-bin realvnc-vnc-viewer nomachine
 
-# Initialize an empty array to store the selected options
-selected_options=()
+#_____________________________________________________________________________
 
-while true; do
-    # Add the "Done" option to the beginning of the options array
-    remaining_options=("Next" "${options[@]}")
+echo -e "\e[32m
+███████╗██╗██╗░░░░░███████╗  ███╗░░░███╗░█████╗░███╗░░██╗░█████╗░░██████╗░███████╗██████╗░
+██╔════╝██║██║░░░░░██╔════╝  ████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝░██╔════╝██╔══██╗
+█████╗░░██║██║░░░░░█████╗░░  ██╔████╔██║███████║██╔██╗██║███████║██║░░██╗░█████╗░░██████╔╝
+██╔══╝░░██║██║░░░░░██╔══╝░░  ██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║░░╚██╗██╔══╝░░██╔══██╗
+██║░░░░░██║███████╗███████╗  ██║░╚═╝░██║██║░░██║██║░╚███║██║░░██║╚██████╔╝███████╗██║░░██║
+╚═╝░░░░░╚═╝╚══════╝╚══════╝  ╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝
 
-    # Remove any previously selected options from the options array
-    for selected in "${selected_options[@]}"; do
-        remaining_options=("${remaining_options[@]/$selected}")
-    done
+Which file managers do you want to install?
+\e[0m"
+install nautilus dolphin ranger krusader nemo thunar caja konqueror pcmanfm xplr worker vifm
 
-    # Prompt the user to select an option from the remaining options
-    selected=$(printf "%s\n" "${remaining_options[@]}" | smenu -c -N "Select which remote desktop software to install:")
+#_____________________________________________________________________________
 
-    # Exit the loop if the user selects the "Done" option
-    if [ "$selected" == "Next" ]; then
-        break
-    fi
+echo -e "\e[32m
+░█████╗░░█████╗░██╗░░░░░███████╗███╗░░██╗██████╗░░█████╗░██████╗░
+██╔══██╗██╔══██╗██║░░░░░██╔════╝████╗░██║██╔══██╗██╔══██╗██╔══██╗
+██║░░╚═╝███████║██║░░░░░█████╗░░██╔██╗██║██║░░██║███████║██████╔╝
+██║░░██╗██╔══██║██║░░░░░██╔══╝░░██║╚████║██║░░██║██╔══██║██╔══██╗
+╚█████╔╝██║░░██║███████╗███████╗██║░╚███║██████╔╝██║░░██║██║░░██║
+░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝
 
-    # Add the selected option to the selected_options array
-    selected_options+=("$selected")
-done
-
-# Install the selected remote desktop software
-for option in "${selected_options[@]}"; do
-    $aur -Syu "$option"
-done
+Which calendars do you want to install?
+\e[0m"
+install calcurse korganizer deepin-calendar nextcloud-app-calendar gcalcli
 
 #_____________________________________________________________________________
 
@@ -219,7 +203,7 @@ if  [[ $USER == "ramin" ]]; then
     pip install neovim langdetect shell-gpt --user
     cd ~/ && git clone https://aur.archlinux.org/python-gtts.git && cd python-gtts/ && makepkg -sif --clean
 
-    $aur -Syu ruby npm yarn pnpm appimagelauncher fd lazygit libguestfs dmidecode virt-manager ebtables iptables virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat powershell-bin w3m xclip openrazer-daemon openrazer-driver-dkms openrazer-meta python-openrazer polychromatic bc ufw fail2ban ngrok jq mpv ueberzug ffmpeg ffmpeg4.4 yt-dlp qemu-full dust ripgrep fzf ranger ueberzug dust nmap whois calcurse rustdesk-bin motrix-bin amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
+    $aur -Syu ruby npm yarn pnpm appimagelauncher fd lazygit libguestfs dmidecode virt-manager ebtables iptables virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat powershell-bin w3m xclip openrazer-daemon openrazer-driver-dkms openrazer-meta python-openrazer polychromatic bc ufw fail2ban ngrok jq mpv ueberzug ffmpeg ffmpeg4.4 yt-dlp dust ripgrep fzf ranger ueberzug dust nmap whois calcurse amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
     gem install neovim && sudo npm install -g neovim 
     sudo gpasswd -a $USER plugdev
     sudo systemctl enable --now libvirtd.service && sudo usermod -a -G libvirt $(whoami) && sudo systemctl restart libvirtd.service
