@@ -43,6 +43,7 @@ done
 # Install the selected remote desktop software
 for option in "${selected_options[@]}"; do
     git clone https://aur.archlinux.org/$option.git ~/$option && cd ~/$option/ && makepkg -sif –clean && clear
+    aur=$option
 done
 
 install() {
