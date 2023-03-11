@@ -254,6 +254,6 @@ if [$USER == "ramin"] then
     mv ~/bin ~/.config/st/
     git clone https://github.com/LazyVim/starter ~/.config/nvim
     rm -rf ~/.config/nvim/.git
-
-    reboot
 fi
+
+reboot
