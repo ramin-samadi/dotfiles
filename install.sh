@@ -63,7 +63,7 @@ install() {
 
         # Exit the loop if the user selects the "Done" option
         if [ "$selected" == "Next" ]; then
-            break
+            break && clear
         fi
 
         # Add the selected option to the selected_options array
