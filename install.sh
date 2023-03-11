@@ -239,6 +239,19 @@ if  [[ $USER == "ramin" ]]; then
 
     git clone https://github.com/LazyVim/starter ~/.config/nvim
     rm -rf ~/.config/nvim/.git
+    
+    mv ~/dwm/.xinitrc ~/
+    mv -f ~/dwm/.bash_profile ~/
+    cat ~/dwm/.bashrc >> ~/.bashrc
+    mv -f ~/dwm/dwm/config.h ~/.config/dwm/ && cd ~/.config/dwm/ && makepkg -sif --clean
+    mv -f ~/dwm/st/config.h ~/.config/st/ && cd ~/.config/st/ && makepkg -sif --clean
+    sudo rm -rf ~/dwm/
+    mv ~/paru/ ~/.config/
+    mv ~/paleofetch/ ~/.config/
+    sudo rm -rf ~/.bashrc.bak
+
+    source ~/.bashrc
+    source ~/.bash_profile
 fi
 
 reboot
