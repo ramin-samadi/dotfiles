@@ -222,6 +222,9 @@ if  [[ $USER == "ramin" ]]; then
     gem install neovim && sudo npm install -g neovim 
     sudo gpasswd -a $USER plugdev
     sudo systemctl enable --now libvirtd.service && sudo usermod -a -G libvirt $(whoami) && sudo systemctl restart libvirtd.service
+    sudo virsh net-start default
+    sudo virsh net-autostart default
+    sudo systemctl restart libvirtd.service
     git clone https://aur.archlinux.org/paleofetch-git.git ~/paleofetch && cd ~/paleofetch/ && makepkg -sif –clean
     cd && git clone https://github.com/pystardust/ytfzf && cd ytfzf && sudo make install doc && sudo make addons
 
