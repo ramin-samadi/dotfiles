@@ -1,0 +1,48 @@
+#!/bin/bash
+
+played=false
+
+echo "
+  Type a number in order to play:
+  1. Nasheed Taweel Alshawq - Ahmed Bukhatir - أحمد بوخاطر - نشيد طويل الشوق
+  2. Mishary Rashid Alafasy - انيلع ردبلا علط
+  3. Mishary Rashid Alafasy - هللا الإ هلإ ال
+  4. Mishary Rashid Alafasy - ىوهلا ماش ىلع يكبأ
+  5. Mishary Rashid Alafasy - ةخسنلا_دبعلا انا_ ينيد ديشن لمجا
+  6. Mishary Rashid Alafasy - ىفطصم
+  7. Mishary Rashid Alafasy - نمحر اي نمحر
+"
+
+read number
+
+if [[ "$number" == 1 ]]; then
+	played=true
+	ytfzf https://www.youtube.com/watch?v=o2W8_mvLuxU # Nasheed Taweel Alshawq - Ahmed Bukhatir - أحمد بوخاطر - نشيد طويل الشوق
+fi
+if [[ "$number" == 2 || "$played" == true ]]; then
+	played=true
+	ytfzf https://www.youtube/watch?v=r716ZlTWXSU # Mishary Rashid Alafasy - انيلع ردبلا علط
+fi
+if [[ "$number" == 3 || "$played" == true ]]; then
+	played=true
+	ytfzf https://www.youtube.com/watch?v=4yWLofNagy8 # Mishary Rashid Alafasy - هللا الإ هلإ ال
+fi
+if [[ "$number" == 4 || "$played" == true ]]; then
+	played=true
+	ytfzf https://www.youtube.com/watch?v=BJYKctYt06w # Mishary Rashid Alafasy - ىوهلا ماش ىلع يكبأ
+fi
+if [[ "$number" == 5 || "$played" == true ]]; then
+	played=true
+	ytfzf https://www.youtube.com/watch?v=JDx4mER0Dww # Mishary Rashid Alafasy - ةخسنلا_دبعلا انا_
+	ينيد ديشن لمجا
+fi
+if [[ "$number" == 6 || "$played" == true ]]; then
+	played=true
+	ytfzf https://www.youtube.com/watch?v=vfNI24pIEBY # Mishary Rashid Alafasy - ىفطصم
+fi
+if [[ "$number" == 7 || "$played" == true ]]; then
+	played=true
+	ytfzf https://www.youtube.com/watch?v=M3xjz4nxzGQ # Mishary Rashid Alafasy - نمحر اي نمحر
+else
+	echo "Please type a number between the scope"
+fi

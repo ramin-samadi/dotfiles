@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo rm -rf ~/GitHub/password/* && cp -r ~/.password-store/* ~/GitHub/password/ && cd ~/GitHub/password/ && git add . && git commit -m "automated commit" && git push
