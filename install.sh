@@ -248,6 +248,7 @@ if  [[ $USER == "ramin" ]]; then
     rm -rf ~/.config/nvim/.git
     
     mv ~/dwm/.xinitrc ~/
+    mv ~/dwm/ranger/rc.conf ~/.config/ranger/
     mv -f ~/dwm/.bash_profile ~/
     cat ~/dwm/.bashrc >> ~/.bashrc
     mv -f ~/dwm/dwm/config.h ~/.config/dwm/ && cd ~/.config/dwm/ && makepkg -sif --clean
