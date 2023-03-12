@@ -76,7 +76,7 @@ install() {
         $aur -Syu "$option" && clear
         
         if [ "$option" == "pass" ]; then
-            $aur -Syu gnupg pass-otp zbar xclip git-remote-gcrypt && clear
+            $aur -Syu gnupg pass-otp zbar xclip git-remote-gcrypt passmenu-otp-git && clear
         elif [ "$option" == "qemu-full" ]; then
             $aur -Syu dmidecode virt-manager ebtables iptables virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat powershell-bin && clear
         fi
