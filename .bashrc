@@ -12,6 +12,10 @@ alias pass-save='pass git push origin master'
 function get-function() {
   sed -n '/^function '$1'() {/,/^}/p' $2
 }
+function pass-update() {
+        sudo rm -rf ~/GitHub/password/* && cp -r ~/.password-store/* ~/GitHub/password/ && cd ~/GitHub/password/ && git add . && git commit -m "automated commit" && git push
+}
+
 
 # YouTube Aliases
 alias youtube='ytfzf -t'
