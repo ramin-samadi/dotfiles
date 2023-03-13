@@ -13,65 +13,51 @@ echo -e "\e[32m
 
 Which aur helpers do you want to install?
 \e[0m"
-# Define the initial list of remote desktop software options
 options=(yay paru pakku aurutils trizen pikaur aura)
 
-# Initialize an empty array to store the selected options
 selected_options=()
 
 while true; do
-    # Add the "Done" option to the beginning of the options array
     remaining_options=("Next" "${options[@]}")
 
-    # Remove any previously selected options from the options array
     for selected in "${selected_options[@]}"; do
         remaining_options=("${remaining_options[@]/$selected}")
     done
 
-    # Prompt the user to select an option from the remaining options
     selected=$(printf "%s\n" "${remaining_options[@]}" | smenu -c -N "Select which aur helper to install:")
 
-    # Exit the loop if the user selects the "Done" option
     if [ "$selected" == "Next" ]; then
         clear && break
     fi
 
-    # Add the selected option to the selected_options array
     selected_options+=("$selected")
 done
 
-# Install the selected remote desktop software
 for option in "${selected_options[@]}"; do
     git clone https://aur.archlinux.org/$option.git ~/$option && cd ~/$option/ && makepkg -sif –clean && clear
     aur=$option
 done
 
 install() {
-    options=("$@") # Set options array to be the list of arguments passed to the function
+    options=("$@")
     selected_options=()
 
     while true; do
-        # Add the "Done" option to the beginning of the options array
         remaining_options=("Next" "${options[@]}")
 
-        # Remove any previously selected options from the options array
         for selected in "${selected_options[@]}"; do
             remaining_options=("${remaining_options[@]/$selected}")
         done
 
-        # Prompt the user to select an option from the remaining options
         selected=$(printf "%s\n" "${remaining_options[@]}" | smenu -c -N "Select which to install:")
 
-        # Exit the loop if the user selects the "Done" option
         if [ "$selected" == "Next" ]; then
             clear && break
         fi
 
-        # Add the selected option to the selected_options array
         selected_options+=("$selected")
     done
 
-    # Install the selected remote desktop software
     for option in "${selected_options[@]}"; do
         $aur -Syu "$option" && clear
         
