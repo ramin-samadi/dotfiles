@@ -218,6 +218,7 @@ if  [[ $USER == "ramin" ]]; then
     cd && wget https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts/Meslo-fonts.zip && unzip Meslo-fonts.zip && sudo rm -rf Meslo-fonts.zip
     git clone https://github.com/christitustech/mybash ~/mybash && cd ~/mybash/ && ./setup-arch.sh
     sudo pacman -S --needed lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
+    sudo ufw enable && sudo systemctl enable --now ufw.service
 
     cd
     git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
