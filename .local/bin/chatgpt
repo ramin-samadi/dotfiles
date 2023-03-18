@@ -1,37 +1,3 @@
 #!/bin/bash
 
-# Array of dependencies
-dependencies=(git mpg123 python-pip)
-
-# Loop through dependencies
-for dependency in "${dependencies[@]}"; do
-	if ! pacman -Qs "$dependency" >/dev/null; then
-		echo "$dependency is not installed. Installing..."
-		sudo pacman -S "$dependency" --noconfirm
-	else
-		echo "$dependency is already installed."
-	fi
-done
-
-# Check if langdetect, shell-gpt, and python-gtts are installed
-if ! pip show langdetect >/dev/null 2>&1 || ! pip show shell-gpt >/dev/null 2>&1 || ! pacman -Qs python-gtts >/dev/null; then
-	echo "Some dependencies are missing. Installing..."
-	pip install langdetect
-	pip install shell-gpt --user
-	cd ~/ || exit
-	git clone https://aur.archlinux.org/python-gtts.git
-	cd python-gtts/ || exit
-	makepkg -sif --clean
-else
-	echo "All dependencies are installed."
-fi
-
-if [ ! -f ~/tts.mp3 ]; then
-	touch ~/tts.mp3
-fi
-
-answer=$(sgpt --no-animation "$*")
-echo "$answer"
-language=$(echo "$*" | python -c "from langdetect import detect; print(detect('$*'))" 2>/dev/null)
-gtts-cli -l "$language" "$answer" --output tts.mp3
-mpg123 -q ~/tts.mp3
+sudo rsync -aAXv --delete --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/run/* --exclude=/mnt/* --exclude=/media/* --exclude="swapfile" --exclude="lost+found" --exclude=".cache" --exclude="Downloads" --exclude=".VirtualBoxVMs" --exclude="var/lib/libvirt/images/*" --exclude=".ecryptfs" / /mnt/backup_destination/

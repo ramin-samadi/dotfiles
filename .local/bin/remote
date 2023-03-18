@@ -1,7 +1,6 @@
 #!/bin/bash
 
 xrandr --listactivemonitors | awk -- 'BEGIN { getline } { gsub(/\/[[:digit:]]+/,"",$3) ; print $3 }' |
-
-while read GEOMETRY; do
-  x11vnc -forever -ncache 10 -clip $GEOMETRY &
-done
+	while read -r GEOMETRY; do
+		x11vnc -forever -ncache 10 -clip "$GEOMETRY" &
+	done
