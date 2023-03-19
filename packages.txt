@@ -28,6 +28,7 @@ dust
 dwm
 efibootmgr
 electron
+emacs
 fail2ban
 fd
 feh
@@ -118,6 +119,7 @@ visual-studio-code-bin
 vulkan-amdgpu-pro
 vulkan-radeon
 w3m
+waterfox-classic-bin
 wget
 whois
 wine
