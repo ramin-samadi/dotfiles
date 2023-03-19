@@ -71,130 +71,154 @@ install() {
 
 #_____________________________________________________________________________
 
-clear
-echo -e "\e[32m
-██████╗░██████╗░░█████╗░░██╗░░░░░░░██╗░██████╗███████╗██████╗░
-██╔══██╗██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔════╝██╔══██╗
-██████╦╝██████╔╝██║░░██║░╚██╗████╗██╔╝╚█████╗░█████╗░░██████╔╝
-██╔══██╗██╔══██╗██║░░██║░░████╔═████║░░╚═══██╗██╔══╝░░██╔══██╗
-██████╦╝██║░░██║╚█████╔╝░░╚██╔╝░╚██╔╝░██████╔╝███████╗██║░░██║
-╚═════╝░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝░░╚═════╝░╚══════╝╚═╝░░╚═╝
+#!/usr/bin/env bash
+# For more info on 'whiptail' see:
+#https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
 
-Which browsers do you want to install?
-\e[0m"
-install firefox librewolf-bin vivaldi google-chrome chromium epiphany microsoft-edge-stable-bin brave-bin waterfox-classic-bin qutebrowser opera icecat
+# These exports are the only way to specify colors with whiptail.
+# See this thread for more info:
+# https://askubuntu.com/questions/776831/whiptail-change-background-color-dynamically-from-magenta/781062
+export NEWT_COLORS="
+root=,blue
+window=,black
+shadow=,blue
+border=blue,black
+title=blue,black
+textbox=blue,black
+radiolist=black,black
+label=black,blue
+checkbox=black,blue
+compactbutton=black,blue
+button=black,red"
 
-#_____________________________________________________________________________
+## The following functions are defined here for convenience.
+## All these functions are used in each of the five window functions.
+max() {
+	echo -e "$1\n$2" | sort -n | tail -1
+}
 
-echo -e "\e[32m
-████████╗███████╗██████╗░███╗░░░███╗██╗███╗░░██╗░█████╗░██╗░░░░░
-╚══██╔══╝██╔════╝██╔══██╗████╗░████║██║████╗░██║██╔══██╗██║░░░░░
-░░░██║░░░█████╗░░██████╔╝██╔████╔██║██║██╔██╗██║███████║██║░░░░░
-░░░██║░░░██╔══╝░░██╔══██╗██║╚██╔╝██║██║██║╚████║██╔══██║██║░░░░░
-░░░██║░░░███████╗██║░░██║██║░╚═╝░██║██║██║░╚███║██║░░██║███████╗
-░░░╚═╝░░░╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚══════╝
+getbiggestword() {
+	echo "$@" | sed "s/ /\n/g" | wc -L
+}
 
-Which terminals do you want to install?
-\e[0m"
-install st alacritty yakuake terminator guake tilda tilix terminology wezterm xterm cool-retro-term gnome-console gnome-terminal konsole xfce4-terminal lxterminal
+replicate() {
+	local n="$1"
+	local x="$2"
+	local str
 
-#_____________________________________________________________________________
+	for _ in $(seq 1 "$n"); do
+		str="$str$x"
+	done
+	echo "$str"
+}
 
-echo -e "\e[32m
-███████╗██████╗░██╗████████╗░█████╗░██████╗░
-██╔════╝██╔══██╗██║╚══██╔══╝██╔══██╗██╔══██╗
-█████╗░░██║░░██║██║░░░██║░░░██║░░██║██████╔╝
-██╔══╝░░██║░░██║██║░░░██║░░░██║░░██║██╔══██╗
-███████╗██████╔╝██║░░░██║░░░╚█████╔╝██║░░██║
-╚══════╝╚═════╝░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝
+programchoices() {
+	choices=()
+	local maxlen
+	maxlen="$(getbiggestword "${!checkboxes[@]}")"
+	linesize="$(max "$maxlen" 42)"
+	local spacer
+	spacer="$(replicate "$((linesize - maxlen))" " ")"
 
-Which editors do you want to install?
-\e[0m"
-install neovim-nightly-bin vi vim emacs neovim nano visual-studio-code-bin vscodium-bin gedit notepadqq kate leafpad code
+	for key in "${!checkboxes[@]}"; do
+		# A portable way to check if a command exists in $PATH and is executable.
+		# If it doesn't exist, we set the tick box to OFF.
+		# If it exists, then we set the tick box to ON.
+		if ! command -v "${checkboxes[$key]}" >/dev/null; then
+			# $spacer length is defined in the individual window functions based
+			# on the needed length to make the checkbox wide enough to fit window.
+			choices+=("${key}" "${spacer}" "OFF")
+		else
+			choices+=("${key}" "${spacer}" "ON")
+		fi
+	done
+}
 
-#_____________________________________________________________________________
+selectedprograms() {
+	result=$(
+		# Creates the whiptail checklist. Also, we use a nifty
+		# trick to swap stdout and stderr.
+		whiptail --title "$title" \
+			--checklist "$text" 22 "$((linesize + 16))" 12 \
+			"${choices[@]}" \
+			3>&2 2>&1 1>&3
+	)
+}
 
-echo -e "\e[32m
-██╗░░░██╗██╗██████╗░████████╗██╗░░░██╗░█████╗░██╗░░░░░██╗███████╗░█████╗░████████╗██╗░█████╗░███╗░░██╗
-██║░░░██║██║██╔══██╗╚══██╔══╝██║░░░██║██╔══██╗██║░░░░░██║╚════██║██╔══██╗╚══██╔══╝██║██╔══██╗████╗░██║
-╚██╗░██╔╝██║██████╔╝░░░██║░░░██║░░░██║███████║██║░░░░░██║░░███╔═╝███████║░░░██║░░░██║██║░░██║██╔██╗██║
-░╚████╔╝░██║██╔══██╗░░░██║░░░██║░░░██║██╔══██║██║░░░░░██║██╔══╝░░██╔══██║░░░██║░░░██║██║░░██║██║╚████║
-░░╚██╔╝░░██║██║░░██║░░░██║░░░╚██████╔╝██║░░██║███████╗██║███████╗██║░░██║░░░██║░░░██║╚█████╔╝██║░╚███║
-░░░╚═╝░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚═════╝░╚═╝░░╚═╝╚══════╝╚═╝╚══════╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░╚════╝░╚═╝░░╚══╝
+exitorinstall() {
+	local exitstatus="$?"
+	# Check the exit status, if 0 we will install the selected
+	# packages. A command which exits with zero (0) has succeeded.
+	# A non-zero (1-255) exit status indicates failure.
+	if [ "$exitstatus" = 0 ]; then
+		# Take the results and remove the "'s and add new lines.
+		# Otherwise, pacman is not going to like how we feed it.
+		programs=$(echo "$result" | sed 's/" /\n/g' | sed 's/"//g')
+		echo "$programs"
+		paru --needed --ask 4 -Syu "$programs" || echo "Failed to install required packages."
+	else
+		echo "User selected Cancel."
+	fi
+}
 
-██████╗░██╗░░░░░░█████╗░████████╗███████╗░█████╗░██████╗░███╗░░░███╗
-██╔══██╗██║░░░░░██╔══██╗╚══██╔══╝██╔════╝██╔══██╗██╔══██╗████╗░████║
-██████╔╝██║░░░░░███████║░░░██║░░░█████╗░░██║░░██║██████╔╝██╔████╔██║
-██╔═══╝░██║░░░░░██╔══██║░░░██║░░░██╔══╝░░██║░░██║██╔══██╗██║╚██╔╝██║
-██║░░░░░███████╗██║░░██║░░░██║░░░██║░░░░░╚█████╔╝██║░░██║██║░╚═╝░██║
-╚═╝░░░░░╚══════╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝
+install() {
+	local title="${1}"
+	local text="${2}"
+	declare -A checkboxes
 
-Which virtualization platforms do you want to install?
-\e[0m"
-install qemu-full virtualbox quickemu quickgui-bin
+	# Loop through all the remaining arguments passed to the install function
+	for ((i = 3; i <= $#; i += 2)); do
+		key="${!i}"
+		value=""
+		eval "value=\${$((i + 1))}"
+		if [ -z "$value" ]; then
+			value="$key"
+		fi
+		checkboxes["$key"]="$value"
+	done
 
-#_____________________________________________________________________________
+	programchoices && selectedprograms && exitorinstall
+}
 
-echo -e "\e[32m
-██████╗░░█████╗░░██████╗░██████╗░██╗░░░░░░░██╗░█████╗░██████╗░██████╗░
-██╔══██╗██╔══██╗██╔════╝██╔════╝░██║░░██╗░░██║██╔══██╗██╔══██╗██╔══██╗
-██████╔╝███████║╚█████╗░╚█████╗░░╚██╗████╗██╔╝██║░░██║██████╔╝██║░░██║
-██╔═══╝░██╔══██║░╚═══██╗░╚═══██╗░░████╔═████║░██║░░██║██╔══██╗██║░░██║
-██║░░░░░██║░░██║██████╔╝██████╔╝░░╚██╔╝░╚██╔╝░╚█████╔╝██║░░██║██████╔╝
-╚═╝░░░░░╚═╝░░╚═╝╚═════╝░╚═════╝░░░░╚═╝░░░╚═╝░░░╚════╝░╚═╝░░╚═╝╚═════╝░
+# Call the function with any number of applications as arguments. example:
+# install "Title" "Description" "Program-1-KEY" "Program-1-VALUE" "Program-2-KEY" "Program-2-VALUE" ...
+# Note an empty string "" means that the KEY and the VALUE are the same like "firefox" "firefox" instead you can write "firefox" ""
 
-███╗░░░███╗░█████╗░███╗░░██╗░█████╗░░██████╗░███████╗██████╗░
-████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝░██╔════╝██╔══██╗
-██╔████╔██║███████║██╔██╗██║███████║██║░░██╗░█████╗░░██████╔╝
-██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║░░╚██╗██╔══╝░░██╔══██╗
-██║░╚═╝░██║██║░░██║██║░╚███║██║░░██║╚██████╔╝███████╗██║░░██║
-╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝
+# Terminal
+install "Terminal" "Select one or more terminal emulators to install.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "st" "" "alacritty" "" "yakuake" "" "terminator" "" "guake" "" "tilda" "" "tilix" "" "terminology" "" "wezterm" "" "xterm" "" "cool-retro-term" "" "gnome-console" "" "gnome-terminal" "" "konsole" "" "xfce4-terminal" "" "lxterminal" ""
 
-What password manager do you want to install?
-\e[0m"
-install pass keepassxc bitwarden lastpass 1password seahorse
+# Editor
+install "Editor" "Select one or more editors to install.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "neovim-nightly-bin" "nvim" "vi" "" "vim" "" "emacs" "" "neovim" "nvim" "nano" "" "visual-studio-code-bin" "code" "vscodium-bin" "vscodium" "gedit" "" "notepadqq" "" "kate" "" "leafpad" ""
 
-#_____________________________________________________________________________
+# Virtualization Platform
+install "Virtualization Platform" "Select one or more virtualization platforms to install.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "qemu-full" "qemu-aarch64" "virtualbox" "" "quickemu" "" "quickgui-bin" "quickgui"
 
-echo -e "\e[32m
-██████╗░███████╗███╗░░░███╗░█████╗░████████╗███████╗  ██████╗░███████╗░██████╗██╗░░██╗████████╗░█████╗░██████╗░
-██╔══██╗██╔════╝████╗░████║██╔══██╗╚══██╔══╝██╔════╝  ██╔══██╗██╔════╝██╔════╝██║░██╔╝╚══██╔══╝██╔══██╗██╔══██╗
-██████╔╝█████╗░░██╔████╔██║██║░░██║░░░██║░░░█████╗░░  ██║░░██║█████╗░░╚█████╗░█████═╝░░░░██║░░░██║░░██║██████╔╝
-██╔══██╗██╔══╝░░██║╚██╔╝██║██║░░██║░░░██║░░░██╔══╝░░  ██║░░██║██╔══╝░░░╚═══██╗██╔═██╗░░░░██║░░░██║░░██║██╔═══╝░
-██║░░██║███████╗██║░╚═╝░██║╚█████╔╝░░░██║░░░███████╗  ██████╔╝███████╗██████╔╝██║░╚██╗░░░██║░░░╚█████╔╝██║░░░░░
-╚═╝░░╚═╝╚══════╝╚═╝░░░░░╚═╝░╚════╝░░░░╚═╝░░░╚══════╝  ╚═════╝░╚══════╝╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░░░░
+# Password Manager
+install "Password Manager" "Select one or more password managers to install.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "pass" "" "keepassxc" "" "bitwarden" "" "lastpass" "" "1password" "" "seahorse" ""
 
-Which remote desktop softwares do you want to install?
-\e[0m"
-install x11vnc rustdesk-bin teamviewer anydesk-bin remmina parsec-bin realvnc-vnc-viewer nomachine
+# Remote Desktop
+install "Remote Desktop" "Select one or more remote desktop programs to install.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "x11vnc" "" "rustdesk-bin" "rustdesk" "teamviewer" "" "anydesk-bin" "anydesk" "remmina" "" "parsec-bin" "parsec" "realvnc-vnc-viewer" "" "nomachine" ""
 
-#_____________________________________________________________________________
+# File Manager
+install "File Manager" "Select one or more file managers to install.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "ranger" "" "nautilus" "" "dolphin" "" "krusader" "" "nemo" "" "thunar" "caja" "" "konqueror" "" "pcmanfm" "" "xplr" "" "worker" "" "vifm" ""
 
-echo -e "\e[32m
-███████╗██╗██╗░░░░░███████╗  ███╗░░░███╗░█████╗░███╗░░██╗░█████╗░░██████╗░███████╗██████╗░
-██╔════╝██║██║░░░░░██╔════╝  ████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝░██╔════╝██╔══██╗
-█████╗░░██║██║░░░░░█████╗░░  ██╔████╔██║███████║██╔██╗██║███████║██║░░██╗░█████╗░░██████╔╝
-██╔══╝░░██║██║░░░░░██╔══╝░░  ██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║░░╚██╗██╔══╝░░██╔══██╗
-██║░░░░░██║███████╗███████╗  ██║░╚═╝░██║██║░░██║██║░╚███║██║░░██║╚██████╔╝███████╗██║░░██║
-╚═╝░░░░░╚═╝╚══════╝╚══════╝  ╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝
+# Calendar
+install "Calendar" "Select one or more calendar programs to install.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "calcurse" "" "korganizer" "" "deepin-calendar" "" "nextcloud-app-calendar" "" "gcalcli" ""
 
-Which file managers do you want to install?
-\e[0m"
-install ranger nautilus dolphin krusader nemo thunar caja konqueror pcmanfm xplr worker vifm
+# Browsers
+install "Web Browsers" "Select one or more web browsers to install.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "brave-bin" "brave" "chromium" "" "firefox" "" "google-chrome" "google-chrome-stable" "icecat-bin" "icecat" "librewolf-bin" "librewolf" "microsoft-edge-stable-bin" "microsoft-edge-stable" "opera" "" "qutebrowser" "" "ungoogled-chromium-bin" "ungoogled-chromium" "vivaldi" "" "waterfox-classic-bin" "waterfox-classic"
 
-#_____________________________________________________________________________
+# Other internet
+install "Other Internet Programs" "Other Internet programs available for installation.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "deluge" "" "discord" "" "element-desktop" "" "filezilla" "" "geary" "" "hexchat" "" "jitsi-meet-bin" "jitsi-meet-desktop" "mailspring" "" "telegram-desktop" "telegram" "thunderbird" "" "transmission-gtk" ""
 
-echo -e "\e[32m
-░█████╗░░█████╗░██╗░░░░░███████╗███╗░░██╗██████╗░░█████╗░██████╗░
-██╔══██╗██╔══██╗██║░░░░░██╔════╝████╗░██║██╔══██╗██╔══██╗██╔══██╗
-██║░░╚═╝███████║██║░░░░░█████╗░░██╔██╗██║██║░░██║███████║██████╔╝
-██║░░██╗██╔══██║██║░░░░░██╔══╝░░██║╚████║██║░░██║██╔══██║██╔══██╗
-╚█████╔╝██║░░██║███████╗███████╗██║░╚███║██████╔╝██║░░██║██║░░██║
-░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝
+# Multimedia
+install "Multimedia Programs" "Multimedia programs available for installation.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "blender" "" "deadbeef" "" "gimp" "" "inkscape" "" "kdenlive" "" "krita" "" "mpv" "" "obs-studio" "obs" "rhythmbox" "" "ristretto" "" "vlc" ""
 
-Which calendars do you want to install?
-\e[0m"
-install calcurse korganizer deepin-calendar nextcloud-app-calendar gcalcli
+# Office
+install "Office Programs" "Office and productivity programs available for installation.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "abiword" "" "evince" "" "gnucash" "" "gnumeric" "" "libreoffice-fresh" "lowriter" "libreoffice-still" "lowriter" "scribus" "" "zathura" ""
+
+# Games
+install "Games" "Gaming programs available for installation.\nAll programs marked with '*' are already installed.\nUnselecting them will NOT uninstall them." "0ad" "" "gnuchess" "" "lutris" "" "neverball" "" "openarena" "" "steam" "" "supertuxkart" "" "sauerbraten" "sauerbraten-client" "teeworlds" "" "veloren-bin" "veloren" "wesnoth" "" "xonotic" "xonotic-glx"
 
 #_____________________________________________________________________________
 
