@@ -74,7 +74,7 @@ openrazer-daemon
 openrazer-meta
 paleofetch-git
 pamixer
-paru
+paru-bin
 pass
 pass-otp
 passmenu-otp-git

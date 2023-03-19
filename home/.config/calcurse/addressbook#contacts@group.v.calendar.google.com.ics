@@ -1,0 +1,10 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Födelsedagar
+X-WR-TIMEZONE:UTC
+X-WR-CALDESC:Visar födelsedagar\, årsdagar och andra händelsedatum för pers
+ oner i Google Kontakter.
+END:VCALENDAR
