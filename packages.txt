@@ -71,6 +71,7 @@ ngrok
 nload
 nmap
 nodejs
+nodejs-mapscii
 npm
 openbsd-netcat
 openrazer-daemon
@@ -173,6 +174,8 @@ xorg-xwininfo
 xorg-xwud
 yarn
 yay
+youtube-dl
 yt-dlp
+ytfzf
 zbar
 zram-generator
