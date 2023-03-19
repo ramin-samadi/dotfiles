@@ -199,12 +199,11 @@ install calcurse korganizer deepin-calendar nextcloud-app-calendar gcalcli
 #_____________________________________________________________________________
 
 if  [[ $USER == "ramin" ]]; then
-    sudo pacman -Syu mpg123 python-pip wget pavucontrol pamixer playerctl unzip dunst xorg nodejs tldr lsd flatpak ncdu btop bash-completion traceroute tree trash-cli cronie linux-headers electron cairo gtk3 gobject-introspection desktop-file-utils xdg-utils xdg-user-dirs gtk-update-icon-cache shared-mime-info mesa-utils wine gnutls lib32-gnutls libpulse lib32-libpulse
-
+    $aur -Syu --needed - < ~/dwm/packages.txt
+    
     pip install neovim langdetect shell-gpt --user
     cd ~/ && git clone https://aur.archlinux.org/python-gtts.git && cd python-gtts/ && makepkg -sif --clean
 
-    $aur -Syu cbonsai cava lsplug lshw cowsay sl lolcat cmatrix tree-sitter-html-git tree-sitter-javascript-git tree-sitter-css-git bash-language-server tree-sitter-bash-git luarocks composer php javacc java julia tree-sitter polkit-kde-agent ruby balena-etcher npm yarn pnpm appimagelauncher fd lazygit libguestfs openrazer-daemon openrazer-driver-dkms openrazer-meta w3m python-openrazer polychromatic bc ufw fail2ban ngrok jq mpv ueberzug ffmpeg ffmpeg4.4 yt-dlp dust ripgrep fzf ueberzug dust nmap whois amdguid-glow-bin vulkan-amdgpu-pro lib32-vulkan-amdgpu-pro
     gem install neovim && sudo npm install -g neovim 
     sudo gpasswd -a $USER plugdev
     sudo systemctl enable --now libvirtd.service && sudo usermod -a -G libvirt $(whoami) && sudo systemctl restart libvirtd.service
