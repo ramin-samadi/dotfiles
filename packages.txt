@@ -97,6 +97,7 @@ ruby
 rustdesk-bin
 sl
 smenu
+speedtest-cli
 st
 tldr
 traceroute
