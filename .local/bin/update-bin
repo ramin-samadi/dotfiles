@@ -1,3 +1,0 @@
-#!/bin/bash
-
-rm ~/GitHub/dwm/.local/bin/* && cp ~/.local/bin/* ~/GitHub/dwm/.local/bin/ && cd ~/GitHub/dwm && git add . && git commit -m "automed update" && git push
