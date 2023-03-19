@@ -631,6 +631,7 @@ alias log='git log'
 # Network Aliases
 alias ping='ping -c 3'
 alias ip='ip -c'
+alias ec='echo'
 
 command_not_found_handle() {
 	~/.local/bin/command-finder "$1"

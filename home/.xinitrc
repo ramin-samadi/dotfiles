@@ -45,7 +45,6 @@ done
 /usr/bin/pipewire &
 /usr/bin/pipewire-pulse &
 /usr/bin/pipewire-media-session &
-/usr/bin/dunst &
 
 # Start KDE Polkit (used for password prompts for some applications)
 /usr/lib/polkit-kde-authentication-agent-1
