@@ -633,7 +633,6 @@ alias ping='ping -c 3'
 alias ip='ip -c'
 
 command_not_found_handle() {
-	echo "hello"
 	~/.local/bin/command-finder "$1"
 	return $?
 }
