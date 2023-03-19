@@ -71,7 +71,6 @@ install() {
 
 #_____________________________________________________________________________
 
-#!/usr/bin/env bash
 # For more info on 'whiptail' see:
 #https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
 
