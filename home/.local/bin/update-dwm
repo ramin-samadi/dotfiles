@@ -3,4 +3,4 @@
 sudo rm -rf ~/GitHub/dwm/home/.local/bin/* && cp -r ~/.local/bin/* ~/GitHub/dwm/home/.local/bin/
 sudo rm -rf ~/GitHub/dwm/home/.bashrc && cp -r ~/.bashrc ~/GitHub/dwm/home/
 pacman -Qqe >~/GitHub/dwm/packages.txt
-cd ~/GitHub/dwm && git add . && git commit -m "automed update" && git push
+cd ~/GitHub/dwm && git add . && git commit -m "automated update" && git push
