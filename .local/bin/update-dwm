@@ -1,5 +1,5 @@
 #!/bin/bash
 
-rm ~/GitHub/dwm/.local/bin/* && cp ~/.local/bin/* ~/GitHub/dwm/.local/bin/
-rm ~/GitHub/dwm/.config/* && cp -r ~/.config/* ~/GitHub/dwm/.config/
+sudo rm -rf ~/GitHub/dwm/.local/bin/* && cp -r ~/.local/bin/* ~/GitHub/dwm/.local/bin/
+sudo rm -rf ~/GitHub/dwm/.config/* && cp -r ~/.config/* ~/GitHub/dwm/.config/
 cd ~/GitHub/dwm && git add . && git commit -m "automed update" && git push
