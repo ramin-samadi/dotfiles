@@ -13,7 +13,7 @@ echo -e "\e[32m
 
 Which aur helpers do you want to install?
 \e[0m"
-options=(yay paru pakku aurutils trizen pikaur aura)
+options=(yay paru-bin pakku aurutils trizen pikaur aura)
 
 selected_options=()
 
@@ -36,6 +36,9 @@ done
 for option in "${selected_options[@]}"; do
     git clone https://aur.archlinux.org/$option.git ~/$option && cd ~/$option/ && makepkg -sif –clean && clear
     aur=$option
+    if [ "$aur" == "paru-bin" ]; then
+        aur=paru
+    fi
 done
 
 install() {
