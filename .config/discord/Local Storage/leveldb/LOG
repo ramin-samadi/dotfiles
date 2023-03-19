@@ -1,5 +1,0 @@
-2023/03/15-23:34:50.797 28635 Creating DB /home/ramin/.config/discord/Local Storage/leveldb since it was missing.
-2023/03/15-23:34:50.807 28635 Reusing MANIFEST /home/ramin/.config/discord/Local Storage/leveldb/MANIFEST-000001
-2023/03/15-23:39:56.213 28d91 Level-0 table #5: started
-2023/03/15-23:39:56.229 28d91 Level-0 table #5: 1471640 bytes OK
-2023/03/15-23:39:56.232 28d91 Delete type=0 #3

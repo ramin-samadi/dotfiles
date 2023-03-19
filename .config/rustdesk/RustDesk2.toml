@@ -1,7 +1,0 @@
-rendezvous_server = 'rs-ny.rustdesk.com'
-nat_type = 2
-serial = 0
-
-[options]
-audio-input = 'Monitor of Nommo Chroma Analog stereo'
-allow-remote-config-modification = 'Y'
