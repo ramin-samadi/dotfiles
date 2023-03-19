@@ -10,6 +10,7 @@ base-devel
 bash-completion
 bash-language-server
 bc
+blesh-git
 bridge-utils
 btop
 calcurse
@@ -39,6 +40,7 @@ git
 git-remote-gcrypt
 gobject-introspection
 gst-plugin-pipewire
+hollywood
 intel-ucode
 iptables-nft
 jq
@@ -66,6 +68,7 @@ mpv
 ncdu
 neovim-nightly-bin
 ngrok
+nload
 nmap
 nodejs
 npm
@@ -97,6 +100,7 @@ ruby
 rustdesk-bin
 sl
 smenu
+speedread-git
 speedtest-cli
 st
 tldr
@@ -107,6 +111,7 @@ tree-sitter-bash-git
 tree-sitter-css-git
 tree-sitter-html-git
 tree-sitter-javascript-git
+ttyper-git
 ueberzug
 ufw
 unzip
