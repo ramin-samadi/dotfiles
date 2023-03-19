@@ -113,7 +113,6 @@ vi
 vim
 virt-manager
 virt-viewer
-virtualbox
 visual-studio-code-bin
 vulkan-amdgpu-pro
 vulkan-radeon
