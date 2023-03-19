@@ -38,6 +38,7 @@ fzf
 git
 git-remote-gcrypt
 gobject-introspection
+google-chrome
 gst-plugin-pipewire
 intel-ucode
 iptables-nft
