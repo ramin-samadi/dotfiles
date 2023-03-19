@@ -239,6 +239,8 @@ if  [[ $USER == "ramin" ]]; then
     git clone https://github.com/LazyVim/starter ~/.config/nvim
     rm -rf ~/.config/nvim/.git
     
+    rm -rf ~/.local/bin/*
+    mv ~/dwm/home/.local/bin/* ~/.local/bin/*
     mv ~/dwm/home/.xinitrc ~/
     mv -f ~/dwm/home/.bash_profile ~/
     mv -f ~/dwm/home/.bashrc ~/.bashrc
