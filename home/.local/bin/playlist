@@ -13,11 +13,11 @@ echo "
   7. Mishary Rashid Alafasy - نمحر اي نمحر
 "
 
-read number
+read -r number
 
 if [[ "$number" == 1 ]]; then
 	played=true
-	ytfzf https://www.youtube.com/watch?v=o2W8_mvLuxU # Nasheed Taweel Alshawq - Ahmed Bukhatir - أحمد بوخاطر - نشيد طويل الشوق
+	ytfzf "Nasheed Taweel Alshawq - Ahmed Bukhatir" # Nasheed Taweel Alshawq - Ahmed Bukhatir - أحمد بوخاطر - نشيد طويل الشوق
 fi
 if [[ "$number" == 2 || "$played" == true ]]; then
 	played=true

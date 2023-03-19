@@ -175,7 +175,7 @@ xorg-xwud
 yarn
 yay
 youtube-dl
-yt-dlp
+yt-dlp-git
 ytfzf
 zbar
 zram-generator
