@@ -1,0 +1,6 @@
+#!/bin/bash
+
+find /usr/share/figlet -type f \( -name "*.flf" -o -name "*.tlf" \) -exec sh -c '
+  font=$(basename "$0" | sed "s/\.[^\.]*$//")
+  toilet -f "$font" "${1}" 2>/dev/null
+' {} "${1}" \;
