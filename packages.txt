@@ -1,6 +1,7 @@
 alacritty
 amdguid-glow-bin
 appimagelauncher
+arttime-git
 ascii-image-converter-git
 asciiquarium
 autojump-git
@@ -73,6 +74,7 @@ nmap
 nodejs
 nodejs-mapscii
 npm
+oneko
 openbsd-netcat
 openrazer-daemon
 openrazer-meta
@@ -105,6 +107,8 @@ speedread-git
 speedtest-cli
 st
 tldr
+toilet
+toilet-fonts
 traceroute
 trash-cli
 tree-sitter
@@ -154,6 +158,7 @@ xorg-xcmsdb
 xorg-xcursorgen
 xorg-xdriinfo
 xorg-xev
+xorg-xeyes
 xorg-xgamma
 xorg-xhost
 xorg-xinit
