@@ -38,6 +38,7 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
     
 mv -f ~/dwm/home/.config/dwm/config.h ~/.config/dwm/ && cd ~/.config/dwm/ && makepkg -sif --clean
+rm -rf ~/dwm/home/.config/dwm/
 mv -f ~/dwm/home/.local/bin/* ~/.local/bin/
 mv -f ~/dwm/home/.config/* ~/.config/
 mv -f ~/dwm/home/* ~/
