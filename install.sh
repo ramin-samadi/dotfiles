@@ -37,13 +37,10 @@ git clone https://aur.archlinux.org/dwm.git ~/.config/dwm && cd ~/.config/dwm/ &
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
     
-rm -rf ~/.local/bin/*
-mv ~/dwm/home/.local/bin/* ~/.local/bin/
-mv ~/dwm/home/.xinitrc ~/
-mv -f ~/dwm/home/.bash_profile ~/
-mv -f ~/dwm/home/.bashrc ~/.bashrc
-mv ~/dwm/home/alacritty/ ~/.config/
 mv -f ~/dwm/home/.config/dwm/config.h ~/.config/dwm/ && cd ~/.config/dwm/ && makepkg -sif --clean
+mv -f ~/dwm/home/.local/bin/* ~/.local/bin/
+mv -f ~/dwm/home/.config/ ~/
+mv -f ~/dwm/home/* ~/
 sudo rm -rf ~/.bashrc.bak
 cd
     
