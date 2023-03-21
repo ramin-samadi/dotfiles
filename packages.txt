@@ -1,4 +1,3 @@
-alacritty
 amdguid-glow-bin
 appimagelauncher
 arttime-git
