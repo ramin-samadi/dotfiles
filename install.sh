@@ -236,7 +236,7 @@ if  [[ $USER == "ramin" ]]; then
     rm -rf ~/.config/nvim/.git
     
     rm -rf ~/.local/bin/*
-    mv ~/dwm/home/.local/bin/* ~/.local/bin/*
+    mv ~/dwm/home/.local/bin/* ~/.local/bin/
     mv ~/dwm/home/.xinitrc ~/
     mv -f ~/dwm/home/.bash_profile ~/
     mv -f ~/dwm/home/.bashrc ~/.bashrc
