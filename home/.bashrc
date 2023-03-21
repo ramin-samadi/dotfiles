@@ -319,7 +319,6 @@ source ~/.local/share/blesh/ble.sh
 # Easy Aliases
 alias update='sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu'
 alias install='paru -Syu'
-alias cdtest='cd'
 alias search='paru -Ss'
 alias uninstall='paru -Rns --noconfirm'
 alias clean='sudo pacman -Scc'
