@@ -205,7 +205,6 @@ if  [[ $USER == "ramin" ]]; then
     $aur -Syu --needed - < ~/dwm/packages.txt
     
     pip install neovim langdetect shell-gpt --user
-    cd ~/ && git clone https://aur.archlinux.org/python-gtts.git && cd python-gtts/ && makepkg -sif --clean
 
     gem install neovim && sudo npm install -g neovim 
     sudo gpasswd -a $USER plugdev
@@ -213,8 +212,6 @@ if  [[ $USER == "ramin" ]]; then
     sudo virsh net-start default
     sudo virsh net-autostart default
     sudo systemctl restart libvirtd.service
-    git clone https://aur.archlinux.org/paleofetch-git.git ~/paleofetch && cd ~/paleofetch/ && makepkg -sif –clean
-    cd && git clone https://github.com/pystardust/ytfzf && cd ytfzf && sudo make install doc && sudo make addons
 
     git clone --depth=1 https://gitlab.com/brinkervii/grapejuice.git /tmp/grapejuice && cd /tmp/grapejuice && ./install.py
     cd && wget https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts/Meslo-fonts.zip && unzip Meslo-fonts.zip && sudo rm -rf Meslo-fonts.zip
@@ -230,8 +227,7 @@ if  [[ $USER == "ramin" ]]; then
     sudo sed -i 's/#Color/Color/g' /etc/pacman.conf && sudo sed -i 's/#NoProgressBar/ILoveCandy/g' /etc/pacman.conf && sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
     sudo sed -i 's/ls -Fls/lsd -Fla/g' ~/.bashrc && sudo sed -i 's/ls -aFh/lsd -aFh/g' ~/.bashrc && sed -i 's,/usr/bin/grep $GREP_OPTIONS,grep --color,g' ~/.bashrc
     
-    sudo bash -c "echo '58,18 * * * * sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu && yes J | sudo pacman -Scc' >> /var/spool/cron/root" && sudo systemctl stop cronie && sudo systemctl enable cronie.service && sudo systemctl start cronie.service
-    sudo bash -c "echo '58,18 * * * * /home/ramin/.local/bin/update-dwm' >> /var/spool/cron/$USER" && systemctl stop cronie && systemctl enable cronie.service && systemctl start cronie.service
+    mkdir ~/GitHub
 
     git clone https://aur.archlinux.org/st.git ~/.config/st && cd ~/.config/st/ && makepkg -sif –clean && cp config.def.h config.h
     git clone https://aur.archlinux.org/dwm.git ~/.config/dwm && cd ~/.config/dwm/ && makepkg -sif –clean
@@ -251,6 +247,9 @@ if  [[ $USER == "ramin" ]]; then
     mv ~/paleofetch/ ~/.config/
     sudo rm -rf ~/.bashrc.bak
     cd
+    
+    sudo bash -c "echo '58,18 * * * * sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu && yes J | sudo pacman -Scc' >> /var/spool/cron/root" && sudo systemctl stop cronie && sudo systemctl enable cronie.service && sudo systemctl start cronie.service
+    sudo bash -c "echo '58,18 * * * * /home/ramin/.local/bin/update-dwm' >> /var/spool/cron/$USER" && systemctl stop cronie && systemctl enable cronie.service && systemctl start cronie.service
 
     source ~/.bashrc
     source ~/.bash_profile
