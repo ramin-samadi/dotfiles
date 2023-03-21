@@ -45,6 +45,7 @@ mv ~/dwm/home/.local/bin/* ~/.local/bin/
 mv ~/dwm/home/.xinitrc ~/
 mv -f ~/dwm/home/.bash_profile ~/
 mv -f ~/dwm/home/.bashrc ~/.bashrc
+mv ~/dwm/home/alacritty ~/.config/
 mv -f ~/dwm/home/.config/dwm/config.h ~/.config/dwm/ && cd ~/.config/dwm/ && makepkg -sif --clean
 sudo rm -rf ~/.bashrc.bak
 cd
