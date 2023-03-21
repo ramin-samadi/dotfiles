@@ -39,7 +39,7 @@ rm -rf ~/.config/nvim/.git
     
 mv -f ~/dwm/home/.config/dwm/config.h ~/.config/dwm/ && cd ~/.config/dwm/ && makepkg -sif --clean
 mv -f ~/dwm/home/.local/bin/* ~/.local/bin/
-mv -f ~/dwm/home/.config/ ~/
+mv -f ~/dwm/home/.config/* ~/.config/
 mv -f ~/dwm/home/* ~/
 sudo rm -rf ~/.bashrc.bak
 cd
