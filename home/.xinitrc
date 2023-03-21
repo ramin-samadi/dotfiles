@@ -48,6 +48,7 @@ done
 
 # Start KDE Polkit (used for password prompts for some applications)
 /usr/lib/polkit-kde-authentication-agent-1
+/usr/bin/dunst
 
 # Start DWM
 exec dwm
