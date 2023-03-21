@@ -242,9 +242,6 @@ if  [[ $USER == "ramin" ]]; then
     mv -f ~/dwm/home/.bashrc ~/.bashrc
     mv -f ~/dwm/home/.config/dwm/config.h ~/.config/dwm/ && cd ~/.config/dwm/ && makepkg -sif --clean
     mv -f ~/dwm/home/.config/st/config.h ~/.config/st/ && cd ~/.config/st/ && makepkg -sif --clean
-    sudo rm -rf ~/dwm/
-    mv ~/paru/ ~/.config/
-    mv ~/paleofetch/ ~/.config/
     sudo rm -rf ~/.bashrc.bak
     cd
     
