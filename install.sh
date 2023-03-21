@@ -1,8 +1,6 @@
 #!/bin/bash
 
 aur=paru
-
-git clone https://aur.archlinux.org/yay.git ~/.config/yay && cd ~/.config/yay/ && makepkg -sif –clean
 git clone https://aur.archlinux.org/paru-bin.git ~/.config/paru && cd ~/.config/paru/ && makepkg -sif –clean
 
 $aur -Syu --needed - < ~/dwm/packages.txt
