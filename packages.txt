@@ -91,6 +91,7 @@ pipewire-jack
 pipewire-pulse
 playerctl
 pnpm
+polkit-gnome
 polkit-kde-agent
 polychromatic
 powershell-bin
