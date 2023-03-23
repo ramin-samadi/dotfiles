@@ -33,7 +33,6 @@ fail2ban
 fd
 feh
 ffmpeg4.4
-firefox
 flatpak
 fzf
 git
