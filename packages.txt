@@ -99,7 +99,7 @@ python-pip
 qemu-full
 ripgrep
 ruby
-rustdesk-bin
+rustdesk-nightly
 sl
 smenu
 speedread-git
