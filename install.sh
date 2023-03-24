@@ -30,7 +30,6 @@ sudo sed -i 's/ls -Fls/lsd -Fla/g' ~/.bashrc && sudo sed -i 's/ls -aFh/lsd -aFh/
     
 mkdir ~/GitHub
 git clone https://github.com/raminsamadi123/dwm ~/GitHub/
-git clone https://github.com/raminsamadi123/Programming ~/GitHub/
 
 git clone https://aur.archlinux.org/dwm.git ~/.config/dwm && cd ~/.config/dwm/ && makepkg -sif –clean
 
