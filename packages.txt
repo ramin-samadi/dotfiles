@@ -76,7 +76,6 @@ oneko
 openbsd-netcat
 openrazer-daemon
 openrazer-meta
-openvpn
 paleofetch-git
 pamixer
 paru-bin
