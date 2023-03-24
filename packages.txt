@@ -37,6 +37,7 @@ flatpak
 fzf
 git
 git-remote-gcrypt
+gnome-boxes
 gobject-introspection
 gst-plugin-pipewire
 hollywood
@@ -96,7 +97,6 @@ polychromatic
 powershell-bin
 python-gtts
 python-pip
-qemu-full
 ripgrep
 ruby
 rustdesk-bin
