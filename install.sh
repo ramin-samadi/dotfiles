@@ -33,19 +33,19 @@ git clone https://aur.archlinux.org/dwm.git ~/.config/dwm && cd ~/.config/dwm/ &
 
 # Neovim
 rm -rf ~/.config/nvim/
-mv ~/GitHub/dwm/home/.config/nvim/ ~/.config/
+mv ~/dwm/home/.config/nvim/ ~/.config/
 
 # Alacritty
 rm -rf ~/.config/alacritty/
-mv ~/GitHub/dwm/home/.config/alacritty/
+mv ~/dwm/home/.config/alacritty/ ~/.config/
 
 # BTop
 rm -rf ~/.config/btop/
-mv ~/GitHub/dwm/home/.config/btop/
+mv ~/dwm/home/.config/btop/ ~/.config/
 
 # Calcurse
 rm -rf ~/.config/calcurse/
-mv ~/GitHub/dwm/home/.config/calcurse/
+mv ~/dwm/home/.config/calcurse/ ~/.config/
 calcurse -i ~/.config/calcurse/raminsam05@gmail.com.ics
 calcurse -i ~/.config/calcurse/ramin.samadi@elev.ga.ntig.se.ics
 calcurse -i ~/.config/calcurse/addressbook#contacts@group.v.calendar.google.com.ics
@@ -53,7 +53,7 @@ calcurse -i ~/.config/calcurse/MAKER SPACE_classroom111097032359149922796@group.
 
 # Dunst
 rm -rf ~/.config/dunst/
-mv ~/GitHub/dwm/home/.config/dunst/
+mv ~/dwm/home/.config/dunst/ ~/.config/
 
 # DWM
 rm -rf ~/.config/dwm/config.h
