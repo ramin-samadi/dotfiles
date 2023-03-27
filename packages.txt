@@ -33,6 +33,8 @@ fail2ban
 fd
 feh
 ffmpeg4.4
+fish
+flake8
 flatpak
 fzf
 git
@@ -42,6 +44,7 @@ gst-plugin-pipewire
 hollywood
 intel-ucode
 iptables-nft
+javacc
 jq
 julia
 lazygit
@@ -115,6 +118,7 @@ tree-sitter-bash-git
 tree-sitter-css-git
 tree-sitter-html-git
 tree-sitter-javascript-git
+tree-sitter-json-git
 ttyper-git
 ueberzug
 ufw
