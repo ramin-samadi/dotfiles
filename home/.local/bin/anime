@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+anime_name=$(echo -n "" | dmenu -p "Search anime: ")
+
+# Open a terminal and execute the ani-cli command
+if [[ -z "${anime_name// /}" ]]; then
+	exit
+else
+	alacritty -e bash -c "ani-cli \"$anime_name\"; exec bash"
+fi
