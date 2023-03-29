@@ -19,6 +19,7 @@ calcurse
 cava
 cbonsai
 cmatrix
+colorpicker
 composer
 cowsay
 cronie
@@ -140,6 +141,7 @@ wine
 wireplumber
 x11vnc
 xclip
+xcolor
 xdg-user-dirs
 xf86-video-amdgpu
 xf86-video-ati
