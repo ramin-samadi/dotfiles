@@ -1,5 +1,6 @@
 alacritty
 amdguid-glow-bin
+ani-cli
 appimagelauncher
 arttime-git
 ascii-image-converter-git
@@ -106,6 +107,7 @@ ripgrep
 ruby
 rustdesk-bin
 sl
+slock
 smenu
 speedread-git
 speedtest-cli

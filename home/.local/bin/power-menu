@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# Define the options to be displayed in dmenu
+options=(
+	"1. Lock"
+	"2. Logout"
+	"3. Reboot"
+	"4. Shutdown"
+	"5. Suspend"
+	"6. Hibernate"
+	"7. BIOS/UEFI"
+)
+
+# Get the user's choice using dmenu
+selected=$(printf '%s\n' "${options[@]}" | dmenu -p "Select option: " -l "${#options[@]}")
+
+# Use a case statement to perform the appropriate action based on the user's choice
+case "$selected" in
+"1. Lock")
+	slock
+	;;
+"2. Logout")
+	pkill dwm
+	;;
+"3. Reboot")
+	systemctl reboot
+	;;
+"4. Shutdown")
+	systemctl poweroff
+	;;
+"5. Suspend")
+	systemctl suspend
+	;;
+"6. Hibernate")
+	systemctl hibernate
+	;;
+"7. BIOS/UEFI")
+	systemctl reboot --firmware-setup
+	;;
+esac

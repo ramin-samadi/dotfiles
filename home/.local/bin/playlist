@@ -8,6 +8,7 @@ options=(
 	"5. Mishary Rashid Alafasy - ةخسنلا_دبعلا انا_ ينيد ديشن لمجا"
 	"6. Mishary Rashid Alafasy - ىفطصم"
 	"7. Mishary Rashid Alafasy - نمحر اي نمحر"
+	"8. Quit"
 )
 
 selected=$(printf '%s\n' "${options[@]}" | dmenu -p "Select audio: " -l "${#options[@]}")
@@ -33,5 +34,8 @@ case $selected in
 	;;
 "7. Mishary Rashid Alafasy - نمحر اي نمحر")
 	ytfzf -a -m https://www.youtube.com/watch?v=M3xjz4nxzGQ
+	;;
+"8. Quit")
+	pkill mpv
 	;;
 esac
