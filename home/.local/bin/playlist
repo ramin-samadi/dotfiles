@@ -10,7 +10,7 @@ options=(
 	"7. Mishary Rashid Alafasy - نمحر اي نمحر"
 )
 
-selected=$(printf '%s\n' "${options[@]}" | dmenu -p "Select Option: " -l "${#options[@]}")
+selected=$(printf '%s\n' "${options[@]}" | dmenu -p "Select audio: " -l "${#options[@]}")
 
 case $selected in
 "1. Nasheed Taweel Alshawq - Ahmed Bukhatir - أحمد بوخاطر - نشيد طويل الشوق")
@@ -33,8 +33,5 @@ case $selected in
 	;;
 "7. Mishary Rashid Alafasy - نمحر اي نمحر")
 	ytfzf -a -m https://www.youtube.com/watch?v=M3xjz4nxzGQ
-	;;
-*)
-	command notify-send "Please select a valid option"
 	;;
 esac
