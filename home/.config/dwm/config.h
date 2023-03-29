@@ -99,7 +99,7 @@ static const Key keys[] = {
     // ▄▀█ █▀█ █▀█
     // █▀█ █▀▀ █▀▀
 
-    { SUPER,                        XK_w,      spawn,          SHCMD("librewolf") }, //Browser
+    { SUPER,                        XK_w,      spawn,          SHCMD("google-chrome-stable") }, //Browser
     { SUPER,                        XK_t,      spawn,          SHCMD("alacritty") }, //Terminal
     { SUPER,                        XK_s,      spawn,          SHCMD("dmenu_run") }, //Search
     { SUPER,                        XK_p,      spawn,          SHCMD("passmenu-otp") }, //Password Manager
