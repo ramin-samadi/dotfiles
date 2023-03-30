@@ -8,7 +8,7 @@ channels=(
 	"Mental Outlaw"
 )
 
-selected=$(printf '%s\n' "${channels[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -p "Search YouTube: " -l "${#channels[@]}")
+selected=$(printf '%s\n' "${channels[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -sb "#313244" -p "Search YouTube: " -l "${#channels[@]}")
 
 # Open a terminal and execute the ytfzf -t command
 if [[ -z "${selected// /}" ]]; then

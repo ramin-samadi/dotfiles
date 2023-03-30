@@ -12,7 +12,7 @@ options=(
 )
 
 # Get the user's choice using dmenu
-selected=$(printf '%s\n' "${options[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -p "Select option: " -l "${#options[@]}")
+selected=$(printf '%s\n' "${options[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -sb "#313244" -p "Select option: " -l "${#options[@]}")
 
 # Use a case statement to perform the appropriate action based on the user's choice
 case "$selected" in

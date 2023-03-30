@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-anime_name=$(echo -n "" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -p "Search anime: ")
+anime_name=$(echo -n "" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -sb "#313244" -p "Search anime: ")
 
 # Open a terminal and execute the ani-cli command
 if [[ -z "${anime_name// /}" ]]; then

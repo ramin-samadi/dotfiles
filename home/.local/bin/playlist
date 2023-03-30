@@ -11,7 +11,7 @@ options=(
 	"8. Quit"
 )
 
-selected=$(printf '%s\n' "${options[@]}" | dmenu -p "Select audio: " -l "${#options[@]}")
+selected=$(printf '%s\n' "${options[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -sb "#313244" -p "Select audio: " -l "${#options[@]}")
 
 case $selected in
 "1. Nasheed Taweel Alshawq - Ahmed Bukhatir - أحمد بوخاطر - نشيد طويل الشوق")
