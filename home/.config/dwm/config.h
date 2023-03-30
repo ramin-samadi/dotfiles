@@ -6,17 +6,17 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#313244";
+static const char *fonts[]          = { "Meslo LGS Nerd Font Mono:size=25:bold" };
+static const char dmenufont[]       = "Meslo LGS Nerd Font Mono:size=25:bold";
+static const char col_gray1[]       = "#1E1E2E";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#1E1E2E";
+static const char col_cyan[]        = "#313244";
 static const char *colors[][3]      = {
   /*               fg         bg         border   */
-  [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-  [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+  [SchemeNorm] = { col_gray3, col_gray1, col_cyan },
+  [SchemeSel]  = { col_gray4, col_cyan,  col_gray2  },
 };
 
 // ▀█▀ ▄▀█ █▀▀ █▀▀ █ █▄░█ █▀▀
@@ -43,9 +43,9 @@ static const int lockfullscreen   = 1; /* 1 will force focus on the fullscreen w
 
 static const Layout layouts[] = {
   /* symbol     arrange function */
-  { "[]=",      tile },    /* first entry is default */
-  { "><>",      NULL },    /* no layout function means floating behavior */
-  { "[M]",      monocle },
+  { "",      tile },    /* first entry is default */
+  { "",      NULL },    /* no layout function means floating behavior */
+  { "",      monocle },
 };
 
 // █▄▀ █▀▀ █▄█   █▀▄ █▀▀ █▀▀ █ █▄░█ █ ▀█▀ █ █▀█ █▄░█
@@ -78,7 +78,7 @@ static const Key keys[] = {
     { SUPER|ShiftMask,              XK_j,      tagmon,         {.i = +1 } }, //Move window to the left
 
     { SUPER,                        XK_i,      incnmaster,     {.i = +1 } }, //Switch master layout
-    { SUPER,                        XK_k,      incnmaster,     {.i = -1 } }, //Switch master layout
+    { SUPER,                        XK_o,      incnmaster,     {.i = -1 } }, //Switch master layout
 
     { SUPER,                        XK_Left,   setmfact,       {.f = -0.05} }, //Resize window to the left
     { SUPER,                        XK_Right,  setmfact,       {.f = +0.05} }, //Resize window to the right
