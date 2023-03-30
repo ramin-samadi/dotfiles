@@ -191,4 +191,5 @@ youtube-dl
 yt-dlp-git
 ytfzf
 zbar
+zenity
 zram-generator
