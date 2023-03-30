@@ -125,6 +125,7 @@ tree-sitter-css-git
 tree-sitter-html-git
 tree-sitter-javascript-git
 tree-sitter-json-git
+ttf-meslo-nerd
 ttyper-git
 ueberzug
 ufw
