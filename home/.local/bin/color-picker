@@ -1,15 +1,8 @@
 #!/bin/bash
 
-while true; do
-	color=$(zenity --color-selection --show-palette --title="Pick a Color" 2>/dev/null | tr -d '\n')
+color=$(colorpicker --short --one-shot --preview | tr -d '\n')
 
-	if [ -n "$color" ]; then
-		printf '%s' "$color" | xclip -selection clipboard
-		notify-send "Color picked: $color"
-	fi
-
-	read -rsn1 input               # read one character from keyboard input
-	if [[ $input == $'\e' ]]; then # check if the input is the escape key
-		break
-	fi
-done
+if [ -n "$color" ]; then
+	printf '%s' "$color" | xclip -selection clipboard
+	notify-send "Color picked: $color"
+fi

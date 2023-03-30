@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+youtube_query=$(echo -n "" | dmenu -p "Search YouTube: ")
+
+# Open a terminal and execute the ytfzf -t command
+if [[ -z "${youtube_query// /}" ]]; then
+	exit
+else
+	alacritty -e bash -c "ytfzf -t \"$youtube_query\"; exec bash"
+fi

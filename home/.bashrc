@@ -327,16 +327,6 @@ alias rename='mv'
 alias explain='tldr'
 alias packages='sudo pacman -Qe'
 alias roblox='grapejuice app && exit'
-alias bios='systemctl reboot --firmware-setup'
-
-# YouTube Aliases
-alias youtube='ytfzf -t'
-alias channel='ytfzf -t --type=channel'
-alias ctt='ytfzf -t --type=channel https://www.youtube.com/channel/UCg6gPGh8HU2U01vaFCAsvmQ'
-alias dt='ytfzf -t --type=channel https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg'
-alias bugswriter='ytfzf -t --type=channel https://www.youtube.com/channel/UCngn7SVujlvskHRvRKc1cTw'
-alias brodie='ytfzf -t --type=channel https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA'
-alias mental-outlaw='ytfzf -t --type=channel https://www.youtube.com/channel/UC7YOGHUfC1Tb6E4pudI9STA'
 
 # GitHub Aliases
 alias clone='git clone'
