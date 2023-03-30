@@ -73,6 +73,7 @@ mesa-utils
 mpv
 ncdu
 neovim-nightly-bin
+networkmanager
 ngrok
 nload
 nmap
