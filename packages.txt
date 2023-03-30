@@ -35,7 +35,6 @@ fail2ban
 fd
 feh
 ffmpeg4.4
-firefox
 fish
 flake8
 flameshot
