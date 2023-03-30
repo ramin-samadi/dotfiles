@@ -113,6 +113,7 @@ slock
 smenu
 speedread-git
 speedtest-cli
+surf
 tldr
 toilet
 toilet-fonts
