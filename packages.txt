@@ -37,6 +37,7 @@ feh
 ffmpeg4.4
 fish
 flake8
+flameshot
 flatpak
 fzf
 git
