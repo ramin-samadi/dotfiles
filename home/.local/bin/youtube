@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 
-youtube_query=$(echo -n "" | dmenu -p "Search YouTube: ")
+channels=(
+	"Chris Titus Tech"
+	"DistroTube"
+	"Brodie"
+	"Bugswriter"
+	"Mental Outlaw"
+)
+
+selected=$(printf '%s\n' "${channels[@]}" | dmenu -p "Search YouTube: " -l "${#channels[@]}")
 
 # Open a terminal and execute the ytfzf -t command
-if [[ -z "${youtube_query// /}" ]]; then
+if [[ -z "${selected// /}" ]]; then
 	exit
 else
-	alacritty -e bash -c "ytfzf -t \"$youtube_query\"; exec bash"
+	alacritty -e bash -c "ytfzf -t \"$selected\"; exec bash"
 fi
