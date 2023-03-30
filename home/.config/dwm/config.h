@@ -21,7 +21,7 @@ static const char *colors[][3]      = {
 
 // ▀█▀ ▄▀█ █▀▀ █▀▀ █ █▄░█ █▀▀
 // ░█░ █▀█ █▄█ █▄█ █ █░▀█ █▄█
-static const char *tags[] = { "Home", "School", "Social", "Code" };
+static const char *tags[] = { "Hem", "Skola", "Spel", "Social", "Programmering" };
 
 static const Rule rules[] = {
   /* xprop(1):
