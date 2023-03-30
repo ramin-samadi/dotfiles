@@ -78,6 +78,7 @@ nload
 nmap
 nodejs
 nodejs-mapscii
+noto-color-emoji-fontconfig
 npm
 oneko
 openbsd-netcat
