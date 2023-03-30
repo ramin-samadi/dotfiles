@@ -2,12 +2,12 @@
 
 // ▄▀█ █▀█ █▀█ █▀▀ ▄▀█ █▀█ ▄▀█ █▄░█ █▀▀ █▀▀
 // █▀█ █▀▀ █▀▀ ██▄ █▀█ █▀▄ █▀█ █░▀█ █▄▄ ██▄
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 8;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Meslo LGS Nerd Font Mono:size=25:bold" };
-static const char dmenufont[]       = "Meslo LGS Nerd Font Mono:size=25:bold";
+static const char *fonts[]          = { "Meslo LGS Nerd Font Mono:size=20:bold" };
+static const char dmenufont[]       = "Meslo LGS Nerd Font Mono:size=20:bold";
 static const char col_gray1[]       = "#1E1E2E";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -16,7 +16,7 @@ static const char col_cyan[]        = "#313244";
 static const char *colors[][3]      = {
   /*               fg         bg         border   */
   [SchemeNorm] = { col_gray3, col_gray1, col_cyan },
-  [SchemeSel]  = { col_gray4, col_cyan,  col_gray2  },
+  [SchemeSel] =  { col_gray4, col_cyan, col_gray1 },
 };
 
 // ▀█▀ ▄▀█ █▀▀ █▀▀ █ █▄░█ █▀▀
