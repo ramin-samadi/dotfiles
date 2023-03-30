@@ -107,7 +107,9 @@ static const Key keys[] = {
     { SUPER,                        XK_m,      spawn,          SHCMD("playlist") }, //Playlist
     { SUPER,                        XK_x,      spawn,          SHCMD("power-menu") }, //Power Menu
     { SUPER,                        XK_a,      spawn,          SHCMD("anime") }, //Anime
+    { SUPER,                        XK_k,      spawn,          SHCMD("calendar") }, //Calendar
     { SUPER,                        XK_c,      spawn,          SHCMD("color-picker") }, //Color Picker
+    { SUPER,                        XK_d,      spawn,          SHCMD("date-time-notification") }, //Date & Time (dunst)
     { SUPER|ShiftMask,              XK_s,      spawn,          SHCMD("flameshot gui") }, //Screenshot
 
     // █▀█ ▄▀█ █▄░█ █▀▀ █░░
