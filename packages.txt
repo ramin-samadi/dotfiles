@@ -24,7 +24,6 @@ composer
 cowsay
 cronie
 didyoumean
-dmenufm
 dmidecode
 dnsmasq
 dunst
