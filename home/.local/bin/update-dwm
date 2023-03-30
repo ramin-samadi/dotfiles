@@ -3,6 +3,7 @@
 cd ~/GitHub/dwm && git pull
 rm -rf ~/GitHub/dwm/home/.local/bin/* && cp -r ~/.local/bin/* ~/GitHub/dwm/home/.local/bin/
 rm -rf ~/GitHub/dwm/home/.bashrc && cp -r ~/.bashrc ~/GitHub/dwm/home/
+rm -rf ~/GitHub/dwm/home/.config/dwm/config.h && cp -r ~/.config/dwm/config.h ~/GitHub/dwm/home/.config/dwm/
 rm -rf ~/GitHub/dwm/home/.xinitrc && cp -r ~/.xinitrc ~/GitHub/dwm/home/
 rm -rf ~/GitHub/dwm/home/.bash_profile && cp -r ~/.bash_profile ~/GitHub/dwm/home/
 /home/ramin/.local/bin/pass-update

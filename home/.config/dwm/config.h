@@ -86,9 +86,9 @@ static const Key keys[] = {
     { SUPER,                        XK_j,      zoom,           {1} }, //Switch position of window
     { SUPER,                        XK_l,      zoom,           {0} }, //Switch position of window
 
-    { SUPER|ShiftMask,              XK_t,      setlayout,      {.v = &layouts[0]} }, //Set Workspace in Tiling-mode
     { SUPER,                        XK_f,      setlayout,      {.v = &layouts[2]} }, //Fullscreen
-    { SUPER,                        XK_space,  togglefloating, {0} }, //Float
+    { SUPER|ShiftMask,              XK_f,      togglefloating, {0} }, //Float
+    { SUPER|ShiftMask,              XK_t,      setlayout,      {.v = &layouts[0]} }, //Tiling
 
     // █▀█ █░█ █ ▀█▀
     // ▀▀█ █▄█ █ ░█░
@@ -100,9 +100,15 @@ static const Key keys[] = {
     // █▀█ █▀▀ █▀▀
 
     { SUPER,                        XK_w,      spawn,          SHCMD("google-chrome-stable") }, //Browser
+    { SUPER,                        XK_y,      spawn,          SHCMD("youtube") }, //YouTube
     { SUPER,                        XK_t,      spawn,          SHCMD("alacritty") }, //Terminal
     { SUPER,                        XK_s,      spawn,          SHCMD("dmenu_run") }, //Search
     { SUPER,                        XK_p,      spawn,          SHCMD("passmenu-otp") }, //Password Manager
+    { SUPER,                        XK_m,      spawn,          SHCMD("playlist") }, //Playlist
+    { SUPER,                        XK_x,      spawn,          SHCMD("power-menu") }, //Power Menu
+    { SUPER,                        XK_a,      spawn,          SHCMD("anime") }, //Anime
+    { SUPER,                        XK_c,      spawn,          SHCMD("color-picker") }, //Color Picker
+    { SUPER|ShiftMask,              XK_s,      spawn,          SHCMD("flameshot gui") }, //Screenshot
 
     // █▀█ ▄▀█ █▄░█ █▀▀ █░░
     // █▀▀ █▀█ █░▀█ ██▄ █▄▄
