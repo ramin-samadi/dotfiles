@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+SELECTED_BSSID=$(nmcli device wifi list | sed -n '1!p' | cut -b 9- | dmenu -p "Select WiFi: " -l 20 | cut -d' ' -f1)
+PASSWORD_INPUT=$(echo "" | dmenu -p "Enter Password: ")
+nmcli device wifi connect $SELECTED_BSSID password $PASSWORD_INPUT
