@@ -1,38 +1,38 @@
 #!/bin/bash
 
 options=(
-	"1. Nasheed Taweel Alshawq - Ahmed Bukhatir - أحمد بوخاطر - نشيد طويل الشوق"
-	"2. Mishary Rashid Alafasy - انيلع ردبلا علط"
-	"3. Mishary Rashid Alafasy - هللا الإ هلإ ال"
-	"4. Mishary Rashid Alafasy - ىوهلا ماش ىلع يكبأ"
-	"5. Mishary Rashid Alafasy - ةخسنلا_دبعلا انا_ ينيد ديشن لمجا"
-	"6. Mishary Rashid Alafasy - ىفطصم"
-	"7. Mishary Rashid Alafasy - نمحر اي نمحر"
+	"1. Ahmed Bukhatir - Nasheed Taweel Alshawq"
+	"2. Mishary Rashid Alafasy - talie albadr ealayna"
+	"3. Mishary Rashid Alafasy - la 'iilha'ila allah"
+	"4. Mishary Rashid Alafasy - abki ealaa sham alhawaa"
+	"5. Mishary Rashid Alafasy - aijmil nashid dini _ana"
+	"6. Mishary Rashid Alafasy - mustafaa"
+	"7. Mishary Rashid Alafasy - rahmn ya rahman"
 	"8. Quit"
 )
 
 selected=$(printf '%s\n' "${options[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -sb "#313244" -p "" -l "${#options[@]}")
 
 case $selected in
-"1. Nasheed Taweel Alshawq - Ahmed Bukhatir - أحمد بوخاطر - نشيد طويل الشوق")
+"1. Ahmed Bukhatir - Nasheed Taweel Alshawq")
 	ytfzf -a -m https://youtu.be/o2W8_mvLuxU
 	;;
-"2. Mishary Rashid Alafasy - انيلع ردبلا علط")
+"2. Mishary Rashid Alafasy - talie albadr ealayna")
 	ytfzf -a -m https://www.youtube/watch?v=r716ZlTWXSU
 	;;
-"3. Mishary Rashid Alafasy - هللا الإ هلإ ال")
+"3. Mishary Rashid Alafasy - la 'iilha'ila allah")
 	ytfzf -a -m https://www.youtube.com/watch?v=4yWLofNagy8
 	;;
-"4. Mishary Rashid Alafasy - ىوهلا ماش ىلع يكبأ")
+"4. Mishary Rashid Alafasy - abki ealaa sham alhawaa")
 	ytfzf -a -m https://www.youtube.com/watch?v=BJYKctYt06w
 	;;
-"5. Mishary Rashid Alafasy - ةخسنلا_دبعلا انا_ ينيد ديشن لمجا")
+"5. Mishary Rashid Alafasy - aijmil nashid dini _ana")
 	ytfzf -a -m https://www.youtube.com/watch?v=JDx4mER0Dww
 	;;
-"6. Mishary Rashid Alafasy - ىفطصم")
+"6. Mishary Rashid Alafasy - mustafaa")
 	ytfzf -a -m https://www.youtube.com/watch?v=vfNI24pIEBY
 	;;
-"7. Mishary Rashid Alafasy - نمحر اي نمحر")
+"7. Mishary Rashid Alafasy - rahmn ya rahman")
 	ytfzf -a -m https://www.youtube.com/watch?v=M3xjz4nxzGQ
 	;;
 "8. Quit")
