@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
 SELECTED_BSSID=$(nmcli device wifi list | sed -n '1!p' | cut -b 9- | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -sb "#313244" -p "" -l 20 | cut -d' ' -f1)
-PASSWORD_INPUT=$(echo -n "" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -sb "#313244" -p "Enter Password: ")
 
-if [ -z "${PASSWORD_INPUT// /}" ] || [ -z "${SELECTED_BSSID// /}" ]; then
+if [[ -z "${SELECTED_BSSID// /}" ]]; then
+	exit
+else
+	PASSWORD_INPUT=$(echo -n "" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -sb "#313244" -p "Enter Password: ")
+fi
+
+if [[ -z "${PASSWORD_INPUT// /}" ]]; then
 	exit
 else
 	nmcli device wifi connect $SELECTED_BSSID password $PASSWORD_INPUT
