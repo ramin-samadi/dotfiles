@@ -2,15 +2,15 @@
 
 // ▄▀█ █▀█ █▀█ █▀▀ ▄▀█ █▀█ ▄▀█ █▄░█ █▀▀ █▀▀
 // █▀█ █▀▀ █▀▀ ██▄ █▀█ █▀▄ █▀█ █░▀█ █▄▄ ██▄
-static const unsigned int borderpx  = 12;        /* border pixel of windows */
+static const unsigned int borderpx  = 10;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Meslo LGS Nerd Font Mono:size=20:bold", "NotoColorEmoji:size=20" };
 static const char dmenufont[]       = "Meslo LGS Nerd Font Mono:size=20:bold";
 static const char col_gray1[]       = "#1E1E2E";
-static const char col_gray2[]       = "#cdd6f4	";
-static const char col_gray3[]       = "#a6adc8	";
+static const char col_gray2[]       = "#cdd6f4";
+static const char col_gray3[]       = "#a6adc8";
 static const char col_gray4[]       = "#313244";
 static const char col_cyan[]        = "#000000";
 static const char *colors[][3]      = {
