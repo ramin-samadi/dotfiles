@@ -108,15 +108,15 @@ static const Key keys[] = {
     { SUPER,                        XK_m,      spawn,          SHCMD("playlist") }, //Playlist
     { SUPER,                        XK_x,      spawn,          SHCMD("power-menu") }, //Power Menu
     { SUPER,                        XK_a,      spawn,          SHCMD("anime") }, //Anime
-    { SUPER,                        XK_k,      spawn,          SHCMD("calendar") }, //Calendar
-    { SUPER,                        XK_c,      spawn,          SHCMD("color-picker") }, //Color Picker
+    { SUPER,                        XK_c,      spawn,          SHCMD("calendar") }, //Calendar
+    { SUPER|ShiftMask,              XK_c,      spawn,          SHCMD("color-picker") }, //Color Picker
     { SUPER,                        XK_d,      spawn,          SHCMD("date-time-notification") }, //Date & Time (dunst)
     { SUPER|ShiftMask,              XK_s,      spawn,          SHCMD("flameshot gui") }, //Screenshot
 
     // █▀█ ▄▀█ █▄░█ █▀▀ █░░
     // █▀▀ █▀█ █░▀█ ██▄ █▄▄
 
-    { SUPER,                        XK_b,      togglebar,      {0} },
+    { SUPER|ShiftMask,              XK_b,      togglebar,      {0} },
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)
