@@ -9,14 +9,14 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Meslo LGS Nerd Font Mono:size=20:bold", "NotoColorEmoji:size=20" };
 static const char dmenufont[]       = "Meslo LGS Nerd Font Mono:size=20:bold";
 static const char col_gray1[]       = "#1E1E2E";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray2[]       = "#cdd6f4	";
+static const char col_gray3[]       = "#a6adc8	";
 static const char col_gray4[]       = "#313244";
 static const char col_cyan[]        = "#000000";
 static const char *colors[][3]      = {
   /*               fg         bg         border   */
   [SchemeNorm] = { col_gray2, col_gray1, col_cyan },
-  [SchemeSel] =  { col_gray3, col_gray4, col_cyan },
+  [SchemeSel] =  { col_gray3, col_gray1, col_cyan },
 };
 
 // ▀█▀ ▄▀█ █▀▀ █▀▀ █ █▄░█ █▀▀
@@ -43,9 +43,9 @@ static const int lockfullscreen   = 1; /* 1 will force focus on the fullscreen w
 
 static const Layout layouts[] = {
   /* symbol     arrange function */
-  { "",      tile },    /* first entry is default */
-  { "",      NULL },    /* no layout function means floating behavior */
-  { "",      monocle },
+  { "",        tile    },    /* first entry is default */
+  { "",         NULL    },    /* no layout function means floating behavior */
+  { "",         monocle },
 };
 
 // █▄▀ █▀▀ █▄█   █▀▄ █▀▀ █▀▀ █ █▄░█ █ ▀█▀ █ █▀█ █▄░█
