@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-SELECTED_BSSID=$(nmcli device wifi list | sed -n '1!p' | cut -b 9- | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -sb "#313244" -p "" -l 20 | cut -d' ' -f1)
+SELECTED_BSSID=$(nmcli device wifi list | sed -n '1!p' | cut -b 9- | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p "" -l 20 | cut -d' ' -f1)
 
 if [[ -z "${SELECTED_BSSID// /}" ]]; then
 	exit
 else
-	PASSWORD_INPUT=$(echo -n "" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -sb "#313244" -p "")
+	PASSWORD_INPUT=$(echo -n "" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -p "")
 fi
 
 if [[ -z "${PASSWORD_INPUT// /}" ]]; then
