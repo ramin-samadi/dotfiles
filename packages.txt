@@ -91,7 +91,6 @@ pamixer
 paru-bin
 pass
 pass-otp
-passmenu-otp-git
 pavucontrol
 php
 pipewire
