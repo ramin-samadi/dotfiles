@@ -327,6 +327,9 @@ alias rename='mv'
 alias explain='tldr'
 alias packages='sudo pacman -Qe'
 alias roblox='grapejuice app && exit'
+alias mpv='devour mpv'
+alias feh='devour feh'
+alias sxiv='devour sxiv'
 
 # GitHub Aliases
 alias clone='git clone'

@@ -1,4 +1,3 @@
-alacritty
 amdguid-glow-bin
 ani-cli
 appimagelauncher
@@ -23,6 +22,7 @@ colorpicker
 composer
 cowsay
 cronie
+devour
 didyoumean
 dmidecode
 dnsmasq
@@ -93,6 +93,7 @@ pass
 pass-otp
 pavucontrol
 php
+picom
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -106,15 +107,18 @@ powershell-bin
 python-gtts
 python-pip
 qemu-full
+ranger
 ripgrep
 ruby
 rustdesk-bin
 sl
 slock
+slstatus-git
 smenu
 speedread-git
 speedtest-cli
 surf
+sxiv
 tldr
 toilet
 toilet-fonts

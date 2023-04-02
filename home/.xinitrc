@@ -4,9 +4,6 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-# Monitor
-xrandr --output DisplayPort-0 --mode 1920x1080 --output DVI-0 --mode 1920x1080 --left-of DisplayPort-0
-
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
@@ -34,6 +31,17 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 	unset f
 fi
 
+# Keyboard layout
+setxkbmap se &
+slstatus &
+
+# Monitor
+xrandr --output DisplayPort-0 --mode 1920x1080 --output DVI-0 --mode 1920x1080 --left-of DisplayPort-0 &
+
+# Compositor
+picom -f &
+
+# Keyboard layout
 setxkbmap se &
 
 # Login Loop
@@ -51,4 +59,4 @@ done
 /usr/bin/dunst
 
 # Start DWM
-exec dwm
+exec dbus-run-session dwm

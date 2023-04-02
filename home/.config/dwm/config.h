@@ -2,37 +2,66 @@
 
 // ▄▀█ █▀█ █▀█ █▀▀ ▄▀█ █▀█ ▄▀█ █▄░█ █▀▀ █▀▀
 // █▀█ █▀▀ █▀▀ ██▄ █▀█ █▀▄ █▀█ █░▀█ █▄▄ ██▄
-static const unsigned int borderpx  = 10;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Meslo LGS Nerd Font Mono:size=20:bold", "NotoColorEmoji:size=20" };
-static const char dmenufont[]       = "Meslo LGS Nerd Font Mono:size=20:bold";
-static const char col_gray1[]       = "#1E1E2E";
-static const char col_gray2[]       = "#cdd6f4";
-static const char col_gray3[]       = "#a6adc8";
-static const char col_gray4[]       = "#313244";
-static const char col_cyan[]        = "#000000";
-static const char *colors[][3]      = {
-  /*               fg         bg         border   */
-  [SchemeNorm] = { col_gray2, col_gray1, col_cyan },
-  [SchemeSel] =  { col_gray3, col_gray1, col_cyan },
+static const unsigned int borderpx    = 0;        /* border pixel of windows */
+static const unsigned int gappx       = 3;        /* gaps between windows */
+static const unsigned int snap        = 32;       /* snap pixel */
+static const int swallowfloating      = 0;        /* 1 means swallow floating windows by default */
+static const int showbar              = 1;        /* 0 means no bar */
+static const int showtitle            = 1;        /* 0 means no title */
+static const int showtags             = 1;        /* 0 means no tags */
+static const int showlayout           = 0;        /* 0 means no layout indicator */
+static const int showstatus           = 1;        /* 0 means no status bar */
+static const int showfloating         = 0;        /* 0 means no floating indicator */
+static const int topbar               = 1;        /* 0 means bottom bar */
+static const char *fonts[]            = { "Meslo LGS Nerd Font Mono:size=20:bold", "NotoColorEmoji:size=20:bold" };
+static const char dmenufont[]         = "Meslo LGS Nerd Font Mono:size=20:bold";
+
+// █▀█ ▄▀█ █▄░█ █▀▀ █░░
+// █▀▀ █▀█ █░▀█ ██▄ █▄▄
+static const char active_panel_color[]       = "#313244";
+static const char inactive_panel_color[]     = "#1E1E2E";
+
+static const char active_font_color[]        = "#cdd6f4";
+static const char inactive_font_color[]      = "#a6adc8";
+
+static const char active_border_color[]      = "#000000";
+static const char inactive_border_color[]    = "#000000";
+
+static const char active_title_color[]       = "#1E1E2E";
+static const char inactive_title_color[]     = "#1E1E2E";
+
+static const char *colors[][3]              = {
+  [SchemeNorm] =  { inactive_font_color,   inactive_panel_color,  inactive_border_color },
+  [SchemeSel] =   { active_font_color,     active_panel_color,    active_border_color },
+  [SchemeTitle] = { active_font_color,     active_title_color,    inactive_title_color },
 };
 
 // ▀█▀ ▄▀█ █▀▀ █▀▀ █ █▄░█ █▀▀
 // ░█░ █▀█ █▄█ █▄█ █ █░▀█ █▄█
 static const char *tags[] = { "", "", "", "", "" };
 
+static const char *tagsel[][2] = {
+	{ "#1793D1", "#313244" },
+	{ active_font_color, "#313244" },
+	{ active_font_color, "#313244" },
+	{ active_font_color, "#313244" },
+	{ active_font_color, "#313244" },
+	{ "#ffffff", "#313244" },
+	{ "#ffffff", "#313244" },
+	{ "#000000", "#313244" },
+	{ "#ffffff", "#313244" },
+};
+
 static const Rule rules[] = {
   /* xprop(1):
    *          *      WM_CLASS(STRING) = instance, class
    *                   *      WM_NAME(STRING) = title
    *                            */
-  /* class      instance    title       tags mask     isfloating   monitor */
-  { "Gimp",     NULL,       NULL,       0,            1,           -1 },
-  { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+  /* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+  { "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
+  { "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+  { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
-
 
 // █░░ ▄▀█ █▄█ █▀█ █░█ ▀█▀
 // █▄▄ █▀█ ░█░ █▄█ █▄█ ░█░
@@ -77,6 +106,10 @@ static const Key keys[] = {
     { SUPER|ShiftMask,              XK_l,      tagmon,         {.i = -1 } }, //Move window to the right
     { SUPER|ShiftMask,              XK_j,      tagmon,         {.i = +1 } }, //Move window to the left
 
+    { SUPER,                        XK_minus,  setgaps,        {.i = -1 } },
+    { SUPER,                        XK_equal,  setgaps,        {.i = +1 } },
+    { SUPER|ShiftMask,              XK_equal,  setgaps,        {.i = 0  } },
+
     { SUPER,                        XK_i,      incnmaster,     {.i = +1 } }, //Switch master layout
     { SUPER,                        XK_o,      incnmaster,     {.i = -1 } }, //Switch master layout
 
@@ -102,7 +135,7 @@ static const Key keys[] = {
     { SUPER,                        XK_b,      spawn,          SHCMD("google-chrome-stable") }, //Browser
     { SUPER,                        XK_w,      spawn,          SHCMD("wifi") }, //WiFi
     { SUPER,                        XK_y,      spawn,          SHCMD("youtube") }, //YouTube
-    { SUPER,                        XK_t,      spawn,          SHCMD("alacritty") }, //Terminal
+    { SUPER,                        XK_t,      spawn,          SHCMD("st") }, //Terminal
     { SUPER,                        XK_s,      spawn,          SHCMD("dmenu_run") }, //Search
     { SUPER,                        XK_p,      spawn,          SHCMD("passmenu-otp") }, //Password Manager
     { SUPER,                        XK_m,      spawn,          SHCMD("playlist") }, //Playlist

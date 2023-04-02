@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Get the default route interface(s)
+default_interfaces=$(ip route | grep default | awk '{print $5}')
+
+# Check if both WiFi and Ethernet are connected
+wifi_connected=false
+eth_connected=false
+for interface in $default_interfaces; do
+	if [[ ${interface:0:1} == "w" ]]; then
+		wifi_connected=true
+	elif [[ ${interface:0:1} == "e" ]]; then
+		eth_connected=true
+	fi
+done
+
+# Output the result
+if [[ $wifi_connected == true && $eth_connected == true ]]; then
+	echo " "
+elif [[ $wifi_connected == true ]]; then
+	echo ""
+elif [[ $eth_connected == true ]]; then
+	echo ""
+else
+	echo ""
+fi
