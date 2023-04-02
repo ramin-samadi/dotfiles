@@ -35,6 +35,9 @@ fi
 setxkbmap se &
 slstatus &
 
+# Background
+feh --bg-fill /home/ramin/.wallpaper/wallpaper.jpg &
+
 # Monitor
 xrandr --output DisplayPort-0 --mode 1920x1080 --output DVI-0 --mode 1920x1080 --left-of DisplayPort-0 &
 
@@ -55,8 +58,8 @@ done
 /usr/bin/pipewire-media-session &
 
 # Start KDE Polkit (used for password prompts for some applications)
-/usr/lib/polkit-kde-authentication-agent-1
-/usr/bin/dunst
+/usr/lib/polkit-kde-authentication-agent-1 &
+/usr/bin/dunst &
 
 # Start DWM
 exec dbus-run-session dwm
