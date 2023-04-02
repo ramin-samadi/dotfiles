@@ -2,39 +2,39 @@
 
 # Define the options to be displayed in dmenu
 options=(
-	"1.  Lock"
-	"2.  Logout"
-	"3.  Reboot"
-	"4.  Shutdown"
-	"5. ⏾ Suspend"
-	"6. ⏼ Hibernate"
-	"7.  BIOS/UEFI"
+	" Lock"
+	" Logout"
+	" Reboot"
+	" Shutdown"
+	"⏾ Suspend"
+	"⏼ Hibernate"
+	" BIOS/UEFI"
 )
 
 # Get the user's choice using dmenu
-selected=$(printf '%s\n' "${options[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p "" -l "${#options[@]}")
+selected=$(printf '%s\n' "${options[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p "")
 
 # Use a case statement to perform the appropriate action based on the user's choice
 case "$selected" in
-"1.  Lock")
+" Lock")
 	slock
 	;;
-"2.  Logout")
+" Logout")
 	pkill dwm
 	;;
-"3.  Reboot")
+" Reboot")
 	systemctl reboot
 	;;
-"4.  Shutdown")
+" Shutdown")
 	systemctl poweroff
 	;;
-"5. ⏾ Suspend")
+"⏾ Suspend")
 	systemctl suspend
 	;;
-"6. ⏼ Hibernate")
+"⏼ Hibernate")
 	systemctl hibernate
 	;;
-"7.  BIOS/UEFI")
+" BIOS/UEFI")
 	systemctl reboot --firmware-setup
 	;;
 esac
