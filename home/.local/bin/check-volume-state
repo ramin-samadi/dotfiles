@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+VOLUME_STATE=$(pamixer --get-volume-human)
+
+echo "${VOLUME_STATE}"
+
+if [ ${VOLUME_STATE} = "muted" ]; then
+	echo ""
+fi
