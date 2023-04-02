@@ -19,7 +19,7 @@ cd && wget https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts
 git clone https://github.com/christitustech/mybash ~/mybash && cd ~/mybash/ && ./setup-arch.sh
 sudo pacman -Syu --needed lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
 sudo ufw enable && sudo systemctl enable --now ufw.service
-ufw allow 5900 comment "Remote"
+sudo ufw allow 5900 comment "Remote"
 
 cd
 git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
