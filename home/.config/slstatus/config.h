@@ -65,7 +65,7 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function       format          argument */
-  { run_command,    "%4s | ",       "check-network-state"           },
-  { run_command,    " %4s | ",     "pamixer --get-volume-human"    },
+  { run_command,    "%4s |",       "check-network-state"           },
+  { run_command,    "%4s | ",       "check-volume-state"            },
 	{ datetime,       "%s",           "%R "                           },
 };
