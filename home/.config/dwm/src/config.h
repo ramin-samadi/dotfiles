@@ -1,0 +1,1 @@
+/home/ramin/.config/dwm/config.h

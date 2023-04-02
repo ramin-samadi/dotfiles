@@ -107,7 +107,6 @@ powershell-bin
 python-gtts
 python-pip
 qemu-full
-ranger
 ripgrep
 ruby
 rustdesk-bin
