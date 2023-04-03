@@ -38,7 +38,7 @@ static const char *colors[][3]              = {
 
 // ▀█▀ ▄▀█ █▀▀ █▀▀ █ █▄░█ █▀▀
 // ░█░ █▀█ █▄█ █▄█ █ █░▀█ █▄█
-static const char *tags[] = { "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "" };
 
 static const char *tagsel[][2] = {
 	{ "#1793D1", "#313244" },
