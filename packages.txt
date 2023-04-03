@@ -31,6 +31,7 @@ dust
 dwm
 efibootmgr
 electron
+eww
 fail2ban
 fd
 feh
