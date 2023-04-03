@@ -12,6 +12,7 @@ bash-completion
 bash-language-server
 bc
 blesh-git
+breeze
 bridge-utils
 btop
 calcurse
@@ -52,6 +53,7 @@ iptables-nft
 javacc
 jq
 julia
+kdenlive
 lazygit
 lib32-gnutls
 lib32-libpulse
