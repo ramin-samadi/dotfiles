@@ -13,6 +13,8 @@ static const int showlayout           = 0;        /* 0 means no layout indicator
 static const int showstatus           = 1;        /* 0 means no status bar */
 static const int showfloating         = 0;        /* 0 means no floating indicator */
 static const int topbar               = 1;        /* 0 means bottom bar */
+static const int splitstatus          = 1;        /* 1 for split status items */
+static const char *splitdelim         = ";";       /* Character used for separating status */
 static const char *fonts[]            = { "Meslo LGS Nerd Font Mono:size=20:bold", "NotoColorEmoji:size=20:bold" };
 static const char dmenufont[]         = "Meslo LGS Nerd Font Mono:size=20:bold";
 
