@@ -4,7 +4,9 @@ VOLUME_STATE=$(pamixer --get-volume)
 VOLUME_MUTED=$(pamixer --get-volume-human)
 
 if [[ ${VOLUME_MUTED} = "muted" || ${VOLUME_STATE} = 0 ]]; then
-	echo ""
+	echo "     "
+elif [[ ${VOLUME_STATE} -le 5 ]]; then
+	echo "   $VOLUME_STATE%"
 elif [[ ${VOLUME_STATE} -ge 0 && ${VOLUME_STATE} -le 30 ]]; then
 	echo "  $VOLUME_STATE%"
 elif [[ ${VOLUME_STATE} -ge 30 && ${VOLUME_STATE} -le 70 ]]; then
@@ -12,5 +14,5 @@ elif [[ ${VOLUME_STATE} -ge 30 && ${VOLUME_STATE} -le 70 ]]; then
 elif [[ ${VOLUME_STATE} -ge 70 && ${VOLUME_STATE} -lt 100 ]]; then
 	echo "  $VOLUME_STATE%"
 elif [[ ${VOLUME_STATE} -ge 100 ]]; then
-	echo " "
+	echo "     "
 fi
