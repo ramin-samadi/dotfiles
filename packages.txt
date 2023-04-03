@@ -134,6 +134,7 @@ ttyper-git
 ueberzug
 ufw
 unzip
+upower
 vi
 vim
 virt-manager
