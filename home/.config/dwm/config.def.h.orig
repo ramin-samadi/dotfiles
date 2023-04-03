@@ -38,18 +38,18 @@ static const char *colors[][3]              = {
 
 // ▀█▀ ▄▀█ █▀▀ █▀▀ █ █▄░█ █▀▀
 // ░█░ █▀█ █▄█ █▄█ █ █░▀█ █▄█
-static const char *tags[] = { "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "" };
 
 static const char *tagsel[][2] = {
-	{ "#1793D1", "#313244" },
-	{ active_font_color, "#313244" },
-	{ active_font_color, "#313244" },
-	{ active_font_color, "#313244" },
-	{ active_font_color, "#313244" },
-	{ "#ffffff", "#313244" },
-	{ "#ffffff", "#313244" },
-	{ "#000000", "#313244" },
-	{ "#ffffff", "#313244" },
+	{ "#1793D1",          "#313244" },
+	{ active_font_color,  "#313244" },
+	{ active_font_color,  "#313244" },
+	{ active_font_color,  "#313244" },
+	{ active_font_color,  "#313244" },
+	{ "#ffffff",          "#313244" },
+	{ "#ffffff",          "#313244" },
+	{ "#000000",          "#313244" },
+	{ "#ffffff",          "#313244" },
 };
 
 static const Rule rules[] = {
@@ -113,8 +113,8 @@ static const Key keys[] = {
     { SUPER,                        XK_i,      incnmaster,     {.i = +1 } }, //Switch master layout
     { SUPER,                        XK_o,      incnmaster,     {.i = -1 } }, //Switch master layout
 
-    { SUPER,                        XK_Left,   setmfact,       {.f = -0.05} }, //Resize window to the left
-    { SUPER,                        XK_Right,  setmfact,       {.f = +0.05} }, //Resize window to the right
+    { SUPER,                        XK_Left,   setmfact,       {.f = -0.001} }, //Resize window to the left
+    { SUPER,                        XK_Right,  setmfact,       {.f = +0.001} }, //Resize window to the right
 
     { SUPER,                        XK_j,      zoom,           {1} }, //Switch position of window
     { SUPER,                        XK_l,      zoom,           {0} }, //Switch position of window
