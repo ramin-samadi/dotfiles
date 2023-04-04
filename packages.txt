@@ -10,6 +10,7 @@ base
 base-devel
 bash-completion
 bash-language-server
+bb
 bc
 blesh-git
 breeze
