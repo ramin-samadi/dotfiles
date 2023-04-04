@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set the path to the file where we'll save the barEnabled variable
-barEnabledFile="~/.local/bin/.bar_enabled"
+barEnabledFile="/home/ramin/.local/bin/.bar_enabled"
 
 # Check if the file exists and read the value of barEnabled from it
 if [[ -f "$barEnabledFile" ]]; then
@@ -11,8 +11,10 @@ fi
 # Check the value of barEnabled and open or close the window accordingly
 if [[ $barEnabled == "executed" ]]; then
 	eww close my-widget
+	barEnabled="false"
+	echo "$barEnabled" >~/.local/bin/.bar_enabled
 else
 	eww open my-widget
 	barEnabled="executed"
-	echo "$barEnabled" >"$barEnabledFile"
+	echo "$barEnabled" >~/.local/bin/.bar_enabled
 fi
