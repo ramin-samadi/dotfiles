@@ -76,6 +76,7 @@ luarocks
 mesa-utils
 mpv
 ncdu
+neovim-gtk
 neovim-nightly-bin
 networkmanager
 ngrok
