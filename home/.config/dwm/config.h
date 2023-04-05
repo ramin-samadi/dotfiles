@@ -140,12 +140,12 @@ static const Key keys[] = {
     { SUPER,                        XK_p,      spawn,          SHCMD("passmenu-otp") }, //Password Manager
     { SUPER,                        XK_m,      spawn,          SHCMD("playlist") }, //Playlist
     { SUPER,                        XK_x,      spawn,          SHCMD("power-menu") }, //Power Menu
-    { SUPER,                        XK_a,      spawn,          SHCMD("anime") }, //Anime
+    { SUPER|ShiftMask,              XK_a,      spawn,          SHCMD("anime") }, //Anime
     { SUPER,                        XK_c,      spawn,          SHCMD("calendar") }, //Calendar
     { SUPER|ShiftMask,              XK_c,      spawn,          SHCMD("color-picker") }, //Color Picker
     { SUPER,                        XK_d,      spawn,          SHCMD("date-time-notification") }, //Date & Time (dunst)
     { SUPER|ShiftMask,              XK_s,      spawn,          SHCMD("flameshot gui") }, //Screenshot
-    { SUPER,                        XK_space,  spawn,          SHCMD("eww-power-menu") }, //GUI Power Menu
+    { SUPER,                        XK_a,      spawn,          SHCMD("eww-power-menu") }, //GUI Power Menu
 
     // █▀█ ▄▀█ █▄░█ █▀▀ █░░
     // █▀▀ █▀█ █░▀█ ██▄ █▄▄
