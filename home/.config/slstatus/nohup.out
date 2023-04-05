@@ -2,3 +2,7 @@ XIO:  fatal IO error 4 (Interrupted system call) on X server ":0"
       after 1767 requests (1767 known processed) with 0 events remaining.
 XIO:  fatal IO error 4 (Interrupted system call) on X server ":0"
       after 142 requests (142 known processed) with 0 events remaining.
+The sink doesn't exist
+
+The sink doesn't exist
+
