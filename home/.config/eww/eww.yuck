@@ -3,9 +3,8 @@
 (defwidget greeter [?text name]
   (box :orientation "horizontal"
        :halign "center"
-    text
     (button :onclick 'anime'
-      "Greet")))
+      "  ")))
 
 (defwindow my-widget
            :geometry (geometry :x "0%"

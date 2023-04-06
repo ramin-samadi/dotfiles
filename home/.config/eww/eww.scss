@@ -77,8 +77,21 @@
 //   color: #FFD5CD;
 // }
 
-.example {
+.my-widget {
   background-color: #1E1E2E;
+  border-radius: 10px;
+  color: #A6ADC8;
+}
+
+button {
+  background-color: #4CAF60;  
+  font-size: 20px;
+  margin-left: 1830px;
+  border-radius: 10px;
+  color: #1E1E2E;
+}
+
+button:hover {
   border-radius: 10px;
   color: #A6ADC8;
 }
