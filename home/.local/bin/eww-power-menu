@@ -10,11 +10,11 @@ fi
 
 # Check the value of barEnabled and open or close the window accordingly
 if [[ $barEnabled == "executed" ]]; then
-	eww close my-widget
+	eww close actions
 	barEnabled="false"
 	echo "$barEnabled" >~/.local/bin/.bar_enabled
 else
-	eww open my-widget
+	eww open actions
 	barEnabled="executed"
 	echo "$barEnabled" >~/.local/bin/.bar_enabled
 fi

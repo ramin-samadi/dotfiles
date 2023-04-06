@@ -2,23 +2,6 @@
   (box :class "userinfobox"
        :orientation "h"
        :space-evenly true
-    (box :class "info"
-         :space-evenly false
-         :orientation "h"
-         :halign "start"
-         :valign "center"
-         :spacing 10
-      (label :text "${username}" :class "username")
-    )
-    (box :class "useractions"
-         :space-evenly false
-         :orientation "h"
-         :halign "end"
-         :valign "center"
-      (button :class "logout" :onclick "slock"
-        ""
-      )
-    )
   )
 )
 
