@@ -1,81 +1,26 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# @requires: amixer
-# @requires: pacmd
+VOLUME_STATE=$(pamixer --get-volume)
 
-percentage () {
-  local val=$(echo $1 | tr '%' ' ' | awk '{print $1}')
-  local icon1=$2
-  local icon2=$3
-  local icon3=$4
-  local icon4=$5
-  if [ "$val" -le 15 ]; then
-    echo $icon1
-  elif [ "$val" -le 30 ]; then
-    echo $icon2
-  elif [ "$val" -le 60 ]; then
-    echo $icon3
-  else
-    echo $icon4
-  fi
-}
-
-is_muted () {
-  pacmd list-sinks | awk '/muted/ { print $2 }'
-}
-
-get_percentage () {
-  local muted=$(is_muted)
-  if [[ $muted == 'yes' ]]; then
-    echo "muted"
-  else
-    amixer get Master |grep % |awk '{print $5}'|sed -e 's/\[//' -e 's/\]//' | head -n 1
-  fi
-}
-
-get_icon () {
-  local vol=$(get_percentage)
-  if [[ $vol == "muted" ]]; then
-    echo "婢"
-  else
-    echo $(percentage "$vol" "" "" "墳" "")
-  fi
-}
-
-get_class () {
-  local vol=$(get_percentage)
-  if [[ $vol == "muted" ]]; then
-    echo "red"
-  else
-    echo $(percentage "$vol" "red" "magenta" "yellow" "blue")
-  fi
-}
-
-get_vol () {
-  local percent=$(get_percentage)
-  echo $percent | tr -d '%'
-}
-
-if [[ $1 == "icon" ]]; then
-  get_icon
-fi
-
-if [[ $1 == "class" ]]; then
-  get_class
-fi
-
-if [[ $1 == "percentage" ]]; then
-  get_percentage
-fi
-
-if [[ $1 == "vol" ]]; then
-  get_vol
-fi
+echo "${VOLUME_STATE}"
 
 if [[ $1 == "set" ]]; then
-  val=$(echo $2 | tr '.' ' ' | awk '{print $1}')
-  if test $val -gt 100; then
-    val=100
+  increase_volume="XF86AudioRaiseVolume"
+  decrease_volume="XF86AudioLowerVolume"
+
+  if ! pamixer --increase $increase_volume; then
+    echo "Error increasing volume"
   fi
-  amixer sset 'Master' $val%
+
+  if ! pamixer --decrease $decrease_volume; then
+    echo "Error decreasing volume"
+  fi
+
+  if ! xdotool key $increase_volume; then
+    echo "Error simulating key press for increasing volume"
+  fi
+
+  if ! xdotool key $decrease_volume; then
+    echo "Error simulating key press for decreasing volume"
+  fi
 fi

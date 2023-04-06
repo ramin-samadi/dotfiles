@@ -15,6 +15,7 @@ bc
 blesh-git
 breeze
 bridge-utils
+brightnessctl-git
 btop
 calcurse
 cava
