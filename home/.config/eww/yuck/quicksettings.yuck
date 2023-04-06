@@ -138,26 +138,6 @@
     :class "user"
     :space-evenly false
     (box
-        :class "profile-picture module" 
-        :style "background-image: url('${EWW_CONFIG_DIR}/${profile_picture}')"
-        (box
-            :class "darkened"
-            :orientation "v"
-            :space-evenly false
-            (label
-                :valign "START"
-                :halign "START"
-                :text real_name
-            )
-            (label
-                :vexpand true
-                :valign "END"
-                :halign "START"
-                :text user_name
-            )
-        )
-    )
-    (box
         :class "sysactions module"
         :orientation "v"
         :space-evenly true
