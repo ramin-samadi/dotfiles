@@ -15,7 +15,7 @@
          :orientation "h"
          :halign "end"
          :valign "center"
-      (button :class "logout" :onclick "bspc quit"
+      (button :class "logout" :onclick "slock"
         ""
       )
     )
@@ -36,7 +36,7 @@
            :space-evenly true
         (sysblock 
         :icon "${network_icon}"
-        :onclick "networkmanager_dmenu"
+        :onclick "wifi"
         :active "${network_status == 'Connected' ? true : false}"
         :label "${network_ssid}"
         )
@@ -185,33 +185,6 @@
              :halign "start"
            "${br}%")
     )
-    (box :class "slider"
-         :orientation "h"
-         :space-evenly "false"
-      (box :class "label"
-            "")
-      (scale :value ram
-             :hexpand true
-             :active false
-             :min 0
-             :max 101)
-      (box :class "scale-label "
-           "${ram}%"
-           )
-    )
-    (box :class "slider"
-         :orientation "h"
-         :space-evenly "false"
-      (box :class "label"
-           "")
-      (scale :value cpu
-             :hexpand true
-             :active false
-             :min 0
-             :max 101)
-      (box :class "scale-label"
-           "${cpu}%")
-    )
   )
 )
 
@@ -236,8 +209,8 @@
 )
 
 (defwindow actions
-  :geometry (geometry :x "-270px"
-                      :y "66px"
+  :geometry (geometry :x "0%"
+                      :y "4%"
                       :anchor "top right")
   :type "dock"
   :wm-ignore true
