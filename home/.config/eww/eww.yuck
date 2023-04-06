@@ -1,6 +1,42 @@
+
+
+(defwidget vol-slider []
+  (box :orientation "h" :halign "center"
+    (metric :label "volume"
+            :value volume
+            :onchange "pamixer --set-volume {}"))
+  )
+
+(defpoll volume :interval "1ms"
+  "pamixer --get-volume")
+
+(defwidget metric [label value onchange]
+  (box  :orientation "h"
+        :class "metric"
+        :space-evenly false
+    (box :class "label" label)
+    (scale  :min 0
+            :max 101
+            :active {onchange != ""}
+            :value value
+            :onchange onchange)))
+
 (defwindow my-widget :monitor 0
-  :geometry (geometry :x "78%"
+  :geometry (geometry :x "80%"
                       :y "4%"
                       :height "50%"
-                      :width "420px")
-  ("example content"))
+                      :width "20%")
+  (vol-slider))
+
+(defwindow example
+           :monitor 0
+           :geometry (geometry :x "80%"
+                               :y "4%"
+                               :width "20%"
+                               :height "50%"
+                               :anchor "top")
+           :stacking "fg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dock"
+           :wm-ignore false
+  "example content")
