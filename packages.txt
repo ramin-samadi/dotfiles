@@ -122,7 +122,6 @@ slstatus-git
 smenu
 speedread-git
 speedtest-cli
-spotify
 surf
 sxiv
 tldr

@@ -1,37 +1,39 @@
 .actions {
-  background-color: $bg;
+  background-color: #1E1E2E;
   color: $fg;
   font-family: Product Sans;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .controlsbox {
   border-radius: 24px;
-  background-color: $bg;
+  background-color: #313244;
   padding: 20px 14px 20px 18px;
 }
 
 .slider {
   .label{
-    font-family: 'JetBrainsMono Nerd Font';
-    color: $fg;
+    font-family: 'MesloLGS Nerd Font Mono';
+    color: #CDD6F4;
     font-size: 18px;
     padding-right: 20px;
   }
   .scale-label{
     min-width: 40px;
-    color: $fg;
+    font-family: 'Arial';
+    color: #CDD6F4;
     font-size: 13px;
     font-weight: 500;
     margin-left: 20px;
   }
   trough {
-    background-color: $bg;
+    background-color: #45475A;
     min-height: 6px;
     border-radius: 100px;
 
     highlight {
-      background-color: $accent;
+      background-color: #89b4fa;
       border-radius: 100px;
     }
   }
@@ -40,7 +42,7 @@
 .active {
   trough {
     slider {
-      background: $accent;
+      background: #89b4fa;
       border-radius: 100%;
       margin: -8px;
     }
@@ -71,23 +73,23 @@
 .sysbuttonsbox {
   .block-container {
     .block {
-      background-color: $bg; 
+      background-color: #313244; 
       padding: 18px 0px 18px 6px;
       min-width: 170px;
       border-radius: 25px;
       transition: all ease .2s;
-      color: $fg;
-      &:hover { background-color: $bgSecondary; }
+      color: #CDD6F4;
+      &:hover { background-color: #45475a; }
       &:active { 
-        background-color: $contrastbg; 
+        background-color: #45475A; 
         color: $fg;
       }
       &.active {
-        color: $bgSecondary;
-        background-color: $accent;
-        &:hover { background-color: $bg; }
+        color: #313244;
+        background-color: #89b4fa;
+        &:hover { background-color: #5C89C5; }
         &:active {
-        background-color: $bg;
+        background-color: #45475A;
         }
       }
       .iconbox .icon {
