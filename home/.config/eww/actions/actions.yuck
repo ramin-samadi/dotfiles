@@ -98,21 +98,9 @@
   (box :class "musicbox"
        :orientation "v"
        :style "background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 30%, ${pctl_sub['image_accent']}), url(\"${pctl_sub['mpris:artUrl']}\"); background-size: cover; background-position: center;"
-  (box :class "musicbox__top"
-       :halign "start"
-       :valign "start"
-       :style "color: ${pctl_sub['button_accent']};"
-       "${player == 'spotify' ? '' : '爵' }")
   (box :class "musicbox__center"
        :orientation "h"
        :space-evenly false
-       (box :class "musicbox__center--metadata"
-            :orientation "v"
-            :halign "start"
-            :valign "center"
-            :hexpand true
-            (label :limit-width 25 :halign "start" :text title :class "title")
-            (label :limit-width 25 :halign "start" :text artist :class "artist"))
        (button :class "pausebutton ${music_status == 'Playing' ? 'playing' : 'paused'}"
                :halign "end"
                :style "background-color: ${pctl_sub['button_accent']}; color: ${pctl_sub['button_text']};"
@@ -126,6 +114,15 @@
                :onclick "~/.config/eww/scripts/music/control.sh prev & ~/.config/eww/scripts/music/songart.sh get"
                :class "previousbutton"
                "玲"
+       )
+       (button :valign "center"
+               :halign "center"
+               :orientation "h"
+               :space-evenly false
+               :style "background-color: ${pctl_sub['button_accent']}; color: ${pctl_sub['button_text']};"
+               :onclick "~/.config/eww/scripts/music/control.sh play-pause"
+               :class "pausebutton ${music_status == 'Playing' ? 'playing' : 'paused'}"
+               " "
        )
        (button :valign "end"
                :halign "end"
