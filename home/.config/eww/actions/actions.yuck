@@ -98,15 +98,6 @@
   (box :class "musicbox"
        :orientation "v"
        :style "background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 30%, ${pctl_sub['image_accent']}), url(\"${pctl_sub['mpris:artUrl']}\"); background-size: cover; background-position: center;"
-  (box :class "musicbox__center"
-       :orientation "h"
-       :space-evenly false
-       (button :class "pausebutton ${music_status == 'Playing' ? 'playing' : 'paused'}"
-               :halign "end"
-               :style "background-color: ${pctl_sub['button_accent']}; color: ${pctl_sub['button_text']};"
-               :onclick "~/.config/eww/scripts/music/control.sh play-pause"
-               "${music_status == 'Playing' ? '' : ''}")
-       )
   (box :class "musicbox__bottom"
                :style "color: ${pctl_sub['button_accent']};"
        (button :valign "end"
@@ -122,7 +113,7 @@
                :style "background-color: ${pctl_sub['button_accent']}; color: ${pctl_sub['button_text']};"
                :onclick "~/.config/eww/scripts/music/control.sh play-pause"
                :class "pausebutton ${music_status == 'Playing' ? 'playing' : 'paused'}"
-               " "
+               ""
        )
        (button :valign "end"
                :halign "end"
