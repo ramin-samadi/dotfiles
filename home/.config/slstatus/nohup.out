@@ -6,3 +6,5 @@ The sink doesn't exist
 
 The sink doesn't exist
 
+XIO:  fatal IO error 4 (Interrupted system call) on X server ":0"
+      after 114542 requests (114542 known processed) with 0 events remaining.
