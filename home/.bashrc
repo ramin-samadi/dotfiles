@@ -354,4 +354,7 @@ command_not_found_handle() {
 bind -x '"\C-k": "calcurse"'
 bind -x '"\C-v": "clear; curl -s sv.wttr.in/57.792506,11.997145?M | tail +2"'
 bind -x '"\C-l": "clear; paleofetch; echo \n"'
+bind -x '"\C-f": "echo \"\$(history | fzf | awk '{\$1=\"\"
+print \$0}' | sed 's/^ *//
+s/ *$//')\" | xclip -selection clipboard"'
 paleofetch
