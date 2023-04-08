@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
-# @requires: pactl
-
 if [[ $1 == "status" ]]; then
-  if [[ $(pamixer --default-source --get-mute) = "false" ]]; then
-    echo yes
-  else
-    echo no
-  fi
+	if [[ $(pamixer --default-source --get-mute) = "false" ]]; then
+		echo yes
+	else
+		echo no
+	fi
 fi
 
 if [[ $1 == "toggle" ]]; then
-  pamixer --default-source -t
+	pamixer --default-source -t
 fi

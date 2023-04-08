@@ -113,7 +113,6 @@ powershell-bin
 python-gtts
 python-pip
 qemu-full
-redshift
 ripgrep
 ruby
 rustdesk-bin

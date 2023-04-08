@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-toggle="off"
-
 if [[ "$toggle" == "off" ]]; then
 	toggle="on"
 	notify-send "$toggle"
