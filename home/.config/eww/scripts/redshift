@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-toggle=true
+toggle=$(cat /home/ramin/.config/eww/scripts/toggle)o
 
-if [[ $toggle == true ]]; then
-	echo on
-else
-	echo off
+if [[ $1 == ”toggle” ]]; then
+	if [[ $toggle == true ]]; then
+		echo off
+		echo false >/home/ramin/.config/eww/scripts/toggle
+	else
+		echo on
+		echo true >/home/ramin/.config/eww/scripts/toggle
+	fi
 fi
