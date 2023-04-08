@@ -2,8 +2,8 @@
 
 toggle=$(cat /home/ramin/.config/eww/scripts/toggle)
 
-notify-send $1
-
 if [[ $1 == "toggle" ]]; then
-	echo on
+	if [[ "$toggle" == "off" ]]; then
+		echo on
+	fi
 fi
