@@ -350,9 +350,13 @@ command_not_found_handle() {
 	return $?
 }
 
+testing1() {
+	echo "$(history | fzf | cut -d' ' -f4-)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+}
+
 # Keybinds
 bind -x '"\C-k": "calcurse"'
 bind -x '"\C-v": "clear; curl -s sv.wttr.in/57.792506,11.997145?M | tail +2"'
 bind -x '"\C-l": "clear; paleofetch; echo \n"'
-bind -x '"\C-f": "history | fzf --cycle"'
+bind -x '"\C-f": "testing1"'
 paleofetch
