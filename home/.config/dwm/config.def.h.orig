@@ -65,7 +65,7 @@ static const Rule rules[] = {
 
 // █░░ ▄▀█ █▄█ █▀█ █░█ ▀█▀
 // █▄▄ █▀█ ░█░ █▄█ █▄█ ░█░
-static const float mfact          = 0.4955; /* factor of master area size [0.05..0.95] */
+static const float mfact          = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster          = 1;    /* number of clients in master area */
 static const int resizehints      = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen   = 1; /* 1 will force focus on the fullscreen window */
@@ -113,14 +113,14 @@ static const Key keys[] = {
     { SUPER,                        XK_i,      incnmaster,     {.i = +1 } }, //Switch master layout
     { SUPER,                        XK_o,      incnmaster,     {.i = -1 } }, //Switch master layout
 
-    { SUPER,                        XK_Left,   setmfact,       {.f = -0.1} }, //Resize window to the left
-    { SUPER,                        XK_Right,  setmfact,       {.f = +0.1} }, //Resize window to the right
+    { SUPER,                        XK_Left,   setmfact,       {.f = -0.001} }, //Resize window to the left
+    { SUPER,                        XK_Right,  setmfact,       {.f = +0.001} }, //Resize window to the right
 
     { SUPER,                        XK_j,      zoom,           {1} }, //Switch position of window
     { SUPER,                        XK_l,      zoom,           {0} }, //Switch position of window
 
     { SUPER,                        XK_f,      setlayout,      {.v = &layouts[2]} }, //Fullscreen
-    { SUPER,                        XK_space,  togglefloating, {0} }, //Float
+    { SUPER|ShiftMask,              XK_f,      togglefloating, {0} }, //Float
     { SUPER|ShiftMask,              XK_t,      setlayout,      {.v = &layouts[0]} }, //Tiling
 
     // █▀█ █░█ █ ▀█▀

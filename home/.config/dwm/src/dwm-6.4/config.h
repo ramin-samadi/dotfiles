@@ -3,17 +3,11 @@
 // ▄▀█ █▀█ █▀█ █▀▀ ▄▀█ █▀█ ▄▀█ █▄░█ █▀▀ █▀▀
 // █▀█ █▀▀ █▀▀ ██▄ █▀█ █▀▄ █▀█ █░▀█ █▄▄ ██▄
 static const unsigned int borderpx    = 0;        /* border pixel of windows */
-static const unsigned int gappx       = 3;        /* gaps between windows */
+static const unsigned int gappx       = 5;        /* gaps between windows */
 static const unsigned int snap        = 32;       /* snap pixel */
-static const int swallowfloating      = 0;        /* 1 means swallow floating windows by default */
 static const int showbar              = 1;        /* 0 means no bar */
-static const int showtitle            = 0;        /* 0 means no title */
-static const int showtags             = 1;        /* 0 means no tags */
-static const int showlayout           = 0;        /* 0 means no layout indicator */
-static const int showstatus           = 1;        /* 0 means no status bar */
-static const int showfloating         = 0;        /* 0 means no floating indicator */
 static const int topbar               = 1;        /* 0 means bottom bar */
-static const char *fonts[]            = { "Meslo LGS Nerd Font Mono:size=20:bold", "NotoColorEmoji:size=20:bold" };
+static const char *fonts[]            = { "Meslo LGS Nerd Font Mono:size=20:bold", "NotoColorEmoji:size=20" };
 static const char dmenufont[]         = "Meslo LGS Nerd Font Mono:size=20:bold";
 
 // █▀█ ▄▀█ █▄░█ █▀▀ █░░
@@ -27,45 +21,29 @@ static const char inactive_font_color[]      = "#a6adc8";
 static const char active_border_color[]      = "#000000";
 static const char inactive_border_color[]    = "#000000";
 
-static const char active_title_color[]       = "#1E1E2E";
-static const char inactive_title_color[]     = "#1E1E2E";
-
 static const char *colors[][3]              = {
-  [SchemeNorm] =  { inactive_font_color,   inactive_panel_color,  inactive_border_color },
-  [SchemeSel] =   { active_font_color,     active_panel_color,    active_border_color },
-  [SchemeTitle] = { active_font_color,     active_title_color,    inactive_title_color },
+  [SchemeNorm] = { inactive_font_color,   inactive_panel_color,  inactive_border_color },
+  [SchemeSel] =  { active_font_color,     active_panel_color,    active_border_color },
 };
 
 // ▀█▀ ▄▀█ █▀▀ █▀▀ █ █▄░█ █▀▀
 // ░█░ █▀█ █▄█ █▄█ █ █░▀█ █▄█
-static const char *tags[] = { "", "", "", "" };
-
-static const char *tagsel[][2] = {
-	{ "#1793D1",          "#313244" },
-	{ active_font_color,  "#313244" },
-	{ active_font_color,  "#313244" },
-	{ active_font_color,  "#313244" },
-	{ active_font_color,  "#313244" },
-	{ "#ffffff",          "#313244" },
-	{ "#ffffff",          "#313244" },
-	{ "#000000",          "#313244" },
-	{ "#ffffff",          "#313244" },
-};
+static const char *tags[] = { "", "", "", "", "" };
 
 static const Rule rules[] = {
   /* xprop(1):
    *          *      WM_CLASS(STRING) = instance, class
    *                   *      WM_NAME(STRING) = title
    *                            */
-  /* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-  { "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-  { "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-  { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+  /* class      instance    title       tags mask     isfloating   monitor */
+  { "Gimp",     NULL,       NULL,       0,            1,           -1 },
+  { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
+
 
 // █░░ ▄▀█ █▄█ █▀█ █░█ ▀█▀
 // █▄▄ █▀█ ░█░ █▄█ █▄█ ░█░
-static const float mfact          = 0.4955; /* factor of master area size [0.05..0.95] */
+static const float mfact          = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster          = 1;    /* number of clients in master area */
 static const int resizehints      = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen   = 1; /* 1 will force focus on the fullscreen window */
@@ -106,21 +84,20 @@ static const Key keys[] = {
     { SUPER|ShiftMask,              XK_l,      tagmon,         {.i = -1 } }, //Move window to the right
     { SUPER|ShiftMask,              XK_j,      tagmon,         {.i = +1 } }, //Move window to the left
 
-    { SUPER,                        XK_minus,  setgaps,        {.i = -1 } },
     { SUPER,                        XK_equal,  setgaps,        {.i = +1 } },
     { SUPER|ShiftMask,              XK_equal,  setgaps,        {.i = 0  } },
 
     { SUPER,                        XK_i,      incnmaster,     {.i = +1 } }, //Switch master layout
     { SUPER,                        XK_o,      incnmaster,     {.i = -1 } }, //Switch master layout
 
-    { SUPER,                        XK_Left,   setmfact,       {.f = -0.1} }, //Resize window to the left
-    { SUPER,                        XK_Right,  setmfact,       {.f = +0.1} }, //Resize window to the right
+    { SUPER,                        XK_Left,   setmfact,       {.f = -0.05} }, //Resize window to the left
+    { SUPER,                        XK_Right,  setmfact,       {.f = +0.05} }, //Resize window to the right
 
     { SUPER,                        XK_j,      zoom,           {1} }, //Switch position of window
     { SUPER,                        XK_l,      zoom,           {0} }, //Switch position of window
 
     { SUPER,                        XK_f,      setlayout,      {.v = &layouts[2]} }, //Fullscreen
-    { SUPER,                        XK_space,  togglefloating, {0} }, //Float
+    { SUPER|ShiftMask,              XK_f,      togglefloating, {0} }, //Float
     { SUPER|ShiftMask,              XK_t,      setlayout,      {.v = &layouts[0]} }, //Tiling
 
     // █▀█ █░█ █ ▀█▀
@@ -140,12 +117,11 @@ static const Key keys[] = {
     { SUPER,                        XK_p,      spawn,          SHCMD("passmenu-otp") }, //Password Manager
     { SUPER,                        XK_m,      spawn,          SHCMD("playlist") }, //Playlist
     { SUPER,                        XK_x,      spawn,          SHCMD("power-menu") }, //Power Menu
-    { SUPER|ShiftMask,              XK_a,      spawn,          SHCMD("anime") }, //Anime
+    { SUPER,                        XK_a,      spawn,          SHCMD("anime") }, //Anime
     { SUPER,                        XK_c,      spawn,          SHCMD("calendar") }, //Calendar
     { SUPER|ShiftMask,              XK_c,      spawn,          SHCMD("color-picker") }, //Color Picker
     { SUPER,                        XK_d,      spawn,          SHCMD("date-time-notification") }, //Date & Time (dunst)
     { SUPER|ShiftMask,              XK_s,      spawn,          SHCMD("flameshot gui") }, //Screenshot
-    { SUPER,                        XK_a,      spawn,          SHCMD("eww-power-menu") }, //GUI Power Menu
 
     // █▀█ ▄▀█ █▄░█ █▀▀ █░░
     // █▀▀ █▀█ █░▀█ ██▄ █▄▄
@@ -180,7 +156,7 @@ static const Button buttons[] = {
   /* click                event mask      button          function        argument */
   { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
   { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-  { ClkStatusText,        0,              Button1,        spawn,          SHCMD("eww-power-menu") },
+  { ClkStatusText,        0,              Button2,        spawn,          SHCMD("st") },
   { ClkWinTitle,          0,              Button2,        zoom,           {0} },
   { ClkClientWin,         SUPER,         Button1,        movemouse,      {0} },
   { ClkClientWin,         SUPER,         Button2,        togglefloating, {0} },
