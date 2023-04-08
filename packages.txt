@@ -116,6 +116,7 @@ qemu-full
 ripgrep
 ruby
 rustdesk-bin
+screenkey
 sl
 slock
 slstatus-git
