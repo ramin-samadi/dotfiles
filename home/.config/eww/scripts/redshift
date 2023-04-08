@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 
-toggle=$(cat /home/ramin/.config/eww/scripts/toggle)
+toggle=false
 
 if [[ $1 == "toggle" ]]; then
-	if [[ "$toggle" == "off" ]]; then
+	notify-send "button pressed"
+	if [[ $toggle == true ]]; then
+		toggle=false
+		notify-send "Turn off"
+		echo off
+	else
+		toggle=true
+		notify-send "Turn on"
 		echo on
 	fi
 fi
