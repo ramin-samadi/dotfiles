@@ -1,16 +1,9 @@
 #!/usr/bin/env bash
 
-toggle=false
+toggle=true
 
-if [[ $1 == "toggle" ]]; then
-	notify-send "button pressed"
-	if [[ $toggle == true ]]; then
-		toggle=false
-		notify-send "Turn off"
-		echo off
-	else
-		toggle=true
-		notify-send "Turn on"
-		echo on
-	fi
+if [[ $toggle == true ]]; then
+	echo on
+else
+	echo off
 fi
