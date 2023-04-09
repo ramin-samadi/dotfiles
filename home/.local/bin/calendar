@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOTE: st calcurse
+
 TERMINAL="st"
 
 "${TERMINAL}" -e bash -c "calcurse && pkill -P $$"

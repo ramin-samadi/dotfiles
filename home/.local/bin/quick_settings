@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOTE: eww
+
 QUICK_SETTINGS_FILE="/home/$USER/.local/bin/.quick_settings"
 QUICK_SETTINGS_STATUS=$(cat "$QUICK_SETTINGS_FILE")
 

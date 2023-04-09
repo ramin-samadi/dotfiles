@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOTE: st ani-cli dmenu
+
 TERMINAL="st"
 ANIME_NAME=$(echo -n "" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p " Anime: ")
 

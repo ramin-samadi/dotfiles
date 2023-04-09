@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOTE: colorpicker xclip libnotify
+
 COLOR=$(colorpicker --short --one-shot --preview | tr -d '\n')
 
 pick_color() {

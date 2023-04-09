@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOTE: xclip
+
 if [ -f "$1" ]; then
 	xclip -selection clipboard <"$1"
 	echo "File copied to clipboard."

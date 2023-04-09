@@ -1,20 +1,22 @@
 #!/bin/bash
 
-VOLUME_STATE=$(pamixer --get-volume)
+# NOTE: pamixer
+
+CURRENT_VOLUME=$(pamixer --get-volume)
 VOLUME_MUTED=$(pamixer --get-mute)
 
 if [[ "${VOLUME_MUTED}" = true ]]; then
 	echo ""
-elif [[ "${VOLUME_STATE}" = 0 ]]; then
+elif [[ "${CURRENT_VOLUME}" = 0 ]]; then
 	echo ""
-elif [[ "${VOLUME_STATE}" -le 5 ]]; then
+elif [[ "${CURRENT_VOLUME}" -le 5 ]]; then
 	echo ""
-elif [[ "${VOLUME_STATE}" -ge 0 && "${VOLUME_STATE}" -le 30 ]]; then
+elif [[ "${CURRENT_VOLUME}" -ge 0 && "${VOLUME_STATE}" -le 30 ]]; then
 	echo ""
-elif [[ "${VOLUME_STATE}" -ge 30 && "${VOLUME_STATE}" -le 70 ]]; then
+elif [[ "${CURRENT_VOLUME}" -ge 30 && "${VOLUME_STATE}" -le 70 ]]; then
 	echo "墳"
-elif [[ "${VOLUME_STATE}" -ge 70 && "${VOLUME_STATE}" -lt 100 ]]; then
+elif [[ "${CURRENT_VOLUME}" -ge 70 && "${VOLUME_STATE}" -lt 100 ]]; then
 	echo ""
-elif [[ "${VOLUME_STATE}" -ge 100 ]]; then
+elif [[ "${CURRENT_VOLUME}" -ge 100 ]]; then
 	echo ""
 fi

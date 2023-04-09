@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# NOTE: paru grep sed readline
+
 PACKAGE_EXISTS=$(paru -Ss "$1" || pacman -Ss "$1" | grep -E "^extra|^community|^multilib|^core|^aur" | grep -o "$1")
 OUTPUT="$("$@" 2>&1)"
 ERROR_MESSAGE=$(echo "$OUTPUT" | sed -n 's/.*: \(.*: .*\)$/\1/p')

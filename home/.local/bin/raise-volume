@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOTE: pamixer
+
 CURRENT_VOLUME=$(pamixer --get-volume)
 
 if [[ "${CURRENT_VOLUME}" != 100 ]]; then

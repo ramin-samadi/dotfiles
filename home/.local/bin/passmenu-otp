@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# NOTE: dmenu pass xdotool grep
+
 shopt -s nullglob globstar
 
 typeit=0

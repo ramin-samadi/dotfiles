@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOTE: git pacman
+
 cd ~/GitHub/dwm && git pull
 rm -rf ~/GitHub/dwm/home/.local/bin/* && cp -r ~/.local/bin/* ~/GitHub/dwm/home/.local/bin/
 rm -rf ~/GitHub/dwm/home/.bashrc && cp -r ~/.bashrc ~/GitHub/dwm/home/

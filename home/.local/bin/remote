@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOTE: xorg-xrandr readline x11vnc gawk
+
 xrandr --listactivemonitors | awk -- 'BEGIN { getline } { gsub(/\/[[:digit:]]+/,"",$3) ; print $3 }' |
 	while read -r GEOMETRY; do
 		x11vnc -forever -ncache 10 -clip "$GEOMETRY" &
