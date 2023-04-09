@@ -39,16 +39,16 @@
       (box :halign "start"
            :orientation "h"
            :space-evenly true
-        (sysblock :icon "${redshift_state == 'on' ? '' : ''}"
+        (sysblock :icon "${redshift_state == 'on' ? '' : ''}"
                   :onclick "~/.config/eww/scripts/redshift toggle"
                   :active "${redshift_state == 'on' ? true : false}"
-                  :label "Night Light")
+                  :label "Ögonskydd")
       )
       (box :halign "end"
            :orientation "h"
            :space-evenly true
         (sysblock :icon "${mic_status == 'yes' ? '' : ''}"
-                  :label "Micro"
+                  :label "Mikrofon"
                   :onclick "~/.config/eww/scripts/mic toggle"
                   :active "${mic_status == 'yes' ? true : false}"
                   )
@@ -79,7 +79,7 @@
                  :valign "start"
                  :orientation "v"
               (label :halign "center" :text "${label}" :class "label")
-              (label :halign "start" :text "${active ? 'On' : 'Off'}" :class "label__status")
+              (label :halign "start" :text "${active ? '' : ''}" :class "label__status")
            )
         (box :class "chevronbox"
              :halign "end"
