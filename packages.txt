@@ -82,7 +82,6 @@ mpv
 ncdu
 neovim-gtk
 neovim-nightly-bin
-network-manager-applet
 networkmanager
 ngrok
 nload
@@ -135,6 +134,7 @@ toilet
 toilet-fonts
 traceroute
 trash-cli
+trayer
 tree-sitter
 tree-sitter-bash-git
 tree-sitter-css-git
