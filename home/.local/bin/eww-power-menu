@@ -1,20 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# Set the path to the file where we'll save the barEnabled variable
-barEnabledFile="/home/ramin/.local/bin/.bar_enabled"
+quick_settings="/home/$USER/.local/bin/.quick_settings"
+status=$(cat -q "$quick_settings")
 
-# Check if the file exists and read the value of barEnabled from it
-if [[ -f "$barEnabledFile" ]]; then
-	barEnabled=$(cat "$barEnabledFile")
-fi
-
-# Check the value of barEnabled and open or close the window accordingly
-if [[ $barEnabled == "executed" ]]; then
+if [[ "${status}" = true ]]; then
 	eww close actions
-	barEnabled="false"
-	echo "$barEnabled" >~/.local/bin/.bar_enabled
+	status=false
+	echo "${status}" >"$quick_settings"
 else
 	eww open actions
-	barEnabled="executed"
-	echo "$barEnabled" >~/.local/bin/.bar_enabled
+	status=true
+	echo "${status}" >"$quick_settings"
 fi
