@@ -1,8 +1,12 @@
 #!/bin/bash
 
-color=$(colorpicker --short --one-shot --preview | tr -d '\n')
+COLOR=$(colorpicker --short --one-shot --preview | tr -d '\n')
 
-if [ -n "$color" ]; then
-	printf '%s' "$color" | xclip -selection clipboard
-	notify-send " $color"
-fi
+pick_color() {
+	if [ -n "${COLOR}" ]; then
+		printf '%s' "${COLOR}" | xclip -selection clipboard
+		notify-send " ${COLOR}"
+	fi
+}
+
+pick_color

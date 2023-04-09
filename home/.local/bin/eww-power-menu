@@ -1,14 +1,18 @@
 #!/bin/bash
 
-quick_settings="/home/$USER/.local/bin/.quick_settings"
-status=$(cat -q "$quick_settings")
+QUICK_SETTINGS_FILE="/home/$USER/.local/bin/.quick_settings"
+QUICK_SETTINGS_STATUS=$(cat "$QUICK_SETTINGS_FILE")
 
-if [[ "${status}" = true ]]; then
-	eww close actions
-	status=false
-	echo "${status}" >"$quick_settings"
-else
-	eww open actions
-	status=true
-	echo "${status}" >"$quick_settings"
-fi
+toggle_quick_settings() {
+	if [[ "${QUICK_SETTINGS_STATUS}" = "open" ]]; then
+		eww close actions
+		QUICK_SETTINGS_STATUS="close"
+		echo "${QUICK_SETTINGS_STATUS}" >"$QUICK_SETTINGS_FILE"
+	else
+		eww open actions
+		QUICK_SETTINGS_STATUS="open"
+		echo "${QUICK_SETTINGS_STATUS}" >"$QUICK_SETTINGS_FILE"
+	fi
+}
+
+toggle_quick_settings
