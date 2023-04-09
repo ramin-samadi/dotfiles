@@ -148,7 +148,7 @@
       (scale 
              :hexpand true
              :value br
-             :onchange "brightnessctl set {}%"
+             :onchange "xrandr --output DVI-0 --brightness $(awk 'BEGIN{printf \"%.1f\",'{}'/100}')"
              :min 0
              :max 101)
       (box :class "scale-label"
