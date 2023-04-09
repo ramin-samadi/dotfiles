@@ -111,8 +111,24 @@
                :orientation "v"
                :space-evenly false
                :style "background-color: ${pctl_sub['button_accent']}; color: ${pctl_sub['button_text']};"
+               :onclick "~/.config/eww/scripts/music/control.sh backward"
+               ""
+       )
+       (button :valign "center"
+               :halign "center"
+               :orientation "v"
+               :space-evenly false
+               :style "background-color: ${pctl_sub['button_accent']}; color: ${pctl_sub['button_text']};"
                :onclick "~/.config/eww/scripts/music/control.sh play-pause"
                ""
+       )
+       (button :valign "center"
+               :halign "center"
+               :orientation "v"
+               :space-evenly false
+               :style "background-color: ${pctl_sub['button_accent']}; color: ${pctl_sub['button_text']};"
+               :onclick "~/.config/eww/scripts/music/control.sh forward"
+               ""
        )
        (button :valign "end"
                :halign "end"
