@@ -14,5 +14,5 @@ selected=$(printf '%s\n' "${channels[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:
 if [[ -z "${selected// /}" ]]; then
 	exit
 else
-	st -e bash -c "ytfzf -t -l \"$selected\"; exec bash"
+	st -e bash -c "ytfzf -t -l \"$selected\" && kill -9 \$PPID"
 fi

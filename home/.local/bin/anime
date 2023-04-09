@@ -6,5 +6,5 @@ anime_name=$(echo -n "" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb 
 if [[ -z "${anime_name// /}" ]]; then
 	exit
 else
-	st -e bash -c "ani-cli \"$anime_name\"; exec bash"
+	st -e bash -c "ani-cli \"$anime_name\" && kill -9 \$PPID"
 fi
