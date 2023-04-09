@@ -16,11 +16,11 @@ done
 
 # Output the result
 if [[ $wifi_connected == true && $eth_connected == true ]]; then
-	echo ""
+	echo ""
 elif [[ $wifi_connected == true ]]; then
 	echo ""
 elif [[ $eth_connected == true ]]; then
 	echo ""
 else
-	echo ""
+	echo "睊"
 fi
