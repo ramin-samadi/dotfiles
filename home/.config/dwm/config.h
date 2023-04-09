@@ -145,7 +145,7 @@ static const Key keys[] = {
     { SUPER|ShiftMask,              XK_c,      spawn,          SHCMD("color-picker") }, //Color Picker
     { SUPER,                        XK_d,      spawn,          SHCMD("date-time-notification") }, //Date & Time (dunst)
     { SUPER|ShiftMask,              XK_s,      spawn,          SHCMD("flameshot gui") }, //Screenshot
-    { SUPER,                        XK_a,      spawn,          SHCMD("eww-power-menu") }, //GUI Power Menu
+    { SUPER,                        XK_a,      spawn,          SHCMD("quick_settings") }, //GUI Power Menu
 
     // █▀█ ▄▀█ █▄░█ █▀▀ █░░
     // █▀▀ █▀█ █░▀█ ██▄ █▄▄
@@ -164,8 +164,8 @@ static const Key keys[] = {
     // █▀▄▀█ █░█ █░░ ▀█▀ █ █▀▄▀█ █▀▀ █▀▄ █ ▄▀█
     // █░▀░█ █▄█ █▄▄ ░█░ █ █░▀░█ ██▄ █▄▀ █ █▀█
 
-    {0, XF86XK_AudioLowerVolume,              spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%")},
-    {0, XF86XK_AudioRaiseVolume,              spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%")},
+    {0, XF86XK_AudioLowerVolume,              spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%")},
+    {0, XF86XK_AudioRaiseVolume,              spawn,           SHCMD("raise-volume")},
     {0, XF86XK_AudioMute,                     spawn,           SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle")},
 
     {0, XF86XK_AudioPlay,                     spawn,           SHCMD("playerctl play-pause")},
@@ -180,7 +180,7 @@ static const Button buttons[] = {
   /* click                event mask      button          function        argument */
   { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
   { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-  { ClkStatusText,        0,              Button1,        spawn,          SHCMD("eww-power-menu") },
+  { ClkStatusText,        0,              Button1,        spawn,          SHCMD("quick_settings") },
   { ClkWinTitle,          0,              Button2,        zoom,           {0} },
   { ClkClientWin,         SUPER,         Button1,        movemouse,      {0} },
   { ClkClientWin,         SUPER,         Button2,        togglefloating, {0} },

@@ -1,18 +1,20 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 VOLUME_STATE=$(pamixer --get-volume)
-VOLUME_MUTED=$(pamixer --get-volume-human)
+VOLUME_MUTED=$(pamixer --get-mute)
 
-if [[ ${VOLUME_MUTED} = "muted" || ${VOLUME_STATE} = 0 ]]; then
-  echo ""
-elif [[ ${VOLUME_STATE} -le 5 ]]; then
-  echo ""
-elif [[ ${VOLUME_STATE} -ge 0 && ${VOLUME_STATE} -le 30 ]]; then
-  echo ""
-elif [[ ${VOLUME_STATE} -ge 30 && ${VOLUME_STATE} -le 70 ]]; then
-  echo "墳"
-elif [[ ${VOLUME_STATE} -ge 70 && ${VOLUME_STATE} -lt 100 ]]; then
-  echo ""
-elif [[ ${VOLUME_STATE} -ge 100 ]]; then
-  echo ""
+if [[ "${VOLUME_MUTED}" = true ]]; then
+	echo ""
+elif [[ "${VOLUME_STATE}" = 0 ]]; then
+	echo ""
+elif [[ "${VOLUME_STATE}" -le 5 ]]; then
+	echo ""
+elif [[ "${VOLUME_STATE}" -ge 0 && "${VOLUME_STATE}" -le 30 ]]; then
+	echo ""
+elif [[ "${VOLUME_STATE}" -ge 30 && "${VOLUME_STATE}" -le 70 ]]; then
+	echo "墳"
+elif [[ "${VOLUME_STATE}" -ge 70 && "${VOLUME_STATE}" -lt 100 ]]; then
+	echo ""
+elif [[ "${VOLUME_STATE}" -ge 100 ]]; then
+	echo ""
 fi

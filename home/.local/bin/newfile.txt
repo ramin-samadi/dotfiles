@@ -1,5 +1,0 @@
-DIRECT-08-HP
-GuestNetwork132
-LUDVIG
-Network132
-Tele2_340cbc
