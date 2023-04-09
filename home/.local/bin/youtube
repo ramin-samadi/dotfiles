@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-channels=(
+# NOTE: dmenu st
+
+TERMINAL="st"
+
+CHANNELS=(
 	"Chris Titus Tech"
 	"DistroTube"
 	"Brodie"
@@ -8,11 +12,15 @@ channels=(
 	"Mental Outlaw"
 )
 
-selected=$(printf '%s\n' "${channels[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p "")
+SELECTED_CHANNEL=$(printf '%s\n' "${CHANNELS[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p "")
+
+execute_ytfzf() {
+	"$1" -e bash -c "ytfzf -t -l \"$2\" && pkill -P $$"
+}
 
 # Open a terminal and execute the ytfzf -t command
-if [[ -z "${selected// /}" ]]; then
+if [[ -z "${SELECTED_CHANNEL// /}" ]]; then
 	exit
 else
-	st -e bash -c "ytfzf -t -l \"$selected\" && kill -9 \$PPID"
+	execute_ytfzf "${TERMINAL}" "${SELECTED_CHANNEL}"
 fi
