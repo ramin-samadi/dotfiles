@@ -1,3 +1,4 @@
+acpi
 amdguid-glow-bin
 ani-cli
 appimagelauncher
