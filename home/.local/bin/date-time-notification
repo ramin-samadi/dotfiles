@@ -1,4 +1,6 @@
 #!/bin/bash
 
-date_time=$(date +"%A, %B %d %Y %H:%M:%S")
-notify-send "$date_time"
+DATE_TIME=$(date +"%A, %B %d %Y %H:%M:%S")
+MESSAGE="${DATE_TIME}"
+
+notify-send "${MESSAGE}"

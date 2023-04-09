@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-package_exists=$(paru -Ss "$1" || pacman -Ss "$1" | grep -E "^extra|^community|^multilib|^core|^aur" | grep -o "$1")
-output="$("$@" 2>&1)"
-error_message=$(echo "$output" | sed -n 's/.*: \(.*: .*\)$/\1/p')
+PACKAGE_EXISTS=$(paru -Ss "$1" || pacman -Ss "$1" | grep -E "^extra|^community|^multilib|^core|^aur" | grep -o "$1")
+OUTPUT="$("$@" 2>&1)"
+ERROR_MESSAGE=$(echo "$OUTPUT" | sed -n 's/.*: \(.*: .*\)$/\1/p')
 
-search_output=$(paru -Ss "$1")
-mapfile -t package_names < <(echo "$search_output" | grep -Po '^aur/\K[^ ]+' | grep -E "$1.*")
-mapfile -t vote_numbers < <(echo "$search_output" | grep -Po '\[\+\K[0-9]+')
+SEARCH_OUTPUT=$(paru -Ss "$1")
+mapfile -t package_names < <(echo "$SEARCH_OUTPUT" | grep -Po '^aur/\K[^ ]+' | grep -E "$1.*")
+mapfile -t vote_numbers < <(echo "$SEARCH_OUTPUT" | grep -Po '\[\+\K[0-9]+')
 
 max_index=0
 for i in "${!vote_numbers[@]}"; do
@@ -15,21 +15,21 @@ for i in "${!vote_numbers[@]}"; do
 	fi
 done
 
-package_to_install=${package_names[max_index]}
+PACKAGE_TO_INSTALL=${package_names[max_index]}
 
 check_command_exists() {
 	if ! (command -v "$1" >/dev/null 2>&1); then
-		if [[ "$package_exists" ]]; then
-			printf "%s\n\n" "$error_message"
+		if [[ "$PACKAGE_EXISTS" ]]; then
+			printf "%s\n\n" "$ERROR_MESSAGE"
 
-			read -r -n 1 -p "$(echo -e "Do you want to install (${package_to_install})? \033[32mY\033[0m/\033[31mn\033[0m: ")" answer
+			read -r -n 1 -p "$(echo -e "Do you want to install (${PACKAGE_TO_INSTALL})? \033[32mY\033[0m/\033[31mn\033[0m: ")" answer
 			if [[ "$answer" =~ ^[Yy]?$ ]]; then
-				printf "\n" && paru -Syu "$package_to_install"
-				"$package_to_install" &
+				printf "\n" && paru -Syu "$PACKAGE_TO_INSTALL"
+				"$PACKAGE_TO_INSTALL" &
 				"$1" &
 			fi
 		else
-			printf "%s\n" "$error_message"
+			printf "%s\n" "$ERROR_MESSAGE"
 		fi
 	fi
 }
