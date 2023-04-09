@@ -1,10 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-anime_name=$(echo -n "" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p " Anime: ")
+TERMINAL="st"
+ANIME_NAME=$(echo -n "" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p " Anime: ")
 
-# Open a terminal and execute the ani-cli command
-if [[ -z "${anime_name// /}" ]]; then
+execute_ani_cli() {
+	"$1" -e bash -c "ani-cli \"$2\" && pkill -P $$"
+}
+
+if [[ -z "${ANIME_NAME// /}" ]]; then
 	exit
 else
-	st -e bash -c "ani-cli \"$anime_name\" && kill -9 \$PPID"
+	execute_ani_cli "${TERMINAL}" "${ANIME_NAME}"
 fi

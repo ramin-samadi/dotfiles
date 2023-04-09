@@ -1,3 +1,0 @@
-#!/bin/bash
-
-w3m "https://www.google.com/search?ie=ISO-8859-1&hl=sv&source=hp&q=$*&btnG=S%F6k+p%E5+Google&iflsig=AK50M_UAAAAAZAIv17_xwHM88aV_QoLWT_jXW-7k-JbZ&gbv=1"

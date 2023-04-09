@@ -1,3 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-st -e bash -c "calcurse; exec bash"
+TERMINAL="st"
+
+"${TERMINAL}" -e bash -c "calcurse && pkill -P $$"
