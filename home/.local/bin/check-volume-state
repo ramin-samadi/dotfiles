@@ -5,15 +5,15 @@ IS_MUTED=$(pamixer --get-mute)
 
 case "${CURRENT_VOLUME}" in
 0)
-	echo ""
+	echo ""
 	;;
-[1-30])
+[.1-3][0-9])
 	echo ""
 	;;
-[31-70])
+[4-6][0-9])
 	echo "墳"
 	;;
-[71-100])
+7[0-9] || 100)
 	echo ""
 	;;
 esac
