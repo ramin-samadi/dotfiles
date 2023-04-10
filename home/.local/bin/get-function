@@ -2,4 +2,8 @@
 
 # NOTE: sed
 
-sed -n '/^'$1'{/,/^}/p' $2
+FUNCTION_NAME="$1"
+FILE_PATH="$2"
+
+sed -n '/^'"${FUNCTION_NAME}"'() {/,/^}/p' "${FILE_PATH}"
+sed -n '/^function '${FUNCTION_NAME}'() {/,/^}/p' "${FILE_PATH}"
