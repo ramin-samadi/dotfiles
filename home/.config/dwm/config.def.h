@@ -51,7 +51,7 @@ static const int showtab                 = showtab_auto;        /* Default tab b
 static const int toptab                  = False;               /* False means bottom tab bar */
 #endif // TAB_PATCH
 #if BAR_HEIGHT_PATCH
-static const int bar_height              = 30;   /* 0 means derive from font, >= 1 explicit height */
+static const int bar_height              = 0;   /* 0 means derive from font, >= 1 explicit height */
 #endif // BAR_HEIGHT_PATCH
 #if BAR_PADDING_PATCH
 static const int vertpad                 = 10;  /* vertical padding of bar */
@@ -168,9 +168,9 @@ static char normbgcolor[]                = "#1E1E2E";
 static char normbordercolor[]            = "#444444";
 static char normfloatcolor[]             = "#db8fd9";
 
-static char selfgcolor[]                 = "#eeeeee";
-static char selbgcolor[]                 = "#005577";
-static char selbordercolor[]             = "#005577";
+static char selfgcolor[]                 = "#CDD6F4";
+static char selbgcolor[]                 = "#313244";
+static char selbordercolor[]             = "#89B4Fa";
 static char selfloatcolor[]              = "#005577";
 
 static char titlenormfgcolor[]           = "#bbbbbb";
@@ -188,8 +188,8 @@ static char tagsnormbgcolor[]            = "#1E1E2E";
 static char tagsnormbordercolor[]        = "#444444";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
-static char tagsselfgcolor[]             = "#eeeeee";
-static char tagsselbgcolor[]             = "#005577";
+static char tagsselfgcolor[]             = "#CDD6F4";
+static char tagsselbgcolor[]             = "#313244";
 static char tagsselbordercolor[]         = "#005577";
 static char tagsselfloatcolor[]          = "#005577";
 
