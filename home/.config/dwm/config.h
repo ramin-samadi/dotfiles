@@ -147,6 +147,7 @@ static const Key keys[] = {
     { SUPER,                        XK_d,      spawn,          SHCMD("date-time-notification") }, //Date & Time (dunst)
     { SUPER|ShiftMask,              XK_s,      spawn,          SHCMD("flameshot gui") }, //Screenshot
     { SUPER,                        XK_a,      spawn,          SHCMD("quick_settings") }, //GUI Power Menu
+    { SUPER,                        XK_e,      spawn,          SHCMD("eject-drive") }, //Eject Drive
 
     // █▀█ ▄▀█ █▄░█ █▀▀ █░░
     // █▀▀ █▀█ █░▀█ ██▄ █▄▄
