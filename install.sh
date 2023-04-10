@@ -37,8 +37,8 @@ rm -rf ~/.config/nvim/
 mv ~/dwm/home/.config/nvim/ ~/.config/
 
 # Alacritty
-rm -rf ~/.config/alacritty/
-mv ~/dwm/home/.config/alacritty/ ~/.config/
+rm -rf ~/.config/st/
+mv ~/dwm/home/.config/st/ ~/.config/
 
 # BTop
 rm -rf ~/.config/btop/
@@ -57,8 +57,8 @@ rm -rf ~/.config/dunst/
 mv ~/dwm/home/.config/dunst/ ~/.config/
 
 # DWM
-rm -rf ~/.config/dwm/config.h
-mv ~/dwm/home/.config/dwm/config.h ~/.config/dwm/ && cd ~/.config/dwm/ && makepkg -sif --clean
+rm -rf ~/.config/dwm/
+mv ~/dwm/home/.config/dwm/ ~/.config/ && cd ~/.config/dwm/ && makepkg -sif --clean
 
 mv -f ~/dwm/home/.local/bin/* ~/.local/bin/
 mv -f ~/dwm/home/.bashrc ~/
