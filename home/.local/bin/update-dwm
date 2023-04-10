@@ -8,6 +8,7 @@ rm -rf ~/GitHub/dwm/home/.bashrc && cp -r ~/.bashrc ~/GitHub/dwm/home/
 rm -rf ~/GitHub/dwm/home/.config/dwm/ && cp -r ~/.config/dwm/ ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.config/st/ && cp -r ~/.config/st/ ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.config/eww/ && cp -r ~/.config/eww/ ~/GitHub/dwm/home/.config/
+rm -rf ~/GitHub/dwm/home/.config/stalonetrayrc && cp -r ~/.config/stalonetrayrc ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.config/picom/ && cp -r ~/.config/picom/ ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.config/slstatus/ && cp -r ~/.config/slstatus/ ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.xinitrc && cp -r ~/.xinitrc ~/GitHub/dwm/home/
