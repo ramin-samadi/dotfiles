@@ -164,7 +164,7 @@ static const char dmenufont[]            = "Meslo LGS Nerd Font Mono:size=20:bol
 static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#bbbbbb";
-static char normbgcolor[]                = "#222222";
+static char normbgcolor[]                = "#1E1E2E";
 static char normbordercolor[]            = "#444444";
 static char normfloatcolor[]             = "#db8fd9";
 
@@ -184,7 +184,7 @@ static char titleselbordercolor[]        = "#005577";
 static char titleselfloatcolor[]         = "#005577";
 
 static char tagsnormfgcolor[]            = "#bbbbbb";
-static char tagsnormbgcolor[]            = "#222222";
+static char tagsnormbgcolor[]            = "#1E1E2E";
 static char tagsnormbordercolor[]        = "#444444";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
@@ -884,10 +884,11 @@ static const char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
 #endif // BAR_STATUSCMD_PATCH
 
 #if ON_EMPTY_KEYS_PATCH
-static const char* firefoxcmd[] = {"firefox", NULL};
 static const Key on_empty_keys[] = {
 	/* modifier key            function                argument */
-	{ 0,        XK_f,          spawn,                  {.v = firefoxcmd } },
+	{ 0,        XK_b,          spawn,                  SHCMD("google-chrome-stable") },
+	{ 0,        XK_t,          spawn,                  SHCMD("st") },
+	{ 0,        XK_space,      spawn,                  SHCMD("dmenu_run") },
 };
 #endif // ON_EMPTY_KEYS_PATCH
 
@@ -911,7 +912,12 @@ static const Key keys[] = {
   { MODKEY,                        XK_p,         spawn,          SHCMD("passmenu-otp") },
   { MODKEY,                        XK_m,         spawn,          SHCMD("playlist") },
   { MODKEY,                        XK_x,         spawn,          SHCMD("power-menu") },
+  { MODKEY,                        XK_a,         spawn,          SHCMD("quick_settings") },
   { MODKEY|ShiftMask,              XK_a,         spawn,          SHCMD("anime") },
+  { MODKEY,                        XK_c,         spawn,          SHCMD("calendar") },
+  { MODKEY|ShiftMask,              XK_c,         spawn,          SHCMD("color-picker") },
+  { MODKEY,                        XK_d,         spawn,          SHCMD("date-time-notification") },
+  { MODKEY|ShiftMask,              XK_s,         spawn,          SHCMD("flameshot gui") },
 
 	#if KEYMODES_PATCH
 	{ MODKEY,                       XK_Escape,     setkeymode,             {.ui = COMMANDMODE} },
