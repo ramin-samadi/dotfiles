@@ -35,6 +35,7 @@ dunst
 dust
 dwm
 efibootmgr
+eject-applet
 electron
 eww
 fail2ban
