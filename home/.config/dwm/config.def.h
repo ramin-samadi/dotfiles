@@ -894,13 +894,30 @@ static const Key on_empty_keys[] = {
 static const Key keys[] = {
 	/* modifier                     key            function                argument */
  
-  { MODKEY,                        XK_e,         spawn,          SHCMD("eject-drive") }, //Eject Drive
+  // █▀▄▀█ █░█ █░░ ▀█▀ █ █▀▄▀█ █▀▀ █▀▄ █ ▄▀█
+  // █░▀░█ █▄█ █▄▄ ░█░ █ █░▀░█ ██▄ █▄▀ █ █▀█
+
+  {0, XF86XK_AudioLowerVolume,              spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%")},
+  {0, XF86XK_AudioRaiseVolume,              spawn,           SHCMD("raise-volume")},
+  {0, XF86XK_AudioMute,                     spawn,           SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle")},
+
+  {0, XF86XK_AudioPlay,                     spawn,           SHCMD("playerctl play-pause")},
+  {0, XF86XK_AudioNext,                     spawn,           SHCMD("playerctl next")},
+  {0, XF86XK_AudioPrev,                     spawn,           SHCMD("playerctl previous")},
+
+  { MODKEY,                        XK_e,         spawn,          SHCMD("eject-drive") },
+  { MODKEY,                        XK_w,         spawn,          SHCMD("wifi") },
+  { MODKEY,                        XK_y,         spawn,          SHCMD("youtube") },
+  { MODKEY,                        XK_p,         spawn,          SHCMD("passmenu-otp") },
+  { MODKEY,                        XK_m,         spawn,          SHCMD("playlist") },
+  { MODKEY,                        XK_x,         spawn,          SHCMD("power-menu") },
+  { MODKEY|ShiftMask,              XK_a,         spawn,          SHCMD("anime") },
 
 	#if KEYMODES_PATCH
 	{ MODKEY,                       XK_Escape,     setkeymode,             {.ui = COMMANDMODE} },
 	#endif // KEYMODES_PATCH
 	{ MODKEY,                       XK_s,          spawn,                  SHCMD("dmenu_run") },
-	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
+	{ MODKEY,                       XK_t,          spawn,                  {.v = termcmd } },
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },
 	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },
@@ -1067,9 +1084,9 @@ static const Key keys[] = {
 	#if XRDB_PATCH && !BAR_VTCOLORS_PATCH
 	{ MODKEY|ShiftMask,             XK_F5,         xrdb,                   {.v = NULL } },
 	#endif // XRDB_PATCH
-	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,             XK_t,          setlayout,              {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,          setlayout,              {.v = &layouts[2]} },
-	{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} },
+	/* { MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} }, */
 	#if COLUMNS_LAYOUT
 	{ MODKEY,                       XK_c,          setlayout,              {.v = &layouts[3]} },
 	#endif // COLUMNS_LAYOUT
