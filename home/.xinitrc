@@ -34,7 +34,7 @@ fi
 # Keyboard layout
 setxkbmap se &
 slstatus &
-/usr/bin/stalonetray &
+stalonetray --kludges fix_window_pos &
 
 # Background
 feh --bg-fill /home/ramin/.wallpaper/wallpaper.jpg &

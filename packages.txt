@@ -35,7 +35,6 @@ dunst
 dust
 dwm
 efibootmgr
-eject-applet
 electron
 eww
 fail2ban
@@ -134,7 +133,6 @@ toilet
 toilet-fonts
 traceroute
 trash-cli
-trayer
 tree-sitter
 tree-sitter-bash-git
 tree-sitter-css-git
