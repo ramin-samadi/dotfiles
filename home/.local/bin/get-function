@@ -2,4 +2,4 @@
 
 # NOTE: sed
 
-sed -n '/^function '$1'() {/,/^}/p' $2
+sed -n '/^'$1'{/,/^}/p' $2
