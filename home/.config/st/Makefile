@@ -4,10 +4,10 @@
 
 include config.mk
 
-SRC = st.c x.c sixel.c sixel_hls.c
+SRC = st.c x.c
 OBJ = $(SRC:.c=.o)
 
-all: clean options st
+all: options st
 
 options:
 	@echo st build options:
@@ -15,16 +15,19 @@ options:
 	@echo "LDFLAGS = $(STLDFLAGS)"
 	@echo "CC      = $(CC)"
 
+config.h:
+	cp config.def.h config.h
+
 .c.o:
-	$(CC) $< $(STCFLAGS) -c
+	$(CC) $(STCFLAGS) -c $<
 
 st.o: config.h st.h win.h
-x.o: arg.h st.h win.h
+x.o: arg.h config.h st.h win.h
 
-$(OBJ): config.mk
+$(OBJ): config.h config.mk
 
 st: $(OBJ)
-	$(CC) $(OBJ) $(STLDFLAGS) -o $@ 
+	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
 
 clean:
 	rm -f st $(OBJ) st-$(VERSION).tar.gz

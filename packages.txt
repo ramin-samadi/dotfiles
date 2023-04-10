@@ -75,7 +75,6 @@ linux-headers
 lolcat
 lsd
 lshw
-lsix-git
 lsplug
 luarocks
 mesa-utils
