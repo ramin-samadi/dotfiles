@@ -9,6 +9,7 @@ autojump-git
 balena-etcher
 base
 base-devel
+bash
 bash-completion
 bash-language-server
 bb
@@ -74,6 +75,7 @@ linux-headers
 lolcat
 lsd
 lshw
+lsix-git
 lsplug
 luarocks
 mesa-utils
