@@ -269,7 +269,7 @@
  *
  * NB: Unless you want both anybar + dwm bar(s) then the recommendation is to disable all
  * bar modules and have { -2 } in the barrules.
- *
+ 
  * https://dwm.suckless.org/patches/anybar/
  */
 #define BAR_ANYBAR_PATCH 0
