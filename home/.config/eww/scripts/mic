@@ -1,9 +1,7 @@
-#!/usr/bin/env bash
-
-# @requires: pactl
+#!/bin/bash
 
 if [[ $1 == "status" ]]; then
-  if [[ $(amixer get Capture | grep '\[off\]') = '' ]]; then
+  if [[ $(pamixer --default-source --get-mute) = "false" ]]; then
     echo yes
   else
     echo no
@@ -11,5 +9,5 @@ if [[ $1 == "status" ]]; then
 fi
 
 if [[ $1 == "toggle" ]]; then
-  amixer set Capture toggle  
+  pamixer --default-source -t
 fi

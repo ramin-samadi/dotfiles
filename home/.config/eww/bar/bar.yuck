@@ -80,7 +80,7 @@
         :spacing 6
       ; margin are used to fix issues with nerd fonts widths :/
       (label :text "${network_icon}" :style "margin-right: ${network_status == 'Connected' ? '3px' : '0px'};")
-      (label :text "${network_radio == 'on' ? '' : ''}")
+      (label :text "")
       (label :text "${volume_icon}" :style "margin-right: 3px;")
       (label :text "${bluetooth_state == 'on' ? '' : ''}")
       (label :text "${mic_status == 'yes' ? '' : ''}" :style "margin-left: -2px;")

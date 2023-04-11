@@ -127,6 +127,7 @@ slstatus-git
 smenu
 speedread-git
 speedtest-cli
+spotify
 stalonetray
 sxiv
 tldr

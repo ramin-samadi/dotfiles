@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# @requires: brightnessctl
-
-percentage () {
+percentage() {
   local val=$(echo $1 | tr '%' ' ' | awk '{print $1}')
   local icon1=$2
   local icon2=$3
@@ -19,16 +17,17 @@ percentage () {
   fi
 }
 
-get_brightness () {
-  (( br = $(brightnessctl get) * 100 / $(brightnessctl max) ))
-  echo $br
+get_brightness() {
+  monitor_brightness=$(xrandr --verbose --current | grep "Brightness" | cut -d " " -f2)
+  percentage=$(echo "${monitor_brightness}*100" | bc | cut -d "." -f1)
+  echo $percentage
 }
 
-get_percent () {
+get_percent() {
   echo $(get_brightness)%
 }
 
-get_icon () {
+get_icon() {
   local br=$(get_percent)
   echo $(percentage "$br" "" "" "" "")
 }
