@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if pgrep xflux >/dev/null; then
-	echo true
-else
-	echo false
-fi
