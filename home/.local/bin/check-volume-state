@@ -2,8 +2,11 @@
 
 VOLUME_STATE=$(pamixer --get-volume)
 VOLUME_MUTED=$(pamixer --get-volume-human)
+MUTED=$(pamixer --get-mute)
 
-if [[ ${VOLUME_MUTED} = "muted" || ${VOLUME_STATE} = 0 ]]; then
+if [[ "$MUTED" = true ]]; then
+	echo ""
+elif [[ ${VOLUME_MUTED} = "muted" || ${VOLUME_STATE} = 0 ]]; then
 	echo ""
 elif [[ ${VOLUME_STATE} -le 5 ]]; then
 	echo ""

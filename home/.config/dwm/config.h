@@ -1366,7 +1366,7 @@ static const Button buttons[] = {
 	#endif // BAR_WINTITLEACTIONS_PATCH
 	{ ClkWinTitle,          0,                   Button2,        zoom,           {0} },
 	#if BAR_STATUSCMD_PATCH && BAR_DWMBLOCKS_PATCH
-	{ ClkStatusText,        0,                   Button1,        sigstatusbar,   {.i = 1 } },
+	{ ClkStatusText,        0,                   Button1,        spawn,          SHCMD("quick_settings") },
 	{ ClkStatusText,        0,                   Button2,        sigstatusbar,   {.i = 2 } },
 	{ ClkStatusText,        0,                   Button3,        sigstatusbar,   {.i = 3 } },
 	#elif BAR_STATUSCMD_PATCH
