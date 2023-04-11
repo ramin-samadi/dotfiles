@@ -897,6 +897,7 @@ static const Key on_empty_keys[] = {
 	{ 0,        XK_d,          spawn,                  SHCMD("eject-drive") },
 	{ 0,        XK_e,          spawn,                  SHCMD("emoji") },
 	{ 0,        XK_p,          spawn,                  SHCMD("passmenu-otp") },
+	{ 0,        XK_o,          spawn,                  SHCMD("select_audio_output") },
 	{ 0,        XK_s,          spawn,                  SHCMD("dmenu_run") },
 };
 #endif // ON_EMPTY_KEYS_PATCH
@@ -918,6 +919,7 @@ static const Key keys[] = {
   { MODKEY,                        XK_d,         spawn,          SHCMD("eject-drive") },
   { MODKEY,                        XK_w,         spawn,          SHCMD("wifi") },
   { MODKEY,                        XK_y,         spawn,          SHCMD("youtube") },
+  { MODKEY|ShiftMask,              XK_o,         spawn,          SHCMD("select_audio_output") },
   { MODKEY,                        XK_p,         spawn,          SHCMD("passmenu-otp") },
   { MODKEY,                        XK_m,         spawn,          SHCMD("playlist") },
   { MODKEY,                        XK_x,         spawn,          SHCMD("power-menu") },

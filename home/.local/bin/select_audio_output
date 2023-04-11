@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# NOTE: depends
+
+sink_names=$(pactl list sinks short | awk -F '\t' '{print $2}' | cut -d '.' -f 2- | cut -d '-' -f 2 | cut -d "_" -f 3)
+selected_sink=$(echo "$sink_names" | dmenu -p "蓼")
+selected_sink_id=$(pactl list sinks short | grep "$selected_sink" | awk '{print $1}')
+
+if [[ -z "${selected_sink// /}" ]]; then
+	exit
+else
+	pactl set-default-sink "$selected_sink_id"
+fi
