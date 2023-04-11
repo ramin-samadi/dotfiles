@@ -1,3 +1,9 @@
 #!/bin/bash
 
-emoji-script | dmenu
+SELECTED_EMOJI=$(emoji-script | dmenu -p "")
+
+display_selected_emoji() {
+	echo "${SELECTED_EMOJI}" | cut -d " " -f1 | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+}
+
+display_selected_emoji

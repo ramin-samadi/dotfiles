@@ -894,7 +894,8 @@ static const Key on_empty_keys[] = {
 	{ 0,        XK_a,          spawn,                  SHCMD("anime") },
 	{ 0,        XK_m,          spawn,                  SHCMD("playlist") },
 	{ 0,        XK_w,          spawn,                  SHCMD("wifi") },
-	{ 0,        XK_e,          spawn,                  SHCMD("eject-drive") },
+	{ 0,        XK_d,          spawn,                  SHCMD("eject-drive") },
+	{ 0,        XK_e,          spawn,                  SHCMD("emoji") },
 	{ 0,        XK_p,          spawn,                  SHCMD("passmenu-otp") },
 	{ 0,        XK_s,          spawn,                  SHCMD("dmenu_run") },
 };
@@ -914,7 +915,7 @@ static const Key keys[] = {
   {0, XF86XK_AudioNext,                     spawn,           SHCMD("playerctl next")},
   {0, XF86XK_AudioPrev,                     spawn,           SHCMD("playerctl previous")},
 
-  { MODKEY,                        XK_e,         spawn,          SHCMD("eject-drive") },
+  { MODKEY,                        XK_d,         spawn,          SHCMD("eject-drive") },
   { MODKEY,                        XK_w,         spawn,          SHCMD("wifi") },
   { MODKEY,                        XK_y,         spawn,          SHCMD("youtube") },
   { MODKEY,                        XK_p,         spawn,          SHCMD("passmenu-otp") },
@@ -924,7 +925,7 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,              XK_a,         spawn,          SHCMD("anime") },
   { MODKEY,                        XK_c,         spawn,          SHCMD("calendar") },
   { MODKEY|ShiftMask,              XK_c,         spawn,          SHCMD("color-picker") },
-  { MODKEY,                        XK_d,         spawn,          SHCMD("date-time-notification") },
+  { MODKEY,                        XK_e,         spawn,          SHCMD("emoji") },
   { MODKEY|ShiftMask,              XK_s,         spawn,          SHCMD("flameshot gui") },
 
 	#if KEYMODES_PATCH
