@@ -128,7 +128,6 @@ smenu
 speedread-git
 speedtest-cli
 stalonetray
-surf
 sxiv
 tldr
 toilet

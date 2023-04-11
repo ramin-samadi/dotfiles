@@ -4,13 +4,13 @@
 
 # Define the OPTIONS to be displayed in dmenu
 OPTIONS=(
-	" Lock"
-	" Logout"
-	" Reboot"
-	" Shutdown"
-	"⏾ Suspend"
-	"⏼ Hibernate"
-	" BIOS/UEFI"
+	" lock"
+	" logout"
+	" reboot"
+	" shutdown"
+	"⏾ suspend"
+	"⏼ hibernate"
+	" bios/uefi"
 )
 
 # Get the user's choice using dmenu
@@ -18,25 +18,25 @@ SELECTED=$(printf '%s\n' "${OPTIONS[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:s
 
 # Use a case statement to perform the appropriate action based on the user's choice
 case "$SELECTED" in
-" Lock")
+" lock")
 	slock
 	;;
-" Logout")
+" logout")
 	pkill dwm
 	;;
-" Reboot")
+" reboot")
 	systemctl reboot
 	;;
-" Shutdown")
+" shutdown")
 	systemctl poweroff
 	;;
-"⏾ Suspend")
+"⏾ suspend")
 	systemctl suspend
 	;;
-"⏼ Hibernate")
+"⏼ hibernate")
 	systemctl hibernate
 	;;
-" BIOS/UEFI")
+" bios/uefi")
 	systemctl reboot --firmware-setup
 	;;
 esac
