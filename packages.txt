@@ -30,6 +30,7 @@ cronie
 devour
 didyoumean
 discord
+dmenu-emoji
 dmidecode
 dnsmasq
 dunst
