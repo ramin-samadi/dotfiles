@@ -102,7 +102,7 @@ pass
 pass-otp
 pavucontrol
 php
-picom
+picom-pijulius-git
 pipewire
 pipewire-alsa
 pipewire-jack

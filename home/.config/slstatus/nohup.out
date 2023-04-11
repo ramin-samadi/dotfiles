@@ -15446,3 +15446,4 @@ XIO:  fatal IO error 4 (Interrupted system call) on X server ":0"
 /home/ramin/.local/bin/check-volume-state: rad 8: `elif [[ ${VOLUME_STATE} = 0 ]]; then'
 XIO:  fatal IO error 4 (Interrupted system call) on X server ":0"
       after 31185 requests (31185 known processed) with 0 events remaining.
+X connection to :0 broken (explicit kill or server shutdown).
