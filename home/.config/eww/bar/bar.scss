@@ -1,5 +1,5 @@
 .bar {
-  border-radius: 12px;
+  border-radius: 15px;
   background-color: #1E1E2E;
   font-family: all-the-icons;
   font-size: 12px;
@@ -8,7 +8,8 @@
 
 .launcher {
   margin: 7px 0 7px 7px;
-  font-size: 25px;
+  font-size: 16px;
+  font-weight: bold;
   .dispatcher {
     background-color: #313244;
     color: #1793D1;
@@ -40,7 +41,7 @@
 
 .wintitle {
   font-family: Product Sans;
-  font-weight: bold;
+  font-weight: 900;
   background-color: #313244;
   color: #CDD6F4;
   margin: 7px 0;
@@ -110,10 +111,12 @@ calendar.highlight {
 
 // controls dispatcher
 .actionsbox {
-  background: $bg;
+  background: #313244;
   border-radius: 10px;
   padding: 0 12px;
   margin: 7px 0px;
+  &:hover { background-color: #45475a; }
+  &:active { background-color: #313244; }
 }
 
 .battery__box {
@@ -137,12 +140,12 @@ calendar.highlight {
   background: inherit;
   .dispatcher {
     border-radius: 10px;
-    background: $bg;
-    color: $cyan;
+    background: #313244;
+    color: #f38ba8;
     font-size: 13px;
     padding: 0 10px;
-    &:hover { background-color: $contrastbg; }
-    &:active { background-color: $bgSecondary; }
+    &:hover { background-color: #45475a; }
+    &:active { background-color: #313244; }
   }
 }
 
