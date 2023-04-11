@@ -1,2 +1,3 @@
-(include "/home/ramin/.config/eww/definitions/_variables.yuck")
-(include "/home/ramin/.config/eww/actions/actions.yuck")
+(include "./definitions/_variables.yuck")
+(include "./bar/bar.yuck")
+(include "actions/actions.yuck")

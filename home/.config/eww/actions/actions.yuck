@@ -2,6 +2,23 @@
   (box :class "userinfobox"
        :orientation "h"
        :space-evenly true
+    (box :class "info"
+         :space-evenly false
+         :orientation "h"
+         :halign "start"
+         :valign "center"
+         :spacing 10
+      (label :text "${username}" :class "username")
+    )
+    (box :class "useractions"
+         :space-evenly false
+         :orientation "h"
+         :halign "end"
+         :valign "center"
+      (button :class "logout" :onclick "bspc quit"
+        ""
+      )
+    )
   )
 )
 
@@ -19,7 +36,7 @@
            :space-evenly true
         (sysblock 
         :icon "${network_icon}"
-        :onclick "wifi"
+        :onclick "networkmanager_dmenu"
         :active "${network_status == 'Connected' ? true : false}"
         :label "${network_ssid}"
         )
@@ -39,16 +56,16 @@
       (box :halign "start"
            :orientation "h"
            :space-evenly true
-        (sysblock :icon "${redshift_state == 'on' ? '' : ''}"
+        (sysblock :icon "${redshift_state == 'on' ? '' : ''}"
                   :onclick "~/.config/eww/scripts/redshift toggle"
                   :active "${redshift_state == 'on' ? true : false}"
-                  :label "Ögonskydd")
+                  :label "Night Light")
       )
       (box :halign "end"
            :orientation "h"
            :space-evenly true
         (sysblock :icon "${mic_status == 'yes' ? '' : ''}"
-                  :label "Mikrofon"
+                  :label "Micro"
                   :onclick "~/.config/eww/scripts/mic toggle"
                   :active "${mic_status == 'yes' ? true : false}"
                   )
@@ -79,7 +96,7 @@
                  :valign "start"
                  :orientation "v"
               (label :halign "center" :text "${label}" :class "label")
-              (label :halign "start" :text "${active ? '' : ''}" :class "label__status")
+              (label :halign "start" :text "${active ? 'On' : 'Off'}" :class "label__status")
            )
         (box :class "chevronbox"
              :halign "end"
@@ -98,6 +115,27 @@
   (box :class "musicbox"
        :orientation "v"
        :style "background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 30%, ${pctl_sub['image_accent']}), url(\"${pctl_sub['mpris:artUrl']}\"); background-size: cover; background-position: center;"
+  (box :class "musicbox__top"
+       :halign "start"
+       :valign "start"
+       :style "color: ${pctl_sub['button_accent']};"
+       "${player == 'spotify' ? '' : '爵' }")
+  (box :class "musicbox__center"
+       :orientation "h"
+       :space-evenly false
+       (box :class "musicbox__center--metadata"
+            :orientation "v"
+            :halign "start"
+            :valign "center"
+            :hexpand true
+            (label :limit-width 25 :halign "start" :text title :class "title")
+            (label :limit-width 25 :halign "start" :text artist :class "artist"))
+       (button :class "pausebutton ${music_status == 'Playing' ? 'playing' : 'paused'}"
+               :halign "end"
+               :style "background-color: ${pctl_sub['button_accent']}; color: ${pctl_sub['button_text']};"
+               :onclick "~/.config/eww/scripts/music/control.sh play-pause"
+               "${music_status == 'Playing' ? '' : ''}")
+       )
   (box :class "musicbox__bottom"
                :style "color: ${pctl_sub['button_accent']};"
        (button :valign "end"
@@ -105,30 +143,6 @@
                :onclick "~/.config/eww/scripts/music/control.sh prev & ~/.config/eww/scripts/music/songart.sh get"
                :class "previousbutton"
                "玲"
-       )
-       (button :valign "center"
-               :halign "center"
-               :orientation "v"
-               :space-evenly false
-               :style "background-color: ${pctl_sub['button_accent']}; color: ${pctl_sub['button_text']};"
-               :onclick "~/.config/eww/scripts/music/control.sh backward"
-               ""
-       )
-       (button :valign "center"
-               :halign "center"
-               :orientation "v"
-               :space-evenly false
-               :style "background-color: ${pctl_sub['button_accent']}; color: ${pctl_sub['button_text']};"
-               :onclick "~/.config/eww/scripts/music/control.sh play-pause"
-               ""
-       )
-       (button :valign "center"
-               :halign "center"
-               :orientation "v"
-               :space-evenly false
-               :style "background-color: ${pctl_sub['button_accent']}; color: ${pctl_sub['button_text']};"
-               :onclick "~/.config/eww/scripts/music/control.sh forward"
-               ""
        )
        (button :valign "end"
                :halign "end"
@@ -164,12 +178,39 @@
       (scale 
              :hexpand true
              :value br
-             :onchange "xrandr --output DVI-0 --brightness $(awk 'BEGIN{printf \"%.1f\",'{}'/100}')"
+             :onchange "brightnessctl set {}%"
              :min 0
              :max 101)
       (box :class "scale-label"
              :halign "start"
            "${br}%")
+    )
+    (box :class "slider"
+         :orientation "h"
+         :space-evenly "false"
+      (box :class "label"
+            "")
+      (scale :value ram
+             :hexpand true
+             :active false
+             :min 0
+             :max 101)
+      (box :class "scale-label "
+           "${ram}%"
+           )
+    )
+    (box :class "slider"
+         :orientation "h"
+         :space-evenly "false"
+      (box :class "label"
+           "")
+      (scale :value cpu
+             :hexpand true
+             :active false
+             :min 0
+             :max 101)
+      (box :class "scale-label"
+           "${cpu}%")
     )
   )
 )
@@ -195,8 +236,8 @@
 )
 
 (defwindow actions
-  :geometry (geometry :x "-11px"
-                      :y "58px"
+  :geometry (geometry :x "-270px"
+                      :y "66px"
                       :anchor "top right")
   :type "dock"
   :wm-ignore true
