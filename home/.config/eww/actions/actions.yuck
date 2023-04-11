@@ -2,22 +2,11 @@
   (box :class "userinfobox"
        :orientation "h"
        :space-evenly true
-    (box :class "info"
-         :space-evenly false
-         :orientation "h"
-         :halign "start"
-         :valign "center"
-         :spacing 10
-      (label :text "${username}" :class "username")
-    )
     (box :class "useractions"
          :space-evenly false
          :orientation "h"
          :halign "end"
          :valign "center"
-      (button :class "logout" :onclick "bspc quit"
-        ""
-      )
     )
   )
 )
@@ -236,8 +225,8 @@
 )
 
 (defwindow actions
-  :geometry (geometry :x "-270px"
-                      :y "66px"
+  :geometry (geometry :x "-12px"
+                      :y "58px"
                       :anchor "top right")
   :type "dock"
   :wm-ignore true

@@ -1,8 +1,9 @@
 .actions {
-  background-color: $bg;
+  background-color: #1E1E2E;
   color: $fg;
   font-family: Product Sans;
   padding: 10px;
+  border-radius: 24px;
 }
 
 .controlsbox {
@@ -13,7 +14,7 @@
 
 .slider {
   .label{
-    font-family: 'JetBrainsMono Nerd Font';
+    font-family: 'MesloLGS Nerd Font Mono';
     color: $fg;
     font-size: 18px;
     padding-right: 20px;
