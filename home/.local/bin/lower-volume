@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# NOTE: pamixer
+
+CURRENT_VOLUME=$(pamixer --get-volume)
+
+if [[ ! "${CURRENT_VOLUME}" -gt 100 ]]; then
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+fi

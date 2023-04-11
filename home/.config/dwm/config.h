@@ -906,7 +906,7 @@ static const Key keys[] = {
   // █▀▄▀█ █░█ █░░ ▀█▀ █ █▀▄▀█ █▀▀ █▀▄ █ ▄▀█
   // █░▀░█ █▄█ █▄▄ ░█░ █ █░▀░█ ██▄ █▄▀ █ █▀█
 
-  {0, XF86XK_AudioLowerVolume,              spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%")},
+  {0, XF86XK_AudioLowerVolume,              spawn,           SHCMD("lower-volume")},
   {0, XF86XK_AudioRaiseVolume,              spawn,           SHCMD("raise-volume")},
   {0, XF86XK_AudioMute,                     spawn,           SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle")},
 
