@@ -1,0 +1,2 @@
+(include "/home/ramin/.config/eww/definitions/_variables.yuck")
+(include "/home/ramin/.config/eww/actions/actions.yuck")
