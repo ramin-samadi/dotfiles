@@ -5,7 +5,7 @@
   (box :orientation "h"
        :class "launcher"
        :tooltip "Launch apps"
-    (button :class "dispatcher" :onclick "sh ~/.config/bspwm/rofi/bin/launcher" "")
+    (button :class "dispatcher" :onclick "sh ~/.config/bspwm/rofi/bin/launcher" "")
   )
 )
 
@@ -29,13 +29,15 @@
 (defwidget wintitle []
   (label :text xtitle :class "wintitle")
 )
-(defpoll xtitle :interval "1s" "scripts/getWinTitle")
+(defpoll xtitle :interval "1s" "date +%R")
 
 (defwidget center []
-  (box :class "center-widgets"
+  (button :class "center-widgets"
        :space-evenly "false"
        :halign "center"
        :orientation "h"
+       :onclick "calendar"
+       :tooltip "Calendar"
     (wintitle)
   )
 )
@@ -68,7 +70,7 @@
        :class "powermenu-box"
     (button :class "dispatcher"
             :tooltip "Toggle Power Menu"
-            :onclick "sh ~/.config/bspwm/rofi/bin/powermenu"
+            :onclick "power-menu"
             "⏻")
   )
 )
@@ -102,8 +104,8 @@
        :spacing 7
        :orientation "h"
     (actionsbox)
-    (battery)
-    (datebox)
+;    (battery)
+;    (datebox)
     (powermenu)
   )
 )
@@ -120,13 +122,13 @@
 (defwindow bar
    :geometry (geometry :x "0px"
                        :y "10px"
-                       :width "72%"
-                       :height "46px"
+                       :width "100%"
+                       :height "40px"
                        :anchor "top center")
    :focusable true
    :stacking "bg"
    :reserve (struts :distance "52px" :side "top")
    :windowtype "dock"
-   :wm-ignore false
+   :wm-ignore true
    :exclusive true
  (bar))
