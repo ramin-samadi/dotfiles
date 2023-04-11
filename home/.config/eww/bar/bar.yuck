@@ -4,7 +4,6 @@
 (defwidget launcher[]
   (box :orientation "h"
        :class "launcher"
-       :tooltip "Launch apps"
     (button :class "dispatcher" :onclick "sh ~/.config/bspwm/rofi/bin/launcher" "")
   )
 )
@@ -37,7 +36,6 @@
        :halign "center"
        :orientation "h"
        :onclick "calendar"
-       :tooltip "Calendar"
     (wintitle)
   )
 )
