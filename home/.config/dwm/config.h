@@ -135,7 +135,7 @@ static const unsigned int maxhtab          = 200;  /* tab menu height */
 #endif // ALT_TAB_PATCH
 
 /* Indicators: see patch/bar_indicators.h for options */
-static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
+static int tagindicatortype              = 0;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 #if FAKEFULLSCREEN_CLIENT_PATCH && !FAKEFULLSCREEN_PATCH
@@ -445,7 +445,7 @@ static char tagicons[][NUMTAGS][MAX_TAGLEN] =
 static char *tagicons[][NUMTAGS] =
 #endif // NAMETAG_PATCH
 {
-	[DEFAULT_TAGS]        = { "", "", "", "" },
+	[DEFAULT_TAGS]        = { "", "", "" },
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -889,7 +889,14 @@ static const Key on_empty_keys[] = {
 	/* modifier key            function                argument */
 	{ 0,        XK_b,          spawn,                  SHCMD("google-chrome-stable") },
 	{ 0,        XK_t,          spawn,                  SHCMD("st") },
-	{ 0,        XK_space,      spawn,                  SHCMD("dmenu_run") },
+	{ 0,        XK_y,          spawn,                  SHCMD("youtube") },
+	{ 0,        XK_c,          spawn,                  SHCMD("calendar") },
+	{ 0,        XK_a,          spawn,                  SHCMD("anime") },
+	{ 0,        XK_m,          spawn,                  SHCMD("playlist") },
+	{ 0,        XK_w,          spawn,                  SHCMD("wifi") },
+	{ 0,        XK_e,          spawn,                  SHCMD("eject-drive") },
+	{ 0,        XK_p,          spawn,                  SHCMD("passmenu-otp") },
+	{ 0,        XK_s,          spawn,                  SHCMD("dmenu_run") },
 };
 #endif // ON_EMPTY_KEYS_PATCH
 
@@ -942,8 +949,8 @@ static const Key keys[] = {
 	STACKKEYS(MODKEY,                              focus)
 	STACKKEYS(MODKEY|ShiftMask,                    push)
 	#else
-	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
-	{ MODKEY,                       XK_l,          focusstack,             {.i = -1 } },
+	/* { MODKEY,                       XK_j,          focusstack,             {.i = +1 } }, */
+	/* { MODKEY,                       XK_l,          focusstack,             {.i = -1 } }, */
 	#endif // STACKER_PATCH
 	#if FOCUSDIR_PATCH
 	{ MODKEY,                       XK_Left,       focusdir,               {.i = 0 } }, // left
@@ -1017,7 +1024,7 @@ static const Key keys[] = {
 	#if INSETS_PATCH
 	{ MODKEY|ShiftMask|ControlMask, XK_a,          updateinset,            {.v = &default_inset } },
 	#endif // INSETS_PATCH
-	{ MODKEY,                       XK_Return,     zoom,                   {0} },
+	{ MODKEY,                       XK_j,     zoom,                   {0} },
 	#if VANITYGAPS_PATCH
 	{ MODKEY|Mod4Mask,              XK_u,          incrgaps,               {.i = +1 } },
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_u,          incrgaps,               {.i = -1 } },
@@ -1310,12 +1317,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_1,                                  0)
 	TAGKEYS(                        XK_2,                                  1)
 	TAGKEYS(                        XK_3,                                  2)
-	TAGKEYS(                        XK_4,                                  3)
-	TAGKEYS(                        XK_5,                                  4)
-	TAGKEYS(                        XK_6,                                  5)
-	TAGKEYS(                        XK_7,                                  6)
-	TAGKEYS(                        XK_8,                                  7)
-	TAGKEYS(                        XK_9,                                  8)
 };
 
 #if KEYMODES_PATCH

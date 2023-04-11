@@ -32,6 +32,10 @@ mkdir ~/GitHub
 
 git clone https://aur.archlinux.org/dwm.git ~/.config/dwm && cd ~/.config/dwm/ && makepkg -sif –clean
 
+# Dmenu
+rm -rf ~/.config/dmenu/
+mv ~/dwm/home/.config/dmenu/ ~/.config/
+
 # Neovim
 rm -rf ~/.config/nvim/
 mv ~/dwm/home/.config/nvim/ ~/.config/
