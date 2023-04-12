@@ -35,7 +35,7 @@ static char *fonts[] =
 static const char *fonts[] =
 #endif // XRESOURCES_PATCH
 {
-	"Meslo LGS Nerd Font Mono:size=20:bold"
+	"Meslo LGS Nerd Font Mono:size=29:bold"
 };
 #endif // PANGO_PATCH
 #if MANAGED_PATCH

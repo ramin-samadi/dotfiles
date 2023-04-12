@@ -2,7 +2,7 @@
 
 # NOTE: gawk dmenu sudo
 
-SELECTED_DRIVE=$(lsblk -d -p | awk '$3 == "1" {print $1}' | sed 's|^/dev/||' | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p "")
+SELECTED_DRIVE=$(lsblk -d -p | awk '$3 == "1" {print $1}' | sed 's|^/dev/||' | dmenu -fn "Meslo LGS Nerd Font Mono:size=29:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p "")
 
 eject_selected_drive() {
 	udisksctl power-off -b "/dev/${SELECTED_DRIVE}"

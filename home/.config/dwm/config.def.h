@@ -158,9 +158,9 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "monospace 10";
 #else
-static const char *fonts[]               = { "Meslo LGS Nerd Font Mono:size=20:bold", "NotoColorEmoji:size=20:bold" };
+static const char *fonts[]               = { "Meslo LGS Nerd Font Mono:size=28:bold", "NotoColorEmoji:size=28:bold" };
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "Meslo LGS Nerd Font Mono:size=20:bold";
+static const char dmenufont[]            = "Meslo LGS Nerd Font Mono:size=28:bold";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -918,6 +918,7 @@ static const Key keys[] = {
 
   { MODKEY,                        XK_d,         spawn,          SHCMD("eject-drive") },
   { MODKEY,                        XK_w,         spawn,          SHCMD("wifi") },
+  { MODKEY|ShiftMask,              XK_w,         spawn,          SHCMD("wallpaper") },
   { MODKEY,                        XK_y,         spawn,          SHCMD("youtube") },
   { MODKEY|ShiftMask,              XK_o,         spawn,          SHCMD("select_audio_output") },
   { MODKEY,                        XK_p,         spawn,          SHCMD("passmenu-otp") },

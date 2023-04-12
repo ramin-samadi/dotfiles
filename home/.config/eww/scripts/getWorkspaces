@@ -3,9 +3,9 @@
 CURRENT_WORKING_WORKSPACE=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3+1}')
 
 if [[ "$CURRENT_WORKING_WORKSPACE" = "1" ]]; then
-  echo "  "
+  echo "    "
 elif [[ "$CURRENT_WORKING_WORKSPACE" = "2" ]]; then
-  echo "  "
+  echo "    "
 elif [[ "$CURRENT_WORKING_WORKSPACE" = "3" ]]; then
-  echo "  "
+  echo "    "
 fi

@@ -2,4 +2,4 @@
 
 # NOTE: dmenu
 
-dmenu_path | dmenu -p "" -fn "Meslo LGS Nerd Font Mono:size=20" -nb "#1E1E2E" -sb "#313244" "$@" | ${SHELL:-"/bin/sh"} &
+dmenu_path | dmenu -p "" -fn "Meslo LGS Nerd Font Mono:size=29" -nb "#1E1E2E" -sb "#313244" "$@" | ${SHELL:-"/bin/sh"} &

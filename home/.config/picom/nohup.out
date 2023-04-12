@@ -1,0 +1,14 @@
+[ 2023-04-12 04:20:13.520 session_init FATAL ERROR ] Another composite manager is already running
+[ 2023-04-12 04:20:24.556 glx_has_extension INFO ] Found GLX extension GLX_SGI_video_sync.
+[ 2023-04-12 04:20:24.556 glx_has_extension INFO ] Found GLX extension GLX_SGI_swap_control.
+[ 2023-04-12 04:20:24.556 glx_has_extension INFO ] Found GLX extension GLX_OML_sync_control.
+[ 2023-04-12 04:20:24.556 glx_has_extension INFO ] Found GLX extension GLX_MESA_swap_control.
+[ 2023-04-12 04:20:24.556 glx_has_extension INFO ] Found GLX extension GLX_EXT_swap_control.
+[ 2023-04-12 04:20:24.556 glx_has_extension INFO ] Found GLX extension GLX_EXT_texture_from_pixmap.
+[ 2023-04-12 04:20:24.556 glx_has_extension INFO ] Found GLX extension GLX_ARB_create_context.
+[ 2023-04-12 04:20:24.556 glx_has_extension INFO ] Found GLX extension GLX_EXT_buffer_age.
+[ 2023-04-12 04:20:24.556 glx_has_extension INFO ] Found GLX extension GLX_MESA_query_renderer.
+[ 2023-04-12 04:20:24.589 gl_has_extension INFO ] Missing GL extension GL_GREMEDY_string_marker.
+[ 2023-04-12 04:34:56.554 glx_bind_pixmap ERROR ] Failed to query info of pixmap 0x01002355.
+[ 2023-04-12 04:34:56.554 paint_one ERROR ] Failed to bind texture for window 0x00c0001a.
+[ 2023-04-12 04:34:56.554 paint_one ERROR ] Window 0x00c0001a is missing painting data.
