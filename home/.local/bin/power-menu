@@ -14,7 +14,7 @@ OPTIONS=(
 )
 
 # Get the user's choice using dmenu
-SELECTED=$(printf '%s\n' "${OPTIONS[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p "")
+SELECTED=$(printf '%s\n' "${OPTIONS[@]}" | dmenu -p "")
 
 # Use a case statement to perform the appropriate action based on the user's choice
 case "$SELECTED" in

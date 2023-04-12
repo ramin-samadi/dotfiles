@@ -889,6 +889,7 @@ static const Key on_empty_keys[] = {
 	/* modifier key            function                argument */
 	{ 0,        XK_b,          spawn,                  SHCMD("google-chrome-stable") },
 	{ 0,        XK_t,          spawn,                  SHCMD("st") },
+	{ 0,        XK_x,          spawn,                  SHCMD("power-menu") },
 	{ 0,        XK_y,          spawn,                  SHCMD("youtube") },
 	{ 0,        XK_c,          spawn,                  SHCMD("calendar") },
 	{ 0,        XK_a,          spawn,                  SHCMD("anime") },
