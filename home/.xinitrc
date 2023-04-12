@@ -3,6 +3,7 @@ userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+WALLPAPER=$(cat $HOME/xwallpaper)
 
 # merge in defaults and keymaps
 
@@ -35,6 +36,8 @@ fi
 setxkbmap se &
 eww daemon &
 eww open bar &
+
+xwallpaper --zoom "$WALLPAPER" &
 
 # Background
 xflux -l 57.792506 -g 11.997145 &

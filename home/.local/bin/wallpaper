@@ -6,4 +6,5 @@ if [[ -z "${SELECTED_WALLPAPER// /}" ]]; then
 	exit
 else
 	xwallpaper --zoom /home/$USER/"$SELECTED_WALLPAPER"
+	echo "/home/$USER/$SELECTED_WALLPAPER" >/home/$USER/xwallpaper
 fi
