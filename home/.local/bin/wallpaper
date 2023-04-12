@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-SELECTED_WALLPAPER=$(ls /home/$USER/.wallpaper/ | dmenu -p "")
+SELECTED_WALLPAPER=$(sxiv -tfo .wallpaper)
 
 if [[ -z "${SELECTED_WALLPAPER// /}" ]]; then
 	exit
 else
-	feh --bg-fill /home/$USER/.wallpaper/"$SELECTED_WALLPAPER"
+	feh --bg-fill /home/$USER/"$SELECTED_WALLPAPER"
 fi

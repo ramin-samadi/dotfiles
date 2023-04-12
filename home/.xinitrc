@@ -38,7 +38,6 @@ eww daemon &
 eww open bar &
 
 # Background
-feh --bg-fill /home/ramin/.wallpaper/wallpaper.jpg &
 xflux -l 57.792506 -g 11.997145 &
 
 # Monitor
