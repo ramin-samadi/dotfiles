@@ -1373,10 +1373,10 @@ static const Button buttons[] = {
 	#endif // BAR_WINTITLEACTIONS_PATCH
 	{ ClkWinTitle,          0,                   Button2,        zoom,           {0} },
 	#if BAR_STATUSCMD_PATCH && BAR_DWMBLOCKS_PATCH
-	{ ClkStatusText,        0,                   Button1,        spawn,          SHCMD("quick_settings") },
-	{ ClkStatusText,        0,                   Button3,        spawn,          SHCMD("calendar") },
-	{ ClkStatusText,        0,                   Button4,        spawn,          SHCMD("raise-volume") },
-	{ ClkStatusText,        0,                   Button5,        spawn,          SHCMD("lower-volume") },
+	/* { ClkStatusText,        0,                   Button1,        spawn,          SHCMD("quick_settings") }, */
+	/* { ClkStatusText,        0,                   Button3,        spawn,          SHCMD("calendar") }, */
+	/* { ClkStatusText,        0,                   Button4,        spawn,          SHCMD("raise-volume") }, */
+	/* { ClkStatusText,        0,                   Button5,        spawn,          SHCMD("lower-volume") }, */
 	#elif BAR_STATUSCMD_PATCH
 	{ ClkStatusText,        0,                   Button1,        spawn,          {.v = statuscmd } },
 	{ ClkStatusText,        0,                   Button2,        spawn,          {.v = statuscmd } },

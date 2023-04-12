@@ -5,5 +5,5 @@ SELECTED_WALLPAPER=$(sxiv -tfo .wallpaper)
 if [[ -z "${SELECTED_WALLPAPER// /}" ]]; then
 	exit
 else
-	feh --bg-fill /home/$USER/"$SELECTED_WALLPAPER"
+	xwallpaper --zoom /home/$USER/"$SELECTED_WALLPAPER"
 fi

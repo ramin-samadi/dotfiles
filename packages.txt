@@ -41,7 +41,6 @@ electron
 eww
 fail2ban
 fd
-feh
 ffmpeg4.4
 fish
 flake8

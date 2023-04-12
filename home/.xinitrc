@@ -33,7 +33,6 @@ fi
 
 # Keyboard layout
 setxkbmap se &
-slstatus &
 eww daemon &
 eww open bar &
 
