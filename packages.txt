@@ -204,6 +204,7 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xwallpaper
 yarn
 yay
 youtube-dl

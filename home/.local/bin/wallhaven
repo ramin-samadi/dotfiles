@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+WALLPAPER_DIRECTORY="$HOME/.wallpaper"
+MAXIMUM_PAGE=5
+TAG_OPTIONS="#minimalism\n#Cyberpunk 2077\n#fantasy girl\n#digital art\n#anime\n#4K\n#nature"
+
+if [[ -z "$1" ]]; then
+	QUERY=$(echo -e "$TAG_OPTIONS" | dmenu -p "Search Wallhaven: " -i)
+else
+	QUERY=$1
+fi
+
+SORT_OPTIONS="date_added\nrelevance\nrandom\nviews\nfavorites\ntoplist"
+SORTING=$(echo -e "$SORT_OPTIONS" | dmenu -p "Sort Order: " -i)
+
+QUERY="$(sed 's/#//g' <<<$QUERY)"
+QUERY="$(sed 's/ /+/g' <<<$QUERY)"
+echo "$QUERY"
+
+notify-send "⬇ Downloading wallpapers🌇"
+
+for i in $(seq 1 5); do
+	curl -s https://wallhaven.cc/api/v1/search\?atleast\=1920x1080\&sorting\=$SORTING\&q\=$QUERY\&page\=$i >tmp.txt
+	PAGE=$(cat tmp.txt | jq '.' | grep -Eoh "https:\/\/w\.wallhaven.cc\/full\/.*(jpg|png)\b")
+	wget -nc -P $WALLPAPER_DIRECTORY $PAGE
+done
+
+rm tmp.txt
+notify-send "😄 Download finish ✅"
+sxiv -t $WALLPAPER_DIRECTORY/*
