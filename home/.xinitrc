@@ -34,6 +34,8 @@ fi
 # Keyboard layout
 setxkbmap se &
 slstatus &
+eww daemon &
+eww open bar &
 
 # Background
 feh --bg-fill /home/ramin/.wallpaper/wallpaper.jpg &
