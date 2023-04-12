@@ -4,7 +4,7 @@
 (defwidget launcher[]
   (box :orientation "h"
        :class "launcher"
-    (button :class "dispatcher" :onclick "sh ~/.config/bspwm/rofi/bin/launcher" "")
+    (button :class "dispatcher" :onclick "power-menu" "")
   )
 )
 
@@ -12,37 +12,12 @@
   (literal :content workspace)
 )
 
-(defwidget workspace1 []
-  (button :class "actionsbox" :onclick "xdotool key Super+1"
-    (box :orientation "h"
-        :space-evenly false
-      ; margin are used to fix issues with nerd fonts widths :/
-      (label :text "1")
-    )
-  )
-)
-
-(defwidget workspace2 []
-  (button :class "actionsbox" :onclick "xdotool key Super+2"
-    (box :orientation "h"
-        :space-evenly false
-      ; margin are used to fix issues with nerd fonts widths :/
-      (label :text "2")
-    )
-  )
-)
-
-(defwidget workspace3 []
-  (button :class "actionsbox" :onclick "xdotool key Super+3"
-    (box :orientation "h"
-        :space-evenly false
-      ; margin are used to fix issues with nerd fonts widths :/
-      (label :text "3")
-    )
-  )
-)
-
 (deflisten workspace "/home/ramin/.config/eww/scripts/getWorkspaces")
+
+(defwidget workspace []
+  (label :text xtag :class "wintitle")
+)
+(defpoll xtag :interval "1ms" "/home/$USER/.config/eww/scripts/getWorkspaces")
 
 (defwidget left []
   (box :orientation "h"
@@ -51,9 +26,7 @@
        :halign "start"
        :class "left"
     (launcher)
-    (workspace1)
-    (workspace2)
-    (workspace3)
+    (workspace)
 ;    (workspaces)
     {xdo}
   )
@@ -137,7 +110,7 @@
     (actionsbox)
 ;    (battery)
 ;    (datebox)
-    (powermenu)
+;    (powermenu)
   )
 )
 

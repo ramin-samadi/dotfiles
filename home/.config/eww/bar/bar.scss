@@ -47,9 +47,10 @@
   background-color: #313244;
   color: #CDD6F4;
   margin: 7px 0;
-  padding: 0 10px;
+  padding: 0px 20px;
+  font-weight: bold;
+  font-size: 15px;
   border-radius: 10px;
-  font-size: 20px;
 }
 
 .date-box {
@@ -116,7 +117,7 @@ calendar.highlight {
   background: #313244;
   border-radius: 10px;
   padding: 0 12px;
-  margin: 7px 0px;
+  margin: 7px 7px;
   &:hover { background-color: #45475a; }
   &:active { background-color: #313244; }
 }
