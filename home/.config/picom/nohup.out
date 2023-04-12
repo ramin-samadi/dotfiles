@@ -12,3 +12,6 @@
 [ 2023-04-12 04:34:56.554 glx_bind_pixmap ERROR ] Failed to query info of pixmap 0x01002355.
 [ 2023-04-12 04:34:56.554 paint_one ERROR ] Failed to bind texture for window 0x00c0001a.
 [ 2023-04-12 04:34:56.554 paint_one ERROR ] Window 0x00c0001a is missing painting data.
+[ 2023-04-12 05:10:06.561 glx_bind_pixmap ERROR ] Failed to query info of pixmap 0x0100997e.
+[ 2023-04-12 05:10:06.561 paint_one ERROR ] Failed to bind texture for window 0x02000002.
+[ 2023-04-12 05:10:06.561 paint_one ERROR ] Window 0x02000002 is missing painting data.

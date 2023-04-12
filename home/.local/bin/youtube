@@ -12,7 +12,7 @@ CHANNELS=(
 	"Mental Outlaw"
 )
 
-SELECTED_CHANNEL=$(printf '%s\n' "${CHANNELS[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p "")
+SELECTED_CHANNEL=$(printf '%s\n' "${CHANNELS[@]}" | dmenu -p "")
 
 execute_ytfzf() {
 	"$1" -e bash -c "ytfzf -t -l \"$2\" && pkill -P $$"

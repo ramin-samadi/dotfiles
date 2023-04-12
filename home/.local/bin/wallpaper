@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SELECTED_WALLPAPER=$(ls /home/$USER/.wallpaper/ | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p " Anime: ")
+SELECTED_WALLPAPER=$(ls /home/$USER/.wallpaper/ | dmenu -p "")
 
 if [[ -z "${SELECTED_WALLPAPER// /}" ]]; then
 	exit

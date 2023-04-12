@@ -13,7 +13,7 @@ OPTIONS=(
 	"Quit"
 )
 
-SELECTED=$(printf '%s\n' "${OPTIONS[@]}" | dmenu -fn "Meslo LGS Nerd Font Mono:size=20:bold" -nb "#1E1E2E" -sb "#313244" -sf "#cdd6f4" -nf "#a6adc8" -p "")
+SELECTED=$(printf '%s\n' "${OPTIONS[@]}" | dmenu -p "")
 
 case "${SELECTED}" in
 "Ahmed Bukhatir - Nasheed Taweel Alshawq")
