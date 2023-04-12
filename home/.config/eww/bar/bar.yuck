@@ -12,15 +12,32 @@
   (literal :content workspace)
 )
 
-(defwidget workspace []
-  (button :class "actionsbox" :onclick "eww -c ~/.config/eww open --toggle actions"
+(defwidget workspace1 []
+  (button :class "actionsbox" :onclick "xdotool key Super+1"
     (box :orientation "h"
         :space-evenly false
-        :spacing 6
       ; margin are used to fix issues with nerd fonts widths :/
-      (label :text "")
-      (label :text "")
-      (label :text "")
+      (label :text "1")
+    )
+  )
+)
+
+(defwidget workspace2 []
+  (button :class "actionsbox" :onclick "xdotool key Super+2"
+    (box :orientation "h"
+        :space-evenly false
+      ; margin are used to fix issues with nerd fonts widths :/
+      (label :text "2")
+    )
+  )
+)
+
+(defwidget workspace3 []
+  (button :class "actionsbox" :onclick "xdotool key Super+3"
+    (box :orientation "h"
+        :space-evenly false
+      ; margin are used to fix issues with nerd fonts widths :/
+      (label :text "3")
     )
   )
 )
@@ -34,7 +51,9 @@
        :halign "start"
        :class "left"
     (launcher)
-    (workspace)
+    (workspace1)
+    (workspace2)
+    (workspace3)
 ;    (workspaces)
     {xdo}
   )
