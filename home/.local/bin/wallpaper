@@ -14,9 +14,9 @@ else
 
 	# Determine the appropriate text color based on the background brightness
 	if (("$BACKGROUND_BRIGHTNESS" < 50)); then
-		TEXT_COLOR="#ffffff" # white
+		TEXT_COLOR="#CDD6F4"
 	else
-		TEXT_COLOR="#000000" # black
+		TEXT_COLOR="#313244"
 	fi
 
 	echo "\$material-you: $BACKGROUND_COLOR; \$text-color: $TEXT_COLOR;" >/home/ramin/.config/eww/actions/colors.scss

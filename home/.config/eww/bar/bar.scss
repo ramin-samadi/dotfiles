@@ -1,9 +1,11 @@
+@import "../actions/colors.scss";
+
 .bar {
   border-radius: 15px;
   background-color: #1E1E2E;
   font-family: all-the-icons;
   font-size: 20px;
-  color: #CDD6F4;
+  color: $text-color;
 }
 
 .launcher {
@@ -11,8 +13,8 @@
   font-size: 20px;
   font-weight: bold;
   .dispatcher {
-    background-color: #313244;
-    color: #1793D1;
+    background-color: $material-you;
+    color: $text-color;
     border-radius: 10px;
     font-size: inherit;
     padding: 0 12px;
@@ -44,8 +46,8 @@
 .wintitle {
   font-family: Product Sans;
   font-weight: bold;
-  background-color: #313244;
-  color: #CDD6F4;
+  background-color: $material-you;
+  color: $text-color;
   margin: 7px 0;
   padding: 0px 15px;
   padding-top: 4.5px;
@@ -57,8 +59,8 @@
 .workspace {
   font-family: Product Sans;
   font-weight: bold;
-  background-color: #313244;
-  color: #CDD6F4;
+  background-color: $material-you;
+  color: $text-color;
   margin: 7px 0;
   padding: 0px 20px;
   font-weight: bold;
@@ -127,7 +129,8 @@ calendar.highlight {
 
 // controls dispatcher
 .actionsbox {
-  background: #313244;
+  background: $material-you;
+  color: $text-color;
   border-radius: 10px;
   padding: 0 12px;
   margin: 7px 7px;
