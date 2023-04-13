@@ -36,6 +36,10 @@ git clone https://aur.archlinux.org/dwm.git ~/.config/dwm && cd ~/.config/dwm/ &
 rm -rf ~/.config/dmenu/
 mv ~/dwm/home/.config/dmenu/ ~/.config/
 
+# Xwallpaper
+mv $HOME/dwm/home/.Xresources $HOME
+xrdb -load ~/.Xresources
+
 # Neovim
 rm -rf ~/.config/nvim/
 mv ~/dwm/home/.config/nvim/ ~/.config/
