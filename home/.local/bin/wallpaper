@@ -7,4 +7,5 @@ if [[ -z "${SELECTED_WALLPAPER// /}" ]]; then
 else
 	xwallpaper --zoom /home/$USER/"$SELECTED_WALLPAPER"
 	echo "/home/$USER/$SELECTED_WALLPAPER" >/home/$USER/xwallpaper
+	echo $(convert /home/$USER/$SELECTED_WALLPAPER -resize 1x1 -colors 1 -format "%c" histogram:info:- | sort -rn | uniq -c | awk 'NR==1{gsub(/.*#/, ""); printf("#%s\n", $1)}' | cut -c 1-7) | xclip -selection clipboard
 fi
