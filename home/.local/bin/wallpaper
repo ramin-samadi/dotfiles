@@ -7,5 +7,17 @@ if [[ -z "${SELECTED_WALLPAPER// /}" ]]; then
 else
 	xwallpaper --zoom /home/$USER/"$SELECTED_WALLPAPER"
 	echo "/home/$USER/$SELECTED_WALLPAPER" >/home/$USER/xwallpaper
-	echo "\$material-you: $(convert /home/$USER/$SELECTED_WALLPAPER -resize 1x1 -colors 1 -format "%c" histogram:info:- | sort -rn | uniq -c | awk 'NR==1{gsub(/.*#/, ""); printf("#%s;\n", $1)}' | cut -c 1-7); \$text-color: #CDD6F4;" >/home/ramin/.config/eww/actions/colors.scss
+	BACKGROUND_COLOR=$(convert /home/$USER/$SELECTED_WALLPAPER -resize 1x1 -colors 1 -format "%c" histogram:info:- | sort -rn | uniq -c | awk 'NR==1{gsub(/.*#/, ""); printf("#%s;\n", $1)}' | cut -c 1-7)
+
+	# Convert the background color to HSL and extract the lightness value
+	BACKGROUND_BRIGHTNESS=$(convert "xc:$BACKGROUND_COLOR" -colorspace hsl -channel L -separate +channel -format "%[fx:int(100*u.p{0})]\n" info:)
+
+	# Determine the appropriate text color based on the background brightness
+	if (("$BACKGROUND_BRIGHTNESS" < 50)); then
+		TEXT_COLOR="#ffffff" # white
+	else
+		TEXT_COLOR="#000000" # black
+	fi
+
+	echo "\$material-you: $BACKGROUND_COLOR; \$text-color: $TEXT_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
 fi
