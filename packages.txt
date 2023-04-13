@@ -43,6 +43,7 @@ eww
 fail2ban
 fd
 ffmpeg4.4
+firefox
 fish
 flake8
 flameshot
