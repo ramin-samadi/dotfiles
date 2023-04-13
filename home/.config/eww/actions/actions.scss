@@ -1,3 +1,5 @@
+@import "colors.scss";
+
 .actions {
   background-color: #1E1E2E;
   color: $fg;
@@ -15,13 +17,13 @@
 .slider {
   .label{
     font-family: 'MesloLGS Nerd Font Mono';
-    color: #CDD6F4;
+    color: $text-color;
     font-size: 18px;
     padding-right: 20px;
   }
   .scale-label{
     min-width: 40px;
-    color: #CDD6F4;
+    color: $text-color;
     font-size: 13px;
     font-weight: 500;
     margin-left: 20px;
@@ -32,7 +34,7 @@
     border-radius: 100px;
 
     highlight {
-      background-color: #89B4FA;
+      background-color: $material-you;
       border-radius: 100px;
     }
   }
@@ -41,7 +43,7 @@
 .active {
   trough {
     slider {
-      background: #89B4FA;
+      background: $material-you;
       border-radius: 100%;
       margin: -8px;
     }
@@ -84,9 +86,9 @@
         color: $fg;
       }
       &.active {
-        color: #313244;
-        background-color: #89B4FA;
-        &:hover { background-color: #5C89C5; }
+        color: $text-color;
+        background-color: $material-you;
+        &:hover { background-color: #313244; }
         &:active {
         background-color: #45475A;
         }
