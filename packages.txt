@@ -21,6 +21,7 @@ bridge-utils
 brightnessctl-git
 btop
 calcurse
+catppuccin-mocha-dark-cursors
 cava
 cbonsai
 cmatrix
@@ -80,6 +81,7 @@ lsd
 lshw
 lsplug
 luarocks
+lxappearance
 mesa-utils
 mpv
 ncdu
