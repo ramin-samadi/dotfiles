@@ -7,7 +7,12 @@ rm -rf ~/GitHub/dwm/home/.local/bin/* && cp -r ~/.local/bin/* ~/GitHub/dwm/home/
 rm -rf ~/GitHub/dwm/home/.bashrc && cp -r ~/.bashrc ~/GitHub/dwm/home/
 rm -rf ~/GitHub/dwm/home/.config/dwm/ && cp -r ~/.config/dwm/ ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.config/dmenu/ && cp -r ~/.config/dmenu/ ~/GitHub/dwm/home/.config/
+rm -rf ~/GitHub/dwm/home/.config/btop/ && cp -r ~/.config/btop/ ~/GitHub/dwm/home/.config/
+rm -rf ~/GitHub/dwm/home/.config/calcurse/ && cp -r ~/.config/calcurse/ ~/GitHub/dwm/home/.config/
+rm -rf ~/GitHub/dwm/home/.config/dunst/ && cp -r ~/.config/dunst/ ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.config/st/ && cp -r ~/.config/st/ ~/GitHub/dwm/home/.config/
+rm -rf ~/GitHub/dwm/home/.config/alacritty/ && cp -r ~/.config/alacritty/ ~/GitHub/dwm/home/.config/
+rm -rf ~/GitHub/dwm/home/.config/nvim/ && cp -r ~/.config/nvim/ ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.config/eww/ && cp -r ~/.config/eww/ ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.config/picom/ && cp -r ~/.config/picom/ ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.config/slstatus/ && cp -r ~/.config/slstatus/ ~/GitHub/dwm/home/.config/
