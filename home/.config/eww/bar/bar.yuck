@@ -15,9 +15,9 @@
 (deflisten workspace "/home/ramin/.config/eww/scripts/getWorkspaces")
 
 (defwidget workspace []
-  (label :text xtag :class "wintitle")
+  (label :text xtag :class "workspace")
 )
-(defpoll xtag :interval "250ms" "/home/$USER/.config/eww/scripts/getWorkspaces")
+(defpoll xtag :interval "1ms" "/home/$USER/.config/eww/scripts/getWorkspaces")
 
 (defwidget left []
   (box :orientation "h"
@@ -35,7 +35,7 @@
 (defwidget wintitle []
   (label :text xtitle :class "wintitle")
 )
-(defpoll xtitle :interval "10s" "date +%R")
+(defpoll xtitle :interval "1s" "date +%R")
 
 (defwidget center []
   (button :class "center-widgets"
