@@ -27,4 +27,4 @@ done
 
 rm tmp.txt
 notify-send "😄 Download finish ✅"
-sxiv -t $WALLPAPER_DIRECTORY/*
+wallpaper
