@@ -158,6 +158,7 @@ wget
 whois
 wine
 wireplumber
+wmctrl
 x11vnc
 xclip
 xdg-user-dirs
