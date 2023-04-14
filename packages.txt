@@ -120,6 +120,7 @@ polychromatic
 powershell-bin
 python-gtts
 python-pip
+python-pywal
 qemu-full
 ripgrep
 ruby

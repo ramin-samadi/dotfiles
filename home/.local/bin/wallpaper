@@ -28,8 +28,9 @@ else
 	g=$(printf "%d" 0x$g)
 	b=$(printf "%d" 0x$b)
 	notify-send "$BACKGROUND_COLOR" "$r $g $b"
+	echo "$BACKGROUND_COLOR" | xclip -selection clipboard
 
-	if [ $r -ge 120 ] && [ $g -ge 0 ] && [ $b -ge 0 ]; then
+	if [ $r -ge 120 ] && [ $g -ge 0 ] && [ $g -lt 100 ] && [ $b -ge 0 ]; then
 		echo "\$material-you: #f38ba8; \$text-color: #313244; \$slider: #f38ba8; \$shortcut: #f38ba8; \$hover: #e2718e;" >/home/ramin/.config/eww/actions/colors.scss
 	elif [ $r -ge 0 ] && [ $g -gt 100 ] && [ $b -ge 0 ]; then
 		echo "\$material-you: #a6e3a1; \$text-color: #313244; \$slider: #a6e3a1; \$shortcut: #a6e3a1; \$hover: #86c17a;" >/home/ramin/.config/eww/actions/colors.scss
