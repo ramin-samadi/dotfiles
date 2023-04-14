@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-paru --color always -Sl | sed -e "s: :/:; s/ unknown-version//; /installed/d" | fzf --multi --ansi --preview "paru -Si {1}" | xargs -ro paru -S
+paru -Slq | sed -e "s: :/:; s/ unknown-version//; /installerat/d" | fzf --multi --ansi --preview "paru -Si {1}" | xargs -ro paru --needed --ask 4 -Syu
