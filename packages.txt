@@ -153,9 +153,7 @@ ufw
 unzip
 upower
 vi
-vieb-bin
 vim
-vimb
 virt-manager
 virt-viewer
 visual-studio-code-bin

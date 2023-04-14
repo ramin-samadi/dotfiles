@@ -325,7 +325,7 @@ alias clean='sudo pacman -Scc'
 alias remove='rm'
 alias rename='mv'
 alias explain='tldr'
-alias packages='sudo pacman -Qe'
+alias packages='pacman -Qe'
 alias mpv='devour mpv'
 alias feh='devour feh'
 alias sxiv='devour sxiv'
@@ -355,12 +355,27 @@ patch-dwm() {
 }
 
 search_history() {
-	echo "$(history | fzf | cut -d' ' -f4-)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	echo "$(history | cut -c 8- | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+}
+
+search_packages() {
+	echo "$(pacman -Qq | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+}
+
+install_package() {
+	paru -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro paru -Syu
+}
+
+uninstall_package() {
+	pacman -Qq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro paru -Rns
 }
 
 # Keybinds
 bind -x '"\C-k": "calcurse"'
 bind -x '"\C-v": "clear; curl -s sv.wttr.in/57.792506,11.997145?M | tail +2"'
 bind -x '"\C-l": "clear; paleofetch; echo \n"'
-bind -x '"\C-f": "search_history"'
+bind -x '"\C-h": "search_history"'
+bind -x '"\C-f": "search_packages"'
+bind -x '"\C-i": "install_packages"'
+bind -x '"\C-u": "uninstall_package"'
 paleofetch
