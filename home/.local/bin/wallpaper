@@ -27,6 +27,7 @@ else
 	r=$(printf "%d" 0x$r)
 	g=$(printf "%d" 0x$g)
 	b=$(printf "%d" 0x$b)
+	notify-send "$BACKGROUND_COLOR" "$r $g $b"
 
 	if [ $r -gt 200 ] && [ $g -lt 100 ] && [ $b -lt 100 ]; then
 		echo "\$material-you: #f38ba8; \$text-color: #313244; \$slider: #f38ba8; \$shortcut: #f38ba8; \$hover: #e2718e;" >/home/ramin/.config/eww/actions/colors.scss
@@ -41,9 +42,9 @@ else
 	elif [ $r -gt 200 ] && [ $g -lt 150 ] && [ $b -gt 150 ]; then
 		echo "\$material-you: #f5c2e7; \$text-color: $TEXT_COLOR; \$slider: #f5c2e7; \$shortcut: #f5c2e7; \$hover: #dd9fc7;" >/home/ramin/.config/eww/actions/colors.scss
 	elif [ $r -gt 200 ] && [ $g -gt 100 ] && [ $g -lt 200 ] && [ $b -lt 100 ]; then
-		echo "\$material-you: #fab387; \$text-color: $TEXT_COLOR; \$slider: #fab387; \$shortcut: #fab387; \$hover: #fab387;" >/home/ramin/.config/eww/actions/colors.scss
+		echo "\$material-you: #fab387; \$text-color: $TEXT_COLOR; \$slider: #fab387; \$shortcut: #fab387; \$hover: #e78b60;" >/home/ramin/.config/eww/actions/colors.scss
 	elif [ $r -lt 50 ] && [ $g -lt 50 ] && [ $b -lt 50 ]; then
-		echo "\$material-you: #313244; \$text-color: $TEXT_COLOR; \$slider: #CDD6F4; \$shortcut: #45475A; \$hover: #313244" >/home/ramin/.config/eww/actions/colors.scss
+		echo "\$material-you: #313244; \$text-color: $TEXT_COLOR; \$slider: #CDD6F4; \$shortcut: #45475A; \$hover: #3b3e52;" >/home/ramin/.config/eww/actions/colors.scss
 	else
 		echo "\$material-you: $BACKGROUND_COLOR; \$text-color: $TEXT_COLOR; \$slider: $BACKGROUND_COLOR; \$shortcut: $BACKGROUND_COLOR; \$hover: $BACKGROUND_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
 	fi
