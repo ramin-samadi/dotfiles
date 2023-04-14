@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+echo " + s  
+ + x  
+ + b  
+ + t  
+ + A  󰿎
+ + r  󰢹
+ + y  
+ + m  󰲸
+ + c  
+ + e  
+ + q  
+ + Q  󰿅
+ + f  󰊓
+ + w  
+ + d  
+ + p  
+ + O  󰓃
+ + W  󰸉
+ + C  
+ + S  󰹑
+" | yad --fontname="MesloLGS Nerd Font Mono 50" --text-info --text-align=center --back=#1E1E2E --fore=#CDD6F4 --geometry=100x400
