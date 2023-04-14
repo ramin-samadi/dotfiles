@@ -35,15 +35,17 @@ if [ $r -ge 120 ] && [ $g -ge 0 ] && [ $g -lt 100 ] && [ $b -ge 0 ]; then
 	echo "\$material-you: #f38ba8; \$text-color: #313244; \$slider: #f38ba8; \$shortcut: #f38ba8; \$hover: #e2718e;" >/home/ramin/.config/eww/actions/colors.scss
 elif [ $r -ge 0 ] && [ $r -lt 200 ] && [ $g -gt 100 ] && [ $b -ge 0 ] && [ $b -lt 160 ]; then
 	echo "\$material-you: #a6e3a1; \$text-color: #313244; \$slider: #a6e3a1; \$shortcut: #a6e3a1; \$hover: #86c17a;" >/home/ramin/.config/eww/actions/colors.scss
-elif [ $r -ge 0 ] && [ $r -lt 100 ] && [ $g -ge 0 ] && [ $b -gt 120 ]; then
+elif [ $r -ge 0 ] && [ $r -lt 100 ] && [ $g -ge 0 ] && [ $g != 13] && [ $b -gt 120 ]; then
 	echo "\$material-you: #89b4fa; \$text-color: #313244; \$slider: #89b4fa; \$shortcut: #89b4fa; \$hover: #6c8fc5;" >/home/ramin/.config/eww/actions/colors.scss
-elif [ $r -ge 0 ] && [ $r -lt 140 ] && [ $g -ge 0 ] && [ $b -gt 120 ]; then
+elif [ $r -ge 0 ] && [ $r -lt 140 ] && [ $g -ge 0 ] && [ $g != 13 ] && [ $b -gt 120 ]; then
 	echo "\$material-you: #89b4fa; \$text-color: #313244; \$slider: #89b4fa; \$shortcut: #89b4fa; \$hover: #6c8fc5;" >/home/ramin/.config/eww/actions/colors.scss
-elif [ $r -ge 0 ] && [ $r -lt 60 ] && [ $g -ge 0 ] && [ $g -lt 100 ] && [ $b -gt 60 ]; then
+elif [ $r -ge 0 ] && [ $r -lt 60 ] && [ $g -ge 0 ] && [ $g != 13 ] && [ $g -lt 100 ] && [ $b -gt 60 ]; then
 	echo "\$material-you: #89b4fa; \$text-color: #313244; \$slider: #89b4fa; \$shortcut: #89b4fa; \$hover: #6c8fc5;" >/home/ramin/.config/eww/actions/colors.scss
-elif [ $r -gt 200 ] && [ $g -gt 200 ] && [ $b -lt 100 ]; then
+elif [ $r -gt 200 ] && [ $g -gt 195 ] && [ $b -lt 130 ]; then
 	echo "\$material-you: #f9e2af; \$text-color: $TEXT_COLOR; \$slider: #f9e2af; \$shortcut: #f9e2af; \$hover: #e6cb86;" >/home/ramin/.config/eww/actions/colors.scss
 elif [ $r -gt 50 ] && [ $g -lt 100 ] && [ $b -gt 100 ]; then
+	echo "\$material-you: #cba6f7; \$text-color: #313244; \$slider: #cba6f7; \$shortcut: #cba6f7; \$hover: #a082d8;" >/home/ramin/.config/eww/actions/colors.scss
+elif [ $r -gt 50 ] && [ $g -lt 100 ] && [ $b -gt 80 ]; then
 	echo "\$material-you: #cba6f7; \$text-color: #313244; \$slider: #cba6f7; \$shortcut: #cba6f7; \$hover: #a082d8;" >/home/ramin/.config/eww/actions/colors.scss
 elif [ $r -gt 200 ] && [ $g -lt 150 ] && [ $b -gt 150 ]; then
 	echo "\$material-you: #f5c2e7; \$text-color: $TEXT_COLOR; \$slider: #f5c2e7; \$shortcut: #f5c2e7; \$hover: #dd9fc7;" >/home/ramin/.config/eww/actions/colors.scss
