@@ -946,7 +946,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_s,          rioresize,              {0} },
 	#endif // RIODRAW_PATCH
 	{ MODKEY|ShiftMask,             XK_b,          togglebar,              {0} },
-  { MODKEY,                       XK_b,          spawn,                  SHCMD("google-chrome-stable") }, //Browser
+  { MODKEY,                       XK_b,          spawn,                  SHCMD("google-chrome-stable") },
 	#if TAB_PATCH
 	{ MODKEY|ControlMask,           XK_b,          tabmode,                {-1} },
 	#endif // TAB_PATCH
