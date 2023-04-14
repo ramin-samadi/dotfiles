@@ -18,8 +18,8 @@
     border-radius: 10px;
     font-size: inherit;
     padding: 0 12px;
-    &:hover { background-color: #45475a; }
-    &:active { background-color: #313244; }
+    &:hover { background-color: $hover; }
+    &:active { background-color: $material-you; }
   }
 }
 
@@ -134,8 +134,8 @@ calendar.highlight {
   border-radius: 10px;
   padding: 0 12px;
   margin: 7px 7px;
-  &:hover { background-color: #45475a; }
-  &:active { background-color: #313244; }
+  &:hover { background-color: $hover; }
+  &:active { background-color: $material-you; }
 }
 
 .battery__box {
