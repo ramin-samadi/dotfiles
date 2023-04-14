@@ -17,7 +17,7 @@ QUERY="$(sed 's/#//g' <<<$QUERY)"
 QUERY="$(sed 's/ /+/g' <<<$QUERY)"
 echo "$QUERY"
 
-notify-send "⬇ Downloading wallpapers🌇"
+notify-send "⬇  Downloading wallpapers 🌇"
 
 for i in $(seq 1 5); do
 	curl -s https://wallhaven.cc/api/v1/search\?atleast\=1920x1080\&sorting\=$SORTING\&q\=$QUERY\&page\=$i >tmp.txt
