@@ -34,7 +34,7 @@
     border-radius: 100px;
 
     highlight {
-      background-color: $material-you;
+      background-color: $slider;
       border-radius: 100px;
     }
   }
@@ -43,7 +43,7 @@
 .active {
   trough {
     slider {
-      background: $material-you;
+      background: $slider;
       border-radius: 100%;
       margin: -8px;
     }
@@ -87,7 +87,7 @@
       }
       &.active {
         color: $text-color;
-        background-color: $material-you;
+        background-color: $shortcut;
         &:hover { background-color: #45475A; }
         &:active {
         background-color: #45475A;
