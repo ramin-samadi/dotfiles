@@ -88,7 +88,7 @@
       &.active {
         color: $text-color;
         background-color: $shortcut;
-        &:hover { background-color: #45475A; }
+        &:hover { background-color: $hover; }
         &:active {
         background-color: #45475A;
         }
