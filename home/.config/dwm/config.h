@@ -494,6 +494,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
   RULE(.class = "Alacritty", .isfloating = 1)
+  RULE(.class = "Yad", .isfloating = 1)
 	RULE(.class = "Gimp", .tags = 1 << 4)
 	RULE(.class = "Firefox", .tags = 1 << 7)
 	#if RENAMED_SCRATCHPADS_PATCH
@@ -946,7 +947,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_s,          rioresize,              {0} },
 	#endif // RIODRAW_PATCH
 	{ MODKEY|ShiftMask,             XK_b,          togglebar,              {0} },
-  { MODKEY,                       XK_b,          spawn,                  SHCMD("google-chrome-stable") }, //Browser
+  { MODKEY,                       XK_b,          spawn,                  SHCMD("google-chrome-stable") },
 	#if TAB_PATCH
 	{ MODKEY|ControlMask,           XK_b,          tabmode,                {-1} },
 	#endif // TAB_PATCH

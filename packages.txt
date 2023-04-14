@@ -21,6 +21,7 @@ bridge-utils
 brightnessctl-git
 btop
 calcurse
+catppuccin-gtk-theme-mocha
 catppuccin-mocha-dark-cursors
 cava
 cbonsai
@@ -210,6 +211,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xwallpaper
+yad
 yarn
 yay
 youtube-dl
