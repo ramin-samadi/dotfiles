@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# NOTE: fzf
+
+CONFIGURATION_FILES=(
+	"$HOME/.bashrc"
+	"$HOME/.config/st/config.def.h"
+	"$HOME/.config/dwm/config.def.h"
+	"$HOME/.config/alacritty/alacritty.yml"
+	"$HOME/.config/eww/"
+	"$HOME/.config/nvim/lua/config/lazy.lua"
+	"$HOME/.config/btop/btop.conf"
+	"$HOME/.config/picom/picom.conf"
+	"$HOME/.config/calcurse/conf"
+	"$HOME/.config/dmenu/config.def.h"
+	"$HOME/.config/dunst/dunstrc"
+)
+
+SELECTED=$(printf '%s\n' "${CONFIGURATION_FILES[@]}" | fzf)
+$EDITOR "$SELECTED"
