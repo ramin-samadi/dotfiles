@@ -153,6 +153,7 @@ ufw
 unzip
 upower
 vi
+vieb-bin
 vim
 vimb
 virt-manager
