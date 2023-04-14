@@ -362,13 +362,15 @@ search_packages() {
 	echo "$(pacman -Qq | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
 }
 
+alias ginstall="install_package"
+
 # Keybinds
 bind -x '"\C-k": "calcurse"'
 bind -x '"\C-v": "clear; curl -s sv.wttr.in/57.792506,11.997145?M | tail +2"'
 bind -x '"\C-l": "clear; paleofetch; echo \n"'
 bind -x '"\C-h": "search_history"'
 bind -x '"\C-f": "search_packages"'
-bind -x '"\C-i": "install_package"'
+bind -x '"\C-i": "echo install_package"'
 bind -x '"\C-u": "uninstall_package"'
 bind -x '"\C-e": "edit_config"'
 paleofetch
