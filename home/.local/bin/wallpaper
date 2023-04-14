@@ -29,31 +29,31 @@ else
 	b=$(printf "%d" 0x$b)
 
 	if [ $r -gt 200 ] && [ $g -lt 100 ] && [ $b -lt 100 ]; then
-		echo "\$material-you: #f38ba8; \$text-color: $TEXT_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
+		echo "\$material-you: #f38ba8; \$text-color: $TEXT_COLOR; \$slider: $BACKGROUND_BRIGHTNESS; \$shortcut: $BACKGROUND_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
 		BACKGROUND_BRIGHTNESS=$(convert "xc:#f38ba8" -colorspace hsl -channel L -separate +channel -format "%[fx:int(100*u.p{0})]\n" info:)
 	elif [ $r -lt 100 ] && [ $g -gt 200 ] && [ $b -lt 100 ]; then
-		echo "\$material-you: #a6e3a1; \$text-color: $TEXT_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
+		echo "\$material-you: #a6e3a1; \$text-color: $TEXT_COLOR; \$slider: $BACKGROUND_BRIGHTNESS; \$shortcut: $BACKGROUND_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
 		BACKGROUND_BRIGHTNESS=$(convert "xc:#a6e3a1" -colorspace hsl -channel L -separate +channel -format "%[fx:int(100*u.p{0})]\n" info:)
 	elif [ $r -lt 100 ] && [ $g -lt 100 ] && [ $b -gt 200 ]; then
-		echo "\$material-you: #89b4fa; \$text-color: $TEXT_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
+		echo "\$material-you: #89b4fa; \$text-color: $TEXT_COLOR; \$slider: $BACKGROUND_BRIGHTNESS; \$shortcut: $BACKGROUND_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
 		BACKGROUND_BRIGHTNESS=$(convert "xc:#89b4fa" -colorspace hsl -channel L -separate +channel -format "%[fx:int(100*u.p{0})]\n" info:)
 	elif [ $r -gt 200 ] && [ $g -gt 200 ] && [ $b -lt 100 ]; then
-		echo "\$material-you: #f9e2af; \$text-color: $TEXT_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
+		echo "\$material-you: #f9e2af; \$text-color: $TEXT_COLOR; \$slider: $BACKGROUND_BRIGHTNESS; \$shortcut: $BACKGROUND_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
 		BACKGROUND_BRIGHTNESS=$(convert "xc:#f9e2af" -colorspace hsl -channel L -separate +channel -format "%[fx:int(100*u.p{0})]\n" info:)
 	elif [ $r -gt 200 ] && [ $g -lt 100 ] && [ $b -gt 200 ]; then
-		echo "\$material-you: #cba6f7; \$text-color: $TEXT_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
+		echo "\$material-you: #cba6f7; \$text-color: $TEXT_COLOR; \$slider: $BACKGROUND_BRIGHTNESS; \$shortcut: $BACKGROUND_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
 		BACKGROUND_BRIGHTNESS=$(convert "xc:#cba6f7" -colorspace hsl -channel L -separate +channel -format "%[fx:int(100*u.p{0})]\n" info:)
 	elif [ $r -gt 200 ] && [ $g -lt 150 ] && [ $b -gt 150 ]; then
-		echo "\$material-you: #f5c2e7; \$text-color: $TEXT_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
+		echo "\$material-you: #f5c2e7; \$text-color: $TEXT_COLOR; \$slider: $BACKGROUND_BRIGHTNESS; \$shortcut: $BACKGROUND_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
 		BACKGROUND_BRIGHTNESS=$(convert "xc:#f5c2e7" -colorspace hsl -channel L -separate +channel -format "%[fx:int(100*u.p{0})]\n" info:)
 	elif [ $r -gt 200 ] && [ $g -gt 100 ] && [ $g -lt 200 ] && [ $b -lt 100 ]; then
-		echo "\$material-you: #fab387; \$text-color: $TEXT_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
+		echo "\$material-you: #fab387; \$text-color: $TEXT_COLOR; \$slider: $BACKGROUND_BRIGHTNESS; \$shortcut: $BACKGROUND_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
 		BACKGROUND_BRIGHTNESS=$(convert "xc:#fab387" -colorspace hsl -channel L -separate +channel -format "%[fx:int(100*u.p{0})]\n" info:)
 	elif [ $r -lt 50 ] && [ $g -lt 50 ] && [ $b -lt 50 ]; then
-		echo "\$material-you: #313244; \$text-color: $TEXT_COLOR; \$slider: #CDD6F4;" >/home/ramin/.config/eww/actions/colors.scss
+		echo "\$material-you: #313244; \$text-color: $TEXT_COLOR; \$slider: #CDD6F4; \$shortcut: #45475A;" >/home/ramin/.config/eww/actions/colors.scss
 		BACKGROUND_BRIGHTNESS=$(convert "xc:#313244" -colorspace hsl -channel L -separate +channel -format "%[fx:int(100*u.p{0})]\n" info:)
 	else
-		echo "\$material-you: $BACKGROUND_COLOR; \$text-color: $TEXT_COLOR; \$slider: $BACKGROUND_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
+		echo "\$material-you: $BACKGROUND_COLOR; \$text-color: $TEXT_COLOR; \$slider: $BACKGROUND_COLOR; \$shortcut: $BACKGROUND_COLOR;" >/home/ramin/.config/eww/actions/colors.scss
 		BACKGROUND_BRIGHTNESS=$(convert "xc:$BACKGROUND_COLOR" -colorspace hsl -channel L -separate +channel -format "%[fx:int(100*u.p{0})]\n" info:)
 	fi
 fi
