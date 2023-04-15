@@ -9,6 +9,7 @@ alias clean='sudo pacman -Scc'
 alias remove='rm'
 alias rename='mv'
 alias explain='tldr'
+alias ?='tldr'
 alias packages='pacman -Qe'
 alias cat='bat -p'
 
