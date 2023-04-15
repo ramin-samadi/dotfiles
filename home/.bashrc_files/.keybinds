@@ -1,0 +1,11 @@
+#░█░█░█▀▀░█░█░█▀▄░▀█▀░█▀█░█▀▄░█▀▀
+#░█▀▄░█▀▀░░█░░█▀▄░░█░░█░█░█░█░▀▀█
+#░▀░▀░▀▀▀░░▀░░▀▀░░▀▀▀░▀░▀░▀▀░░▀▀▀
+bind -x '"\C-k": "calcurse"'
+bind -x '"\C-v": "clear; curl -s sv.wttr.in/57.792506,11.997145?M | tail +2"'
+bind -x '"\C-l": "clear; paleofetch; echo \n"'
+bind -x '"\C-h": "search_history"'
+bind -x '"\C-f": "search_packages"'
+bind -x '"\C-i": "echo install_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
+bind -x '"\C-u": "echo uninstall_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
+bind -x '"\C-e": "edit_config"'
