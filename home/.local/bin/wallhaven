@@ -20,9 +20,9 @@ echo "$QUERY"
 notify-send "⬇  Downloading wallpapers 🌇"
 
 for i in $(seq 1 5); do
-	curl -s https://wallhaven.cc/api/v1/search\?atleast\=1920x1080\&sorting\=$SORTING\&q\=$QUERY\&page\=$i >tmp.txt
+	curl -s https://wallhaven.cc/api/v1/search\?atleast\=1920x1080\&sorting\="$SORTING"\&q\="$QUERY"\&page\="$i" >tmp.txt
 	PAGE=$(cat tmp.txt | jq '.' | grep -Eoh "https:\/\/w\.wallhaven.cc\/full\/.*(jpg|png)\b")
-	wget -nc -P $WALLPAPER_DIRECTORY $PAGE
+	wget -nc -P "$WALLPAPER_DIRECTORY" "$PAGE"
 done
 
 rm tmp.txt
