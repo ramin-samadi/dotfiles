@@ -325,53 +325,8 @@ search_history() {
 	echo "$(history | cut -c 8- | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
 }
 
-# Easy Aliases
-alias update='sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu'
-alias install='paru -Syu'
-alias search='paru -Ss'
-alias uninstall='paru -Rns --noconfirm'
-alias clean='sudo pacman -Scc'
-alias remove='rm'
-alias rename='mv'
-alias explain='tldr'
-alias packages='pacman -Qe'
-
-#░█▀▄░█▀▀░█░█░█▀█░█░█░█▀▄
-#░█░█░█▀▀░▀▄▀░█░█░█░█░█▀▄
-#░▀▀░░▀▀▀░░▀░░▀▀▀░▀▀▀░▀░▀
-alias mpv='devour mpv'
-alias feh='devour feh'
-alias sxiv='devour sxiv'
-
-#░█▀▀░▀█▀░▀█▀░█░█░█░█░█▀▄
-#░█░█░░█░░░█░░█▀█░█░█░█▀▄
-#░▀▀▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀░
-alias clone='git clone'
-alias status='git status'
-alias add='git add'
-function commit() {
-	git commit -m "$*"
-}
-alias pull='git pull'
-alias push='git push'
-alias log='git log'
-
-#░█▀█░█▀▀░▀█▀░█░█░█▀█░█▀▄░█░█
-#░█░█░█▀▀░░█░░█▄█░█░█░█▀▄░█▀▄
-#░▀░▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀░▀░▀░▀
-alias ping='ping -c 3'
-alias ip='ip -c'
-
-#░█░█░█▀▀░█░█░█▀▄░▀█▀░█▀█░█▀▄░█▀▀
-#░█▀▄░█▀▀░░█░░█▀▄░░█░░█░█░█░█░▀▀█
-#░▀░▀░▀▀▀░░▀░░▀▀░░▀▀▀░▀░▀░▀▀░░▀▀▀
-bind -x '"\C-k": "calcurse"'
-bind -x '"\C-v": "clear; curl -s sv.wttr.in/57.792506,11.997145?M | tail +2"'
-bind -x '"\C-l": "clear; paleofetch; echo \n"'
-bind -x '"\C-h": "search_history"'
-bind -x '"\C-f": "search_packages"'
-bind -x '"\C-i": "echo install_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
-bind -x '"\C-u": "echo uninstall_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
-bind -x '"\C-e": "edit_config"'
+if [ -f ~/.alias ]; then
+	. ~/.alias
+fi
 
 paleofetch
