@@ -13,6 +13,7 @@ base-devel
 bash
 bash-completion
 bash-language-server
+bat
 bb
 bc
 blesh-git
