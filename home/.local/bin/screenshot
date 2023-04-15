@@ -12,26 +12,44 @@ select_window_to_screenshot() {
 	flameshot gui --region "${WIDTH}x${HEIGHT}+${X}+${Y}"
 }
 
-SCREENSHOT_OPTIONS=(
-	"Full"
-	"Fritt"
-	"Fönster"
-	"GUI"
+copy_screenshot() {
+	SCREENSHOT_OPTIONS=(
+		"Full"
+		"Fritt"
+		"Fönster"
+		"GUI"
+	)
+
+	SELECTED_OPTION=$(printf '%s\n' "${SCREENSHOT_OPTIONS[@]}" | dmenu -p "")
+
+	case "${SELECTED_OPTION}" in
+	"Full")
+		flameshot full --delay 3000 --raw | convert png:- -trim png:- | xclip -selection clipboard -target image/png
+		;;
+	"Fritt")
+		flameshot gui --raw | convert png:- -trim png:- | xclip -selection clipboard -target image/png
+		;;
+	"Fönster")
+		select_window_to_screenshot
+		;;
+	"GUI")
+		flameshot gui
+		;;
+	esac
+}
+
+SCREENSHOT_MODE=(
+	"Spara"
+	"Kopiera"
 )
 
-SELECTED_OPTION=$(printf '%s\n' "${SCREENSHOT_OPTIONS[@]}" | dmenu -p "")
+SELECTED_MODE=$(printf '%s\n' "${SCREENSHOT_MODE[@]}" | dmenu -p "")
 
-case "${SELECTED_OPTION}" in
-"Full")
-	notify-send "Full"
+case "${SELECTED_MODE}" in
+"Kopiera")
+	copy_screenshot
 	;;
-"Fritt")
-	notify-send "Fritt"
-	;;
-"Fönster")
-	select_window_to_screenshot
-	;;
-"GUI")
+"Spara")
 	flameshot gui
 	;;
 esac
