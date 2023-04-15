@@ -26,6 +26,7 @@ catppuccin-gtk-theme-mocha
 catppuccin-mocha-dark-cursors
 cava
 cbonsai
+clipit
 cmatrix
 colorpicker
 composer
@@ -210,6 +211,7 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xsel
 xwallpaper
 yad
 yarn
