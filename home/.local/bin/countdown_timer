@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+PRESENTATION_LENGTH=$(echo "" | tr -d '\n' | dmenu -p "祥")
+NOTIFICATION_TITLE="Presentationstimer"
+
+start_timer() {
+	END_TIME=$(date -ud "$PRESENTATION_LENGTH minutes" +"%s")
+
+	while [ "$(date -u +"%s")" -lt "$END_TIME" ]; do
+		REMAINING_TIME=$((END_TIME - $(date -u +"%s")))
+
+		MINUTES=$((REMAINING_TIME / 60))
+		SECONDS=$((REMAINING_TIME % 60))
+
+		notify-send "$NOTIFICATION_TITLE" "$(printf "%02d:%02d" $MINUTES $SECONDS)"
+		sleep 60
+	done
+}
+
+if [[ -z "${PRESENTATION_LENGTH// /}" ]]; then
+	exit
+else
+	start_timer
+	notify-send "$NOTIFICATION_TITLE" "Presentationen är över!"
+fi
