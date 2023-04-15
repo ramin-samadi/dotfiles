@@ -35,7 +35,6 @@ cronie
 devour
 didyoumean
 discord
-dmenu_shot-git
 dmidecode
 dnsmasq
 dunst

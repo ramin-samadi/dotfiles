@@ -938,7 +938,7 @@ static const Key keys[] = {
   { MODKEY,                        XK_c,         spawn,          SHCMD("calendar") },
   { MODKEY|ShiftMask,              XK_c,         spawn,          SHCMD("color-picker") },
   { MODKEY,                        XK_e,         spawn,          SHCMD("emoji") },
-  { MODKEY|ShiftMask,              XK_s,         spawn,          SHCMD("flameshot gui") },
+  { MODKEY|ShiftMask,              XK_s,         spawn,          SHCMD("screenshot") },
 
 	#if KEYMODES_PATCH
 	{ MODKEY,                       XK_Escape,     setkeymode,             {.ui = COMMANDMODE} },

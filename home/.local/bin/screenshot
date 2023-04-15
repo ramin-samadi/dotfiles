@@ -9,47 +9,77 @@ select_window_to_screenshot() {
 	xdotool windowfocus --sync "${WINDOW_ID}"
 	sleep 0.05
 
+	flameshot gui --raw --region "${WIDTH}x${HEIGHT}+${X}+${Y}"
+}
+
+select_window_to_screenshot_save() {
+	WINDOW_ID=$(xdotool selectwindow)
+
+	unset WINDOW X Y WIDTH HEIGHT SCREEN
+	eval "$(xdotool getwindowgeometry --shell "$WINDOW_ID")"
+
+	xdotool windowfocus --sync "${WINDOW_ID}"
+	sleep 0.05
+
 	flameshot gui --region "${WIDTH}x${HEIGHT}+${X}+${Y}"
 }
 
 copy_screenshot() {
 	SCREENSHOT_OPTIONS=(
-		"Full"
-		"Fritt"
-		"Fönster"
-		"GUI"
+		""
+		""
+		""
 	)
 
-	SELECTED_OPTION=$(printf '%s\n' "${SCREENSHOT_OPTIONS[@]}" | dmenu -p "")
+	SELECTED_OPTION=$(printf '%s\n' "${SCREENSHOT_OPTIONS[@]}" | dmenu -p "")
 
 	case "${SELECTED_OPTION}" in
-	"Full")
+	"")
 		flameshot full --delay 3000 --raw | convert png:- -trim png:- | xclip -selection clipboard -target image/png
 		;;
-	"Fritt")
+	"")
 		flameshot gui --raw | convert png:- -trim png:- | xclip -selection clipboard -target image/png
 		;;
-	"Fönster")
-		select_window_to_screenshot
+	"")
+		select_window_to_screenshot | xclip -selection clipboard -target image/png
 		;;
-	"GUI")
-		flameshot gui
+	esac
+}
+
+save_screenshot() {
+	SCREENSHOT_OPTIONS=(
+		""
+		""
+		""
+	)
+
+	SELECTED_OPTION=$(printf '%s\n' "${SCREENSHOT_OPTIONS[@]}" | dmenu -p "")
+
+	case "${SELECTED_OPTION}" in
+	"")
+		flameshot full --delay 3000 | convert png:- -trim png:- | xclip -selection clipboard -target image/png
+		;;
+	"")
+		flameshot gui | convert png:- -trim png:- | xclip -selection clipboard -target image/png
+		;;
+	"")
+		select_window_to_screenshot_save | xclip -selection clipboard -target image/png
 		;;
 	esac
 }
 
 SCREENSHOT_MODE=(
-	"Spara"
-	"Kopiera"
+	""
+	""
 )
 
-SELECTED_MODE=$(printf '%s\n' "${SCREENSHOT_MODE[@]}" | dmenu -p "")
+SELECTED_MODE=$(printf '%s\n' "${SCREENSHOT_MODE[@]}" | dmenu -p "")
 
 case "${SELECTED_MODE}" in
-"Kopiera")
+"")
 	copy_screenshot
 	;;
-"Spara")
-	flameshot gui
+"")
+	save_screenshot
 	;;
 esac

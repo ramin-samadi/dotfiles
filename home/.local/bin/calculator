@@ -71,12 +71,11 @@ while [[ $# -gt 0 && $1 != "--" ]]; do
 done
 [[ $1 == "--" ]] && shift
 
-action=$(echo -e "\n\n" | $menu "$@" -p "= $answer")
+action=$(echo -e "" | $menu "$@" -p "= $answer")
+echo -n "$answer" | xclip -selection clipboard
 
 case $action in
 "") $0 "--dmenu=$menu" "--" "$@" ;;
-"") echo -n "$answer" | xclip -selection clipboard ;;
-"") ;;
 "") ;;
 *) $0 "$answer $action" "--dmenu=$menu" "--" "$@" ;;
 esac
