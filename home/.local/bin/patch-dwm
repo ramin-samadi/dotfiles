@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
-DWM_FOLDER="$HOME/.config/dwm/"
-CONFIG_DEF_H_FILE="$DWM_FOLDER/config.def.h"
-CONFIG_H_FILE="$DWM_FOLDER/config.h"
-MAKE_FILE="$DWM_FOLDER/config.mk"
+# Patch dwm configuration and rebuild
+# Arguments:
+#   $1: Path to config.def.h
+#   $2: Path to config.h
+#   $3: Path to Makefile
+patch_dwm() {
+	sudo cp "$1" "$2" && sudo make -f "$3" -C "$DWM_FOLDER" clean install && pkill dwm
+}
 
-sudo cp "$CONFIG_DEF_H_FILE" "$CONFIG_H_FILE" && sudo make -f "$MAKE_FILE" clean install && pkill dwm
+DWM_FOLDER="$HOME/.config/dwm/"
+patch_dwm "$DWM_FOLDER/config.def.h" "$DWM_FOLDER/config.h" "$DWM_FOLDER/Makefile"
