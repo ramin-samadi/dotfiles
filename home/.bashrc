@@ -197,17 +197,17 @@ extract() {
 	for archive in "$@"; do
 		if [ -f "$archive" ]; then
 			case $archive in
-			*.tar.bz2) tar xvjf "$archive" ;;
-			*.tar.gz) tar xvzf "$archive" ;;
-			*.bz2) bunzip2 "$archive" ;;
-			*.rar) rar x "$archive" ;;
-			*.gz) gunzip "$archive" ;;
-			*.tar) tar xvf "$archive" ;;
-			*.tbz2) tar xvjf "$archive" ;;
-			*.tgz) tar xvzf "$archive" ;;
-			*.zip) unzip "$archive" ;;
-			*.Z) uncompress "$archive" ;;
-			*.7z) 7z x "$archive" ;;
+			*.tar.bz2) tar xvjf $archive ;;
+			*.tar.gz) tar xvzf $archive ;;
+			*.bz2) bunzip2 $archive ;;
+			*.rar) rar x $archive ;;
+			*.gz) gunzip $archive ;;
+			*.tar) tar xvf $archive ;;
+			*.tbz2) tar xvjf $archive ;;
+			*.tgz) tar xvzf $archive ;;
+			*.zip) unzip $archive ;;
+			*.Z) uncompress $archive ;;
+			*.7z) 7z x $archive ;;
 			*) echo "don't know how to extract '$archive'..." ;;
 			esac
 		else
@@ -283,7 +283,7 @@ up() {
 	if [ -z "$d" ]; then
 		d=..
 	fi
-	cd "$d"
+	cd $d
 }
 
 # Trim leading and trailing spaces (for scripts)
@@ -345,30 +345,32 @@ alias log='git log'
 alias ping='ping -c 3'
 alias ip='ip -c'
 
-command_not_found_handle() {
-	~/.local/bin/command-finder "$1"
-	return $?
-}
+set disable-completion on
 
-patch-dwm() {
-	sudo cp config.def.h config.h && sudo make clean install && pkill dwm
-}
-
-search_history() {
-	history | cut -c 8- | fzf | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
-}
-
-search_packages() {
-	cmd "$(pacman -Qq | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
-}
-
-# Keybinds
-bind -x '"\C-k": "calcurse"'
-bind -x '"\C-v": "clear; curl -s sv.wttr.in/57.792506,11.997145?M | tail +2"'
-bind -x '"\C-l": "clear; paleofetch; echo \n"'
-bind -x '"\C-h": "search_history"'
-bind -x '"\C-f": "search_packages"'
-bind -x '"\C-i": "echo install_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
-bind -x '"\C-u": "echo uninstall_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
-bind -x '"\C-e": "edit_config"'
+# command_not_found_handle() {
+# 	~/.local/bin/command-finder "$1"
+# 	return $?
+# }
+#
+# patch-dwm() {
+# 	sudo cp config.def.h config.h && sudo make clean install && pkill dwm
+# }
+#
+# search_history() {
+# 	echo "$(history | cut -c 8- | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+# }
+#
+# search_packages() {
+# 	echo "$(pacman -Qq | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+# }
+#
+# # Keybinds
+# bind -x '"\C-k": "calcurse"'
+# bind -x '"\C-v": "clear; curl -s sv.wttr.in/57.792506,11.997145?M | tail +2"'
+# bind -x '"\C-l": "clear; paleofetch; echo \n"'
+# bind -x '"\C-h": "search_history"'
+# bind -x '"\C-f": "search_packages"'
+# bind -x '"\C-i": "echo install_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
+# bind -x '"\C-u": "echo uninstall_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
+# bind -x '"\C-e": "edit_config"'
 paleofetch

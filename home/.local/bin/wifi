@@ -13,5 +13,5 @@ fi
 if [[ -z "${PASSWORD_INPUT// /}" ]]; then
 	exit
 else
-	nmcli device wifi connect $SELECTED_BSSID password $PASSWORD_INPUT
+	nmcli device wifi connect "$SELECTED_BSSID" password "$PASSWORD_INPUT"
 fi
