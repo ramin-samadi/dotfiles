@@ -73,7 +73,6 @@ lib32-vulkan-amdgpu-pro
 lib32-vulkan-radeon
 libguestfs
 libpulse
-librewolf-bin
 libva-mesa-driver
 linux
 linux-firmware
