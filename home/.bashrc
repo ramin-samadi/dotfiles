@@ -316,6 +316,15 @@ fi
 
 source ~/.local/share/blesh/ble.sh
 
+command_not_found_handle() {
+	"$HOME/.local/bin/command-finder" "$1"
+	return $?
+}
+
+search_history() {
+	echo "$(history | cut -c 8- | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+}
+
 # Easy Aliases
 alias update='sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu'
 alias install='paru -Syu'
@@ -326,11 +335,17 @@ alias remove='rm'
 alias rename='mv'
 alias explain='tldr'
 alias packages='pacman -Qe'
+
+#░█▀▄░█▀▀░█░█░█▀█░█░█░█▀▄
+#░█░█░█▀▀░▀▄▀░█░█░█░█░█▀▄
+#░▀▀░░▀▀▀░░▀░░▀▀▀░▀▀▀░▀░▀
 alias mpv='devour mpv'
 alias feh='devour feh'
 alias sxiv='devour sxiv'
 
-# GitHub Aliases
+#░█▀▀░▀█▀░▀█▀░█░█░█░█░█▀▄
+#░█░█░░█░░░█░░█▀█░█░█░█▀▄
+#░▀▀▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀░
 alias clone='git clone'
 alias status='git status'
 alias add='git add'
@@ -341,36 +356,22 @@ alias pull='git pull'
 alias push='git push'
 alias log='git log'
 
-# Network Aliases
+#░█▀█░█▀▀░▀█▀░█░█░█▀█░█▀▄░█░█
+#░█░█░█▀▀░░█░░█▄█░█░█░█▀▄░█▀▄
+#░▀░▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀░▀░▀░▀
 alias ping='ping -c 3'
 alias ip='ip -c'
 
-set disable-completion on
+#░█░█░█▀▀░█░█░█▀▄░▀█▀░█▀█░█▀▄░█▀▀
+#░█▀▄░█▀▀░░█░░█▀▄░░█░░█░█░█░█░▀▀█
+#░▀░▀░▀▀▀░░▀░░▀▀░░▀▀▀░▀░▀░▀▀░░▀▀▀
+bind -x '"\C-k": "calcurse"'
+bind -x '"\C-v": "clear; curl -s sv.wttr.in/57.792506,11.997145?M | tail +2"'
+bind -x '"\C-l": "clear; paleofetch; echo \n"'
+bind -x '"\C-h": "search_history"'
+bind -x '"\C-f": "search_packages"'
+bind -x '"\C-i": "echo install_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
+bind -x '"\C-u": "echo uninstall_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
+bind -x '"\C-e": "edit_config"'
 
-# command_not_found_handle() {
-# 	~/.local/bin/command-finder "$1"
-# 	return $?
-# }
-#
-# patch-dwm() {
-# 	sudo cp config.def.h config.h && sudo make clean install && pkill dwm
-# }
-#
-# search_history() {
-# 	echo "$(history | cut -c 8- | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
-# }
-#
-# search_packages() {
-# 	echo "$(pacman -Qq | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
-# }
-#
-# # Keybinds
-# bind -x '"\C-k": "calcurse"'
-# bind -x '"\C-v": "clear; curl -s sv.wttr.in/57.792506,11.997145?M | tail +2"'
-# bind -x '"\C-l": "clear; paleofetch; echo \n"'
-# bind -x '"\C-h": "search_history"'
-# bind -x '"\C-f": "search_packages"'
-# bind -x '"\C-i": "echo install_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
-# bind -x '"\C-u": "echo uninstall_package | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v"'
-# bind -x '"\C-e": "edit_config"'
 paleofetch

@@ -16,6 +16,7 @@ bash-language-server
 bat
 bb
 bc
+blender
 blesh-git
 breeze
 bridge-utils

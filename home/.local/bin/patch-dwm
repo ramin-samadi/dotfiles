@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# INFO: Dependencies: [ sudo | make | coreutils ]
+
 # Patch dwm configuration and rebuild
 # Arguments:
 #   $1: Path to config.def.h
