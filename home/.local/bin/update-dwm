@@ -7,6 +7,7 @@ rm -rf ~/GitHub/dwm/home/.local/bin/* && cp -r ~/.local/bin/* ~/GitHub/dwm/home/
 rm -rf ~/GitHub/dwm/home/.bashrc && cp -r ~/.bashrc ~/GitHub/dwm/home/
 rm -rf ~/GitHub/dwm/home/.alias && cp -r ~/.alias ~/GitHub/dwm/home/
 rm -rf ~/GitHub/dwm/home/.keybinds && cp -r ~/.keybinds ~/GitHub/dwm/home/
+rm -rf ~/GitHub/dwm/home/.functions && cp -r ~/.functions ~/GitHub/dwm/home/
 rm -rf ~/GitHub/dwm/home/.config/dwm/ && cp -r ~/.config/dwm/ ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.config/dmenu/ && cp -r ~/.config/dmenu/ ~/GitHub/dwm/home/.config/
 rm -rf ~/GitHub/dwm/home/.config/btop/ && cp -r ~/.config/btop/ ~/GitHub/dwm/home/.config/
