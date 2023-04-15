@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+CALCULATION_INPUT=$(echo "" | dmenu -p "")
+
+if [[ -z "${CALCULATION_INPUT// /}" ]]; then
+	exit
+else
+	ANSWER=$(echo "$CALCULATION_INPUT" | bc)
+	notify-send "$CALCULATION_INPUT = $ANSWER"
+	echo "$ANSWER" | tr -d '\n' | xclip -selection clipboard
+fi
