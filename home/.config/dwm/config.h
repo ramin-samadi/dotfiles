@@ -889,7 +889,7 @@ static const char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
 #if ON_EMPTY_KEYS_PATCH
 static const Key on_empty_keys[] = {
 	/* modifier key            function                argument */
-	{ 0,        XK_b,          spawn,                  SHCMD("google-chrome-stable") },
+	{ 0,        XK_b,          spawn,                  SHCMD("firefox") },
 	{ 0,        XK_t,          spawn,                  SHCMD("st") },
 	{ 0,        XK_h,          spawn,                  SHCMD("keyboard_shortcuts") },
 	{ 0,        XK_r,          spawn,                  SHCMD("rustdesk") },
@@ -949,7 +949,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_s,          rioresize,              {0} },
 	#endif // RIODRAW_PATCH
 	{ MODKEY|ShiftMask,             XK_b,          togglebar,              {0} },
-  { MODKEY,                       XK_b,          spawn,                  SHCMD("google-chrome-stable") },
+  { MODKEY,                       XK_b,          spawn,                  SHCMD("firefox") },
 	#if TAB_PATCH
 	{ MODKEY|ControlMask,           XK_b,          tabmode,                {-1} },
 	#endif // TAB_PATCH
