@@ -931,6 +931,7 @@ static const Key keys[] = {
   { MODKEY,                        XK_y,         spawn,          SHCMD("youtube") },
   { MODKEY|ShiftMask,              XK_o,         spawn,          SHCMD("select_audio_output") },
   { MODKEY,                        XK_p,         spawn,          SHCMD("passmenu-otp") },
+  { MODKEY|ShiftMask,              XK_p,         spawn,          SHCMD("countdown_timer") },
   { MODKEY,                        XK_m,         spawn,          SHCMD("playlist") },
   { MODKEY,                        XK_x,         spawn,          SHCMD("power-menu") },
   { MODKEY,                        XK_a,         spawn,          SHCMD("quick_settings") },
