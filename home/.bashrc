@@ -329,4 +329,8 @@ if [ -f ~/.alias ]; then
 	. ~/.alias
 fi
 
+if [ -f ~/.keybinds ]; then
+	. ~/.keybinds
+fi
+
 paleofetch
