@@ -893,6 +893,7 @@ static const Key on_empty_keys[] = {
 	{ 0,        XK_t,          spawn,                  SHCMD("st") },
 	{ 0,        XK_h,          spawn,                  SHCMD("keyboard_shortcuts") },
 	{ 0,        XK_r,          spawn,                  SHCMD("rustdesk") },
+	{ 0,        XK_k,          spawn,                  SHCMD("calculator") },
 	{ 0,        XK_x,          spawn,                  SHCMD("power-menu") },
 	{ 0,        XK_y,          spawn,                  SHCMD("youtube") },
 	{ 0,        XK_c,          spawn,                  SHCMD("calendar") },
@@ -923,6 +924,7 @@ static const Key keys[] = {
 
   { MODKEY,                        XK_d,         spawn,          SHCMD("eject-drive") },
   { MODKEY,                        XK_w,         spawn,          SHCMD("wifi") },
+  { MODKEY,                        XK_k,         spawn,          SHCMD("calculator") },
   { MODKEY,                        XK_r,         spawn,          SHCMD("rustdesk") },
   { MODKEY,                        XK_h,         spawn,          SHCMD("keyboard_shortcuts") },
   { MODKEY|ShiftMask,              XK_w,         spawn,          SHCMD("wallpaper") },
