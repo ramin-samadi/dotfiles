@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+select_window_to_screenshot() {
+	WINDOW_ID=$(xdotool selectwindow)
+
+	unset WINDOW X Y WIDTH HEIGHT SCREEN
+	eval "$(xdotool getwindowgeometry --shell "$WINDOW_ID")"
+
+	xdotool windowfocus --sync "${WINDOW_ID}"
+	sleep 0.05
+
+	flameshot gui --region "${WIDTH}x${HEIGHT}+${X}+${Y}"
+}
+
+SCREENSHOT_OPTIONS=(
+	"Full"
+	"Fritt"
+	"Fönster"
+	"GUI"
+)
+
+SELECTED_OPTION=$(printf '%s\n' "${SCREENSHOT_OPTIONS[@]}" | dmenu -p "")
+
+case "${SELECTED_OPTION}" in
+"Full")
+	notify-send "Full"
+	;;
+"Fritt")
+	notify-send "Fritt"
+	;;
+"Fönster")
+	select_window_to_screenshot
+	;;
+"GUI")
+	flameshot gui
+	;;
+esac
