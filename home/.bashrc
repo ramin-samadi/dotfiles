@@ -91,16 +91,16 @@ fi
 
 source ~/.local/share/blesh/ble.sh
 
-if [ -f ~/.functions ]; then
-	. ~/.functions
+if [ -f ~/.bashrc_files/.functions ]; then
+	. ~/.bashrc_files/.functions
 fi
 
-if [ -f ~/.alias ]; then
-	. ~/.alias
+if [ -f ~/.bashrc_files/.alias ]; then
+	. ~/.bashrc_files/.alias
 fi
 
-if [ -f ~/.keybinds ]; then
-	. ~/.keybinds
+if [ -f ~/.bashrc_files/.keybinds ]; then
+	. ~/.bashrc_files/.keybinds
 fi
 
 paleofetch
