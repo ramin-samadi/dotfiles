@@ -8,8 +8,8 @@ $aur -Syu --needed - <~/dwm/packages.txt
 pip install neovim langdetect shell-gpt --user
 
 gem install neovim && sudo npm install -g neovim
-sudo gpasswd -a $USER plugdev
-sudo systemctl enable --now libvirtd.service && sudo usermod -a -G libvirt $(whoami) && sudo systemctl restart libvirtd.service
+sudo gpasswd -a "$USER" plugdev
+sudo systemctl enable --now libvirtd.service && sudo usermod -a -G libvirt "$(whoami)" && sudo systemctl restart libvirtd.service
 sudo virsh net-start default
 sudo virsh net-autostart default
 sudo systemctl restart libvirtd.service
@@ -21,8 +21,7 @@ sudo pacman -Syu --needed lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-ic
 sudo ufw enable && sudo systemctl enable --now ufw.service
 sudo ufw allow 5900 comment "Remote"
 
-cd
-git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
+cd && git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
 make -C ble.sh install PREFIX=~/.local
 
 sudo sed -i 's/#Color/Color/g' /etc/pacman.conf && sudo sed -i 's/#NoProgressBar/ILoveCandy/g' /etc/pacman.conf && sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
@@ -34,27 +33,35 @@ git clone https://aur.archlinux.org/dwm.git ~/.config/dwm && cd ~/.config/dwm/ &
 
 # Dmenu
 rm -rf ~/.config/dmenu/
-mv ~/dwm/home/.config/dmenu/ ~/.config/
+mv ~/dotfiles/home/.config/dmenu/ ~/.config/
 
 # Xwallpaper
-mv $HOME/dwm/home/.Xresources $HOME
+mv $HOME/dotfiles/home/.Xresources $HOME
 xrdb -load ~/.Xresources
 
 # Neovim
 rm -rf ~/.config/nvim/
-mv ~/dwm/home/.config/nvim/ ~/.config/
+mv ~/dotfiles/home/.config/nvim/ ~/.config/
+
+# St
+rm -rf ~/.config/st/
+mv ~/dotfiles/home/.config/st/ ~/.config/
 
 # Alacritty
-rm -rf ~/.config/st/
-mv ~/dwm/home/.config/st/ ~/.config/
+rm -rf ~/.config/alacritty/
+mv ~/dotfiles/home/.config/alacritty/ ~/.config/
+
+# Eww
+rm -rf ~/.config/eww/
+mv ~/dotfiles/home/.config/eww/ ~/.config/
 
 # BTop
 rm -rf ~/.config/btop/
-mv ~/dwm/home/.config/btop/ ~/.config/
+mv ~/dotfiles/home/.config/btop/ ~/.config/
 
 # Calcurse
 rm -rf ~/.config/calcurse/
-mv ~/dwm/home/.config/calcurse/ ~/.config/
+mv ~/dotfiles/home/.config/calcurse/ ~/.config/
 calcurse -i ~/.config/calcurse/raminsam05@gmail.com.ics
 calcurse -i ~/.config/calcurse/ramin.samadi@elev.ga.ntig.se.ics
 calcurse -i ~/.config/calcurse/addressbook#contacts@group.v.calendar.google.com.ics
@@ -62,20 +69,20 @@ calcurse -i ~/.config/calcurse/MAKER SPACE_classroom111097032359149922796@group.
 
 # Dunst
 rm -rf ~/.config/dunst/
-mv ~/dwm/home/.config/dunst/ ~/.config/
+mv ~/dotfiles/home/.config/dunst/ ~/.config/
 
 # DWM
 rm -rf ~/.config/dwm/
-mv ~/dwm/home/.config/dwm/ ~/.config/ && cd ~/.config/dwm/ && makepkg -sif --clean
+mv ~/dotfiles/home/.config/dwm/ ~/.config/ && cd ~/.config/dwm/ && makepkg -sif --clean
 
-mv -f ~/dwm/home/.local/bin/* ~/.local/bin/
-mv -f ~/dwm/home/.bashrc ~/
-mv -f ~/dwm/home/.bash_profile ~/
-mv -f ~/dwm/home/.xinitrc ~/
+mv -f ~/dotfiles/home/.local/bin/* ~/.local/bin/
+mv ~/dotfiles/home/.bashrc_files ~/
+mv -f ~/dotfiles/home/.bashrc ~/
+mv -f ~/dotfiles/home/.bash_profile ~/
+mv -f ~/dotfiles/home/.xinitrc ~/
 sudo rm -rf ~/.bashrc.bak
-cd
 
-sudo bash -c "echo '58,18 * * * * sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu && yes J | sudo pacman -Scc' >> /var/spool/cron/root" && sudo systemctl stop cronie && sudo systemctl enable cronie.service && sudo systemctl start cronie.service
+cd && sudo bash -c "echo '58,18 * * * * sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu && yes J | sudo pacman -Scc' >> /var/spool/cron/root" && sudo systemctl stop cronie && sudo systemctl enable cronie.service && sudo systemctl start cronie.service
 sudo bash -c "echo '58,18 * * * * /home/ramin/.local/bin/update-dwm' >> /var/spool/cron/$USER" && systemctl stop cronie && systemctl enable cronie.service && systemctl start cronie.service
 
 source ~/.bashrc
