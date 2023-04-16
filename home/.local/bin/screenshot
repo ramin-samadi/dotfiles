@@ -26,21 +26,21 @@ select_window_to_screenshot_save() {
 
 copy_screenshot() {
 	SCREENSHOT_OPTIONS=(
-		""
-		""
-		""
+		" fullscreen"
+		" trim"
+		" window"
 	)
 
 	SELECTED_OPTION=$(printf '%s\n' "${SCREENSHOT_OPTIONS[@]}" | dmenu -p "")
 
 	case "${SELECTED_OPTION}" in
-	"")
+	" fullscreen")
 		flameshot full --delay 3000 --raw | convert png:- -trim png:- | xclip -selection clipboard -target image/png
 		;;
-	"")
+	" trim")
 		flameshot gui --raw | convert png:- -trim png:- | xclip -selection clipboard -target image/png
 		;;
-	"")
+	" window")
 		select_window_to_screenshot | xclip -selection clipboard -target image/png
 		;;
 	esac
@@ -48,38 +48,38 @@ copy_screenshot() {
 
 save_screenshot() {
 	SCREENSHOT_OPTIONS=(
-		""
-		""
-		""
+		" fullscreen"
+		" trim"
+		" window"
 	)
 
 	SELECTED_OPTION=$(printf '%s\n' "${SCREENSHOT_OPTIONS[@]}" | dmenu -p "")
 
 	case "${SELECTED_OPTION}" in
-	"")
+	" fullscreen")
 		flameshot full --delay 3000 | convert png:- -trim png:- | xclip -selection clipboard -target image/png
 		;;
-	"")
+	" trim")
 		flameshot gui | convert png:- -trim png:- | xclip -selection clipboard -target image/png
 		;;
-	"")
+	" window")
 		select_window_to_screenshot_save | xclip -selection clipboard -target image/png
 		;;
 	esac
 }
 
 SCREENSHOT_MODE=(
-	""
-	""
+	" copy"
+	" save"
 )
 
 SELECTED_MODE=$(printf '%s\n' "${SCREENSHOT_MODE[@]}" | dmenu -p "")
 
 case "${SELECTED_MODE}" in
-"")
+" copy")
 	copy_screenshot
 	;;
-"")
+" save")
 	save_screenshot
 	;;
 esac
