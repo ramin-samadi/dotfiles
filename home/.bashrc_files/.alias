@@ -12,6 +12,7 @@ alias explain='tldr'
 alias ?='tldr'
 alias packages='pacman -Qe'
 alias cat='bat -p'
+alias server='python -m http.server'
 
 #░█▀▄░█▀▀░█░█░█▀█░█░█░█▀▄
 #░█░█░█▀▀░▀▄▀░█░█░█░█░█▀▄

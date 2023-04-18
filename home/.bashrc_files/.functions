@@ -32,6 +32,11 @@ edit() {
 	fi
 }
 
+share() {
+  echo "To use this run the command server and then specify which file to share"
+  curl -F"file=@$1" 0x0.st
+}
+
 sedit() {
 	if [ "$(type -t jpico)" = "file" ]; then
 		# Use JOE text editor http://joe-editor.sourceforge.net/
