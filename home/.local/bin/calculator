@@ -71,7 +71,7 @@ while [[ $# -gt 0 && $1 != "--" ]]; do
 done
 [[ $1 == "--" ]] && shift
 
-action=$(echo -e "\n+\n-\n*\n%\n^\n==\n!=\n>\n>=\n<\n<=\n&&\n||" | $menu "$@" -p "= $answer")
+action=$(echo -e "\n+\n-\n*\n%\n^\n==\n!=\n>\n>=\n<\n<=\n&&\n||\nsqrt()" | $menu "$@" -p "= $answer")
 echo -n "$answer" | xclip -selection clipboard
 
 case $action in

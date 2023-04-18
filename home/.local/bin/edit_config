@@ -8,12 +8,15 @@ CONFIGURATION_FILES=(
 	"$HOME/.config/dwm/config.def.h"
 	"$HOME/.config/alacritty/alacritty.yml"
 	"$HOME/.config/eww/"
+	"$HOME/.config/slstatus/config.def.h"
+	"$HOME/.config/stalonetrayrc"
 	"$HOME/.config/nvim/lua/config/lazy.lua"
 	"$HOME/.config/btop/btop.conf"
 	"$HOME/.config/picom/picom.conf"
 	"$HOME/.config/calcurse/conf"
 	"$HOME/.config/dmenu/config.def.h"
 	"$HOME/.config/dunst/dunstrc"
+	"$HOME/.local/bin/"
 )
 
 SELECTED=$(printf '%s\n' "${CONFIGURATION_FILES[@]}" | fzf)

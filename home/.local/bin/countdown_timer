@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PRESENTATION_LENGTH=$(echo "" | tr -d '\n' | dmenu -p "祥")
-NOTIFICATION_TITLE="Presentationstimer"
+NOTIFICATION_TITLE="祥"
 
 start_timer() {
 	END_TIME=$(date -ud "$PRESENTATION_LENGTH minutes" +"%s")
@@ -21,6 +21,6 @@ if [[ -z "${PRESENTATION_LENGTH// /}" ]]; then
 	exit
 else
 	start_timer
-	notify-send "$NOTIFICATION_TITLE" "Presentationen är över!"
+	notify-send "$NOTIFICATION_TITLE" "Nedräkningen är över!"
 	mpg123 "$HOME/.local/bin/beep-beep.mp3"
 fi
