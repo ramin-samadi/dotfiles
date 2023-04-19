@@ -891,7 +891,8 @@ static const Key on_empty_keys[] = {
 	/* modifier key            function                argument */
 	{ 0,        XK_b,          spawn,                  SHCMD("firefox") },
 	{ 0,        XK_t,          spawn,                  SHCMD("st") },
-	{ 0,        XK_h,          spawn,                  SHCMD("keyboard_shortcuts") },
+	{ 0,        XK_h,          spawn,                  SHCMD("script_hub") },
+	{ 0,        XK_Return,     spawn,                  SHCMD("keyboard_shortcuts") },
 	{ 0,        XK_r,          spawn,                  SHCMD("rustdesk") },
 	{ 0,        XK_k,          spawn,                  SHCMD("calculator") },
 	{ 0,        XK_x,          spawn,                  SHCMD("power-menu") },
@@ -904,7 +905,7 @@ static const Key on_empty_keys[] = {
 	{ 0,        XK_e,          spawn,                  SHCMD("emoji") },
 	{ 0,        XK_p,          spawn,                  SHCMD("passmenu-otp") },
 	{ 0,        XK_o,          spawn,                  SHCMD("select_audio_output") },
-	{ 0,        0xffeb,        spawn,                  SHCMD("dmenu_run") },
+	{ 0,        XK_s,          spawn,                  SHCMD("dmenu_run") },
 };
 #endif // ON_EMPTY_KEYS_PATCH
 
@@ -926,7 +927,8 @@ static const Key keys[] = {
   { MODKEY,                        XK_w,         spawn,          SHCMD("wifi") },
   { MODKEY,                        XK_k,         spawn,          SHCMD("calculator") },
   { MODKEY,                        XK_r,         spawn,          SHCMD("rustdesk") },
-  { MODKEY,                        XK_h,         spawn,          SHCMD("keyboard_shortcuts") },
+  { MODKEY,                        XK_h,         spawn,          SHCMD("script_hub") },
+  { MODKEY,                        XK_Return,    spawn,          SHCMD("keyboard_shortcuts") },
   { MODKEY|ShiftMask,              XK_w,         spawn,          SHCMD("wallpaper") },
   { MODKEY,                        XK_y,         spawn,          SHCMD("youtube") },
   { MODKEY|ShiftMask,              XK_o,         spawn,          SHCMD("select_audio_output") },

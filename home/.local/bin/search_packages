@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-pacman -Qq | fzf | tr -d '\n' | xclip -selection clipboard

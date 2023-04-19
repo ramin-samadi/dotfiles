@@ -22,6 +22,50 @@ share() {
   fi
 }
 
+install_package() {
+  paru -Slq | sed -e "s: :/:; s/ unknown-version//; /installerat/d" | fzf --multi --ansi --preview "paru -Si {1}" | xargs -ro paru --needed --ask 4 -Syu
+}
+
+uninstall_package() {
+  paru -Qq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -Rns --noconfirm
+}
+
+search_packages() {
+  pacman -Qq | fzf | tr -d '\n' | xclip -selection clipboard
+}
+
+copy-file() {
+  if [ -f "$1" ]; then
+    xclip -selection clipboard <"$1"
+    echo "File copied to clipboard."
+  else
+    echo "Error: File does not exist."
+    exit 1
+  fi
+}
+
+edit_config() {
+  CONFIGURATION_FILES=(
+    "$HOME/.bashrc"
+    "$HOME/.config/st/config.def.h"
+    "$HOME/.config/dwm/config.def.h"
+    "$HOME/.config/alacritty/alacritty.yml"
+    "$HOME/.config/eww/"
+    "$HOME/.config/slstatus/config.def.h"
+    "$HOME/.config/stalonetrayrc"
+    "$HOME/.config/nvim/lua/config/lazy.lua"
+    "$HOME/.config/btop/btop.conf"
+    "$HOME/.config/picom/picom.conf"
+    "$HOME/.config/calcurse/conf"
+    "$HOME/.config/dmenu/config.def.h"
+    "$HOME/.config/dunst/dunstrc"
+    "$HOME/.local/bin/"
+  )
+
+  SELECTED=$(printf '%s\n' "${CONFIGURATION_FILES[@]}" | fzf)
+  "$EDITOR" "$SELECTED"
+}
+
 #░█▀█░█▀▄░█▀▀░█░█░▀█▀░█░█░█▀▀
 #░█▀█░█▀▄░█░░░█▀█░░█░░▀▄▀░█▀▀
 #░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀▀▀
