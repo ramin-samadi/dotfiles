@@ -19,10 +19,13 @@ trim() {
 }
 
 share() {
+  EXAMPLE_FILE=$(\ls -ap | grep -v / | head -n 1)
   if [[ $1 ]]; then
-    curl -F"file=@$1" 0x0.st
+    FILE_SHARE_LINK=$(curl -s -F"file=@$1" 0x0.st)
+    echo -e "\033[4m\033[34m$FILE_SHARE_LINK\033[0m\033[0m copied to clipboard"
+    echo "$FILE_SHARE_LINK" | tr -d '\n' | xclip -selection clipboard
   else
-    echo -e "Specify file/folder to share, example:\n$ share .bashrc"
+    echo -e "Specify a file to share, example:\n    \033[35mshare\033[0m \033[34m$EXAMPLE_FILE\033[0m"
   fi
 }
 
