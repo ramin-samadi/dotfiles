@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+SYMBOLS=(
+	"\$ dollar sign"
+	"€ euro sign"
+	"{} curly brackets"
+	"[] square brackets"
+	"\ backslash"
+	"≈ approximately"
+	"∼ approximately"
+	"´´ accent"
+	"@ at"
+)
+
+# Get the user's choice using dmenu
+SELECTED_SYMBOL=$(printf '%s\n' "${SYMBOLS[@]}" | dmenu -p "")
+
+# Use a case statement to perform the appropriate action based on the user's choice
+case "$SELECTED_SYMBOL" in
+"\$ dollar sign")
+	echo "\$" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+"€ euro sign")
+	echo "£" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+"{} curly brackets")
+	echo "{}" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+"[] square brackets")
+	echo "[]" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+"\ backslash")
+	echo "\\" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+"≈ approximately")
+	echo "≈" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+"~ approximately")
+	echo "~" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+"´´ accent")
+	echo "´´" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+"@ at")
+	echo "@" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+esac
