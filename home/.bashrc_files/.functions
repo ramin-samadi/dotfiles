@@ -1,14 +1,13 @@
-#░█▀▀░█░█░█▀█░█▀▀░▀█▀░▀█▀░█▀█░█▀█░█▀▀
-#░█▀▀░█░█░█░█░█░░░░█░░░█░░█░█░█░█░▀▀█
-#░▀░░░▀▀▀░▀░▀░▀▀▀░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀
+#░█░█░▀█▀░▀█▀░█░░░▀█▀░▀█▀░▀█▀░█▀▀░█▀▀
+#░█░█░░█░░░█░░█░░░░█░░░█░░░█░░█▀▀░▀▀█
+#░▀▀▀░░▀░░▀▀▀░▀▀▀░▀▀▀░░▀░░▀▀▀░▀▀▀░▀▀▀
+backup() {
+  sudo rsync -aAXv --delete --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/run/* --exclude=/mnt/* --exclude=/media/* --exclude="swapfile" --exclude="lost+found" --exclude=".cache" --exclude="Downloads" --exclude=".VirtualBoxVMs" --exclude="var/lib/libvirt/images/*" --exclude=".ecryptfs" / /mnt/backup_destination/
+}
 
 command_not_found_handle() {
 	"$HOME/.local/bin/command-finder" "$1"
 	return $?
-}
-
-search_history() {
-	echo "$(history | cut -c 8- | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
 }
 
 share() {
@@ -22,18 +21,6 @@ share() {
   fi
 }
 
-install_package() {
-  paru -Slq | sed -e "s: :/:; s/ unknown-version//; /installerat/d" | fzf --multi --ansi --preview "paru -Si {1}" | xargs -ro paru --needed --ask 4 -Syu
-}
-
-uninstall_package() {
-  paru -Qq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -Rns --noconfirm
-}
-
-search_packages() {
-  pacman -Qq | fzf | tr -d '\n' | xclip -selection clipboard
-}
-
 copy-file() {
   if [ -f "$1" ]; then
     xclip -selection clipboard <"$1"
@@ -42,6 +29,32 @@ copy-file() {
     echo "Error: File does not exist."
     exit 1
   fi
+}
+
+generate-font() {
+  if [[ "$1" == "--block" || "$1" == "-b" ]]; then
+    generate-font "$2" | grep "░" | tail -n 3
+  else
+    find /usr/share/figlet -type f \( -name "*.flf" -o -name "*.tlf" \) -exec sh -c '
+      font=$(basename "$0" | sed "s/\.[^\.]*$//")
+      toilet -f "$font" "${1}"  2>/dev/null
+    ' {} "${1}" \;
+  fi
+}
+
+get-function() {
+  FUNCTION_NAME="$1"
+  FILE_PATH="$2"
+
+  sed -n '/^'"${FUNCTION_NAME}"'() {/,/^}/p' "${FILE_PATH}"
+  sed -n '/^function '${FUNCTION_NAME}'() {/,/^}/p' "${FILE_PATH}"
+}
+
+#░█░█░█▀▀░█░█░█▀▄░▀█▀░█▀█░█▀▄░█▀▀
+#░█▀▄░█▀▀░░█░░█▀▄░░█░░█░█░█░█░▀▀█
+#░▀░▀░▀▀▀░░▀░░▀▀░░▀▀▀░▀░▀░▀▀░░▀▀▀
+search_history() {
+	echo "$(history | cut -c 8- | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
 }
 
 edit_config() {
@@ -66,11 +79,37 @@ edit_config() {
   "$EDITOR" "$SELECTED"
 }
 
+install_package() {
+  paru -Slq | sed -e "s: :/:; s/ unknown-version//; /installerat/d" | fzf --multi --ansi --preview "paru -Si {1}" | xargs -ro paru --needed --ask 4 -Syu
+}
+
+uninstall_package() {
+  paru -Qq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -Rns --noconfirm
+}
+
+search_packages() {
+  pacman -Qq | fzf | tr -d '\n' | xclip -selection clipboard
+}
+
+#░█▀▀░▀█▀░▀█▀
+#░█░█░░█░░░█░
+#░▀▀▀░▀▀▀░░▀░
+fast-git() {
+  git add .
+  git commit -m "fast git"
+  git push
+}
+
+#░█▀█░█▀▀░▀█▀░█░█░█▀█░█▀▄░█░█
+#░█░█░█▀▀░░█░░█▄█░█░█░█▀▄░█▀▄
+#░▀░▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀░▀░▀░▀
+open-ports() {
+  sudo nmap -sS "$1" | grep -e 'report' -e 'PORT' -e 'open'
+}
+
 #░█▀█░█▀▄░█▀▀░█░█░▀█▀░█░█░█▀▀
 #░█▀█░█▀▄░█░░░█▀█░░█░░▀▄▀░█▀▀
 #░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀▀▀
-
-# Extracts any archive(s) (if unp isn't installed)
 extract() {
 	for archive in "$@"; do
 		if [ -f "$archive" ]; then
@@ -97,8 +136,6 @@ extract() {
 #░█▀█░█▀█░█░█░▀█▀░█▀▀░█▀█░▀█▀░▀█▀░█▀█░█▀█
 #░█░█░█▀█░▀▄▀░░█░░█░█░█▀█░░█░░░█░░█░█░█░█
 #░▀░▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀
-
-# Copy and go to the directory
 cpg() {
 	if [ -d "$2" ]; then
 		cp "$1" "$2" && cd "$2"

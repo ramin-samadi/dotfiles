@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# NOTE: sudo nmap grep
-
-sudo nmap -sS "$1" | grep -e 'report' -e 'PORT' -e 'open'
