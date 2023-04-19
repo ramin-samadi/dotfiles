@@ -18,6 +18,7 @@ alias rm='trash -v'
 alias mkdir='mkdir -p'
 alias less='less -R'
 alias cls='clear'
+alias generate-font-block='generate-font "$2" | grep "░" | tail -n 3'
 
 #░█▀▄░█▀▀░█░█░█▀█░█░█░█▀▄
 #░█░█░█▀▀░▀▄▀░█░█░█░█░█▀▄
@@ -77,7 +78,7 @@ alias 777='chmod -R 777'
 alias clickpaste='sleep 5; xdotool type "$(xclip -o -selection clipboard)"'
 alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 alias sha1='openssl sha1'
-alias server='python -m http.server'
+alias server='echo "How to use: server 8000 -m 192.168.0.8" && python -m http.server'
 alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 alias f="find . | grep "
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"

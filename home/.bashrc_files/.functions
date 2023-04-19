@@ -1,6 +1,7 @@
 #░█▀▀░█░█░█▀█░█▀▀░▀█▀░▀█▀░█▀█░█▀█░█▀▀
 #░█▀▀░█░█░█░█░█░░░░█░░░█░░█░█░█░█░▀▀█
 #░▀░░░▀▀▀░▀░▀░▀▀▀░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀
+
 command_not_found_handle() {
 	"$HOME/.local/bin/command-finder" "$1"
 	return $?
@@ -10,24 +11,20 @@ search_history() {
 	echo "$(history | cut -c 8- | fzf)" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
 }
 
-# Trim leading and trailing spaces (for scripts)
-trim() {
-	local var=$*
-	var="${var#"${var%%[![:space:]]*}"}" # remove leading whitespace characters
-	var="${var%"${var##*[![:space:]]}"}" # remove trailing whitespace characters
-	echo -n "$var"
-}
-
 share() {
   EXAMPLE_FILE=$(\ls -ap | grep -v / | head -n 1)
-  if [[ $1 ]]; then
-    FILE_SHARE_LINK=$(curl -s -F"file=@$1" 0x0.st)
+  FILE_SHARE_LINK=$(curl -s -F"file=@$1" 0x0.st)
+  if [[ "$FILE_SHARE_LINK" ]]; then
     echo -e "\033[4m\033[34m$FILE_SHARE_LINK\033[0m\033[0m copied to clipboard"
     echo "$FILE_SHARE_LINK" | tr -d '\n' | xclip -selection clipboard
   else
     echo -e "Specify a file to share, example:\n    \033[35mshare\033[0m \033[34m$EXAMPLE_FILE\033[0m"
   fi
 }
+
+#░█▀█░█▀▄░█▀▀░█░█░▀█▀░█░█░█▀▀
+#░█▀█░█▀▄░█░░░█▀█░░█░░▀▄▀░█▀▀
+#░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀▀▀
 
 # Extracts any archive(s) (if unp isn't installed)
 extract() {
@@ -52,6 +49,10 @@ extract() {
 		fi
 	done
 }
+
+#░█▀█░█▀█░█░█░▀█▀░█▀▀░█▀█░▀█▀░▀█▀░█▀█░█▀█
+#░█░█░█▀█░▀▄▀░░█░░█░█░█▀█░░█░░░█░░█░█░█░█
+#░▀░▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀
 
 # Copy and go to the directory
 cpg() {
