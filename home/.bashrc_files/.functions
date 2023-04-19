@@ -18,36 +18,12 @@ trim() {
 	echo -n "$var"
 }
 
-# Use the best version of pico installed
-edit() {
-	if [ "$(type -t jpico)" = "file" ]; then
-		# Use JOE text editor http://joe-editor.sourceforge.net/
-		jpico -nonotice -linums -nobackups "$@"
-	elif [ "$(type -t nano)" = "file" ]; then
-		nano -c "$@"
-	elif [ "$(type -t pico)" = "file" ]; then
-		pico "$@"
-	else
-		nvim "$@"
-	fi
-}
-
 share() {
-  echo "To use this run the command server and then specify which file to share"
-  curl -F"file=@$1" 0x0.st
-}
-
-sedit() {
-	if [ "$(type -t jpico)" = "file" ]; then
-		# Use JOE text editor http://joe-editor.sourceforge.net/
-		sudo jpico -nonotice -linums -nobackups "$@"
-	elif [ "$(type -t nano)" = "file" ]; then
-		sudo nano -c "$@"
-	elif [ "$(type -t pico)" = "file" ]; then
-		sudo pico "$@"
-	else
-		sudo nvim "$@"
-	fi
+  if [[ $1 ]]; then
+    curl -F"file=@$1" 0x0.st
+  else
+    echo -e "Specify file/folder to share, example:\n$ share .bashrc"
+  fi
 }
 
 # Extracts any archive(s) (if unp isn't installed)
@@ -74,40 +50,8 @@ extract() {
 	done
 }
 
-# Searches for text in all files in the current folder
-ftext() {
-	# -i case-insensitive
-	# -I ignore binary files
-	# -H causes filename to be printed
-	# -r recursive search
-	# -n causes line number to be printed
-	# optional: -F treat search term as a literal, not a regular expression
-	# optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
-	grep -iIHrn --color=always "$1" . | less -r
-}
-
-# Copy file with a progress bar
-cpp() {
-	set -e
-	strace -q -ewrite cp -- "${1}" "${2}" 2>&1 |
-		awk '{
-	count += $NF
-	if (count % 10 == 0) {
-		percent = count / total_size * 100
-		printf "%3d%% [", percent
-		for (i=0;i<=percent;i++)
-			printf "="
-			printf ">"
-			for (i=percent;i<100;i++)
-				printf " "
-				printf "]\r"
-			}
-		}
-	END { print "" }' total_size="$(stat -c '%s' "${1}")" count=0
-}
-
 # Copy and go to the directory
-function copy() {
+cpg() {
 	if [ -d "$2" ]; then
 		cp "$1" "$2" && cd "$2"
 	else
@@ -116,7 +60,7 @@ function copy() {
 }
 
 # Move and go to the directory
-function move() {
+mvg() {
 	if [ -d "$2" ]; then
 		mv "$1" "$2" && cd "$2"
 	else
