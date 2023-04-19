@@ -904,7 +904,7 @@ static const Key on_empty_keys[] = {
 	{ 0,        XK_e,          spawn,                  SHCMD("emoji") },
 	{ 0,        XK_p,          spawn,                  SHCMD("passmenu-otp") },
 	{ 0,        XK_o,          spawn,                  SHCMD("select_audio_output") },
-	{ 0,        XK_s,          spawn,                  SHCMD("dmenu_run") },
+	{ 0,        0xffeb,        spawn,                  SHCMD("dmenu_run") },
 };
 #endif // ON_EMPTY_KEYS_PATCH
 

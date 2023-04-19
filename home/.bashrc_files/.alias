@@ -18,7 +18,8 @@ alias rm='trash -v'
 alias mkdir='mkdir -p'
 alias less='less -R'
 alias cls='clear'
-alias generate-font-block='generate-font "$2" | grep "░" | tail -n 3'
+alias edit='nvim'
+alias sedit='sudoedit'
 
 #░█▀▄░█▀▀░█░█░█▀█░█░█░█▀▄
 #░█░█░█▀▀░▀▄▀░█░█░█░█░█▀▄
