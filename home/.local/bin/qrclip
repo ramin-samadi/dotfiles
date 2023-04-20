@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+CURRENT_CLIPBOARD=$(xclip -o -selection clipboard)
+
+qrencode -t PNG -s 8 -o /tmp/tmp.png "$CURRENT_CLIPBOARD"
+sxiv /tmp/tmp.png
