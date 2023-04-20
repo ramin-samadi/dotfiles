@@ -2,7 +2,8 @@
 
 CURRENT_CLIPBOARD=$(xsel -ob)
 NOTIFICATION=$(echo "$CURRENT_CLIPBOARD")
+TERMINAL="alacritty"
 
 notify-send "QRCode Generated" "$NOTIFICATION"
 qrencode -t PNG -s 8 -o /tmp/tmp.png "$CURRENT_CLIPBOARD"
-sxiv /tmp/tmp.png
+"${TERMINAL}" -e bash -c "sxiv /tmp/tmp.png && pkill -P $$"

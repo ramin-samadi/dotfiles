@@ -931,6 +931,7 @@ static const Key keys[] = {
   { MODKEY,                        XK_Return,    spawn,          SHCMD("keyboard_shortcuts") },
   { MODKEY,                        XK_period,    spawn,          SHCMD("special_characters") },
   { MODKEY|ShiftMask,              XK_w,         spawn,          SHCMD("wallpaper") },
+  { MODKEY|ShiftMask,              XK_e,         spawn,          SHCMD("qrclip") },
   { MODKEY,                        XK_y,         spawn,          SHCMD("youtube") },
   { MODKEY|ShiftMask,              XK_o,         spawn,          SHCMD("select_audio_output") },
   { MODKEY,                        XK_p,         spawn,          SHCMD("passmenu-otp") },
