@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+SELECTED_FILE=$(find "$HOME" -type f | awk -F/ '{print $(NF-1)"/"$NF}' | dmenu -i)
+SELECTED_FILE_PATH=$(echo "$SELECTED_FILE" | sed 's#^.*\/#\/#')
+FULL_PATH="$HOME$SELECTED_FILE_PATH"
+curl -sF "file=@$FULL_PATH" 0x0.st | xclip -selection clipboard
+notify-send "📂 Your file $SELECTED_FILE 🔗 in 📎"
+
+#curl -sF "file=@$SELECTED_FILE_PATH" 0x0.st | xclip -selection clipboard
+#notify-send "📂 Your file $SELECTED_FILE 🔗 in 📎"

@@ -10,6 +10,7 @@ SYMBOLS=(
 	"∼ approximately"
 	"´´ accent"
 	"@ at"
+	"| pipe"
 )
 
 # Get the user's choice using dmenu
@@ -40,6 +41,9 @@ case "$SELECTED_SYMBOL" in
 	;;
 "´´ accent")
 	echo "´´" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+"| pipe")
+	echo "|" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
 	;;
 "@ at")
 	echo "@" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
