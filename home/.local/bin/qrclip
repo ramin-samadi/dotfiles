@@ -6,4 +6,4 @@ TERMINAL="alacritty"
 
 notify-send "QRCode Generated" "$NOTIFICATION"
 qrencode -t PNG -s 8 -o /tmp/tmp.png "$CURRENT_CLIPBOARD"
-"${TERMINAL}" -e bash -c "sxiv /tmp/tmp.png && pkill -P $$"
+"${TERMINAL}" -e bash -c "feh /tmp/tmp.png && pkill -P $$"
