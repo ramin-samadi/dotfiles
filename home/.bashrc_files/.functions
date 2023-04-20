@@ -10,6 +10,10 @@ command_not_found_handle() {
 	return $?
 }
 
+yt-dlp-mp3() {
+  yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 "$1"
+}
+
 share() {
   EXAMPLE_FILE=$(\ls -ap | grep -v / | head -n 1)
   FILE_SHARE_LINK=$(curl -s -F"file=@$1" 0x0.st)

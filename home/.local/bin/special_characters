@@ -11,6 +11,9 @@ SYMBOLS=(
 	"´´ accent"
 	"@ at"
 	"| pipe"
+	"> greater than"
+	"< less than"
+	"^ caret"
 )
 
 # Get the user's choice using dmenu
@@ -33,6 +36,9 @@ case "$SELECTED_SYMBOL" in
 "\ backslash")
 	echo "\\" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
 	;;
+"@ at")
+	echo "@" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
 "≈ approximately")
 	echo "≈" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
 	;;
@@ -45,7 +51,13 @@ case "$SELECTED_SYMBOL" in
 "| pipe")
 	echo "|" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
 	;;
-"@ at")
-	echo "@" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+"> greater than")
+	echo ">" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+"< less than")
+	echo "<" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
+	;;
+"^ caret")
+	echo "^" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
 	;;
 esac
