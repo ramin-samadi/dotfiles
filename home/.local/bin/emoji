@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SELECTED_EMOJI=$(emoji-script | dmenu -p "")
 
