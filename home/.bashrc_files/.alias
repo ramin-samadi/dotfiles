@@ -84,6 +84,8 @@ alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 alias f="find . | grep "
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
 alias checkcommand="type -t"
+alias get-mouse-location='watch -n0.1 xdotool getmouselocation'
+alias auto-click='while true; do xdotool click 1; done'
 
 #░█▀█░█▀▄░█▀▀░█░█░▀█▀░█░█░█▀▀
 #░█▀█░█▀▄░█░░░█▀█░░█░░▀▄▀░█▀▀

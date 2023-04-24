@@ -20,6 +20,7 @@ git clone https://github.com/christitustech/mybash ~/mybash && cd ~/mybash/ && .
 sudo pacman -Syu --needed lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
 sudo ufw enable && sudo systemctl enable --now ufw.service
 sudo ufw allow 5900 comment "Remote"
+systemctl enable --now sshd.service
 
 cd && git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
 make -C ble.sh install PREFIX=~/.local

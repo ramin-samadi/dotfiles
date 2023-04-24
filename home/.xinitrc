@@ -36,6 +36,7 @@ fi
 setxkbmap se &
 eww daemon &
 eww open bar &
+eww open bar2 &
 
 xwallpaper --zoom "$WALLPAPER" &
 

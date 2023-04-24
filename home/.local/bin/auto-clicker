@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [[ "$1" == "--start" || "$1" == "-s" ]]; then
+	notify-send "auto clicker" "started"
+	while true; do
+		xdotool click --delay "$2" 1
+	done
+elif [[ "$1" == "--quit" || "$1" == "-q" ]]; then
+	notify-send "auto clicker" "stopped"
+	ps f -u "$USER" | grep -i auto-clicker | awk '{print $1}' | xargs kill
+else
+	echo -e "USAGE: auto-clicker \033[32m[-s|--start]\033[0m | \033[31m[-q|--quit]\033[0m DELAY (ms) \nEXAMPLE: auto-clicker --start 1000 && auto-clicker --quit"
+fi

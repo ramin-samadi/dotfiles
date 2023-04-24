@@ -119,6 +119,7 @@ polkit-gnome
 polkit-kde-agent
 polychromatic
 powershell-bin
+python-click-default-group
 python-gtts
 python-pip
 qemu-full

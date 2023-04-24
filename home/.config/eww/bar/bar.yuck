@@ -123,8 +123,17 @@
   )
 )
 
+(defwidget bar2 []
+  (box :class "bar"
+       :orientation "h"
+    (left)
+    (center)
+    (right)
+  )
+)
+
 (defwindow bar
-   :geometry (geometry :x "0px"
+   :geometry (geometry :x "-1920px"
                        :y "9px"
                        :width "99%"
                        :height "0%"
@@ -136,3 +145,17 @@
    :wm-ignore true
    :exclusive true
  (bar))
+
+(defwindow bar2
+   :geometry (geometry :x "0px"
+                       :y "9px"
+                       :width "99%"
+                       :height "0%"
+                       :anchor "top center")
+   :focusable true
+   :stacking "bg"
+   :reserve (struts :distance "52px" :side "top")
+   :windowtype "dock"
+   :wm-ignore true
+   :exclusive true
+ (bar2))

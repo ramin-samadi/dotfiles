@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+
+auto-click() {
+	while true; do
+		xdotool click --delay "$2" 1
+	done
+}
+
+lobby() {
+	echo "lobby"
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(1796, 1032) #Play
+	#
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(1185, 427) #Hero Raid
+	#
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(998, 392) #Private
+	#
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(1291, 813) #Confirm
+	#
+	# pyautogui.PAUSE = 10
+	# pyautogui.leftClick(999, 780) #Start
+}
+
+map_selection() {
+	echo "map_selection"
+	# pyautogui.PAUSE = 10
+	# pyautogui.leftClick(796, 614) #The City
+}
+
+enable_equipment() {
+	echo "enable_equipment"
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(90, 203) #Menu icon
+	#
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(88, 267) #Assignment icon
+	#
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(1264, 547) #Inventory
+	#
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(959, 472) #Open Armor Menu
+	#
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(827, 376) #Select Giant Horns
+	#
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(1113, 757) #Equip Giant Horns
+	#
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(1237, 308) #Exit Armor & Gadgets
+	#
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.leftClick(1139, 322) #Exit Inventory
+}
+
+auto_grind() {
+	echo "auto_grind"
+	# pyautogui.PAUSE = 1
+	# pyautogui.press("z")
+	# i = 0
+	# minute = 120
+	#
+	# while i != (minute * 30): #For longer grinding change the number multiplied by minutes
+	#     pyautogui.press("x")
+	#     pyautogui.press("v")
+	#     i = i + 2
+	#     pyautogui.PAUSE = 0.5 #0.5 seconds delay between each loop
+}
+
+end_grind() {
+	echo "end_grind"
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.press("esc")
+	#
+	# pyautogui.PAUSE = 1.5
+	# pyautogui.press("r")
+	#
+	# pyautogui.PAUSE = 30
+	# pyautogui.press("enter")
+}
+
+# while True:
+#     lobby()
+#     map_selection()
+#     enable_equipment()
+#     auto_grind()
+#     end_grind()
+
+if [[ "$1" == "--start" || "$1" == "-s" ]]; then
+	notify-send "macro" "started"
+	while true; do
+		xdotool key z
+		sleep .5
+		xdotool key v
+	done
+elif [[ "$1" == "--quit" || "$1" == "-q" ]]; then
+	notify-send "macro stopped" "stopped"
+	ps f -u "$USER" | grep -i bnr | awk '{print $1}' | xargs kill
+else
+	echo -e "USAGE: auto-clicker \033[32m[-s|--start]\033[0m | \033[31m[-q|--quit]\033[0m DELAY (ms) \nEXAMPLE: auto-clicker --start 1000 && auto-clicker --quit"
+fi
