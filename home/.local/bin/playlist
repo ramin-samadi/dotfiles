@@ -10,6 +10,7 @@ OPTIONS=(
 	"Mishary Rashid Alafasy - aijmil nashid dini _ana"
 	"Mishary Rashid Alafasy - mustafaa"
 	"Mishary Rashid Alafasy - rahmn ya rahman"
+	"Berry Malik - Tabalagho bil Qaleel"
 	"Quit"
 )
 
@@ -36,6 +37,9 @@ case "${SELECTED}" in
 	;;
 "Mishary Rashid Alafasy - rahmn ya rahman")
 	ytfzf -a -m https://www.youtube.com/watch?v=M3xjz4nxzGQ
+	;;
+"Berry Malik - Tabalagho bil Qaleel")
+	ytfzf -a -m https://www.youtube.com/watch?v=XscCZO3R4So
 	;;
 "Quit")
 	pkill mpv
