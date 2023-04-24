@@ -21,6 +21,7 @@ sudo pacman -Syu --needed lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-ic
 sudo ufw enable && sudo systemctl enable --now ufw.service
 sudo ufw allow 5900 comment "Remote"
 systemctl enable --now sshd.service
+sudo ufw allow 22 comment "ssh"
 
 cd && git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
 make -C ble.sh install PREFIX=~/.local
