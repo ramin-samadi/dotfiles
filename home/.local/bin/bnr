@@ -94,9 +94,7 @@ if [[ "$1" == "--start" || "$1" == "-s" ]]; then
 	notify-send "macro" "started"
 	while true; do
 		xdotool key z
-		sleep 2
-		xdotool key v
-		sleep 12
+		sleep 2.5
 	done
 elif [[ "$1" == "--quit" || "$1" == "-q" ]]; then
 	notify-send "macro stopped" "stopped"
