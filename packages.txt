@@ -27,7 +27,6 @@ catppuccin-gtk-theme-mocha
 catppuccin-mocha-dark-cursors
 cava
 cbonsai
-clipit
 cmatrix
 colorpicker
 composer
@@ -62,7 +61,6 @@ gst-plugin-pipewire
 hollywood
 intel-ucode
 iptables-nft
-javacc
 jq
 julia
 kdenlive
