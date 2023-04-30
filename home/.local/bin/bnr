@@ -93,7 +93,7 @@ end_grind() {
 if [[ "$1" == "--start" || "$1" == "-s" ]]; then
 	notify-send "macro" "started"
 	while true; do
-		xdotool key c
+		xdotool key e
 	done
 elif [[ "$1" == "--quit" || "$1" == "-q" ]]; then
 	notify-send "macro stopped" "stopped"
