@@ -18,6 +18,8 @@ bat-extras
 bb
 bc
 blesh-git
+bluez
+bluez-utils
 breeze
 bridge-utils
 brightnessctl-git
@@ -152,6 +154,7 @@ ueberzug
 ufw
 unzip
 upower
+usbutils
 vi
 vim
 virt-manager

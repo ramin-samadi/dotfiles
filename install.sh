@@ -22,6 +22,7 @@ sudo ufw enable && sudo systemctl enable --now ufw.service
 sudo ufw allow 5900 comment "Remote"
 systemctl enable --now sshd.service
 sudo ufw allow 22 comment "ssh"
+systemctl enable --now bluetooth
 
 cd && git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
 make -C ble.sh install PREFIX=~/.local
