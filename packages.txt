@@ -59,6 +59,7 @@ git
 git-remote-gcrypt
 gobject-introspection
 google-chrome
+grapejuice-git
 gst-plugin-pipewire
 hollywood
 intel-ucode
