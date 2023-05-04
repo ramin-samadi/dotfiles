@@ -17,7 +17,7 @@ SYMBOLS=(
 )
 
 # Get the user's choice using dmenu
-SELECTED_SYMBOL=$(printf '%s\n' "${SYMBOLS[@]}" | dmenu -p "")
+SELECTED_SYMBOL=$(printf '%s\n' "${SYMBOLS[@]}" | dmenu -p "")
 
 # Use a case statement to perform the appropriate action based on the user's choice
 case "$SELECTED_SYMBOL" in

@@ -930,7 +930,7 @@ static const Key keys[] = {
   { MODKEY,                        XK_r,         spawn,          SHCMD("rustdesk") },
   { MODKEY,                        XK_h,         spawn,          SHCMD("script_hub") },
   { MODKEY,                        XK_Return,    spawn,          SHCMD("keyboard_shortcuts") },
-  { MODKEY,                        XK_period,    spawn,          SHCMD("special_characters") },
+  { MODKEY,                        XK_v,     spawn,          SHCMD("special_characters") },
   { MODKEY|ShiftMask,              XK_w,         spawn,          SHCMD("wallpaper") },
   { MODKEY|ShiftMask,              XK_e,         spawn,          SHCMD("qrclip") },
   { MODKEY|ShiftMask,              XK_r,         spawn,          SHCMD("share-dmenu") },

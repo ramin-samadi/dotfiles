@@ -104,3 +104,4 @@ if [ -f ~/.bashrc_files/.keybinds ]; then
 fi
 
 paleofetch
+[[ -s /home/ramin/.autojump/etc/profile.d/autojump.sh ]] && source /home/ramin/.autojump/etc/profile.d/autojump.sh
