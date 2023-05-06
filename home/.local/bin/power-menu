@@ -6,10 +6,10 @@
 OPTIONS=(
 	" lås"
 	" logga ut"
-	" omstart"
-	" shutdown"
-	"⏾ suspend"
-	"⏼ hibernate"
+	" starta om"
+	" stäng av"
+	"⏾ strömsparläge"
+	"⏼ viloläge"
 	" bios/uefi"
 )
 
@@ -24,16 +24,16 @@ case "$SELECTED" in
 " logga ut")
 	pkill dwm
 	;;
-" omstart")
+" starta om")
 	systemctl reboot
 	;;
-" shutdown")
+" stäng av")
 	systemctl poweroff
 	;;
-"⏾ suspend")
+"⏾ strömsparläge")
 	systemctl suspend
 	;;
-"⏼ hibernate")
+"⏼ viloläge")
 	systemctl hibernate
 	;;
 " bios/uefi")
