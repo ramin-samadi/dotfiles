@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# NOTE: dmenu slock
+# NOTE: dmenu slås
 
 # Define the OPTIONS to be displayed in dmenu
 OPTIONS=(
-	" lock"
-	" logout"
-	" reboot"
+	" lås"
+	" logga ut"
+	" omstart"
 	" shutdown"
 	"⏾ suspend"
 	"⏼ hibernate"
@@ -18,13 +18,13 @@ SELECTED=$(printf '%s\n' "${OPTIONS[@]}" | dmenu -p "")
 
 # Use a case statement to perform the appropriate action based on the user's choice
 case "$SELECTED" in
-" lock")
+" lås")
 	slock
 	;;
-" logout")
+" logga ut")
 	pkill dwm
 	;;
-" reboot")
+" omstart")
 	systemctl reboot
 	;;
 " shutdown")
