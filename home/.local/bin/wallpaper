@@ -28,7 +28,6 @@ b=$(echo $BACKGROUND_COLOR | cut -c 6-7)
 r=$(printf "%d" 0x$r)
 g=$(printf "%d" 0x$g)
 b=$(printf "%d" 0x$b)
-notify-send "$BACKGROUND_COLOR" "$r $g $b"
 echo "$BACKGROUND_COLOR" | xclip -selection clipboard
 
 if [ $r -ge 120 ] && [ $g -ge 0 ] && [ $g -lt 100 ] && [ $b -ge 0 ]; then
