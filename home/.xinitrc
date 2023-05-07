@@ -44,7 +44,7 @@ xwallpaper --zoom "$WALLPAPER" &
 xflux -l 57.792506 -g 11.997145 &
 
 # Monitor
-xrandr --output DisplayPort-0 --mode 1920x1080 &
+xrandr --output DisplayPort-0 --mode 1920x1080 --rate 165.00 &
 
 # Compositor
 picom -f &
