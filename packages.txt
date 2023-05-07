@@ -59,7 +59,7 @@ git
 git-remote-gcrypt
 gobject-introspection
 google-chrome
-grapejuice-git
+grapejuice
 gst-plugin-pipewire
 hollywood
 intel-ucode
@@ -98,6 +98,7 @@ nodejs
 nodejs-mapscii
 noto-color-emoji-fontconfig
 npm
+obs-studio
 oneko
 openbsd-netcat
 openrazer-daemon
