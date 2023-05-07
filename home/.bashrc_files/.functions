@@ -14,6 +14,11 @@ yt-dlp-mp3() {
   yt-dlp --extract-audio --audio-format mp3 --audio-quality 0 "$1"
 }
 
+bootable() {
+  echo "dd if=path/to/file.iso of=/dev/usb_drive status=progress"
+  dd if="$1" of="$2" status=progress
+}
+
 share() {
   EXAMPLE_FILE=$(\ls -ap | grep -v / | head -n 1)
   FILE_SHARE_LINK=$(curl -s -F"file=@$1" 0x0.st)
