@@ -4,7 +4,7 @@ WALLPAPER_DIRECTORY="$HOME/.wallpaper"
 MAXIMUM_PAGE=5
 TAG_OPTIONS="#minimalism\n#Cyberpunk 2077\n#fantasy girl\n#digital art\n#anime\n#4K\n#nature"
 
-if [[ -z "$1" && -z "$TAG_OPTIONS" ]]; then
+if [[ -z "$1" ]]; then
 	QUERY=$(echo -e "$TAG_OPTIONS" | dmenu -p "Search Wallhaven: " -i)
 else
 	QUERY=$1
@@ -19,7 +19,6 @@ echo "$QUERY"
 
 notify-send "⬇ Downloading wallpapers🌇"
 
-if [[ -z "$1" && -z "$TAG_OPTIONS" ]]; then
 for i in $(seq 1 5); do
 	curl -s https://wallhaven.cc/api/v1/search\?atleast\=1920x1080\&sorting\=$SORTING\&q\=$QUERY\&page\=$i >tmp.txt
 	PAGE=$(cat tmp.txt | jq '.' | grep -Eoh "https:\/\/w\.wallhaven.cc\/full\/.*(jpg|png)\b")
