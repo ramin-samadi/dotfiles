@@ -8,4 +8,8 @@ eject_selected_drive() {
 	udisksctl power-off -b "/dev/${SELECTED_DRIVE}"
 }
 
-eject_selected_drive
+if [[ -z "${SELECTED_DRIVE// /}" ]]; then
+	exit
+else
+	eject_selected_drive
+fi
