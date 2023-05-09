@@ -2,15 +2,15 @@
 
 # NOTE: st ani-cli dmenu
 
-TERMINAL="st"
-ANIME_NAME=$(echo -n "" | dmenu -p " Anime: ")
+terminal="st"
+anime_name=$(echo -n "" | dmenu -p " Anime: ")
 
 execute_ani_cli() {
 	"$1" -e bash -c "ani-cli \"$2\" && pkill -P $$"
 }
 
-if [[ -z "${ANIME_NAME// /}" ]]; then
+if [[ -z "${anime_name// /}" ]]; then
 	exit
 else
-	execute_ani_cli "${TERMINAL}" "${ANIME_NAME}"
+	execute_ani_cli "${terminal}" "${anime_name}"
 fi
