@@ -1,6 +1,56 @@
 #!/usr/bin/env bash
 
-# NOTE: dmenu st
+# Array of dependencies
+dependencies=("ytfzf" "st" "dmenu")
+
+# Function to check if a dependency is installed
+check_dependency() {
+	if pacman -Qs "$1" >/dev/null 2>&1; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+# Variable to track if all dependencies are installed
+all_dependencies_installed=true
+
+# Iterate over dependencies and check if they are installed
+for dependency in "${dependencies[@]}"; do
+	if ! check_dependency "$dependency"; then
+		all_dependencies_installed=false
+		break
+	fi
+done
+
+# If all dependencies are already installed, exit the script
+if [ "$all_dependencies_installed" == false ]; then
+	# Check if a package manager is available
+	if command -v yay >/dev/null 2>&1 && command -v paru >/dev/null 2>&1; then
+		echo "Dependencies missing, please choose which one you want to use (yay/paru) to install them:"
+		read -r package_manager
+	elif command -v yay >/dev/null 2>&1; then
+		package_manager="yay"
+	elif command -v paru >/dev/null 2>&1; then
+		package_manager="paru"
+	else
+		echo "Neither yay nor paru package managers are installed."
+		exit 1
+	fi
+
+	# Install missing dependencies
+	for dependency in "${dependencies[@]}"; do
+		if ! check_dependency "$dependency"; then
+			if [ "$package_manager" == "yay" ]; then
+				yay -Syu "$dependency"
+			elif [ "$package_manager" == "paru" ]; then
+				paru -Syu "$dependency"
+			else
+				exit 1
+			fi
+		fi
+	done
+fi
 
 terminal="st"
 
