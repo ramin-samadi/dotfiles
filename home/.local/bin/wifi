@@ -2,16 +2,16 @@
 
 # NOTE: networkmanager sed dmenu
 
-SELECTED_BSSID=$(nmcli device wifi list | sed -n '1!p' | cut -b 9- | cut -d' ' -f3 | sort | uniq | sed '/--/d' | dmenu -p "" | cut -d' ' -f1)
+selected_bssid=$(nmcli device wifi list | sed -n '1!p' | cut -b 9- | cut -d' ' -f3 | sort | uniq | sed '/--/d' | dmenu -p "" | cut -d' ' -f1)
 
-if [[ -z "${SELECTED_BSSID// /}" ]]; then
+if [[ -z "${selected_bssid// /}" ]]; then
 	exit
 else
-	PASSWORD_INPUT=$(echo -n "" | dmenu -p "")
+	password_input=$(echo -n "" | dmenu -p "")
 fi
 
-if [[ -z "${PASSWORD_INPUT// /}" ]]; then
+if [[ -z "${password_input// /}" ]]; then
 	exit
 else
-	nmcli device wifi connect "$SELECTED_BSSID" password "$PASSWORD_INPUT"
+	nmcli device wifi connect "$selected_bssid" password "$password_input"
 fi

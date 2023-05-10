@@ -2,9 +2,9 @@
 
 # NOTE: dmenu st
 
-TERMINAL="st"
+terminal="st"
 
-CHANNELS=(
+channels=(
 	"Chris Titus Tech"
 	"DistroTube"
 	"Brodie"
@@ -12,15 +12,15 @@ CHANNELS=(
 	"Mental Outlaw"
 )
 
-SELECTED_CHANNEL=$(printf '%s\n' "${CHANNELS[@]}" | dmenu -p "")
+selected_channel=$(printf '%s\n' "${channels[@]}" | dmenu -p "")
 
 execute_ytfzf() {
 	"$1" -e bash -c "ytfzf -t -l \"$2\" && pkill -P $$"
 }
 
 # Open a terminal and execute the ytfzf -t command
-if [[ -z "${SELECTED_CHANNEL// /}" ]]; then
+if [[ -z "${selected_channel// /}" ]]; then
 	exit
 else
-	execute_ytfzf "${TERMINAL}" "${SELECTED_CHANNEL}"
+	execute_ytfzf "$terminal" "$selected_channel"
 fi
