@@ -2,7 +2,7 @@
 
 # NOTE: dmenu ytfzf mpv
 
-OPTIONS=(
+options=(
 	"Ahmed Bukhatir - Nasheed Taweel Alshawq"
 	"Mishary Rashid Alafasy - talie albadr ealayna"
 	"Mishary Rashid Alafasy - la 'iilha'ila allah"
@@ -14,9 +14,9 @@ OPTIONS=(
 	"Quit"
 )
 
-SELECTED=$(printf '%s\n' "${OPTIONS[@]}" | dmenu -p "")
+selected=$(printf '%s\n' "${options[@]}" | dmenu -p "")
 
-case "${SELECTED}" in
+case "${selected}" in
 "Ahmed Bukhatir - Nasheed Taweel Alshawq")
 	ytfzf -a -m https://youtu.be/o2W8_mvLuxU
 	;;

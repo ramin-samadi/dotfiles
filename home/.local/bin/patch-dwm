@@ -8,8 +8,8 @@
 #   $2: Path to config.h
 #   $3: Path to Makefile
 patch_dwm() {
-	sudo cp "$1" "$2" && sudo make -f "$3" -C "$DWM_FOLDER" clean install && pkill dwm
+	sudo cp "$1" "$2" && sudo make -f "$3" -C "$dwm_folder" clean install && pkill dwm
 }
 
-DWM_FOLDER="$HOME/.config/dwm/"
-patch_dwm "$DWM_FOLDER/config.def.h" "$DWM_FOLDER/config.h" "$DWM_FOLDER/Makefile"
+dwm_folder="$HOME/.config/dwm/"
+patch_dwm "$dwm_folder/config.def.h" "$dwm_folder/config.h" "$dwm_folder/Makefile"

@@ -2,8 +2,8 @@
 
 # NOTE: dmenu slås
 
-# Define the OPTIONS to be displayed in dmenu
-OPTIONS=(
+# Define the options to be displayed in dmenu
+options=(
 	" lås"
 	" logga ut"
 	" starta om"
@@ -14,10 +14,10 @@ OPTIONS=(
 )
 
 # Get the user's choice using dmenu
-SELECTED=$(printf '%s\n' "${OPTIONS[@]}" | dmenu -p "")
+selected=$(printf '%s\n' "${options[@]}" | dmenu -p "")
 
 # Use a case statement to perform the appropriate action based on the user's choice
-case "$SELECTED" in
+case "$selected" in
 " lås")
 	slock
 	;;

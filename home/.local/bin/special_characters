@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SYMBOLS=(
+symbols=(
 	"\$ dollar sign"
 	"€ euro sign"
 	"{} curly brackets"
@@ -17,10 +17,10 @@ SYMBOLS=(
 )
 
 # Get the user's choice using dmenu
-SELECTED_SYMBOL=$(printf '%s\n' "${SYMBOLS[@]}" | dmenu -p "")
+selected_symbol=$(printf '%s\n' "${symbols[@]}" | dmenu -p "")
 
 # Use a case statement to perform the appropriate action based on the user's choice
-case "$SELECTED_SYMBOL" in
+case "$selected_symbol" in
 "\$ dollar sign")
 	echo "\$" | tr -d '\n' | xclip -selection clipboard && xdotool key --clearmodifiers ctrl+shift+v
 	;;

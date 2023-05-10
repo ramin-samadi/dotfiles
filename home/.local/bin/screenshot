@@ -1,39 +1,39 @@
 #!/usr/bin/env bash
 
 select_window_to_screenshot() {
-	WINDOW_ID=$(xdotool selectwindow)
+	window_id=$(xdotool selectwindow)
 
 	unset WINDOW X Y WIDTH HEIGHT SCREEN
-	eval "$(xdotool getwindowgeometry --shell "$WINDOW_ID")"
+	eval "$(xdotool getwindowgeometry --shell "$window_id")"
 
-	xdotool windowfocus --sync "${WINDOW_ID}"
+	xdotool windowfocus --sync "${window_id}"
 	sleep 0.05
 
 	flameshot gui --raw --region "${WIDTH}x${HEIGHT}+${X}+${Y}"
 }
 
 select_window_to_screenshot_save() {
-	WINDOW_ID=$(xdotool selectwindow)
+	window_id=$(xdotool selectwindow)
 
 	unset WINDOW X Y WIDTH HEIGHT SCREEN
-	eval "$(xdotool getwindowgeometry --shell "$WINDOW_ID")"
+	eval "$(xdotool getwindowgeometry --shell "$window_id")"
 
-	xdotool windowfocus --sync "${WINDOW_ID}"
+	xdotool windowfocus --sync "${window_id}"
 	sleep 0.05
 
 	flameshot gui --region "${WIDTH}x${HEIGHT}+${X}+${Y}"
 }
 
 copy_screenshot() {
-	SCREENSHOT_OPTIONS=(
+	screenshot_options=(
 		" fullscreen"
 		" trim"
 		" window"
 	)
 
-	SELECTED_OPTION=$(printf '%s\n' "${SCREENSHOT_OPTIONS[@]}" | dmenu -p "")
+	selected_option=$(printf '%s\n' "${screenshot_options[@]}" | dmenu -p "")
 
-	case "${SELECTED_OPTION}" in
+	case "$selected_option" in
 	" fullscreen")
 		flameshot full --delay 3000 --raw | convert png:- -trim png:- | xclip -selection clipboard -target image/png
 		;;
@@ -47,15 +47,15 @@ copy_screenshot() {
 }
 
 save_screenshot() {
-	SCREENSHOT_OPTIONS=(
+	screenshot_options=(
 		" fullscreen"
 		" trim"
 		" window"
 	)
 
-	SELECTED_OPTION=$(printf '%s\n' "${SCREENSHOT_OPTIONS[@]}" | dmenu -p "")
+	selected_option=$(printf '%s\n' "${screenshot_options[@]}" | dmenu -p "")
 
-	case "${SELECTED_OPTION}" in
+	case "$selected_option" in
 	" fullscreen")
 		flameshot full --delay 3000 | convert png:- -trim png:- | xclip -selection clipboard -target image/png
 		;;
@@ -68,14 +68,14 @@ save_screenshot() {
 	esac
 }
 
-SCREENSHOT_MODE=(
+screenshot_mode=(
 	" copy"
 	" save"
 )
 
-SELECTED_MODE=$(printf '%s\n' "${SCREENSHOT_MODE[@]}" | dmenu -p "")
+selected_mode=$(printf '%s\n' "${screenshot_mode[@]}" | dmenu -p "")
 
-case "${SELECTED_MODE}" in
+case "$selected_mode" in
 " copy")
 	copy_screenshot
 	;;

@@ -2,18 +2,18 @@
 
 # NOTE: eww
 
-QUICK_SETTINGS_FILE="/home/$USER/.local/bin/.quick_settings"
-QUICK_SETTINGS_STATUS=$(cat "$QUICK_SETTINGS_FILE")
+file="/home/$USER/.local/bin/.quick_settings"
+status=$(cat "$file")
 
 toggle_quick_settings() {
-	if [[ "${QUICK_SETTINGS_STATUS}" = "open" ]]; then
+	if [[ "${status}" = "open" ]]; then
 		eww close actions
-		QUICK_SETTINGS_STATUS="close"
-		echo "${QUICK_SETTINGS_STATUS}" >"$QUICK_SETTINGS_FILE"
+		status="close"
+		echo "${status}" >"$file"
 	else
 		eww open actions
-		QUICK_SETTINGS_STATUS="open"
-		echo "${QUICK_SETTINGS_STATUS}" >"$QUICK_SETTINGS_FILE"
+		status="open"
+		echo "${status}" >"$file"
 	fi
 }
 

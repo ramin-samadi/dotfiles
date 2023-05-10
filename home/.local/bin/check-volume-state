@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
-VOLUME_STATE=$(pamixer --get-volume)
-VOLUME_MUTED=$(pamixer --get-volume-human)
-MUTED=$(pamixer --get-mute)
+volume_state=$(pamixer --get-volume)
+volume_muted=$(pamixer --get-volume-human)
+muted=$(pamixer --get-mute)
 
-if [[ "$MUTED" = true ]]; then
+if [[ "$muted" = true ]]; then
 	echo ""
-elif [[ ${VOLUME_MUTED} = "muted" || ${VOLUME_STATE} = 0 ]]; then
+elif [[ $volume_muted = "muted" || $volume_state = 0 ]]; then
 	echo ""
-elif [[ ${VOLUME_STATE} -le 5 ]]; then
+elif [[ $volume_state -le 5 ]]; then
 	echo ""
-elif [[ ${VOLUME_STATE} -ge 0 && ${VOLUME_STATE} -le 30 ]]; then
+elif [[ $volume_state -ge 0 && $volume_state -le 30 ]]; then
 	echo ""
-elif [[ ${VOLUME_STATE} -ge 30 && ${VOLUME_STATE} -le 70 ]]; then
+elif [[ $volume_state -ge 30 && $volume_state -le 70 ]]; then
 	echo "墳"
-elif [[ ${VOLUME_STATE} -ge 70 && ${VOLUME_STATE} -lt 100 ]]; then
+elif [[ $volume_state -ge 70 && $volume_state -lt 100 ]]; then
 	echo ""
-elif [[ ${VOLUME_STATE} -ge 100 ]]; then
+elif [[ $volume_state -ge 100 ]]; then
 	echo ""
 fi

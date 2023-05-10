@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-SELECTED_FILE=$(find $HOME -type f 2>/dev/null | sed 's/\/home\/ramin\///g' | dmenu -i -p "")
+selected_file=$(find "$HOME" -type f 2>/dev/null | sed 's/\/home\/ramin\///g' | dmenu -i -p "")
 
-if [[ -z "${SELECTED_FILE// /}" ]]; then
+if [[ -z "${selected_file// /}" ]]; then
 	exit
 else
-	curl -sF "file=@$HOME/$SELECTED_FILE" 0x0.st | tr -d '\n' | xclip -selection clipboard
+	curl -sF "file=@$HOME/$selected_file" 0x0.st | tr -d '\n' | xclip -selection clipboard
 	qrclip
 fi

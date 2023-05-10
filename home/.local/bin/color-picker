@@ -2,12 +2,12 @@
 
 # NOTE: colorpicker xclip libnotify
 
-COLOR=$(colorpicker --short --one-shot --preview | tr -d '\n')
+color=$(colorpicker --short --one-shot --preview | tr -d '\n')
 
 pick_color() {
-	if [ -n "${COLOR}" ]; then
-		printf '%s' "${COLOR}" | xclip -selection clipboard
-		notify-send " ${COLOR}"
+	if [ -n "$color" ]; then
+		printf '%s' "$color" | xclip -selection clipboard
+		notify-send " $color"
 	fi
 }
 

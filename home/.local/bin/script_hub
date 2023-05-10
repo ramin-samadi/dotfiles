@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-BINARIES_PATH="$HOME/.local/bin"
-SCRIPTS=$(find "$BINARIES_PATH" -type f -executable)
+binaries_path="$HOME/.local/bin"
+scripts=$(find "$binaries_path" -type f -executable)
 
-if [ -n "$SCRIPTS" ]; then
-	SELECTED_SCRIPT=$(echo "$SCRIPTS" | sed "s|$BINARIES_PATH/||" | dmenu -p "")
+if [ -n "$scripts" ]; then
+	selected_script=$(echo "$scripts" | sed "s|$binaries_path/||" | dmenu -p "")
 
-	if [[ -n "$SELECTED_SCRIPT" ]]; then
-		"$BINARIES_PATH/$SELECTED_SCRIPT"
+	if [[ -n "$selected_script" ]]; then
+		"$binaries_path/$selected_script"
 	fi
 fi

@@ -1,12 +1,12 @@
-#!/usr/bin/env bash -x
+#!/usr/bin/env bash
 
 # NOTE: ffmpeg
 
-INRES="1920x1080"
-OUTRES="1920x1080"
-FPS="30"
+inres="1920x1080"
+outres="1920x1080"
+fps="30"
 
-ffmpeg -f x11grab -s "$INRES" -r "$FPS" -i :0.0 -f alsa -ac 2 \
-	-i default -vcodec libx264 -s "$OUTRES" \
+ffmpeg -f x11grab -s "$inres" -r "$fps" -i :0.0 -f alsa -ac 2 \
+	-i default -vcodec libx264 -s "$outres" \
 	-acodec libmp3lame -ab 128k -ar 44100 \
 	-threads 0 -f flv "$1"
