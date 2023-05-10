@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Array of dependencies
-dependencies=("st" "ani-cli" "dmenu")
+dependencies=("ani-cli" "st" "dmenu")
 
 # Function to check if a dependency is installed
 check_dependency() {
@@ -42,9 +42,9 @@ if [ "$all_dependencies_installed" == false ]; then
 	for dependency in "${dependencies[@]}"; do
 		if ! check_dependency "$dependency"; then
 			if [ "$package_manager" == "yay" ]; then
-				yay -S "$dependency"
+				yay -Syu "$dependency"
 			elif [ "$package_manager" == "paru" ]; then
-				paru -S "$dependency"
+				paru -Syu "$dependency"
 			else
 				exit 1
 			fi
