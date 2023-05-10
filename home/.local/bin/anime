@@ -12,5 +12,5 @@ execute_ani_cli() {
 if [[ -z "${anime_name// /}" ]]; then
 	exit
 else
-	execute_ani_cli "${terminal}" "${anime_name}"
+	execute_ani_cli "$terminal" "$anime_name"
 fi

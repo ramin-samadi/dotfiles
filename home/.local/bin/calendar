@@ -2,6 +2,6 @@
 
 # NOTE: st calcurse
 
-TERMINAL="alacritty"
+terminal="alacritty"
 
-"${TERMINAL}" -e bash -c "calcurse && pkill -P $$"
+"$terminal" -e bash -c "calcurse && pkill -P $$"
