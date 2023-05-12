@@ -26,13 +26,10 @@ done
 # If all dependencies are already installed, exit the script
 if [ "$all_dependencies_installed" == false ]; then
 	# Check if a package manager is available
-	if command -v yay >/dev/null 2>&1 && command -v paru >/dev/null 2>&1; then
-		echo "Dependencies missing, please choose which one you want to use (yay/paru) to install them:"
-		read -r package_manager
+	if command -v paru >/dev/null 2>&1; then
+		package_manager="paru"
 	elif command -v yay >/dev/null 2>&1; then
 		package_manager="yay"
-	elif command -v paru >/dev/null 2>&1; then
-		package_manager="paru"
 	else
 		echo "Neither yay nor paru package managers are installed."
 		exit 1
@@ -42,9 +39,9 @@ if [ "$all_dependencies_installed" == false ]; then
 	for dependency in "${dependencies[@]}"; do
 		if ! check_dependency "$dependency"; then
 			if [ "$package_manager" == "yay" ]; then
-				yay -Syu "$dependency"
+				yay -Syu --needed --noconfirm "$dependency"
 			elif [ "$package_manager" == "paru" ]; then
-				paru -Syu "$dependency"
+				paru -Syu --needed --noconfirm "$dependency"
 			else
 				exit 1
 			fi
