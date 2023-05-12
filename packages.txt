@@ -55,6 +55,7 @@ flake8
 flameshot
 flatpak
 fzf
+gimp
 git
 git-remote-gcrypt
 gobject-introspection
