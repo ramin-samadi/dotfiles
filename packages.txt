@@ -224,5 +224,7 @@ yay
 youtube-dl
 yt-dlp-git
 ytfzf
+zathura
+zathura-pdf-mupdf
 zbar
 zram-generator

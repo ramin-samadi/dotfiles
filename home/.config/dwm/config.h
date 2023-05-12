@@ -494,6 +494,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
   RULE(.class = "Alacritty", .isfloating = 1)
+  RULE(.class = "Zathura", .isfloating = 1)
   RULE(.class = "feh", .isfloating = 1)
   RULE(.class = "Yad", .isfloating = 1)
 	RULE(.class = "Gimp", .tags = 1 << 4)
