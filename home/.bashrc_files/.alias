@@ -1,16 +1,26 @@
 #░█▀▀░█░█░█▀▀░▀█▀░█▀▀░█▄█
 #░▀▀█░░█░░▀▀█░░█░░█▀▀░█░█
 #░▀▀▀░░▀░░▀▀▀░░▀░░▀▀▀░▀░▀
-alias update='sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu'
-alias install='paru -Syu'
-alias search='paru -Ss'
-alias uninstall='paru -Rns --noconfirm'
-alias clean='sudo pacman -Scc'
+if [ -d "/etc/pacman.d/" ]; then
+  alias update='sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu'
+  alias install='paru -Syu'
+  alias search='paru -Ss'
+  alias uninstall='paru -Rns --noconfirm'
+  alias clean='sudo pacman -Scc'
+  alias packages='pacman -Qe'
+elif [ -d "/etc/apt/" ]; then
+  alias update='sudo apt update -y && sudo apt upgrade -y'
+  alias install='sudo apt install -y'
+  alias search='apt search'
+  alias uninstall='sudo apt remove -y'
+  alias clean='sudo apt autoremove -y && sudo apt autoclean -y'
+  alias packages='apt list --installed'
+fi
+
 alias remove='rm'
 alias rename='mv'
 alias explain='tldr'
 alias ?='tldr'
-alias packages='pacman -Qe'
 alias cat='bat -p'
 alias cp='cp -i'
 alias mv='mv -i'
