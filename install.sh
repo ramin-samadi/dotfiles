@@ -87,7 +87,7 @@ mv -f ~/dotfiles/home/.bash_profile ~/
 mv -f ~/dotfiles/home/.xinitrc ~/
 sudo rm -rf ~/.bashrc.bak
 
-cd && sudo bash -c "echo '58,18 * * * * sudo pacman -Syu --noconfirm && flatpak update -y && paru -Syu && yes J | sudo pacman -Scc' >> /var/spool/cron/root" && sudo systemctl stop cronie && sudo systemctl enable cronie.service && sudo systemctl start cronie.service
+cd && sudo bash -c "echo '58,18 * * * * sudo /usr/bin/pacman -Syu --noconfirm && /usr/bin/flatpak update -y && /usr/bin/paru -Syu && yes J | sudo /usr/bin/pacman -Scc' >> /var/spool/cron/root" && sudo systemctl stop cronie && sudo systemctl enable cronie.service && sudo systemctl start cronie.service
 sudo bash -c "echo '58,18 * * * * /home/ramin/.local/bin/update-dotfiles' >> /var/spool/cron/$USER" && systemctl stop cronie && systemctl enable cronie.service && systemctl start cronie.service
 
 source ~/.bashrc
