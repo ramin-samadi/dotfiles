@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Array of dependencies
-dependencies=("dmenu" "libnotify" "mpg123")
+dependencies=("dmenu" "libnotify" "pamixer")
 
 # Function to check if a dependency is installed
 check_dependency() {
@@ -71,5 +71,5 @@ if [[ -z "${start_time// /}" ]]; then
 else
 	start_timer
 	notify-send "$notification_title" "Nedräkningen är över!"
-	mpg123 "$HOME/.local/bin/beep-beep.mp3"
+	paplay "$HOME/.local/bin/beep-beep.mp3"
 fi
