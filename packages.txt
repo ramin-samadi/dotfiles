@@ -6,6 +6,7 @@ appimagelauncher
 arttime-git
 ascii-image-converter-git
 asciiquarium
+at
 autojump-git
 balena-etcher
 base
