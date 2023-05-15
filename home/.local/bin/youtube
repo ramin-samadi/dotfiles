@@ -51,6 +51,12 @@ fi
 
 terminal="st"
 
+filters=(
+	"Channels"
+	"Videos"
+	"Playlists"
+)
+
 channels=(
 	"Chris Titus Tech"
 	"DistroTube"
@@ -58,6 +64,18 @@ channels=(
 	"Bugswriter"
 	"Mental Outlaw"
 )
+
+case "${filters[@]}" in
+"Channels")
+	selected_channel=$(dmenu -p "")
+	;;
+"Videos")
+	selected_channel=$(dmenu -p "")
+	;;
+"Playlists")
+	selected_channel=$(dmenu -p "")
+	;;
+esac
 
 selected_channel=$(printf '%s\n' "${channels[@]}" | dmenu -p "")
 
