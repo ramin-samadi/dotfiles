@@ -201,8 +201,8 @@
 )
 
 (defwindow actions
-  :geometry (geometry :x "-14px"
-                      :y "74px"
+  :geometry (geometry :x "-10px"
+                      :y "70px"
                       :anchor "top right")
   :type "dock"
   :wm-ignore true
