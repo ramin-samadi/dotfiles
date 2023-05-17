@@ -8,7 +8,6 @@ ascii-image-converter-git
 asciiquarium
 at
 autojump-git
-balena-etcher
 base
 base-devel
 bash
