@@ -23,7 +23,7 @@ sudo pacman -Syu --needed lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-ic
 sudo ufw enable && sudo systemctl enable --now ufw.service
 systemctl enable --now sshd.service
 sudo ufw allow 22 comment "ssh"
-systemctl enable --now bluetooth
+systemctl enable --now bluetooth.service
 # Device 28:6F:40:5C:5D:6A Jabra Elite 3
 # Device D0:C0:25:BB:DC:02 Basilisk X HyperSpeed
 
