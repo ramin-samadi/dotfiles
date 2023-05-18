@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 git clone https://aur.archlinux.org/paru-bin.git ~/.config/paru && cd ~/.config/paru/ && makepkg -sif -clean
+git clone https://aur.archlinux.org/yay-bin.git ~/.config/yay && cd ~/.config/yay/ && makepkg -sif -clean
 
 paru -Syu --needed - <"$HOME/dotfiles/packages.txt"
 
@@ -18,9 +19,9 @@ sudo virsh net-autostart default
 sudo systemctl restart libvirtd.service
 
 git clone --depth=1 https://gitlab.com/brinkervii/grapejuice.git /tmp/grapejuice && cd /tmp/grapejuice && ./install.py
+sudo pacman -Syu --needed lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
 cd && wget https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts/Meslo-fonts.zip && unzip Meslo-fonts.zip && sudo rm -rf Meslo-fonts.zip
 git clone https://github.com/christitustech/mybash ~/mybash && cd ~/mybash/ && ./setup-arch.sh
-sudo pacman -Syu --needed lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
 sudo ufw enable && sudo systemctl enable --now ufw.service
 systemctl enable --now sshd.service
 sudo ufw allow 22 comment "ssh"
