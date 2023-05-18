@@ -40,7 +40,7 @@ mv "$HOME/dotfiles/home/.wallpaper/" "$HOME"
 
 # Dmenu
 rm -rf ~/.config/dmenu/
-mv ~/dotfiles/home/.config/dmenu/ ~/.config/
+mv ~/dotfiles/home/.config/dmenu/ ~/.config/ && cd ~/.config/dmenu/ && sudo make clean install
 
 # Xwallpaper
 mv $HOME/dotfiles/home/.Xresources $HOME
