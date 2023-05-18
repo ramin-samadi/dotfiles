@@ -1,18 +1,17 @@
 #!/bin/bash
 
-aur=paru
 git clone https://aur.archlinux.org/paru-bin.git ~/.config/paru && cd ~/.config/paru/ && makepkg -sif –clean
 
-$aur -Syu --needed - <~/dwm/packages.txt
+paru -Syu --needed - <~/dwm/packages.txt
 
 pip install neovim langdetect shell-gpt --user
 
 gem install neovim && sudo npm install -g neovim
 sudo gpasswd -a "$USER" plugdev
-sudo systemctl enable --now libvirtd.service && sudo usermod -a -G libvirt "$(whoami)" && sudo systemctl restart libvirtd.service
-sudo virsh net-start default
-sudo virsh net-autostart default
-sudo systemctl restart libvirtd.service
+# sudo systemctl enable --now libvirtd.service && sudo usermod -a -G libvirt "$(whoami)" && sudo systemctl restart libvirtd.service
+# sudo virsh net-start default
+# sudo virsh net-autostart default
+# sudo systemctl restart libvirtd.service
 
 git clone --depth=1 https://gitlab.com/brinkervii/grapejuice.git /tmp/grapejuice && cd /tmp/grapejuice && ./install.py
 cd && wget https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts/Meslo-fonts.zip && unzip Meslo-fonts.zip && sudo rm -rf Meslo-fonts.zip
