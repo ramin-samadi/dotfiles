@@ -35,8 +35,6 @@ sudo sed -i 's/#Color/Color/g' /etc/pacman.conf && sudo sed -i 's/#NoProgressBar
 
 mkdir "$HOME/GitHub"
 
-git clone https://aur.archlinux.org/dwm.git ~/.config/dwm && cd ~/.config/dwm/ && makepkg -sif –clean
-
 # Dmenu
 rm -rf ~/.config/dmenu/
 mv ~/dotfiles/home/.config/dmenu/ ~/.config/
