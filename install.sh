@@ -82,8 +82,8 @@ rm -rf ~/.config/dwm/
 mv ~/dotfiles/home/.config/dwm/ ~/.config/ && cd ~/.config/dwm/ && sudo make clean install
 
 mv -f ~/dotfiles/home/.local/bin/* ~/.local/bin/
-# mv ~/dotfiles/home/.bashrc_files ~/
-# mv -f ~/dotfiles/home/.bashrc ~/
+mv ~/dotfiles/home/.bashrc_files ~/
+mv -f ~/dotfiles/home/.bashrc ~/
 mv -f ~/dotfiles/home/.bash_profile ~/
 mv -f ~/dotfiles/home/.xinitrc ~/
 sudo rm -rf ~/.bashrc.bak
@@ -92,7 +92,7 @@ cd && sudo bash -c "echo '58,18 * * * * sudo /usr/bin/pacman -Syu --noconfirm &&
 sudo bash -c "echo '58,18 * * * * /home/ramin/.local/bin/update-dotfiles' >> /var/spool/cron/$USER"
 systemctl enable --now cronie.service
 
-paru -Syu paleofetch-git
+paru -Syu paleofetch-git picom-pijulius-git
 source ~/.bashrc
 source ~/.bash_profile
 
