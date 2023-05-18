@@ -33,7 +33,7 @@ make -C ble.sh install PREFIX=~/.local
 sudo sed -i 's/#Color/Color/g' /etc/pacman.conf && sudo sed -i 's/#NoProgressBar/ILoveCandy/g' /etc/pacman.conf && sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 mv "$HOME/dotfiles/home/.bashrc_files/" "$HOME"
 
-mkdir ~/GitHub
+mkdir "$HOME/GitHub"
 
 git clone https://aur.archlinux.org/dwm.git ~/.config/dwm && cd ~/.config/dwm/ && makepkg -sif –clean
 
