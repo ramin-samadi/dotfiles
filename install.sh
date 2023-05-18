@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 git clone https://aur.archlinux.org/paru-bin.git ~/.config/paru && cd ~/.config/paru/ && makepkg -sif –clean
 
