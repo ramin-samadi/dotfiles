@@ -9,7 +9,7 @@ pip install neovim
 
 gem install neovim
 sudo npm install -g neovim
-sudo gpasswd -a "$USER" plugdev
+# sudo gpasswd -a "$USER" plugdev
 sudo systemctl enable --now libvirtd.service
 sudo usermod -a -G libvirt "$(whoami)"
 sudo systemctl restart libvirtd.service
@@ -44,7 +44,7 @@ mv ~/dotfiles/home/.config/dmenu/ ~/.config/ && cd ~/.config/dmenu/ && sudo make
 
 # Xwallpaper
 mv $HOME/dotfiles/home/.Xresources $HOME
-xrdb -load ~/.Xresources
+# xrdb -load ~/.Xresources
 
 # Neovim
 rm -rf ~/.config/nvim/
