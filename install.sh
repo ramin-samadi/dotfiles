@@ -2,7 +2,7 @@
 
 git clone https://aur.archlinux.org/paru-bin.git ~/.config/paru && cd ~/.config/paru/ && makepkg -sif –clean
 
-paru -Syu --needed < $HOME/dotfiles/packages.txt
+paru -Syu --needed - <"$HOME/dotfiles/packages.txt"
 
 pip install neovim langdetect shell-gpt --user
 
