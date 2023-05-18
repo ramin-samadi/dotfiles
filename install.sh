@@ -4,7 +4,7 @@ git clone https://aur.archlinux.org/paru-bin.git ~/.config/paru && cd ~/.config/
 
 paru -Syu --needed - <"$HOME/dotfiles/packages.txt"
 
-pip install neovim langdetect shell-gpt --user
+pip install neovim
 
 gem install neovim && sudo npm install -g neovim
 sudo gpasswd -a "$USER" plugdev
