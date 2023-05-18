@@ -81,8 +81,8 @@ rm -rf ~/.config/dwm/
 mv ~/dotfiles/home/.config/dwm/ ~/.config/ && cd ~/.config/dwm/ && makepkg -sif --clean
 
 mv -f ~/dotfiles/home/.local/bin/* ~/.local/bin/
-mv ~/dotfiles/home/.bashrc_files ~/
-mv -f ~/dotfiles/home/.bashrc ~/
+# mv ~/dotfiles/home/.bashrc_files ~/
+# mv -f ~/dotfiles/home/.bashrc ~/
 mv -f ~/dotfiles/home/.bash_profile ~/
 mv -f ~/dotfiles/home/.xinitrc ~/
 sudo rm -rf ~/.bashrc.bak
