@@ -6,7 +6,8 @@ paru -Syu --needed - <"$HOME/dotfiles/packages.txt"
 
 pip install neovim
 
-gem install neovim && sudo npm install -g neovim
+gem install neovim
+sudo npm install -g neovim
 sudo gpasswd -a "$USER" plugdev
 sudo systemctl enable --now libvirtd.service
 sudo usermod -a -G libvirt "$(whoami)"
