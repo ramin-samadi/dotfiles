@@ -69,7 +69,6 @@ mv ~/dotfiles/home/.config/calcurse/ ~/.config/
 calcurse -i ~/.config/calcurse/raminsam05@gmail.com.ics
 calcurse -i ~/.config/calcurse/ramin.samadi@elev.ga.ntig.se.ics
 calcurse -i ~/.config/calcurse/addressbook#contacts@group.v.calendar.google.com.ics
-calcurse -i ~/.config/calcurse/MAKER SPACE_classroom111097032359149922796@group.calendar.google.com.ics
 
 # Dunst
 rm -rf ~/.config/dunst/
@@ -77,7 +76,7 @@ mv ~/dotfiles/home/.config/dunst/ ~/.config/
 
 # DWM
 rm -rf ~/.config/dwm/
-mv ~/dotfiles/home/.config/dwm/ ~/.config/ && cd ~/.config/dwm/ && makepkg -sif --clean
+mv ~/dotfiles/home/.config/dwm/ ~/.config/ && cd ~/.config/dwm/ && sudo make clean install
 
 mv -f ~/dotfiles/home/.local/bin/* ~/.local/bin/
 # mv ~/dotfiles/home/.bashrc_files ~/
