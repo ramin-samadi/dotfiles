@@ -54,6 +54,10 @@ mv ~/dotfiles/home/.config/nvim/ ~/.config/
 rm -rf ~/.config/st/
 mv ~/dotfiles/home/.config/st/ ~/.config/ && cd ~/.config/st/ && sudo make clean install
 
+# Picom
+rm -rf ~/.config/picom/
+mv ~/dotfiles/home/.config/picom/ ~/.config/
+
 # Alacritty
 rm -rf ~/.config/alacritty/
 mv ~/dotfiles/home/.config/alacritty/ ~/.config/
