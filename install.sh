@@ -31,7 +31,7 @@ cd && git clone --recursive --depth 1 --shallow-submodules https://github.com/ak
 make -C ble.sh install PREFIX=~/.local
 
 sudo sed -i 's/#Color/Color/g' /etc/pacman.conf && sudo sed -i 's/#NoProgressBar/ILoveCandy/g' /etc/pacman.conf && sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
-sudo sed -i 's/ls -Fls/lsd -Fla/g' ~/.bashrc && sudo sed -i 's/ls -aFh/lsd -aFh/g' ~/.bashrc && sed -i 's,/usr/bin/grep $GREP_OPTIONS,grep --color,g' ~/.bashrc
+mv "$HOME/dotfiles/home/.bashrc_files/" "$HOME"
 
 mkdir ~/GitHub
 
