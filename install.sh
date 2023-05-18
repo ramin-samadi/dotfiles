@@ -89,6 +89,7 @@ cd && sudo bash -c "echo '58,18 * * * * sudo /usr/bin/pacman -Syu --noconfirm &&
 sudo bash -c "echo '58,18 * * * * /home/ramin/.local/bin/update-dotfiles' >> /var/spool/cron/$USER"
 systemctl enable --now cronie.service
 
+paru -Syu paleofetch-git
 source ~/.bashrc
 source ~/.bash_profile
 
