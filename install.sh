@@ -18,7 +18,6 @@ cd && wget https://github.com/raminsamadi123/hyprinstall/releases/download/Fonts
 git clone https://github.com/christitustech/mybash ~/mybash && cd ~/mybash/ && ./setup-arch.sh
 sudo pacman -Syu --needed lib32-mesa vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader
 sudo ufw enable && sudo systemctl enable --now ufw.service
-sudo ufw allow 5900 comment "Remote"
 systemctl enable --now sshd.service
 sudo ufw allow 22 comment "ssh"
 systemctl enable --now bluetooth
