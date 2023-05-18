@@ -35,6 +35,9 @@ sudo sed -i 's/#Color/Color/g' /etc/pacman.conf && sudo sed -i 's/#NoProgressBar
 
 mkdir "$HOME/GitHub"
 
+mv "$HOME/dotfiles/home/xwallpaper" "$HOME"
+mv "$HOME/dotfiles/home/.wallpaper/" "$HOME"
+
 # Dmenu
 rm -rf ~/.config/dmenu/
 mv ~/dotfiles/home/.config/dmenu/ ~/.config/
@@ -49,7 +52,7 @@ mv ~/dotfiles/home/.config/nvim/ ~/.config/
 
 # St
 rm -rf ~/.config/st/
-mv ~/dotfiles/home/.config/st/ ~/.config/
+mv ~/dotfiles/home/.config/st/ ~/.config/ && cd ~/.config/st/ && sudo make clean install
 
 # Alacritty
 rm -rf ~/.config/alacritty/
