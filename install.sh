@@ -3,7 +3,7 @@
 git clone https://aur.archlinux.org/paru-bin.git ~/.config/paru && cd ~/.config/paru/ && makepkg -sif --clean
 git clone https://aur.archlinux.org/yay-bin.git ~/.config/yay && cd ~/.config/yay/ && makepkg -sif --clean
 
-paru -Syu < "$HOME/dotfiles/packages.txt"
+paru -Syu - <"$HOME/dotfiles/packages.txt"
 
 pip install neovim
 
