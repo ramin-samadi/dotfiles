@@ -29,7 +29,7 @@ alias mkdir='mkdir -p'
 alias less='less -R'
 alias cls='clear'
 alias edit='nvim'
-alias sedit='sudoedit'
+alias sedit='sudo nvim'
 
 #░█▀▄░█▀▀░█░█░█▀█░█░█░█▀▄
 #░█░█░█▀▀░▀▄▀░█░█░█░█░█▀▄
