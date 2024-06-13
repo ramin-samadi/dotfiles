@@ -15,6 +15,13 @@ elif [ -d "/etc/apt/" ]; then
   alias uninstall='sudo apt remove -y'
   alias clean='sudo apt autoremove -y && sudo apt autoclean -y'
   alias packages='apt list --installed'
+elif [ -d "/etc/dnf/" ]; then
+  alias update='sudo dnf update -y && sudo dnf upgrade -y && flatpak update -y'
+  alias install='sudo dnf install -y'
+  alias search='dnf search'
+  alias uninstall='sudo dnf remove -y'
+  alias clean='sudo dnf autoremove -y && sudo dnf clean all'
+  alias packages='dnf list --installed'
 fi
 
 alias remove='rm'
